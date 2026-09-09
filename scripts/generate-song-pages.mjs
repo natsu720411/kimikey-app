@@ -179,6 +179,99 @@ function googleAnalyticsTag() {
   `
 }
 
+const FEATURED_SEO = {
+    '怪獣の花唄': {
+      heading: '「怪獣の花唄」が高いと感じるときの考え方',
+      body: '原曲の最高音が自分の安定して出せる最高音より上にある場合は、キーを下げる候補になります。ただし、下げすぎると最低音側が苦しくなることもあります。キミキーで自分の最低音・最高音を測り、曲全体の音域と比べて調整するのがおすすめです。',
+    },
+  
+    'マリーゴールド': {
+      heading: '「マリーゴールド」を自分の声に合わせるには',
+      body: '歌いやすいキーを考えるときは、最高音だけでなく最低音も確認するのがポイントです。原曲の音域が自分の快適音域からはみ出している場合は、その差を目安にキー変更を検討できます。',
+    },
+  
+    '水平線': {
+      heading: '「水平線」のキーを決めるポイント',
+      body: '自分に合うキーは、原曲の最高音が出るかだけでは決まりません。低い部分まで無理なく出せることも大切です。キミキーでは自分の音域と曲の最低音・最高音を見比べながらキーの目安を確認できます。',
+    },
+  
+    'ダーリン': {
+      heading: '「ダーリン」が歌いにくいと感じたら',
+      body: 'まず原曲の音域と自分の快適音域を比較してみましょう。最高音が上にはみ出す場合はキーを下げる、最低音が下にはみ出す場合はキーを上げる、という考え方が基本です。',
+    },
+  
+    'サウダージ': {
+      heading: '「サウダージ」のおすすめキーの考え方',
+      body: '原曲キーが合わないと感じる場合は、曲の最低音・最高音を自分の音域の中央付近に収めるイメージで調整すると考えやすくなります。キミキーでは測定結果を使ってキー変更の目安を確認できます。',
+    },
+  
+    '高嶺の花子さん': {
+      heading: '「高嶺の花子さん」が高い場合のキー調整',
+      body: '最高音が自分の限界音域には入っていても、快適音域を超えていると安定して歌いにくいことがあります。無理に原曲キーに合わせず、快適音域に近づくようにキーを調整する方法があります。',
+    },
+  
+    'ドライフラワー': {
+      heading: '「ドライフラワー」を歌いやすくするキーの考え方',
+      body: 'キー調整では、曲の最高音を下げることだけに注目すると最低音が低くなりすぎる場合があります。自分の最低音と最高音の両方を測定し、曲の音域全体が収まりやすい位置を探すのがおすすめです。',
+    },
+  
+    '残酷な天使のテーゼ': {
+      heading: '「残酷な天使のテーゼ」を自分の音域で歌うには',
+      body: '原曲キーが合うかどうかは、声質や性別だけではなく個人の音域によって変わります。自分の快適音域と曲の音域を比較して、必要なら半音単位でキーを動かしてみましょう。',
+    },
+  
+    'ライラック': {
+      heading: '「ライラック」のキー選びで見るポイント',
+      body: '自分の最高音が原曲の最高音に届いていても、それが限界に近い場合は安定しにくいことがあります。キミキーでは限界音域と快適音域を分けて測れるため、より余裕を持ったキー選びの目安にできます。',
+    },
+  
+    'Lemon': {
+      heading: '「Lemon」の原曲キーが合わないときは',
+      body: '原曲の最低音から最高音までを自分の音域と比べると、どちら側が不足しているかを確認できます。高音側が不足しているならキーを下げる、低音側が不足しているならキーを上げる、という方向から試すと調整しやすくなります。',
+    },
+  }
+  
+  function createFeaturedSection(song) {
+    const songTitle =
+      String(song.title)
+        .trim()
+  
+    const featured =
+      FEATURED_SEO[songTitle]
+  
+    if (!featured) {
+      return ''
+    }
+  
+    return `
+      <section class="info featured-info">
+  
+        <div class="featured-badge">
+          人気曲ピックアップ
+        </div>
+  
+        <h2>
+          ${escapeHtml(featured.heading)}
+        </h2>
+  
+        <p>
+          ${escapeHtml(featured.body)}
+        </p>
+  
+        <p>
+          この曲の目安音域は
+          <strong>
+            ${song.lowNote}〜${song.highNote}
+          </strong>
+          です。
+          自分の音域を測定して、
+          この範囲と比較してみてください。
+        </p>
+  
+      </section>
+    `
+  }
+
 const songMeta = SONGS.map(
   (song, index) => {
     const lowMidi = getSongLowMidi(song)
@@ -243,6 +336,9 @@ function createSongPage(song) {
     highNote,
     semitoneRange,
   } = song
+
+  const featuredHtml =
+  createFeaturedSection(song)
 
   const songUrl =
     `${SITE_URL}/songs/${slug}/`
@@ -519,6 +615,23 @@ ${JSON.stringify(
       margin: 30px 0;
     }
 
+.featured-info {
+  padding: 20px;
+  background: #fff8e8;
+  border-radius: 16px;
+}
+
+.featured-badge {
+  display: inline-block;
+  margin-bottom: 10px;
+  padding: 4px 9px;
+  background: #111;
+  border-radius: 999px;
+  color: white;
+  font-size: 12px;
+  font-weight: 700;
+}
+
     .info p {
       margin:
         8px 0 12px;
@@ -721,6 +834,8 @@ ${JSON.stringify(
         </p>
 
       </section>
+
+      ${featuredHtml}
 
       <section class="info">
 
@@ -1200,3 +1315,46 @@ console.log(
 console.log(
   '✅ 関連曲リンクを生成しました'
 )
+
+console.log(
+    '人気曲SEO:',
+    songMeta
+      .filter(song =>
+        FEATURED_SEO[
+          String(song.title).trim()
+        ]
+      )
+      .map(song => song.title)
+  )
+
+  const kaijuSong =
+  songMeta.find(
+    song =>
+      String(song.title).trim() ===
+      '怪獣の花唄'
+  )
+
+if (kaijuSong) {
+  console.log(
+    '怪獣の花唄 slug:',
+    kaijuSong.slug
+  )
+
+  console.log(
+    '専用HTML生成:',
+    createFeaturedSection(
+      kaijuSong
+    ).includes(
+      '人気曲ピックアップ'
+    )
+  )
+
+  console.log(
+    '生成ファイル:',
+    path.join(
+      songsDir,
+      kaijuSong.slug,
+      'index.html'
+    )
+  )
+}
