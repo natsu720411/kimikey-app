@@ -9,39 +9,28 @@ import { SONGS } from './songs.js'
 const app = document.querySelector('#app')
 
 const NOTE_NAMES = [
-  'C',
-  'C#',
-  'D',
-  'D#',
-  'E',
-  'F',
-  'F#',
-  'G',
-  'G#',
-  'A',
-  'A#',
-  'B'
+  'C', 'C#', 'D', 'D#', 'E', 'F',
+  'F#', 'G', 'G#', 'A', 'A#', 'B'
 ]
 
-// C2 ～ C7
 const START_MIDI = 36
 const END_MIDI = 96
 
-// 音を認定するまでの時間
-const REQUIRED_STABLE_TIME = 250
-
-// 認定可能な音程のズレ
+// 一瞬の物音を音域として記録しにくくする
+const REQUIRED_STABLE_TIME = 400
 const MAX_CENT_DEVIATION = 30
-
-// 音程平滑化
 const HISTORY_SIZE = 5
 
-// グラフ
 const GRAPH_SECONDS = 6
 const GRAPH_RANGE = 6
 
-// マイク感度
-let micThreshold = 0.007
+// 一瞬の雑音を無視
+const VOICE_CONFIRM_TIME = 180
+const MAX_RAW_JUMP_SEMITONES = 1.5
+
+// 初期マイク感度
+let micThreshold = 0.016
+
 
 // ==========================================
 // 音程変換
@@ -71,16 +60,13 @@ function frequencyToMidi(frequency) {
   return (
     69 +
     12 *
-      Math.log2(
-        frequency / 440
-      )
+    Math.log2(
+      frequency / 440
+    )
   )
 }
 
-function frequencyToCents(
-  frequency,
-  midi
-) {
+function frequencyToCents(frequency, midi) {
   const target =
     midiToFrequency(midi)
 
@@ -94,11 +80,7 @@ function frequencyToCents(
 
 function isBlackKey(midi) {
   return [
-    1,
-    3,
-    6,
-    8,
-    10
+    1, 3, 6, 8, 10
   ].includes(
     ((midi % 12) + 12) % 12
   )
@@ -116,8 +98,30 @@ function formatKeyShift(shift) {
   return `${shift}`
 }
 
+
+// songs.js の名前違いにも対応
+
+function getSongLowMidi(song) {
+  return (
+    song.lowestMidi ??
+    song.minMidi ??
+    song.lowMidi ??
+    song.low
+  )
+}
+
+function getSongHighMidi(song) {
+  return (
+    song.highestMidi ??
+    song.maxMidi ??
+    song.highMidi ??
+    song.high
+  )
+}
+
+
 // ==========================================
-// ピアノ鍵盤データ
+// ピアノ鍵盤
 // ==========================================
 
 const keys = []
@@ -129,14 +133,9 @@ for (
 ) {
   keys.push({
     midi,
-    name:
-      midiToNoteName(midi),
-
-    frequency:
-      midiToFrequency(midi),
-
-    black:
-      isBlackKey(midi)
+    name: midiToNoteName(midi),
+    frequency: midiToFrequency(midi),
+    black: isBlackKey(midi)
   })
 }
 
@@ -150,709 +149,670 @@ const blackKeys =
     key => key.black
   )
 
+
 // ==========================================
 // HTML
 // ==========================================
 
 app.innerHTML = `
-  <main class="container">
+<main class="container">
 
-    <header class="app-header">
+  <header class="app-header">
 
-     <h1>🎤 キミキー</h1>
+    <h1>🎤 キミキー</h1>
 
-      <p class="subtitle">
-        声の音程・音域・歌いやすいJ-POPをチェック
-      </p>
+    <p class="subtitle">
+      声の音程・音域・歌いやすいJ-POPをチェック
+    </p>
 
-    </header>
-
-
-    <!-- 現在の音 -->
-
-    <section class="pitch-card">
-
-      <div
-        id="noteDisplay"
-        class="note-display"
-      >
-        ---
-      </div>
-
-      <div
-        id="frequencyDisplay"
-        class="frequency-display"
-      >
-        --- Hz
-      </div>
-
-      <div class="pitch-guide">
-
-        <span>低い</span>
-
-        <div class="pitch-meter">
-
-          <div
-            class="center-line"
-          ></div>
-
-          <div
-            id="pitchIndicator"
-            class="pitch-indicator"
-          ></div>
-
-        </div>
-
-        <span>高い</span>
-
-      </div>
-
-      <div
-        id="pitchMessage"
-        class="pitch-message"
-      >
-        マイクを開始してください
-      </div>
-
-    </section>
+  </header>
 
 
-    <!-- ピッチ練習 -->
+  <!-- 現在の音 -->
 
-    <section class="practice-card">
+  <section class="pitch-card">
 
-      <div class="practice-top">
+    <div
+      id="noteDisplay"
+      class="note-display"
+    >
+      ---
+    </div>
 
-        <div>
-
-          <div class="practice-title">
-            🎯 ピッチ練習
-          </div>
-
-          <div class="practice-subtitle">
-            練習モードON後、鍵盤を押して目標音を設定
-          </div>
-
-        </div>
-
-        <button
-          id="practiceButton"
-          class="practice-button"
-        >
-          練習モード OFF
-        </button>
-
-      </div>
+    <div
+      id="frequencyDisplay"
+      class="frequency-display"
+    >
+      --- Hz
+    </div>
 
 
-      <div class="practice-result">
+    <div class="pitch-guide">
 
-        <div class="practice-item">
+      <span>低い</span>
 
-          <span>
-            目標
-          </span>
+      <div class="pitch-meter">
 
-          <strong id="targetNote">
-            ---
-          </strong>
-
-        </div>
-
-
-        <div class="practice-item">
-
-          <span>
-            現在
-          </span>
-
-          <strong
-            id="practiceCurrentNote"
-          >
-            ---
-          </strong>
-
-        </div>
-
-
-        <div class="practice-item">
-
-          <span>
-            差
-          </span>
-
-          <strong
-            id="practiceCents"
-          >
-            ---
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div
-        id="practiceFeedback"
-        class="practice-feedback"
-      >
-        練習モードをONにしてください
-      </div>
-
-    </section>
-
-
-    <!-- 音程グラフ -->
-
-    <section class="pitch-graph-card">
-
-      <div class="graph-header">
-
-        <div>
-
-          <div class="graph-title">
-            〰️ 声の音程
-          </div>
-
-          <div class="graph-description">
-            縦が音の高さ・横が時間です
-          </div>
-
-        </div>
+        <div class="center-line"></div>
 
         <div
-          id="graphCurrentNote"
-          class="graph-current-note"
-        >
-          ---
-        </div>
-
-      </div>
-
-
-      <div class="graph-wrapper">
-
-        <canvas
-          id="pitchCanvas"
-        ></canvas>
-
-      </div>
-
-
-      <div class="graph-bottom">
-
-        <span>
-          ← 6秒前
-        </span>
-
-        <span>
-          現在 →
-        </span>
-
-      </div>
-
-    </section>
-
-
-    <!-- マイク -->
-
-    <section class="microphone-card">
-
-      <div class="mic-title">
-        🎤 マイク入力
-      </div>
-
-      <div class="volume-label-row">
-
-        <span>
-          入力音量
-        </span>
-
-        <span id="volumePercent">
-          0%
-        </span>
-
-      </div>
-
-      <div class="volume-meter">
-
-        <div
-          id="volumeBar"
-          class="volume-bar"
+          id="pitchIndicator"
+          class="pitch-indicator"
         ></div>
 
       </div>
 
-
-      <div class="sensitivity-row">
-
-        <span>
-          感度
-        </span>
-
-        <input
-          id="sensitivitySlider"
-          type="range"
-          min="1"
-          max="10"
-          value="6"
-          step="1"
-        >
-
-        <span id="sensitivityValue">
-          6
-        </span>
-
-      </div>
-
-
-      <p class="mic-help">
-        声を拾いにくい場合は感度を高くしてください
-      </p>
-
-    </section>
-
-
-    <!-- 音程安定ゲージ -->
-
-    <section class="stable-card">
-
-      <div class="stable-title">
-        音の認定
-      </div>
-
-      <div class="stable-bar">
-
-        <div
-          id="stableProgress"
-          class="stable-progress"
-        ></div>
-
-      </div>
-
-      <div
-        id="stableText"
-        class="stable-text"
-      >
-        音域測定を開始すると認定ゲージが動きます
-      </div>
-
-    </section>
-
-
-    <!-- オクターブ移動 -->
-
-    <div class="octave-buttons">
-
-      ${[2, 3, 4, 5, 6, 7]
-        .map(
-          octave => `
-            <button
-              class="octave-button"
-              data-octave="${octave}"
-            >
-              C${octave}
-            </button>
-          `
-        )
-        .join('')}
+      <span>高い</span>
 
     </div>
 
 
-    <!-- ピアノ -->
+    <div
+      id="pitchMessage"
+      class="pitch-message"
+    >
+      マイクを開始してください
+    </div>
 
-    <section class="keyboard-section">
+  </section>
+
+
+  <!-- ピッチ練習 -->
+
+  <section class="practice-card">
+
+    <div class="practice-top">
+
+      <div>
+
+        <div class="practice-title">
+          🎯 ピッチ練習
+        </div>
+
+        <div class="practice-subtitle">
+          練習モードON後、鍵盤を押して目標音を設定
+        </div>
+
+      </div>
+
+
+      <button
+        id="practiceButton"
+        class="practice-button"
+      >
+        練習モード OFF
+      </button>
+
+    </div>
+
+
+    <div class="practice-result">
+
+      <div class="practice-item">
+        <span>目標</span>
+        <strong id="targetNote">---</strong>
+      </div>
+
+      <div class="practice-item">
+        <span>現在</span>
+        <strong id="practiceCurrentNote">---</strong>
+      </div>
+
+      <div class="practice-item">
+        <span>差</span>
+        <strong id="practiceCents">---</strong>
+      </div>
+
+    </div>
+
+
+    <div
+      id="practiceFeedback"
+      class="practice-feedback"
+    >
+      練習モードをONにしてください
+    </div>
+
+  </section>
+
+
+  <!-- 音程グラフ -->
+
+  <section class="pitch-graph-card">
+
+    <div class="graph-header">
+
+      <div>
+
+        <div class="graph-title">
+          〰️ 声の音程
+        </div>
+
+        <div class="graph-description">
+          縦が音の高さ・横が時間です
+        </div>
+
+      </div>
+
 
       <div
-        id="keyboard"
-        class="keyboard"
+        id="graphCurrentNote"
+        class="graph-current-note"
+      >
+        ---
+      </div>
+
+    </div>
+
+
+    <div class="graph-wrapper">
+
+      <canvas
+        id="pitchCanvas"
+      ></canvas>
+
+    </div>
+
+
+    <div class="graph-bottom">
+      <span>← 6秒前</span>
+      <span>現在 →</span>
+    </div>
+
+  </section>
+
+
+  <!-- マイク -->
+
+  <section class="microphone-card">
+
+    <div class="mic-title">
+      🎤 マイク入力
+    </div>
+
+
+    <div class="volume-label-row">
+      <span>入力音量</span>
+      <span id="volumePercent">0%</span>
+    </div>
+
+
+    <div class="volume-meter">
+
+      <div
+        id="volumeBar"
+        class="volume-bar"
+      ></div>
+
+    </div>
+
+
+    <div class="sensitivity-row">
+
+      <span>感度</span>
+
+      <input
+        id="sensitivitySlider"
+        type="range"
+        min="1"
+        max="10"
+        value="5"
+        step="1"
       >
 
-        <div class="white-keys">
+      <span id="sensitivityValue">
+        5
+      </span>
 
-          ${whiteKeys
-            .map(
-              key => `
+    </div>
+
+
+    <p class="mic-help">
+      周囲の音を拾いすぎる場合は感度を下げてください。
+      スマホでは4〜5がおすすめです
+    </p>
+
+  </section>
+
+
+  <!-- 音の認定 -->
+
+  <section class="stable-card">
+
+    <div class="stable-title">
+      音の認定
+    </div>
+
+
+    <div class="stable-bar">
+
+      <div
+        id="stableProgress"
+        class="stable-progress"
+      ></div>
+
+    </div>
+
+
+    <div
+      id="stableText"
+      class="stable-text"
+    >
+      音域測定を開始すると認定ゲージが動きます
+    </div>
+
+  </section>
+
+
+  <!-- オクターブ -->
+
+  <div class="octave-buttons">
+
+    ${[2, 3, 4, 5, 6, 7]
+      .map(
+        octave => `
+          <button
+            class="octave-button"
+            data-octave="${octave}"
+          >
+            C${octave}
+          </button>
+        `
+      )
+      .join('')}
+
+  </div>
+
+
+  <!-- ピアノ -->
+
+  <section class="keyboard-section">
+
+    <div
+      id="keyboard"
+      class="keyboard"
+    >
+
+      <div class="white-keys">
+
+        ${whiteKeys
+          .map(
+            key => `
+              <button
+                class="piano-key white-key"
+                data-midi="${key.midi}"
+                data-frequency="${key.frequency}"
+              >
+                <span>
+                  ${key.name}
+                </span>
+              </button>
+            `
+          )
+          .join('')}
+
+      </div>
+
+
+      <div class="black-keys">
+
+        ${blackKeys
+          .map(
+            key => {
+
+              const previousWhites =
+                keys.filter(
+                  k =>
+                    k.midi < key.midi &&
+                    !k.black
+                ).length
+
+              const leftPercent =
+                (
+                  previousWhites /
+                  whiteKeys.length
+                ) *
+                100
+
+              return `
                 <button
-                  class="piano-key white-key"
+                  class="piano-key black-key"
                   data-midi="${key.midi}"
                   data-frequency="${key.frequency}"
+                  style="left:${leftPercent}%"
                 >
                   <span>
                     ${key.name}
                   </span>
                 </button>
               `
-            )
-            .join('')}
-
-        </div>
-
-
-        <div class="black-keys">
-
-          ${blackKeys
-            .map(
-              key => {
-
-                const previousWhites =
-                  keys.filter(
-                    k =>
-                      k.midi <
-                        key.midi &&
-                      !k.black
-                  ).length
-
-                const leftPercent =
-                  (
-                    previousWhites /
-                    whiteKeys.length
-                  ) *
-                  100
-
-                return `
-                  <button
-                    class="piano-key black-key"
-                    data-midi="${key.midi}"
-                    data-frequency="${key.frequency}"
-                    style="left:${leftPercent}%"
-                  >
-                    <span>
-                      ${key.name}
-                    </span>
-                  </button>
-                `
-              }
-            )
-            .join('')}
-
-        </div>
+            }
+          )
+          .join('')}
 
       </div>
 
-    </section>
+    </div>
+
+  </section>
 
 
-    <!-- 鍵盤色の説明 -->
+  <div class="range-legend">
 
-    <div class="range-legend">
+    <span>
+      <i class="legend-comfort"></i>
+      快適
+    </span>
 
-      <span>
-        <i class="legend-comfort"></i>
-        快適
-      </span>
+    <span>
+      <i class="legend-limit"></i>
+      出せる
+    </span>
 
-      <span>
-        <i class="legend-limit"></i>
-        出せる
-      </span>
+    <span>
+      <i class="legend-edge"></i>
+      限界
+    </span>
 
-      <span>
-        <i class="legend-edge"></i>
-        限界
-      </span>
+  </div>
+
+
+  <button
+    id="micButton"
+    class="main-button"
+  >
+    🎤 マイク開始
+  </button>
+
+
+  <!-- 音域 -->
+
+  <section class="range-measure-section">
+
+    <h2>
+      🎤 あなたの音域
+    </h2>
+
+    <p class="range-description">
+      2種類の音域を測ると、曲とキーの判定がより正確になります
+    </p>
+
+
+    <button
+      id="limitRangeButton"
+      class="range-button"
+    >
+      🔥 限界音域を測定
+    </button>
+
+    <p class="button-description">
+      頑張れば出せる最低音〜最高音を測定
+    </p>
+
+
+    <button
+      id="comfortRangeButton"
+      class="comfort-range-button"
+    >
+      😊 快適音域を測定
+    </button>
+
+    <p class="button-description">
+      無理なく安定して歌える最低音〜最高音を測定
+    </p>
+
+  </section>
+
+
+  <!-- 測定結果 -->
+
+  <section class="range-card range-card-double">
+
+    <div class="range-group limit-group">
+
+      <div class="range-label">
+        🔥 限界音域
+      </div>
+
+      <div class="range-values">
+
+        <strong id="limitLowestNote">
+          ---
+        </strong>
+
+        <span>〜</span>
+
+        <strong id="limitHighestNote">
+          ---
+        </strong>
+
+      </div>
+
+      <p>
+        頑張れば出せる範囲
+      </p>
 
     </div>
 
 
-    <!-- マイク開始 -->
+    <div class="range-group comfort-group">
 
-    <button
-      id="micButton"
-      class="main-button"
-    >
-      🎤 マイク開始
-    </button>
+      <div class="range-label">
+        😊 快適音域
+      </div>
 
+      <div class="range-values">
 
-    <!-- 音域測定 -->
+        <strong id="comfortLowestNote">
+          ---
+        </strong>
 
-    <section class="range-measure-section">
+        <span>〜</span>
 
-      <h2>
-        🎤 あなたの音域
-      </h2>
+        <strong id="comfortHighestNote">
+          ---
+        </strong>
 
-      <p class="range-description">
-        2種類の音域を測ると、曲とキーの判定がより正確になります
+      </div>
+
+      <p>
+        無理なく安定して歌える範囲
       </p>
 
+    </div>
 
-      <button
-        id="limitRangeButton"
-        class="range-button"
-      >
-        🔥 限界音域を測定
-      </button>
-
-      <p class="button-description">
-        頑張れば出せる最低音〜最高音を測定
-      </p>
+  </section>
 
 
-      <button
-        id="comfortRangeButton"
-        class="comfort-range-button"
-      >
-        😊 快適音域を測定
-      </button>
-
-      <p class="button-description">
-        無理なく安定して歌える最低音〜最高音を測定
-      </p>
-
-    </section>
+  <button
+    id="resetRange"
+    class="reset-button"
+  >
+    音域をリセット
+  </button>
 
 
-    <!-- 測定結果 -->
+  <!-- おすすめ曲 -->
 
-    <section class="range-card range-card-double">
+  <section class="song-section">
 
-      <div class="range-group limit-group">
+    <div class="section-heading">
 
-        <div class="range-label">
-          🔥 限界音域
-        </div>
+      <span class="section-icon">
+        🎵
+      </span>
 
-        <div class="range-values">
+      <div>
 
-          <strong id="limitLowestNote">
-            ---
-          </strong>
-
-          <span>
-            〜
-          </span>
-
-          <strong id="limitHighestNote">
-            ---
-          </strong>
-
-        </div>
+        <h2>
+          あなたに歌いやすいJ-POP
+        </h2>
 
         <p>
-          頑張れば出せる範囲
+          あなたの音域に合うおすすめ5曲を表示します
         </p>
 
       </div>
 
+    </div>
 
-      <div class="range-group comfort-group">
 
-        <div class="range-label">
-          😊 快適音域
-        </div>
+    <div
+      id="rangeRequired"
+      class="range-required"
+    >
+      まず音域を測定してください
+    </div>
 
-        <div class="range-values">
 
-          <strong id="comfortLowestNote">
-            ---
-          </strong>
+    <div
+      id="recommendations"
+      class="recommendations"
+    ></div>
 
-          <span>
-            〜
-          </span>
+  </section>
 
-          <strong id="comfortHighestNote">
-            ---
-          </strong>
 
-        </div>
+  <!-- 曲検索 -->
+
+  <section class="song-section">
+
+    <div class="section-heading">
+
+      <span class="section-icon">
+        🔍
+      </span>
+
+      <div>
+
+        <h2>
+          歌いたい曲を調べる
+        </h2>
 
         <p>
-          無理なく安定して歌える範囲
+          曲名またはアーティスト名で検索
         </p>
 
       </div>
 
-    </section>
+    </div>
+
+
+    <input
+      id="songSearch"
+      class="song-search"
+      type="text"
+      placeholder="例：Lemon / 米津玄師"
+    >
+
+
+    <div
+      id="songSearchResults"
+      class="song-search-results"
+    ></div>
+
+  </section>
+
+
+  <!-- 曲診断 -->
+
+  <section
+    id="songAnalysisCard"
+    class="song-analysis-card hidden"
+  >
+
+    <div class="analysis-label">
+      選択した曲
+    </div>
+
+    <h2 id="analysisTitle">
+      ---
+    </h2>
+
+    <div
+      id="analysisArtist"
+      class="analysis-artist"
+    >
+      ---
+    </div>
+
+
+    <div class="analysis-grid">
+
+      <div>
+        <span>原曲音域</span>
+        <strong id="originalRange">---</strong>
+      </div>
+
+      <div>
+        <span>おすすめキー</span>
+        <strong
+          id="recommendedKey"
+          class="key-result"
+        >
+          ---
+        </strong>
+      </div>
+
+      <div>
+        <span>変更後</span>
+        <strong id="shiftedRange">---</strong>
+      </div>
+
+    </div>
+
+
+    <div
+      id="keyJudgement"
+      class="key-judgement"
+    ></div>
 
 
     <button
-      id="resetRange"
-      class="reset-button"
+      id="practiceSongKey"
+      class="song-practice-button"
     >
-      音域をリセット
+      🎹 このキーで最高音を練習
     </button>
 
-
-    <!-- おすすめ曲 -->
-
-    <section class="song-section">
-
-      <div class="section-heading">
-
-        <span class="section-icon">
-          🎵
-        </span>
-
-        <div>
-
-          <h2>
-            あなたに歌いやすいJ-POP
-          </h2>
-
-          <p>
-            快適音域を優先しておすすめキーを計算します
-          </p>
-
-        </div>
-
-      </div>
+  </section>
 
 
-      <div
-        id="rangeRequired"
-        class="range-required"
-      >
-        まず音域を測定してください
-      </div>
+  <footer
+    style="
+      margin:30px 0 15px;
+      text-align:center;
+      font-size:12px;
+      line-height:1.7;
+      color:#777;
+    "
+  >
+
+    <div>
+      楽曲音域・おすすめキーは音域データを基にした目安です。
+    </div>
+
+    <div>
+      Piano samples: Salamander Grand Piano V3 by Alexander Holm — CC BY 3.0
+    </div>
+
+    <div>
+      Audio playback powered by Tone.js
+    </div>
+
+  </footer>
 
 
-      <div
-        id="recommendations"
-        class="recommendations"
-      ></div>
+  <p
+    id="status"
+    class="status"
+  >
+    ピアノ音源を読み込んでいます...
+  </p>
 
-    </section>
-
-
-    <!-- 曲検索 -->
-
-    <section class="song-section">
-
-      <div class="section-heading">
-
-        <span class="section-icon">
-          🔍
-        </span>
-
-        <div>
-
-          <h2>
-            歌いたい曲を調べる
-          </h2>
-
-          <p>
-            曲名またはアーティスト名で検索
-          </p>
-
-        </div>
-
-      </div>
-
-
-      <input
-        id="songSearch"
-        class="song-search"
-        type="text"
-        placeholder="例：Pretender / Vaundy"
-      >
-
-
-      <div
-        id="songSearchResults"
-        class="song-search-results"
-      ></div>
-
-    </section>
-
-
-    <!-- 曲診断 -->
-
-    <section
-      id="songAnalysisCard"
-      class="song-analysis-card hidden"
-    >
-
-      <div class="analysis-label">
-        選択した曲
-      </div>
-
-      <h2 id="analysisTitle">
-        ---
-      </h2>
-
-      <div
-        id="analysisArtist"
-        class="analysis-artist"
-      >
-        ---
-      </div>
-
-
-      <div class="analysis-grid">
-
-        <div>
-
-          <span>
-            原曲音域
-          </span>
-
-          <strong id="originalRange">
-            ---
-          </strong>
-
-        </div>
-
-
-        <div>
-
-          <span>
-            おすすめキー
-          </span>
-
-          <strong
-            id="recommendedKey"
-            class="key-result"
-          >
-            ---
-          </strong>
-
-        </div>
-
-
-        <div>
-
-          <span>
-            変更後
-          </span>
-
-          <strong id="shiftedRange">
-            ---
-          </strong>
-
-        </div>
-
-      </div>
-
-
-      <div
-        id="keyJudgement"
-        class="key-judgement"
-      ></div>
-
-
-      <button
-        id="practiceSongKey"
-        class="song-practice-button"
-      >
-        🎹 このキーで最高音を練習
-      </button>
-
-    </section>
-
-
-    <p
-      id="status"
-      class="status"
-    >
-      ピアノ音源を読み込んでいます...
-    </p>
-
-  </main>
+</main>
 `
+
 
 // ==========================================
 // 状態
@@ -866,19 +826,14 @@ let stream = null
 let running = false
 let animationId = null
 
-// 音域測定モード
-// null / limit / comfort
 let measuringMode = null
 
-// 限界音域
 let limitLowestMidi = null
 let limitHighestMidi = null
 
-// 快適音域
 let comfortLowestMidi = null
 let comfortHighestMidi = null
 
-// 認定処理
 let candidateMidi = null
 let candidateStartTime = null
 
@@ -889,17 +844,18 @@ let lastValidPitchTime = 0
 
 const frequencyHistory = []
 
-// ピアノ
+let voiceCandidateStart = null
+let lastRawMidi = null
+
 let pianoSampler = null
 let pianoLoaded = false
 
-// 練習
 let practiceMode = false
 let targetMidi = null
 
-// 曲
 let selectedSong = null
 let selectedSongAnalysis = null
+
 
 // ==========================================
 // 音域があるか
@@ -926,25 +882,44 @@ function hasAnyRange() {
   )
 }
 
+
 // ==========================================
 // おすすめキー計算
 // ==========================================
 
 function calculateSongKey(song) {
+
   if (!hasAnyRange()) {
     return null
   }
 
-  // 快適音域があれば快適音域を最優先
+
+  const songLow =
+    getSongLowMidi(song)
+
+  const songHigh =
+    getSongHighMidi(song)
+
+
+  if (
+    !Number.isFinite(songLow) ||
+    !Number.isFinite(songHigh)
+  ) {
+    return null
+  }
+
+
   const targetLow =
     hasComfortRange()
       ? comfortLowestMidi
       : limitLowestMidi
 
+
   const targetHigh =
     hasComfortRange()
       ? comfortHighestMidi
       : limitHighestMidi
+
 
   const targetCenter =
     (
@@ -952,40 +927,39 @@ function calculateSongKey(song) {
       targetHigh
     ) / 2
 
+
   let best = null
 
-  // カラオケで使いやすい範囲
+
   for (
     let shift = -6;
     shift <= 6;
     shift++
   ) {
+
     const shiftedLow =
-      song.lowestMidi +
-      shift
+      songLow + shift
 
     const shiftedHigh =
-      song.highestMidi +
-      shift
+      songHigh + shift
 
-    // 快適音域からはみ出した量
+
     const lowOverflow =
       Math.max(
         0,
-        targetLow -
-          shiftedLow
+        targetLow - shiftedLow
       )
 
     const highOverflow =
       Math.max(
         0,
-        shiftedHigh -
-          targetHigh
+        shiftedHigh - targetHigh
       )
 
     const overflow =
       lowOverflow +
       highOverflow
+
 
     const shiftedCenter =
       (
@@ -993,11 +967,13 @@ function calculateSongKey(song) {
         shiftedHigh
       ) / 2
 
+
     const centerDistance =
       Math.abs(
         shiftedCenter -
         targetCenter
       )
+
 
     const fitsComfort =
       hasComfortRange() &&
@@ -1006,6 +982,7 @@ function calculateSongKey(song) {
       shiftedHigh <=
         comfortHighestMidi
 
+
     const fitsLimit =
       hasLimitRange() &&
       shiftedLow >=
@@ -1013,17 +990,19 @@ function calculateSongKey(song) {
       shiftedHigh <=
         limitHighestMidi
 
-    // 高音側を少し重く評価
+
     const score =
       lowOverflow * 100 +
       highOverflow * 140 +
       centerDistance * 2 +
       Math.abs(shift) * 0.25
 
+
     if (
       best === null ||
       score < best.score
     ) {
+
       best = {
         shift,
         shiftedLow,
@@ -1035,22 +1014,29 @@ function calculateSongKey(song) {
         fitsLimit,
         score
       }
+
     }
+
   }
+
 
   return best
 }
 
+
+// ==========================================
+// 星
+// ==========================================
+
 function getSongStars(result) {
+
   if (!result) {
     return 0
   }
 
   if (
     result.fitsComfort &&
-    Math.abs(
-      result.shift
-    ) <= 1
+    Math.abs(result.shift) <= 1
   ) {
     return 5
   }
@@ -1063,9 +1049,7 @@ function getSongStars(result) {
     return 3
   }
 
-  if (
-    result.overflow <= 2
-  ) {
+  if (result.overflow <= 2) {
     return 2
   }
 
@@ -1081,11 +1065,14 @@ function starText(number) {
   )
 }
 
+
 // ==========================================
-// おすすめ曲表示
+// おすすめ曲
+// ★ 上位5曲だけ表示
 // ==========================================
 
 function renderRecommendations() {
+
   const container =
     document.querySelector(
       '#recommendations'
@@ -1098,7 +1085,9 @@ function renderRecommendations() {
 
   container.innerHTML = ''
 
+
   if (!hasAnyRange()) {
+
     required.classList.remove(
       'hidden'
     )
@@ -1106,25 +1095,44 @@ function renderRecommendations() {
     return
   }
 
+
   required.classList.add(
     'hidden'
   )
 
-  const analysed =
-    SONGS.map(song => {
-      const result =
-        calculateSongKey(song)
 
-      return {
-        song,
-        result,
-        stars:
-          getSongStars(result)
-      }
-    })
+  const analysed =
+    SONGS
+      .map(
+        song => {
+
+          const result =
+            calculateSongKey(song)
+
+          return {
+            song,
+            result
+          }
+        }
+      )
+      .filter(
+        item =>
+          item.result !== null
+      )
+      .map(
+        item => ({
+          ...item,
+          stars:
+            getSongStars(
+              item.result
+            )
+        })
+      )
+
 
   analysed.sort(
     (a, b) => {
+
       if (
         b.stars !==
         a.stars
@@ -1142,12 +1150,19 @@ function renderRecommendations() {
     }
   )
 
-  analysed.forEach(
+
+  // ★ ここで5曲だけにする
+  const recommendations =
+    analysed.slice(0, 5)
+
+
+  recommendations.forEach(
     ({
       song,
       result,
       stars
     }) => {
+
       const card =
         document.createElement(
           'button'
@@ -1156,23 +1171,30 @@ function renderRecommendations() {
       card.className =
         'song-card'
 
+
       let badgeText =
         '音域ベース'
 
-      if (
-        result.fitsComfort
-      ) {
+
+      if (result.fitsComfort) {
+
         badgeText =
           '快適音域に収まる'
+
       } else if (
         result.fitsLimit
       ) {
+
         badgeText =
           '限界音域に収まる'
+
       } else {
+
         badgeText =
           '一部音域外'
+
       }
+
 
       card.innerHTML = `
         <div class="song-card-main">
@@ -1191,6 +1213,7 @@ function renderRecommendations() {
 
         </div>
 
+
         <div class="song-card-right">
 
           <div class="stars">
@@ -1206,6 +1229,7 @@ function renderRecommendations() {
         </div>
       `
 
+
       card.addEventListener(
         'click',
         () => {
@@ -1215,20 +1239,25 @@ function renderRecommendations() {
         }
       )
 
+
       container.appendChild(
         card
       )
+
     }
   )
 }
 
+
 // ==========================================
 // 曲検索
+// ★ 入力するまで一覧を表示しない
 // ==========================================
 
 function renderSearchResults(
   searchText = ''
 ) {
+
   const container =
     document.querySelector(
       '#songSearchResults'
@@ -1236,30 +1265,40 @@ function renderSearchResults(
 
   container.innerHTML = ''
 
+
   const query =
     searchText
       .trim()
       .toLowerCase()
 
-  let results = SONGS
 
-  if (query) {
-    results =
-      SONGS.filter(song => {
+  // ★ 空欄なら曲を出さない
+  if (!query) {
+    return
+  }
+
+
+  const results =
+    SONGS.filter(
+      song => {
+
         return (
           song.title
             .toLowerCase()
             .includes(query) ||
+
           song.artist
             .toLowerCase()
             .includes(query)
         )
-      })
-  }
+      }
+    )
+
 
   if (
     results.length === 0
   ) {
+
     container.innerHTML = `
       <div class="no-song">
         曲が見つかりません
@@ -1269,65 +1308,81 @@ function renderSearchResults(
     return
   }
 
-  results.forEach(song => {
-    const item =
-      document.createElement(
-        'button'
+
+  results.forEach(
+    song => {
+
+      const item =
+        document.createElement(
+          'button'
+        )
+
+      item.className =
+        'search-song-item'
+
+
+      item.innerHTML = `
+        <div>
+
+          <strong>
+            ${song.title}
+          </strong>
+
+          <span>
+            ${song.artist}
+          </span>
+
+        </div>
+
+        <span class="search-arrow">
+          ›
+        </span>
+      `
+
+
+      item.addEventListener(
+        'click',
+        () => {
+
+          showSongAnalysis(
+            song
+          )
+
+        }
       )
 
-    item.className =
-      'search-song-item'
 
-    item.innerHTML = `
-      <div>
+      container.appendChild(
+        item
+      )
 
-        <strong>
-          ${song.title}
-        </strong>
-
-        <span>
-          ${song.artist}
-        </span>
-
-      </div>
-
-      <span class="search-arrow">
-        ›
-      </span>
-    `
-
-    item.addEventListener(
-      'click',
-      () => {
-        showSongAnalysis(
-          song
-        )
-      }
-    )
-
-    container.appendChild(
-      item
-    )
-  })
+    }
+  )
 }
+
 
 document.querySelector(
   '#songSearch'
 ).addEventListener(
   'input',
   event => {
+
     renderSearchResults(
       event.target.value
     )
+
   }
 )
+
 
 // ==========================================
 // 曲分析
 // ==========================================
 
 function showSongAnalysis(song) {
+
   selectedSong = song
+
 
   const card =
     document.querySelector(
@@ -1338,24 +1393,35 @@ function showSongAnalysis(song) {
     'hidden'
   )
 
+
+  const songLow =
+    getSongLowMidi(song)
+
+  const songHigh =
+    getSongHighMidi(song)
+
+
   document.querySelector(
     '#analysisTitle'
   ).textContent =
     song.title
+
 
   document.querySelector(
     '#analysisArtist'
   ).textContent =
     song.artist
 
+
   document.querySelector(
     '#originalRange'
   ).textContent =
     `${midiToNoteName(
-      song.lowestMidi
+      songLow
     )} 〜 ${midiToNoteName(
-      song.highestMidi
+      songHigh
     )}`
+
 
   const keyElement =
     document.querySelector(
@@ -1372,7 +1438,9 @@ function showSongAnalysis(song) {
       '#keyJudgement'
     )
 
+
   if (!hasAnyRange()) {
+
     selectedSongAnalysis =
       null
 
@@ -1388,6 +1456,7 @@ function showSongAnalysis(song) {
     judgement.textContent =
       '先にあなたの音域を測定してください'
 
+
     card.scrollIntoView({
       behavior: 'smooth',
       block: 'center'
@@ -1396,16 +1465,19 @@ function showSongAnalysis(song) {
     return
   }
 
+
   const result =
     calculateSongKey(song)
 
   selectedSongAnalysis =
     result
 
+
   keyElement.textContent =
     formatKeyShift(
       result.shift
     )
+
 
   shiftedElement.textContent =
     `${midiToNoteName(
@@ -1414,26 +1486,35 @@ function showSongAnalysis(song) {
       result.shiftedHigh
     )}`
 
+
   if (
     result.fitsComfort
   ) {
+
     judgement.className =
       'key-judgement good'
+
 
     if (
       result.shift === 0
     ) {
+
       judgement.textContent =
         '✓ 原キーで快適音域に収まります。かなり歌いやすい候補です。'
+
     } else {
+
       judgement.textContent =
         `✓ キー${formatKeyShift(
           result.shift
         )}なら快適音域に収まります。`
+
     }
+
   } else if (
     result.fitsLimit
   ) {
+
     judgement.className =
       'key-judgement caution'
 
@@ -1441,32 +1522,43 @@ function showSongAnalysis(song) {
       `△ キー${formatKeyShift(
         result.shift
       )}なら限界音域には収まりますが、一部きつく感じる可能性があります。`
+
   } else {
+
     judgement.className =
       'key-judgement warning'
+
 
     if (
       result.highOverflow >
       result.lowOverflow
     ) {
+
       judgement.textContent =
         `高音側が約${result.highOverflow}半音ほど厳しいです。キー${formatKeyShift(
           result.shift
         )}が最も近い候補です。`
+
     } else if (
       result.lowOverflow > 0
     ) {
+
       judgement.textContent =
         `低音側が約${result.lowOverflow}半音ほど厳しいです。キー${formatKeyShift(
           result.shift
         )}が最も近い候補です。`
+
     } else {
+
       judgement.textContent =
         `キー${formatKeyShift(
           result.shift
         )}が最も歌いやすい候補です。`
+
     }
+
   }
+
 
   card.scrollIntoView({
     behavior: 'smooth',
@@ -1474,70 +1566,6 @@ function showSongAnalysis(song) {
   })
 }
 
-// ==========================================
-// 曲の最高音を練習
-// ==========================================
-
-document.querySelector(
-  '#practiceSongKey'
-).addEventListener(
-  'click',
-  async () => {
-    if (
-      !selectedSong ||
-      !selectedSongAnalysis
-    ) {
-      document.querySelector(
-        '#status'
-      ).textContent =
-        '先に音域を測定して曲を選択してください'
-
-      return
-    }
-
-    practiceMode = true
-
-    const button =
-      document.querySelector(
-        '#practiceButton'
-      )
-
-    button.textContent =
-      '練習モード ON'
-
-    button.classList.add(
-      'active'
-    )
-
-    const practiceMidi =
-      selectedSong.highestMidi +
-      selectedSongAnalysis.shift
-
-    setTargetNote(
-      practiceMidi
-    )
-
-    await playTone(
-      midiToFrequency(
-        practiceMidi
-      )
-    )
-
-    document.querySelector(
-      '#practiceFeedback'
-    ).textContent =
-      `${selectedSong.title}の最高音 ${midiToNoteName(
-        practiceMidi
-      )} を練習してみましょう`
-
-    document.querySelector(
-      '.practice-card'
-    ).scrollIntoView({
-      behavior: 'smooth',
-      block: 'center'
-    })
-  }
-)
 
 // ==========================================
 // グラフ
@@ -1557,7 +1585,9 @@ const pitchHistory = []
 
 let graphCenterMidi = 60
 
+
 function resizeCanvas() {
+
   const rect =
     pitchCanvas
       .getBoundingClientRect()
@@ -1565,6 +1595,7 @@ function resizeCanvas() {
   const dpr =
     window.devicePixelRatio ||
     1
+
 
   pitchCanvas.width =
     Math.round(
@@ -1576,6 +1607,7 @@ function resizeCanvas() {
       rect.height * dpr
     )
 
+
   canvasContext.setTransform(
     dpr,
     0,
@@ -1585,33 +1617,37 @@ function resizeCanvas() {
     0
   )
 
+
   drawPitchGraph()
 }
+
 
 window.addEventListener(
   'resize',
   resizeCanvas
 )
 
+
 function trimPitchHistory() {
+
   const oldest =
     performance.now() -
-    GRAPH_SECONDS *
-      1000
+    GRAPH_SECONDS * 1000
+
 
   while (
-    pitchHistory.length >
-      0 &&
-    pitchHistory[0].time <
-      oldest
+    pitchHistory.length > 0 &&
+    pitchHistory[0].time < oldest
   ) {
+
     pitchHistory.shift()
+
   }
 }
 
-function addPitchPoint(
-  frequency
-) {
+
+function addPitchPoint(frequency) {
+
   const now =
     performance.now()
 
@@ -1620,26 +1656,33 @@ function addPitchPoint(
       frequency
     )
 
+
   pitchHistory.push({
     time: now,
     midi
   })
 
+
   trimPitchHistory()
+
 
   if (
     practiceMode &&
     targetMidi !== null
   ) {
+
     graphCenterMidi =
       targetMidi
+
   } else {
-    // 急にグラフが動きすぎないよう少し滑らかに
+
     graphCenterMidi =
       graphCenterMidi *
-        0.85 +
-      midi * 0.15
+      0.85 +
+      midi *
+      0.15
   }
+
 
   document.querySelector(
     '#graphCurrentNote'
@@ -1649,7 +1692,9 @@ function addPitchPoint(
     )
 }
 
+
 function addGraphGap() {
+
   trimPitchHistory()
 
   const now =
@@ -1657,14 +1702,15 @@ function addGraphGap() {
 
   const last =
     pitchHistory[
-      pitchHistory.length -
-        1
+      pitchHistory.length - 1
     ]
+
 
   if (
     !last ||
     last.midi !== null
   ) {
+
     pitchHistory.push({
       time: now,
       midi: null
@@ -1672,8 +1718,11 @@ function addGraphGap() {
   }
 }
 
+
 function drawPitchGraph() {
+
   trimPitchHistory()
+
 
   const rect =
     pitchCanvas
@@ -1685,6 +1734,7 @@ function drawPitchGraph() {
   const height =
     rect.height
 
+
   if (
     width <= 0 ||
     height <= 0
@@ -1692,12 +1742,14 @@ function drawPitchGraph() {
     return
   }
 
+
   canvasContext.clearRect(
     0,
     0,
     width,
     height
   )
+
 
   const labelWidth = 48
   const rightPadding = 10
@@ -1708,23 +1760,20 @@ function drawPitchGraph() {
     labelWidth
 
   const graphRight =
-    width -
-    rightPadding
+    width - rightPadding
 
   const graphTop =
     topPadding
 
   const graphBottom =
-    height -
-    bottomPadding
+    height - bottomPadding
 
   const graphHeight =
-    graphBottom -
-    graphTop
+    graphBottom - graphTop
 
   const graphWidth =
-    graphRight -
-    graphLeft
+    graphRight - graphLeft
+
 
   canvasContext.fillStyle =
     '#fafbfc'
@@ -1735,6 +1784,7 @@ function drawPitchGraph() {
     graphWidth,
     graphHeight
   )
+
 
   const minMidi =
     Math.floor(
@@ -1748,12 +1798,13 @@ function drawPitchGraph() {
       GRAPH_RANGE
     )
 
-  // 音程ライン
+
   for (
     let midi = minMidi;
     midi <= maxMidi;
     midi++
   ) {
+
     const ratio =
       (maxMidi - midi) /
       (maxMidi - minMidi)
@@ -1761,10 +1812,11 @@ function drawPitchGraph() {
     const y =
       graphTop +
       ratio *
-        graphHeight
+      graphHeight
 
     const isC =
       midi % 12 === 0
+
 
     canvasContext.beginPath()
 
@@ -1774,7 +1826,9 @@ function drawPitchGraph() {
         : '#e7e9ed'
 
     canvasContext.lineWidth =
-      isC ? 1.5 : 1
+      isC
+        ? 1.5
+        : 1
 
     canvasContext.moveTo(
       graphLeft,
@@ -1787,6 +1841,7 @@ function drawPitchGraph() {
     )
 
     canvasContext.stroke()
+
 
     canvasContext.fillStyle =
       isC
@@ -1811,13 +1866,14 @@ function drawPitchGraph() {
     )
   }
 
-  // 練習目標ライン
+
   if (
     practiceMode &&
     targetMidi !== null &&
     targetMidi >= minMidi &&
     targetMidi <= maxMidi
   ) {
+
     const ratio =
       (
         maxMidi -
@@ -1831,7 +1887,8 @@ function drawPitchGraph() {
     const y =
       graphTop +
       ratio *
-        graphHeight
+      graphHeight
+
 
     canvasContext.save()
 
@@ -1845,7 +1902,8 @@ function drawPitchGraph() {
     canvasContext.strokeStyle =
       '#7c4dff'
 
-    canvasContext.lineWidth = 3
+    canvasContext.lineWidth =
+      3
 
     canvasContext.moveTo(
       graphLeft,
@@ -1886,25 +1944,28 @@ function drawPitchGraph() {
     canvasContext.restore()
   }
 
-  // 声の線
+
   const now =
     performance.now()
 
   const startTime =
     now -
-    GRAPH_SECONDS *
-      1000
+    GRAPH_SECONDS * 1000
 
   let segment = []
 
+
   function drawSegment() {
+
     if (
-      segment.length <
-      2
+      segment.length < 2
     ) {
+
       segment = []
+
       return
     }
+
 
     canvasContext.beginPath()
 
@@ -1920,16 +1981,21 @@ function drawPitchGraph() {
     canvasContext.lineCap =
       'round'
 
+
     segment.forEach(
       (point, index) => {
+
         if (
           index === 0
         ) {
+
           canvasContext.moveTo(
             point.x,
             point.y
           )
+
         } else {
+
           canvasContext.lineTo(
             point.x,
             point.y
@@ -1938,27 +2004,32 @@ function drawPitchGraph() {
       }
     )
 
+
     canvasContext.stroke()
 
     segment = []
   }
 
+
   let previousTime = null
+
 
   for (
     const point of
-      pitchHistory
+    pitchHistory
   ) {
+
     if (
       point.midi === null
     ) {
+
       drawSegment()
 
-      previousTime =
-        null
+      previousTime = null
 
       continue
     }
+
 
     if (
       point.midi <
@@ -1966,23 +2037,25 @@ function drawPitchGraph() {
       point.midi >
         maxMidi + 1
     ) {
+
       drawSegment()
 
-      previousTime =
-        null
+      previousTime = null
 
       continue
     }
 
+
     if (
-      previousTime !==
-        null &&
+      previousTime !== null &&
       point.time -
         previousTime >
         250
     ) {
+
       drawSegment()
     }
+
 
     const xRatio =
       (
@@ -1997,7 +2070,8 @@ function drawPitchGraph() {
     const x =
       graphLeft +
       xRatio *
-        graphWidth
+      graphWidth
+
 
     const yRatio =
       (
@@ -2012,7 +2086,8 @@ function drawPitchGraph() {
     const y =
       graphTop +
       yRatio *
-        graphHeight
+      graphHeight
+
 
     segment.push({
       x,
@@ -2023,79 +2098,13 @@ function drawPitchGraph() {
       point.time
   }
 
+
   drawSegment()
-
-  // 現在位置の丸
-  const validPoints =
-    pitchHistory.filter(
-      point =>
-        point.midi !== null
-    )
-
-  const latestPoint =
-    validPoints[
-      validPoints.length -
-        1
-    ]
-
-  if (
-    latestPoint &&
-    now -
-      latestPoint.time <
-      300 &&
-    latestPoint.midi >=
-      minMidi &&
-    latestPoint.midi <=
-      maxMidi
-  ) {
-    const yRatio =
-      (
-        maxMidi -
-        latestPoint.midi
-      ) /
-      (
-        maxMidi -
-        minMidi
-      )
-
-    const y =
-      graphTop +
-      yRatio *
-        graphHeight
-
-    canvasContext.beginPath()
-
-    canvasContext.arc(
-      graphRight - 4,
-      y,
-      7,
-      0,
-      Math.PI * 2
-    )
-
-    canvasContext.fillStyle =
-      '#111'
-
-    canvasContext.fill()
-
-    canvasContext.beginPath()
-
-    canvasContext.arc(
-      graphRight - 4,
-      y,
-      3,
-      0,
-      Math.PI * 2
-    )
-
-    canvasContext.fillStyle =
-      '#fff'
-
-    canvasContext.fill()
-  }
 }
 
+
 function graphLoop() {
+
   drawPitchGraph()
 
   requestAnimationFrame(
@@ -2103,18 +2112,24 @@ function graphLoop() {
   )
 }
 
+
 // ==========================================
-// 練習モード
+// ピッチ練習
 // ==========================================
 
 function updateTargetKey() {
+
   document.querySelectorAll(
     '.piano-key'
-  ).forEach(key => {
-    key.classList.remove(
-      'target-note'
-    )
-  })
+  ).forEach(
+    key => {
+
+      key.classList.remove(
+        'target-note'
+      )
+    }
+  )
+
 
   if (
     !practiceMode ||
@@ -2122,54 +2137,63 @@ function updateTargetKey() {
   ) {
     return
   }
+
 
   const key =
     document.querySelector(
       `[data-midi="${targetMidi}"]`
     )
 
+
   if (key) {
+
     key.classList.add(
       'target-note'
     )
   }
 }
 
+
 function setTargetNote(midi) {
+
   targetMidi = midi
 
-  graphCenterMidi =
-    midi
+  graphCenterMidi = midi
+
 
   document.querySelector(
     '#targetNote'
   ).textContent =
     midiToNoteName(midi)
 
-  document.querySelector(
-    '#practiceFeedback'
-  ).textContent =
+
+  const feedback =
+    document.querySelector(
+      '#practiceFeedback'
+    )
+
+  feedback.textContent =
     `${midiToNoteName(
       midi
     )} を声で出してみましょう`
 
-  document.querySelector(
-    '#practiceFeedback'
-  ).className =
+  feedback.className =
     'practice-feedback'
+
 
   updateTargetKey()
 }
 
-function updatePractice(
-  frequency
-) {
+
+function updatePractice(frequency) {
+
   if (
     !practiceMode ||
     targetMidi === null
   ) {
     return
   }
+
 
   const exactMidi =
     frequencyToMidi(
@@ -2185,8 +2209,8 @@ function updatePractice(
     (
       exactMidi -
       targetMidi
-    ) *
-    100
+    ) * 100
+
 
   document.querySelector(
     '#practiceCurrentNote'
@@ -2195,10 +2219,12 @@ function updatePractice(
       currentMidi
     )
 
+
   const rounded =
     Math.round(
       differenceCents
     )
+
 
   document.querySelector(
     '#practiceCents'
@@ -2206,6 +2232,7 @@ function updatePractice(
     rounded > 0
       ? `+${rounded}`
       : `${rounded}`
+
 
   const feedback =
     document.querySelector(
@@ -2217,30 +2244,37 @@ function updatePractice(
       differenceCents
     )
 
+
   if (abs <= 5) {
+
     feedback.textContent =
       'PERFECT! 🎉'
 
     feedback.className =
       'practice-feedback perfect'
+
   } else if (
     abs <= 10
   ) {
+
     feedback.textContent =
       'GOOD! ✓'
 
     feedback.className =
       'practice-feedback good'
+
   } else if (
-    differenceCents <
-    0
+    differenceCents < 0
   ) {
+
     feedback.textContent =
       'もう少し高く ↑'
 
     feedback.className =
       'practice-feedback adjust'
+
   } else {
+
     feedback.textContent =
       'もう少し低く ↓'
 
@@ -2249,20 +2283,25 @@ function updatePractice(
   }
 }
 
+
 document.querySelector(
   '#practiceButton'
 ).addEventListener(
   'click',
   () => {
+
     practiceMode =
       !practiceMode
+
 
     const button =
       document.querySelector(
         '#practiceButton'
       )
 
+
     if (practiceMode) {
+
       button.textContent =
         '練習モード ON'
 
@@ -2274,7 +2313,9 @@ document.querySelector(
         '#practiceFeedback'
       ).textContent =
         '鍵盤から練習したい音を選んでください'
+
     } else {
+
       button.textContent =
         '練習モード OFF'
 
@@ -2286,15 +2327,18 @@ document.querySelector(
 
       document.querySelector(
         '#targetNote'
-      ).textContent = '---'
+      ).textContent =
+        '---'
 
       document.querySelector(
         '#practiceCurrentNote'
-      ).textContent = '---'
+      ).textContent =
+        '---'
 
       document.querySelector(
         '#practiceCents'
-      ).textContent = '---'
+      ).textContent =
+        '---'
 
       document.querySelector(
         '#practiceFeedback'
@@ -2311,33 +2355,113 @@ document.querySelector(
   }
 )
 
+
+// ==========================================
+// 曲の最高音を練習
+// ==========================================
+
+document.querySelector(
+  '#practiceSongKey'
+).addEventListener(
+  'click',
+  async () => {
+
+    if (
+      !selectedSong ||
+      !selectedSongAnalysis
+    ) {
+
+      document.querySelector(
+        '#status'
+      ).textContent =
+        '先に音域を測定して曲を選択してください'
+
+      return
+    }
+
+
+    practiceMode = true
+
+
+    const button =
+      document.querySelector(
+        '#practiceButton'
+      )
+
+    button.textContent =
+      '練習モード ON'
+
+    button.classList.add(
+      'active'
+    )
+
+
+    const practiceMidi =
+      getSongHighMidi(
+        selectedSong
+      ) +
+      selectedSongAnalysis.shift
+
+
+    setTargetNote(
+      practiceMidi
+    )
+
+
+    await playTone(
+      midiToFrequency(
+        practiceMidi
+      )
+    )
+
+
+    document.querySelector(
+      '#practiceFeedback'
+    ).textContent =
+      `${selectedSong.title}の最高音 ${midiToNoteName(
+        practiceMidi
+      )} を練習してみましょう`
+
+
+    document.querySelector(
+      '.practice-card'
+    ).scrollIntoView({
+      behavior: 'smooth',
+      block: 'center'
+    })
+  }
+)
+
+
 // ==========================================
 // マイク感度
 // ==========================================
 
-function updateSensitivity(
-  value
-) {
+function updateSensitivity(value) {
+
   const sensitivity =
     Number(value)
+
 
   document.querySelector(
     '#sensitivityValue'
   ).textContent =
     sensitivity
 
+
   const thresholds = {
-    1: 0.025,
-    2: 0.020,
-    3: 0.016,
-    4: 0.012,
-    5: 0.009,
-    6: 0.007,
-    7: 0.0055,
-    8: 0.004,
-    9: 0.003,
-    10: 0.002
+    1: 0.040,
+    2: 0.032,
+    3: 0.026,
+    4: 0.020,
+    5: 0.016,
+    6: 0.012,
+    7: 0.009,
+    8: 0.007,
+    9: 0.0055,
+    10: 0.0045
   }
+
 
   micThreshold =
     thresholds[
@@ -2345,31 +2469,39 @@ function updateSensitivity(
     ]
 }
 
+
 document.querySelector(
   '#sensitivitySlider'
 ).addEventListener(
   'input',
   event => {
+
     updateSensitivity(
       event.target.value
     )
   }
 )
 
-updateSensitivity(6)
+
+updateSensitivity(5)
+
 
 // ==========================================
 // ピアノ音源
 // ==========================================
 
 function createPianoSampler() {
+
   if (pianoSampler) {
     return
   }
 
+
   pianoSampler =
     new Tone.Sampler({
+
       urls: {
+
         A0: 'A0.mp3',
 
         C1: 'C1.mp3',
@@ -2411,6 +2543,7 @@ function createPianoSampler() {
         'https://tonejs.github.io/audio/salamander/',
 
       onload: () => {
+
         pianoLoaded = true
 
         document.querySelector(
@@ -2418,20 +2551,25 @@ function createPianoSampler() {
         ).textContent =
           '🎹 ピアノ音源を読み込みました'
       }
+
     }).toDestination()
 }
 
-async function playTone(
-  frequency
-) {
+
+async function playTone(frequency) {
+
   try {
+
     await Tone.start()
+
 
     if (!pianoSampler) {
       createPianoSampler()
     }
 
+
     if (!pianoLoaded) {
+
       document.querySelector(
         '#status'
       ).textContent =
@@ -2442,6 +2580,7 @@ async function playTone(
       pianoLoaded = true
     }
 
+
     const midi =
       Math.round(
         frequencyToMidi(
@@ -2449,50 +2588,60 @@ async function playTone(
         )
       )
 
+
     pianoSampler
       .triggerAttackRelease(
-        midiToNoteName(
-          midi
-        ),
+        midiToNoteName(midi),
         1.5
       )
+
   } catch (error) {
+
     console.error(error)
   }
 }
 
+
 // ==========================================
-// 鍵盤操作
+// 鍵盤
 // ==========================================
 
 document.querySelectorAll(
   '.piano-key'
-).forEach(key => {
-  key.addEventListener(
-    'click',
-    async () => {
-      const frequency =
-        Number(
-          key.dataset.frequency
+).forEach(
+  key => {
+
+    key.addEventListener(
+      'click',
+      async () => {
+
+        const frequency =
+          Number(
+            key.dataset.frequency
+          )
+
+        const midi =
+          Number(
+            key.dataset.midi
+          )
+
+
+        await playTone(
+          frequency
         )
 
-      const midi =
-        Number(
-          key.dataset.midi
-        )
 
-      await playTone(
-        frequency
-      )
+        if (practiceMode) {
 
-      if (practiceMode) {
-        setTargetNote(
-          midi
-        )
+          setTargetNote(
+            midi
+          )
+        }
       }
-    }
-  )
-})
+    )
+  }
+)
+
 
 // ==========================================
 // オクターブボタン
@@ -2500,53 +2649,62 @@ document.querySelectorAll(
 
 document.querySelectorAll(
   '.octave-button'
-).forEach(button => {
-  button.addEventListener(
-    'click',
-    () => {
-      const octave =
-        Number(
-          button.dataset.octave
-        )
+).forEach(
+  button => {
 
-      const midi =
-        12 *
-        (octave + 1)
+    button.addEventListener(
+      'click',
+      () => {
 
-      const key =
-        document.querySelector(
-          `[data-midi="${midi}"]`
-        )
+        const octave =
+          Number(
+            button.dataset.octave
+          )
 
-      if (key) {
-        key.scrollIntoView({
-          behavior: 'smooth',
-          inline: 'center',
-          block: 'nearest'
-        })
+        const midi =
+          12 *
+          (octave + 1)
+
+        const key =
+          document.querySelector(
+            `[data-midi="${midi}"]`
+          )
+
+
+        if (key) {
+
+          key.scrollIntoView({
+            behavior: 'smooth',
+            inline: 'center',
+            block: 'nearest'
+          })
+        }
       }
-    }
-  )
-})
+    )
+  }
+)
+
 
 // ==========================================
-// マイク音量
+// RMS
 // ==========================================
 
-function calculateRms(
-  buffer
-) {
+function calculateRms(buffer) {
+
   let sum = 0
+
 
   for (
     let i = 0;
     i < buffer.length;
     i++
   ) {
+
     sum +=
       buffer[i] *
       buffer[i]
   }
+
 
   return Math.sqrt(
     sum /
@@ -2554,11 +2712,12 @@ function calculateRms(
   )
 }
 
-function updateVolumeMeter(
-  rms
-) {
+
+function updateVolumeMeter(rms) {
+
   let percent =
     rms * 800
+
 
   percent =
     Math.max(
@@ -2569,10 +2728,12 @@ function updateVolumeMeter(
       )
     )
 
+
   document.querySelector(
     '#volumeBar'
   ).style.width =
     `${percent}%`
+
 
   document.querySelector(
     '#volumePercent'
@@ -2582,18 +2743,19 @@ function updateVolumeMeter(
     )}%`
 }
 
+
 // ==========================================
-// YIN 音程検出
+// YIN
 // ==========================================
 
 function yinPitchDetection(
   buffer,
   sampleRate
 ) {
+
   const rms =
-    calculateRms(
-      buffer
-    )
+    calculateRms(buffer)
+
 
   if (
     rms <
@@ -2602,16 +2764,19 @@ function yinPitchDetection(
     return -1
   }
 
+
   const threshold = 0.12
 
   const minFrequency = 60
   const maxFrequency = 1600
+
 
   const minTau =
     Math.floor(
       sampleRate /
       maxFrequency
     )
+
 
   const maxTau =
     Math.min(
@@ -2625,25 +2790,30 @@ function yinPitchDetection(
       )
     )
 
+
   const yinBuffer =
     new Float32Array(
       maxTau + 1
     )
+
 
   for (
     let tau = 1;
     tau <= maxTau;
     tau++
   ) {
+
     let sum = 0
+
 
     for (
       let i = 0;
       i <
-      buffer.length -
+        buffer.length -
         tau;
       i++
     ) {
+
       const delta =
         buffer[i] -
         buffer[
@@ -2655,21 +2825,26 @@ function yinPitchDetection(
         delta
     }
 
+
     yinBuffer[tau] =
       sum
   }
 
+
   yinBuffer[0] = 1
 
   let runningSum = 0
+
 
   for (
     let tau = 1;
     tau <= maxTau;
     tau++
   ) {
+
     runningSum +=
       yinBuffer[tau]
+
 
     yinBuffer[tau] =
       runningSum === 0
@@ -2681,17 +2856,21 @@ function yinPitchDetection(
           runningSum
   }
 
+
   let tauEstimate = -1
+
 
   for (
     let tau = minTau;
     tau < maxTau;
     tau++
   ) {
+
     if (
       yinBuffer[tau] <
       threshold
     ) {
+
       while (
         tau + 1 <
           maxTau &&
@@ -2700,8 +2879,10 @@ function yinPitchDetection(
         ] <
           yinBuffer[tau]
       ) {
+
         tau++
       }
+
 
       tauEstimate = tau
 
@@ -2709,20 +2890,24 @@ function yinPitchDetection(
     }
   }
 
+
   if (
     tauEstimate === -1
   ) {
     return -1
   }
 
+
   let betterTau =
     tauEstimate
+
 
   if (
     tauEstimate > 1 &&
     tauEstimate + 1 <
       yinBuffer.length
   ) {
+
     const s0 =
       yinBuffer[
         tauEstimate - 1
@@ -2738,6 +2923,7 @@ function yinPitchDetection(
         tauEstimate + 1
       ]
 
+
     const denominator =
       2 *
       (
@@ -2746,22 +2932,25 @@ function yinPitchDetection(
         s0
       )
 
+
     if (
       denominator !== 0
     ) {
+
       betterTau =
         tauEstimate +
         (
-          s2 -
-          s0
+          s2 - s0
         ) /
         denominator
     }
   }
 
+
   const frequency =
     sampleRate /
     betterTau
+
 
   if (
     frequency <
@@ -2772,8 +2961,10 @@ function yinPitchDetection(
     return -1
   }
 
+
   return frequency
 }
+
 
 // ==========================================
 // 音程平滑化
@@ -2782,24 +2973,28 @@ function yinPitchDetection(
 function getSmoothedFrequency(
   frequency
 ) {
+
   frequencyHistory.push(
     frequency
   )
+
 
   if (
     frequencyHistory.length >
     HISTORY_SIZE
   ) {
+
     frequencyHistory.shift()
   }
+
 
   const sorted =
     [
       ...frequencyHistory
     ].sort(
-      (a, b) =>
-        a - b
+      (a, b) => a - b
     )
+
 
   return sorted[
     Math.floor(
@@ -2808,98 +3003,118 @@ function getSmoothedFrequency(
   ]
 }
 
+
 // ==========================================
-// 鍵盤の現在音
+// 現在音の鍵盤
 // ==========================================
 
 function clearCurrentNote() {
+
   document.querySelectorAll(
     '.piano-key'
-  ).forEach(key => {
-    key.classList.remove(
-      'current-note'
-    )
-  })
+  ).forEach(
+    key => {
+
+      key.classList.remove(
+        'current-note'
+      )
+    }
+  )
 }
+
 
 function highlightCurrentNote(
   midi
 ) {
+
   clearCurrentNote()
+
 
   const key =
     document.querySelector(
       `[data-midi="${midi}"]`
     )
 
+
   if (key) {
+
     key.classList.add(
       'current-note'
     )
   }
 }
 
+
 // ==========================================
-// 限界・快適音域を鍵盤表示
+// 音域鍵盤色
 // ==========================================
 
 function updateRangeKeys() {
+
   document.querySelectorAll(
     '.piano-key'
-  ).forEach(key => {
-    key.classList.remove(
-      'in-limit-range',
-      'in-comfort-range',
-      'limit-edge'
-    )
+  ).forEach(
+    key => {
 
-    const midi =
-      Number(
-        key.dataset.midi
-      )
-
-    // 限界音域
-    if (
-      hasLimitRange() &&
-      midi >=
-        limitLowestMidi &&
-      midi <=
-        limitHighestMidi
-    ) {
-      key.classList.add(
-        'in-limit-range'
-      )
-    }
-
-    // 快適音域
-    if (
-      hasComfortRange() &&
-      midi >=
-        comfortLowestMidi &&
-      midi <=
-        comfortHighestMidi
-    ) {
-      key.classList.add(
-        'in-comfort-range'
-      )
-    }
-
-    // 限界の端
-    if (
-      hasLimitRange() &&
-      (
-        midi ===
-          limitLowestMidi ||
-        midi ===
-          limitHighestMidi
-      )
-    ) {
-      key.classList.add(
+      key.classList.remove(
+        'in-limit-range',
+        'in-comfort-range',
         'limit-edge'
       )
+
+
+      const midi =
+        Number(
+          key.dataset.midi
+        )
+
+
+      if (
+        hasLimitRange() &&
+        midi >=
+          limitLowestMidi &&
+        midi <=
+          limitHighestMidi
+      ) {
+
+        key.classList.add(
+          'in-limit-range'
+        )
+      }
+
+
+      if (
+        hasComfortRange() &&
+        midi >=
+          comfortLowestMidi &&
+        midi <=
+          comfortHighestMidi
+      ) {
+
+        key.classList.add(
+          'in-comfort-range'
+        )
+      }
+
+
+      if (
+        hasLimitRange() &&
+        (
+          midi ===
+            limitLowestMidi ||
+          midi ===
+            limitHighestMidi
+        )
+      ) {
+
+        key.classList.add(
+          'limit-edge'
+        )
+      }
     }
-  })
+  )
 }
+
 
 // ==========================================
 // 安定ゲージ
@@ -2909,6 +3124,7 @@ function updateStableProgress(
   progress,
   text
 ) {
+
   const safeProgress =
     Math.max(
       0,
@@ -2918,10 +3134,12 @@ function updateStableProgress(
       )
     )
 
+
   document.querySelector(
     '#stableProgress'
   ).style.width =
     `${safeProgress}%`
+
 
   document.querySelector(
     '#stableText'
@@ -2929,36 +3147,43 @@ function updateStableProgress(
     text
 }
 
+
 // ==========================================
-// 音域認定
+// 音域記録
 // ==========================================
 
 function recordRange(
   midi,
   cents
 ) {
+
   if (!measuringMode) {
+
     candidateMidi = null
-    candidateStartTime =
-      null
+    candidateStartTime = null
 
     return
   }
 
+
   if (
-    midi < START_MIDI ||
-    midi > END_MIDI
+    midi <
+      START_MIDI ||
+    midi >
+      END_MIDI
   ) {
     return
   }
+
 
   if (
     Math.abs(cents) >
     MAX_CENT_DEVIATION
   ) {
+
     candidateMidi = null
-    candidateStartTime =
-      null
+    candidateStartTime = null
+
 
     updateStableProgress(
       0,
@@ -2970,17 +3195,22 @@ function recordRange(
     return
   }
 
+
   const now =
     performance.now()
+
 
   if (
     candidateMidi !==
     midi
   ) {
-    candidateMidi = midi
+
+    candidateMidi =
+      midi
 
     candidateStartTime =
       now
+
 
     updateStableProgress(
       0,
@@ -2992,9 +3222,11 @@ function recordRange(
     return
   }
 
+
   const stableTime =
     now -
     candidateStartTime
+
 
   const progress =
     (
@@ -3003,12 +3235,14 @@ function recordRange(
     ) *
     100
 
+
   updateStableProgress(
     progress,
     `${midiToNoteName(
       midi
     )} を判定中`
   )
+
 
   if (
     stableTime <
@@ -3017,14 +3251,17 @@ function recordRange(
     return
   }
 
+
   const noteKey =
     `${measuringMode}-${midi}`
+
 
   if (
     confirmedNotes.has(
       noteKey
     )
   ) {
+
     updateStableProgress(
       100,
       `${midiToNoteName(
@@ -3035,34 +3272,38 @@ function recordRange(
     return
   }
 
+
   confirmedNotes.add(
     noteKey
   )
 
-  // 限界音域
+
   if (
     measuringMode ===
     'limit'
   ) {
+
     if (
-      limitLowestMidi ===
-        null ||
+      limitLowestMidi === null ||
       midi <
         limitLowestMidi
     ) {
+
       limitLowestMidi =
         midi
     }
 
+
     if (
-      limitHighestMidi ===
-        null ||
+      limitHighestMidi === null ||
       midi >
         limitHighestMidi
     ) {
+
       limitHighestMidi =
         midi
     }
+
 
     document.querySelector(
       '#limitLowestNote'
@@ -3070,6 +3311,7 @@ function recordRange(
       midiToNoteName(
         limitLowestMidi
       )
+
 
     document.querySelector(
       '#limitHighestNote'
@@ -3079,30 +3321,33 @@ function recordRange(
       )
   }
 
-  // 快適音域
+
   if (
     measuringMode ===
     'comfort'
   ) {
+
     if (
-      comfortLowestMidi ===
-        null ||
+      comfortLowestMidi === null ||
       midi <
         comfortLowestMidi
     ) {
+
       comfortLowestMidi =
         midi
     }
 
+
     if (
-      comfortHighestMidi ===
-        null ||
+      comfortHighestMidi === null ||
       midi >
         comfortHighestMidi
     ) {
+
       comfortHighestMidi =
         midi
     }
+
 
     document.querySelector(
       '#comfortLowestNote'
@@ -3110,6 +3355,7 @@ function recordRange(
       midiToNoteName(
         comfortLowestMidi
       )
+
 
     document.querySelector(
       '#comfortHighestNote'
@@ -3119,7 +3365,9 @@ function recordRange(
       )
   }
 
+
   updateRangeKeys()
+
 
   updateStableProgress(
     100,
@@ -3128,14 +3376,10 @@ function recordRange(
     )} を認定しました ✓`
   )
 
-  renderRecommendations()
 
-  if (selectedSong) {
-    showSongAnalysis(
-      selectedSong
-    )
-  }
+  renderRecommendations()
 }
+
 
 // ==========================================
 // 音程表示
@@ -3144,26 +3388,31 @@ function recordRange(
 function updatePitchDisplay(
   frequency
 ) {
+
   const smoothedFrequency =
     getSmoothedFrequency(
       frequency
     )
+
 
   const exactMidi =
     frequencyToMidi(
       smoothedFrequency
     )
 
+
   const midi =
     Math.round(
       exactMidi
     )
+
 
   const cents =
     frequencyToCents(
       smoothedFrequency,
       midi
     )
+
 
   document.querySelector(
     '#noteDisplay'
@@ -3172,12 +3421,14 @@ function updatePitchDisplay(
       midi
     )
 
+
   document.querySelector(
     '#frequencyDisplay'
   ).textContent =
     `${smoothedFrequency.toFixed(
       1
     )} Hz`
+
 
   highlightCurrentNote(
     midi
@@ -3196,6 +3447,7 @@ function updatePitchDisplay(
     smoothedFrequency
   )
 
+
   const limitedCents =
     Math.max(
       -50,
@@ -3205,28 +3457,33 @@ function updatePitchDisplay(
       )
     )
 
+
   document.querySelector(
     '#pitchIndicator'
   ).style.left =
     `${limitedCents + 50}%`
+
 
   const message =
     document.querySelector(
       '#pitchMessage'
     )
 
+
   if (
-    Math.abs(cents) <=
-    8
+    Math.abs(cents) <= 8
   ) {
+
     message.textContent =
       '✓ 音程ぴったり'
 
     message.className =
       'pitch-message correct'
+
   } else if (
     cents < 0
   ) {
+
     message.textContent =
       `少し低い (${Math.round(
         cents
@@ -3234,7 +3491,9 @@ function updatePitchDisplay(
 
     message.className =
       'pitch-message warning'
+
   } else {
+
     message.textContent =
       `少し高い (+${Math.round(
         cents
@@ -3245,33 +3504,39 @@ function updatePitchDisplay(
   }
 }
 
+
 // ==========================================
-// マイク検出ループ
+// マイク検出
 // ==========================================
 
 function detectPitch() {
+
   if (!running) {
     return
   }
+
 
   const buffer =
     new Float32Array(
       analyser.fftSize
     )
 
-  analyser
-    .getFloatTimeDomainData(
-      buffer
-    )
+
+  analyser.getFloatTimeDomainData(
+    buffer
+  )
+
 
   const rms =
     calculateRms(
       buffer
     )
 
+
   updateVolumeMeter(
     rms
   )
+
 
   const frequency =
     yinPitchDetection(
@@ -3279,27 +3544,80 @@ function detectPitch() {
       audioContext.sampleRate
     )
 
+
   if (
     frequency > 0
   ) {
-    lastValidPitchTime =
+
+    const now =
       performance.now()
 
-    updatePitchDisplay(
-      frequency
-    )
+
+    const rawMidi =
+      frequencyToMidi(
+        frequency
+      )
+
+
+    if (
+      lastRawMidi === null ||
+      Math.abs(
+        rawMidi -
+        lastRawMidi
+      ) >
+      MAX_RAW_JUMP_SEMITONES
+    ) {
+
+      voiceCandidateStart =
+        now
+
+      frequencyHistory.length =
+        0
+    }
+
+
+    lastRawMidi =
+      rawMidi
+
+
+    if (
+      voiceCandidateStart !== null &&
+      now -
+        voiceCandidateStart >=
+        VOICE_CONFIRM_TIME
+    ) {
+
+      lastValidPitchTime =
+        now
+
+      updatePitchDisplay(
+        frequency
+      )
+    }
+
   } else {
+
+    voiceCandidateStart =
+      null
+
+    lastRawMidi =
+      null
+
+
     const silenceTime =
       performance.now() -
       lastValidPitchTime
 
+
     if (
       silenceTime > 200
     ) {
+
       frequencyHistory.length =
         0
 
-      candidateMidi = null
+      candidateMidi =
+        null
 
       candidateStartTime =
         null
@@ -3308,15 +3626,18 @@ function detectPitch() {
 
       addGraphGap()
 
+
       document.querySelector(
         '#noteDisplay'
       ).textContent =
         '---'
 
+
       document.querySelector(
         '#frequencyDisplay'
       ).textContent =
         '--- Hz'
+
 
       document.querySelector(
         '#graphCurrentNote'
@@ -3325,42 +3646,48 @@ function detectPitch() {
     }
   }
 
+
   animationId =
     requestAnimationFrame(
       detectPitch
     )
 }
 
+
 // ==========================================
 // マイク開始
 // ==========================================
 
 async function startMicrophone() {
+
   try {
+
     stream =
       await navigator
         .mediaDevices
         .getUserMedia({
+
           audio: {
-            echoCancellation:
-              false,
 
-            noiseSuppression:
-              false,
+            echoCancellation: true,
 
-            autoGainControl:
-              true,
+            noiseSuppression: true,
+
+            autoGainControl: false,
 
             channelCount: 1
           }
         })
 
+
     audioContext =
       new AudioContext()
+
 
     analyser =
       audioContext
         .createAnalyser()
+
 
     analyser.fftSize =
       4096
@@ -3368,39 +3695,48 @@ async function startMicrophone() {
     analyser.smoothingTimeConstant =
       0
 
+
     microphone =
       audioContext
         .createMediaStreamSource(
           stream
         )
 
+
     microphone.connect(
       analyser
     )
 
+
     running = true
 
-    frequencyHistory.length =
-      0
+    frequencyHistory.length = 0
 
-    pitchHistory.length =
-      0
+    pitchHistory.length = 0
 
     lastValidPitchTime =
       performance.now()
+
+    voiceCandidateStart = null
+    lastRawMidi = null
+
 
     document.querySelector(
       '#micButton'
     ).textContent =
       '⏹ マイク停止'
 
+
     document.querySelector(
       '#status'
     ).textContent =
       '声を「あーー」と伸ばしてください'
 
+
     detectPitch()
+
   } catch (error) {
+
     console.error(error)
 
     document.querySelector(
@@ -3410,18 +3746,28 @@ async function startMicrophone() {
   }
 }
 
+
+// ==========================================
+// マイク停止
+// ==========================================
+
 function stopMicrophone() {
+
   running = false
 
   measuringMode = null
 
+
   if (animationId) {
+
     cancelAnimationFrame(
       animationId
     )
   }
 
+
   if (stream) {
+
     stream
       .getTracks()
       .forEach(
@@ -3430,7 +3776,9 @@ function stopMicrophone() {
       )
   }
 
+
   if (audioContext) {
+
     audioContext
       .close()
       .catch(
@@ -3438,52 +3786,50 @@ function stopMicrophone() {
       )
   }
 
+
   clearCurrentNote()
 
-  frequencyHistory.length =
-    0
+  frequencyHistory.length = 0
+
+  voiceCandidateStart = null
+  lastRawMidi = null
+
 
   document.querySelector(
     '#volumeBar'
   ).style.width =
     '0%'
 
+
   document.querySelector(
     '#volumePercent'
   ).textContent =
     '0%'
+
 
   document.querySelector(
     '#noteDisplay'
   ).textContent =
     '---'
 
+
   document.querySelector(
     '#frequencyDisplay'
   ).textContent =
     '--- Hz'
+
 
   document.querySelector(
     '#graphCurrentNote'
   ).textContent =
     '---'
 
+
   document.querySelector(
     '#micButton'
   ).textContent =
     '🎤 マイク開始'
 
-  document.querySelector(
-    '#limitRangeButton'
-  ).classList.remove(
-    'measuring'
-  )
-
-  document.querySelector(
-    '#comfortRangeButton'
-  ).classList.remove(
-    'measuring'
-  )
 
   document.querySelector(
     '#status'
@@ -3491,38 +3837,49 @@ function stopMicrophone() {
     'マイクを停止しました'
 }
 
+
 document.querySelector(
   '#micButton'
 ).addEventListener(
   'click',
   async () => {
+
     if (running) {
+
       stopMicrophone()
+
     } else {
+
       await startMicrophone()
     }
   }
 )
 
+
 // ==========================================
-// 音域測定開始
+// 音域測定
 // ==========================================
 
 async function startRangeMeasurement(
   mode
 ) {
+
   if (!running) {
+
     await startMicrophone()
   }
+
 
   if (!running) {
     return
   }
 
+
   candidateMidi = null
   candidateStartTime = null
 
   confirmedNotes.clear()
+
 
   document.querySelector(
     '#limitRangeButton'
@@ -3536,23 +3893,29 @@ async function startRangeMeasurement(
     'measuring'
   )
 
-  // 限界音域を新しく測る
+
+  measuringMode =
+    mode
+
+
   if (
     mode === 'limit'
   ) {
-    limitLowestMidi =
-      null
 
-    limitHighestMidi =
-      null
+    limitLowestMidi = null
+    limitHighestMidi = null
+
 
     document.querySelector(
       '#limitLowestNote'
-    ).textContent = '---'
+    ).textContent =
+      '---'
 
     document.querySelector(
       '#limitHighestNote'
-    ).textContent = '---'
+    ).textContent =
+      '---'
+
 
     document.querySelector(
       '#limitRangeButton'
@@ -3560,20 +3923,24 @@ async function startRangeMeasurement(
       'measuring'
     )
 
+
     document.querySelector(
       '#limitRangeButton'
     ).textContent =
       '⏹ 限界音域の測定を終了'
+
 
     document.querySelector(
       '#comfortRangeButton'
     ).textContent =
       '😊 快適音域を測定'
 
+
     updateStableProgress(
       0,
-      '無理をしすぎず、低い声から高い声まで出してください'
+      '低い声から高い声まで「あー」と伸ばしてください'
     )
+
 
     document.querySelector(
       '#status'
@@ -3581,15 +3948,14 @@ async function startRangeMeasurement(
       '🔥 限界音域を測定中'
   }
 
-  // 快適音域を新しく測る
+
   if (
     mode === 'comfort'
   ) {
-    comfortLowestMidi =
-      null
 
-    comfortHighestMidi =
-      null
+    comfortLowestMidi = null
+    comfortHighestMidi = null
+
 
     document.querySelector(
       '#comfortLowestNote'
@@ -3601,57 +3967,61 @@ async function startRangeMeasurement(
     ).textContent =
       '---'
 
+
     document.querySelector(
       '#comfortRangeButton'
     ).classList.add(
       'measuring'
     )
 
+
     document.querySelector(
       '#comfortRangeButton'
     ).textContent =
       '⏹ 快適音域の測定を終了'
+
 
     document.querySelector(
       '#limitRangeButton'
     ).textContent =
       '🔥 限界音域を測定'
 
+
     updateStableProgress(
       0,
-      '楽に歌える低い声から高い声まで出してください'
+      '楽に出せる低い声から高い声まで出してください'
     )
+
 
     document.querySelector(
       '#status'
     ).textContent =
       '😊 快適音域を測定中'
   }
-
-  measuringMode = mode
-
-  updateRangeKeys()
-
-  renderRecommendations()
 }
+
 
 // ==========================================
 // 音域測定終了
 // ==========================================
 
 function stopRangeMeasurement() {
+
   if (!measuringMode) {
     return
   }
 
+
   const oldMode =
     measuringMode
+
 
   measuringMode = null
 
   candidateMidi = null
   candidateStartTime = null
 
+
   document.querySelector(
     '#limitRangeButton'
   ).classList.remove(
@@ -3663,21 +4033,25 @@ function stopRangeMeasurement() {
   ).classList.remove(
     'measuring'
   )
+
 
   document.querySelector(
     '#limitRangeButton'
   ).textContent =
     '🔥 限界音域を測定'
 
+
   document.querySelector(
     '#comfortRangeButton'
   ).textContent =
     '😊 快適音域を測定'
 
+
   if (
     oldMode === 'limit' &&
     hasLimitRange()
   ) {
+
     document.querySelector(
       '#status'
     ).textContent =
@@ -3686,11 +4060,12 @@ function stopRangeMeasurement() {
       )} 〜 ${midiToNoteName(
         limitHighestMidi
       )}`
+
   } else if (
-    oldMode ===
-      'comfort' &&
+    oldMode === 'comfort' &&
     hasComfortRange()
   ) {
+
     document.querySelector(
       '#status'
     ).textContent =
@@ -3699,31 +4074,38 @@ function stopRangeMeasurement() {
       )} 〜 ${midiToNoteName(
         comfortHighestMidi
       )}`
+
   } else {
+
     document.querySelector(
       '#status'
     ).textContent =
       '音域測定を終了しました'
   }
 
+
   updateStableProgress(
     0,
     '測定が完了しました'
   )
 
+
   updateRangeKeys()
 
   renderRecommendations()
 
+
   if (selectedSong) {
+
     showSongAnalysis(
       selectedSong
     )
   }
 }
 
+
 // ==========================================
-// 限界音域ボタン
+// 音域ボタン
 // ==========================================
 
 document.querySelector(
@@ -3731,12 +4113,16 @@ document.querySelector(
 ).addEventListener(
   'click',
   async () => {
+
     if (
       measuringMode ===
       'limit'
     ) {
+
       stopRangeMeasurement()
+
     } else {
+
       await startRangeMeasurement(
         'limit'
       )
@@ -3744,21 +4130,22 @@ document.querySelector(
   }
 )
 
-// ==========================================
-// 快適音域ボタン
-// ==========================================
 
 document.querySelector(
   '#comfortRangeButton'
 ).addEventListener(
   'click',
   async () => {
+
     if (
       measuringMode ===
       'comfort'
     ) {
+
       stopRangeMeasurement()
+
     } else {
+
       await startRangeMeasurement(
         'comfort'
       )
@@ -3766,8 +4153,9 @@ document.querySelector(
   }
 )
 
+
 // ==========================================
-// 音域リセット
+// リセット
 // ==========================================
 
 document.querySelector(
@@ -3775,39 +4163,41 @@ document.querySelector(
 ).addEventListener(
   'click',
   () => {
+
     measuringMode = null
 
     limitLowestMidi = null
     limitHighestMidi = null
 
-    comfortLowestMidi =
-      null
-
-    comfortHighestMidi =
-      null
+    comfortLowestMidi = null
+    comfortHighestMidi = null
 
     candidateMidi = null
-
-    candidateStartTime =
-      null
+    candidateStartTime = null
 
     confirmedNotes.clear()
 
+
     document.querySelector(
       '#limitLowestNote'
-    ).textContent = '---'
+    ).textContent =
+      '---'
 
     document.querySelector(
       '#limitHighestNote'
-    ).textContent = '---'
+    ).textContent =
+      '---'
 
     document.querySelector(
       '#comfortLowestNote'
-    ).textContent = '---'
+    ).textContent =
+      '---'
 
     document.querySelector(
       '#comfortHighestNote'
-    ).textContent = '---'
+    ).textContent =
+      '---'
+
 
     document.querySelector(
       '#limitRangeButton'
@@ -3819,6 +4209,7 @@ document.querySelector(
     ).textContent =
       '😊 快適音域を測定'
 
+
     document.querySelector(
       '#limitRangeButton'
     ).classList.remove(
@@ -3831,15 +4222,19 @@ document.querySelector(
       'measuring'
     )
 
+
     updateRangeKeys()
 
     renderRecommendations()
 
+
     if (selectedSong) {
+
       showSongAnalysis(
         selectedSong
       )
     }
+
 
     document.querySelector(
       '#status'
@@ -3848,18 +4243,23 @@ document.querySelector(
   }
 )
 
+
 // ==========================================
 // 起動
 // ==========================================
 
-renderSearchResults()
+// 検索欄は最初は空
+renderSearchResults('')
 
+// 音域測定前はおすすめを表示しない
 renderRecommendations()
 
 createPianoSampler()
 
+
 requestAnimationFrame(
   () => {
+
     resizeCanvas()
 
     graphLoop()

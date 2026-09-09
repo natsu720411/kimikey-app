@@ -1,49 +1,775 @@
-export const SONGS = [
-    {
-      id: 'pretender',
-      title: 'Pretender',
-      artist: 'Official髭男dism',
-      lowestMidi: 51,
-      highestMidi: 73,
-    },
-  
-    {
-      id: 'kaiju-no-hanauta',
-      title: '怪獣の花唄',
-      artist: 'Vaundy',
-      lowestMidi: 50,
-      highestMidi: 74,
-    },
-  
-    {
-      id: 'marigold',
-      title: 'マリーゴールド',
-      artist: 'あいみょん',
-      lowestMidi: 53,
-      highestMidi: 71,
-    },
-  
-    {
-      id: 'dry-flower',
-      title: 'ドライフラワー',
-      artist: '優里',
-      lowestMidi: 55,
-      highestMidi: 72,
-    },
-  
-    {
-      id: 'lemon',
+// キミキー 楽曲データ 100曲版
+// ※音域は「音域ベースの目安」です。
+// 音源・歌唱方法・裏声を含むかなどによって実際の音域は異なる場合があります。
+
+const NOTE_INDEX = {
+  C: 0,
+  'C#': 1,
+  D: 2,
+  'D#': 3,
+  E: 4,
+  F: 5,
+  'F#': 6,
+  G: 7,
+  'G#': 8,
+  A: 9,
+  'A#': 10,
+  B: 11,
+}
+
+function pitchLabelToMidi(label) {
+  const match = label.match(/^(low|mid1|mid2|hi)([A-G](?:#)?)$/)
+
+  if (!match) {
+    throw new Error(`Unknown pitch label: ${label}`)
+  }
+
+  const [, band, note] = match
+
+  const octaveByBand = {
+    low: 2,
+    mid1: 3,
+    mid2: 4,
+    hi: 5,
+  }
+
+  const octave = octaveByBand[band]
+
+  return 12 * (octave + 1) + NOTE_INDEX[note]
+}
+
+const RAW_SONGS = [
+  {
+    title: 'Brand New',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1D',
+    highLabel: 'hiE',
+    gender: 'hard',
+  },
+  {
+    title: 'ライラック',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1E',
+    highLabel: 'hiC#',
+    gender: 'male',
+  },
+  {
+    title: '好きすぎて滅!',
+    artist: 'M!LK',
+    lowLabel: 'mid1B',
+    highLabel: 'hiC#',
+    gender: 'hard',
+  },
+  {
+    title: 'IRIS OUT',
+    artist: '米津玄師',
+    lowLabel: 'mid1A#',
+    highLabel: 'hiA',
+    gender: 'male',
+  },
+  {
+    title: '青と夏',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'lowF',
+    highLabel: 'hiE',
+    gender: 'hard',
+  },
+  {
+    title: 'Blue Jeans',
+    artist: 'HANA',
+    lowLabel: 'mid1E',
+    highLabel: 'hiB',
+    gender: 'hard',
+  },
+  {
+    title: '恋、はじめました。',
+    artist: '=LOVE',
+    lowLabel: 'mid2A',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'Soranji',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1C',
+    highLabel: 'hiF#',
+    gender: 'hard',
+  },
+  {
+    title: 'lulu.',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1C#',
+    highLabel: 'hiD#',
+    gender: 'hard',
+  },
+  {
+    title: 'アイドルパワー',
+    artist: 'M!LK',
+    lowLabel: 'mid1D',
+    highLabel: 'hiA#',
+    gender: 'male',
+  },
+
+  {
+    title: 'HAPPY BIRTHDAY',
+    artist: 'back number',
+    lowLabel: 'lowG#',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: 'ケセラセラ',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1D',
+    highLabel: 'hiF',
+    gender: 'hard',
+  },
+  {
+    title: 'I Got Your Back',
+    artist: 'ILLIT & HANA',
+    lowLabel: 'mid1G',
+    highLabel: 'hiD',
+    gender: 'female',
+  },
+  {
+    title: 'ダーリン',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1D',
+    highLabel: 'hiC#',
+    gender: 'male',
+  },
+  {
+    title: 'ROSE',
+    artist: 'HANA',
+    lowLabel: 'mid1G',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: 'ブルーアンバー',
+    artist: 'back number',
+    lowLabel: 'mid1A#',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: '僕のこと',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1D',
+    highLabel: 'hiD#',
+    gender: 'male',
+  },
+  {
+    title: 'マイオンリー',
+    artist: 'SixTONES',
+    lowLabel: 'mid1C#',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: '水平線',
+    artist: 'back number',
+    lowLabel: 'mid1C#',
+    highLabel: 'hiC',
+    gender: 'male',
+  },
+  {
+    title: 'ヒロイン',
+    artist: 'back number',
+    lowLabel: 'mid1D',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+
+  {
+    title: 'Magic',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1C#',
+    highLabel: 'hiF',
+    gender: 'hard',
+  },
+  {
+    title: '怪獣',
+    artist: 'サカナクション',
+    lowLabel: 'mid1F',
+    highLabel: 'hiB',
+    gender: 'both',
+  },
+  {
+    title: '115万キロのフィルム',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1D',
+    highLabel: 'hiC',
+    gender: 'hard',
+  },
+  {
+    title: 'ダンスホール',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid2A',
+    highLabel: 'hiF#',
+    gender: 'female',
+  },
+  {
+    title: 'Pretender',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1D#',
+    highLabel: 'hiC#',
+    gender: 'hard',
+  },
+  {
+    title: 'AIZO',
+    artist: 'King Gnu',
+    lowLabel: 'mid1D',
+    highLabel: 'hiA#',
+    gender: 'male',
+  },
+  {
+    title: 'ブルーアンビエンス (feat. asmi)',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1F',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: 'BAD',
+    artist: 'ATEEZ',
+    lowLabel: 'mid1F#',
+    highLabel: 'hiC',
+    gender: 'both',
+  },
+  {
+    title: 'BPM (feat. KREVA)',
+    artist: 'Kvi Baba',
+    lowLabel: 'mid1D',
+    highLabel: 'mid2G#',
+    gender: 'male',
+  },
+  {
+    title: 'Automatic',
+    artist: '宇多田ヒカル',
+    lowLabel: 'mid1F#',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+
+  {
+    title: 'インディゴ地平線',
+    artist: 'スピッツ',
+    lowLabel: 'mid1D',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: 'Subtitle',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1D#',
+    highLabel: 'hiC#',
+    gender: 'hard',
+  },
+  {
+    title: 'StaRt',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1F#',
+    highLabel: 'hiB',
+    gender: 'both',
+  },
+  {
+    title: 'Bad Girl',
+    artist: 'HANA',
+    lowLabel: 'mid1G',
+    highLabel: 'hiC',
+    gender: 'female',
+  },
+  {
+    title: '波乗りジョニー',
+    artist: '桑田佳祐',
+    lowLabel: 'mid1B',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: 'インフェルノ',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1B',
+    highLabel: 'hiD#',
+    gender: 'male',
+  },
+  {
+    title: '夜に駆ける',
+    artist: 'YOASOBI',
+    lowLabel: 'mid1G',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: 'きらり',
+    artist: '藤井風',
+    lowLabel: 'mid1B',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: '劇薬中毒',
+    artist: '=LOVE',
+    lowLabel: 'mid2A',
+    highLabel: 'hiC#',
+    gender: 'female',
+  },
+  {
+    title: 'SAD SONG',
+    artist: 'ちゃんみな',
+    lowLabel: 'mid1F',
+    highLabel: 'hiD',
+    gender: 'female',
+  },
+
+  {
+    title: 'ドライフラワー',
+    artist: '優里',
+    lowLabel: 'lowF',
+    highLabel: 'hiC',
+    gender: 'male',
+  },
+  {
+    title: 'Never Grow Up',
+    artist: 'ちゃんみな',
+    lowLabel: 'mid1F',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'ハレンチ',
+    artist: 'ちゃんみな',
+    lowLabel: 'mid1B',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: 'クスシキ',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1E',
+    highLabel: 'hiF',
+    gender: 'male',
+  },
+  {
+    title: 'Love so sweet',
+    artist: '嵐',
+    lowLabel: 'mid1D',
+    highLabel: 'hiA',
+    gender: 'male',
+  },
+  {
+    title: '群青',
+    artist: 'YOASOBI',
+    lowLabel: 'mid1F',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: 'Tiger',
+    artist: 'HANA',
+    lowLabel: 'mid1G',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+  {
+    title: 'イエスタデイ',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1D#',
+    highLabel: 'hiC#',
+    gender: 'hard',
+  },
+  {
+    title: '今夜このまま',
+    artist: 'あいみょん',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'JANE DOE',
+    artist: '米津玄師 & 宇多田ヒカル',
+    lowLabel: 'mid1C',
+    highLabel: 'hiD#',
+    gender: 'hard',
+  },
+
+  {
+    title: 'NON STOP',
+    artist: 'HANA',
+    lowLabel: 'mid1F#',
+    highLabel: 'hiA#',
+    gender: 'both',
+  },
+  {
+    title: 'ロマンチシズム',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1C',
+    highLabel: 'hiD#',
+    gender: 'male',
+  },
+  {
+    title: '怪盗',
+    artist: 'back number',
+    lowLabel: 'mid1C#',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: 'Golden',
+    artist: 'HUNTR/X',
+    lowLabel: 'mid1D',
+    highLabel: 'hiF#',
+    gender: 'hard',
+  },
+  {
+    title: 'KISS N TELL',
+    artist: 'aespa',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: '晴々',
+    artist: '緑黄色社会',
+    lowLabel: 'mid1G',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+  {
+    title: 'Blue Shining Star',
+    artist: 'アイナ・ジ・エンド',
+    lowLabel: 'mid1B',
+    highLabel: 'hiE',
+    gender: 'hard',
+  },
+  {
+    title: 'グッタイム',
+    artist: 'Snow Man',
+    lowLabel: 'mid1F',
+    highLabel: 'hiC',
+    gender: 'both',
+  },
+  {
+    title: 'イケナイ太陽',
+    artist: 'ORANGE RANGE',
+    lowLabel: 'mid1D',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: '小さな恋のうた',
+    artist: 'MONGOL800',
+    lowLabel: 'mid1A#',
+    highLabel: 'mid2G#',
+    gender: 'male',
+  },
+
+  {
+    title: '宿命',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1E',
+    highLabel: 'hiC',
+    gender: 'hard',
+  },
+  {
+    title: 'モンストロ',
+    artist: 'Ado',
+    lowLabel: 'mid1F',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: 'SOS',
+    artist: 'tuki.',
+    lowLabel: 'mid2A',
+    highLabel: 'hiD',
+    gender: 'female',
+  },
+  {
+    title: 'Truth in the dark',
+    artist: 'LANA',
+    lowLabel: 'mid1E',
+    highLabel: 'hiF#',
+    gender: 'hard',
+  },
+  {
+    title: '777',
+    artist: 'YAO',
+    lowLabel: 'mid2A',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'Live to Survive',
+    artist: 'Aimer',
+    lowLabel: 'mid2B',
+    highLabel: 'hiC',
+    gender: 'female',
+  },
+  {
+    title: 'Love me forever!',
+    artist: 'Ado',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'うるさ',
+    artist: 'Ayase',
+    lowLabel: 'lowG',
+    highLabel: 'mid2D#',
+    gender: 'male',
+  },
+  {
+    title: '景色',
+    artist: 'JI BLUE, JO1 & INI',
+    lowLabel: 'mid1B',
+    highLabel: 'hiB',
+    gender: 'male',
+  },
+  {
+    title: '新宝島',
+    artist: 'サカナクション',
+    lowLabel: 'mid1D',
+    highLabel: 'hiA#',
+    gender: 'male',
+  },
+
+  {
+    title: '翼の折れたエンジェル',
+    artist: 'LANA',
+    lowLabel: 'mid2B',
+    highLabel: 'hiC#',
+    gender: 'female',
+  },
+  {
+    title: 'Standing Here',
+    artist: 'BMSG STRIKERS',
+    lowLabel: 'lowF',
+    highLabel: 'hiE',
+    gender: 'male',
+  },
+  {
+    title: 'My Affection',
+    artist: 'Kis-My-Ft2',
+    lowLabel: 'mid1C',
+    highLabel: 'hiA#',
+    gender: 'male',
+  },
+  {
+    title: '春に舞う',
+    artist: 'Ado',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'Dance Forever',
+    artist: 'SixTONES',
+    lowLabel: 'mid1D',
+    highLabel: 'hiC',
+    gender: 'male',
+  },
+  {
+    title: 'お姫様の作り方',
+    artist: '=LOVE',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiD',
+    gender: 'female',
+  },
+  {
+    title: 'スターダスト',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1D#',
+    highLabel: 'hiD#',
+    gender: 'hard',
+  },
+  {
+    title: 'きゃわぽっぴんどぅー',
+    artist: 'iLiFE!',
+    lowLabel: 'mid1G',
+    highLabel: 'hiF',
+    gender: 'female',
+  },
+  {
+    title: '絶対アイドル辞めないで',
+    artist: '=LOVE',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+  {
+    title: 'Fiction Love',
+    artist: '中島健人',
+    lowLabel: 'mid1C',
+    highLabel: 'hiC',
+    gender: 'male',
+  },
+
+  {
+    title: 'SUMMER SONG',
+    artist: 'YUI',
+    lowLabel: 'mid1G',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'YES',
+    artist: 'LiSA',
+    lowLabel: 'mid1G',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+  {
+    title: '灰色',
+    artist: '大森元貴',
+    lowLabel: 'mid1G',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+  {
+    title: 'あぶく',
+    artist: 'ヨルシカ',
+    lowLabel: 'mid1G',
+    highLabel: 'hiD',
+    gender: 'female',
+  },
+  {
+    title: '綺羅',
+    artist: 'Ado',
+    lowLabel: 'mid2B',
+    highLabel: 'hiC#',
+    gender: 'female',
+  },
+  {
+    title: 'ルミナス - Luminous',
+    artist: 'アイナ・ジ・エンド',
+    lowLabel: 'mid1D#',
+    highLabel: 'hiD#',
+    gender: 'hard',
+  },
+  {
+    title: 'らしさ',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1G',
+    highLabel: 'hiD',
+    gender: 'both',
+  },
+  {
+    title: 'ノーダウト',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1D',
+    highLabel: 'hiC#',
+    gender: 'hard',
+  },
+  {
+    title: '章',
+    artist: '緑黄色社会',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: 'エルダーフラワー',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1G',
+    highLabel: 'hiE',
+    gender: 'female',
+  },
+
+  {
+    title: 'GOOD DAY',
+    artist: 'Mrs. GREEN APPLE',
+    lowLabel: 'mid1D',
+    highLabel: 'hiD',
+    gender: 'hard',
+  },
+  {
+    title: 'コールドスリープ',
+    artist: 'Perfume',
+    lowLabel: 'mid2C',
+    highLabel: 'hiG',
+    gender: 'female',
+  },
+  {
+    title: 'Sanitizer',
+    artist: 'Official髭男dism',
+    lowLabel: 'mid1C#',
+    highLabel: 'hiE',
+    gender: 'hard',
+  },
+  {
+    title: '劇上',
+    artist: 'YOASOBI',
+    lowLabel: 'mid1G',
+    highLabel: 'hiF#',
+    gender: 'female',
+  },
+  {
+    title: 'アイドルライフメガパック',
+    artist: 'iLiFE!',
+    lowLabel: 'mid2A#',
+    highLabel: 'hiD#',
+    gender: 'female',
+  },
+  {
+    title: '風のアンセム (feat. suis from ヨルシカ)',
+    artist: 'Eve',
+    lowLabel: 'mid1A',
+    highLabel: 'hiD#',
+    gender: 'hard',
+  },
+  {
+    title: 'Hallelujah',
+    artist: '[Alexandros]',
+    lowLabel: 'mid1C',
+    highLabel: 'hiD#',
+    gender: 'male',
+  },
+  {
+    title: '怪獣の花唄',
+    artist: 'Vaundy',
+    lowLabel: 'mid1D',
+    highLabel: 'hiD',
+    gender: 'male',
+  },
+  {
+    
       title: 'Lemon',
       artist: '米津玄師',
-      lowestMidi: 47,
-      highestMidi: 71,
-    },
-  
-    {
-      id: 'ao-to-natsu',
-      title: '青と夏',
-      artist: 'Mrs. GREEN APPLE',
-      lowestMidi: 51,
-      highestMidi: 76,
-    },
-  ]
+      lowLabel: 'mid1B',
+      highLabel: 'hiB',
+      gender: 'male',
+    
+  },
+  {
+    title: 'マリーゴールド',
+    artist: 'あいみょん',
+    lowLabel: 'mid1F',
+    highLabel: 'hiB',
+    gender: 'female',
+  },
+]
+
+export const SONGS = RAW_SONGS.map((song, index) => {
+  const minMidi = pitchLabelToMidi(song.lowLabel)
+  const maxMidi = pitchLabelToMidi(song.highLabel)
+
+  return {
+    id: index + 1,
+    ...song,
+
+    // キミキーのキー判定で使用
+    minMidi,
+    maxMidi,
+
+    // main.js側の名前が違っても使えるようにしています
+    lowMidi: minMidi,
+    highMidi: maxMidi,
+    low: minMidi,
+    high: maxMidi,
+
+    sourceType: '音域ベースの目安',
+  }
+})
