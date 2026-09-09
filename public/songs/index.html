@@ -1,10 +1,8 @@
 
 <!doctype html>
-
 <html lang="ja">
 
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -12,13 +10,32 @@
     content="width=device-width, initial-scale=1.0"
   >
 
+  
+    <!-- Google tag (gtag.js) -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"
+    ></script>
+
+    <script>
+      window.dataLayer = window.dataLayer || [];
+
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      gtag('js', new Date());
+      gtag('config', 'G-1B35Z51M10');
+    </script>
+  
+
   <title>
     J-POP曲別音域一覧｜最低音・最高音を調べる｜キミキー
   </title>
 
   <meta
     name="description"
-    content="J-POPの曲別音域一覧。各曲の最低音・最高音を確認し、キミキーで自分の音域に合うおすすめキーを調べられます。"
+    content="J-POPの曲別音域一覧。各曲の最低音・最高音を確認し、自分の声の音域に合うおすすめキーをキミキーで調べられます。"
   >
 
   <meta
@@ -31,9 +48,53 @@
     href="https://kimikey-app.vercel.app/songs/"
   >
 
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:title"
+    content="J-POP曲別音域一覧｜最低音・最高音を調べる｜キミキー"
+  >
+
+  <meta
+    property="og:description"
+    content="J-POPの曲別音域一覧。各曲の最低音・最高音を確認し、自分の声の音域に合うおすすめキーをキミキーで調べられます。"
+  >
+
+  <meta
+    property="og:url"
+    content="https://kimikey-app.vercel.app/songs/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="キミキー"
+  >
+
+  <meta
+    name="theme-color"
+    content="#111111"
+  >
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "J-POP曲別音域一覧｜最低音・最高音を調べる｜キミキー",
+  "description": "J-POPの曲別音域一覧。各曲の最低音・最高音を確認し、自分の声の音域に合うおすすめキーをキミキーで調べられます。",
+  "url": "https://kimikey-app.vercel.app/songs/",
+  "inLanguage": "ja",
+  "isPartOf": {
+    "@type": "WebSite",
+    "name": "キミキー",
+    "url": "https://kimikey-app.vercel.app"
+  }
+}
+  </script>
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -47,6 +108,7 @@
         sans-serif;
       background: #f6f7fb;
       color: #222;
+      line-height: 1.7;
     }
 
     .container {
@@ -69,11 +131,24 @@
     h1 {
       margin:
         25px 0 5px;
+      line-height: 1.4;
     }
 
     .description {
       margin-bottom: 25px;
       color: #666;
+    }
+
+    .app-link {
+      display: block;
+      margin-bottom: 28px;
+      padding: 16px;
+      background: #111;
+      border-radius: 14px;
+      color: white;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
     }
 
     .songs {
@@ -90,7 +165,7 @@
       text-decoration: none;
       box-shadow:
         0 3px 15px
-        rgba(0,0,0,.04);
+        rgba(0, 0, 0, 0.04);
     }
 
     .song strong {
@@ -103,10 +178,13 @@
       font-size: 13px;
     }
 
+    .notice {
+      margin-top: 28px;
+      color: #777;
+      font-size: 12px;
+    }
   </style>
-
 </head>
-
 
 <body>
 
@@ -119,21 +197,29 @@
       🎤 キミキー
     </a>
 
-
     <h1>
       J-POP 曲別音域一覧
     </h1>
 
     <p class="description">
-      曲名を選ぶと最低音・最高音を確認できます。
+      曲名を選ぶと、
+      最低音・最高音・音域の広さを確認できます。
+      自分に合うキーを知りたい場合は、
+      キミキーで自分の声の音域も測定できます。
     </p>
 
+    <a
+      class="app-link"
+      href="/"
+    >
+      🎤 自分の音域を測定する
+    </a>
 
     <div class="songs">
       
         <a
           class="song"
-          href="/songs/brand-new/"
+          href="/songs/brand-new-1/"
         >
           <strong>
             Brand New
@@ -184,7 +270,7 @@
       
         <a
           class="song"
-          href="/songs/iris-out/"
+          href="/songs/iris-out-4/"
         >
           <strong>
             IRIS OUT
@@ -218,7 +304,7 @@
       
         <a
           class="song"
-          href="/songs/blue-jeans/"
+          href="/songs/blue-jeans-6/"
         >
           <strong>
             Blue Jeans
@@ -252,7 +338,7 @@
       
         <a
           class="song"
-          href="/songs/soranji/"
+          href="/songs/soranji-8/"
         >
           <strong>
             Soranji
@@ -269,7 +355,7 @@
       
         <a
           class="song"
-          href="/songs/lulu/"
+          href="/songs/lulu-9/"
         >
           <strong>
             lulu.
@@ -303,7 +389,7 @@
       
         <a
           class="song"
-          href="/songs/happy-birthday/"
+          href="/songs/happy-birthday-11/"
         >
           <strong>
             HAPPY BIRTHDAY
@@ -337,7 +423,7 @@
       
         <a
           class="song"
-          href="/songs/i-got-your-back/"
+          href="/songs/i-got-your-back-13/"
         >
           <strong>
             I Got Your Back
@@ -371,7 +457,7 @@
       
         <a
           class="song"
-          href="/songs/rose/"
+          href="/songs/rose-15/"
         >
           <strong>
             ROSE
@@ -473,7 +559,7 @@
       
         <a
           class="song"
-          href="/songs/magic/"
+          href="/songs/magic-21/"
         >
           <strong>
             Magic
@@ -507,7 +593,7 @@
       
         <a
           class="song"
-          href="/songs/115/"
+          href="/songs/115-23/"
         >
           <strong>
             115万キロのフィルム
@@ -541,7 +627,7 @@
       
         <a
           class="song"
-          href="/songs/pretender/"
+          href="/songs/pretender-25/"
         >
           <strong>
             Pretender
@@ -558,7 +644,7 @@
       
         <a
           class="song"
-          href="/songs/aizo/"
+          href="/songs/aizo-26/"
         >
           <strong>
             AIZO
@@ -575,7 +661,7 @@
       
         <a
           class="song"
-          href="/songs/feat-asmi/"
+          href="/songs/feat-asmi-27/"
         >
           <strong>
             ブルーアンビエンス (feat. asmi)
@@ -592,7 +678,7 @@
       
         <a
           class="song"
-          href="/songs/bad/"
+          href="/songs/bad-28/"
         >
           <strong>
             BAD
@@ -609,7 +695,7 @@
       
         <a
           class="song"
-          href="/songs/bpm-feat-kreva/"
+          href="/songs/bpm-feat-kreva-29/"
         >
           <strong>
             BPM (feat. KREVA)
@@ -626,7 +712,7 @@
       
         <a
           class="song"
-          href="/songs/automatic/"
+          href="/songs/automatic-30/"
         >
           <strong>
             Automatic
@@ -660,7 +746,7 @@
       
         <a
           class="song"
-          href="/songs/subtitle/"
+          href="/songs/subtitle-32/"
         >
           <strong>
             Subtitle
@@ -677,7 +763,7 @@
       
         <a
           class="song"
-          href="/songs/start/"
+          href="/songs/start-33/"
         >
           <strong>
             StaRt
@@ -694,7 +780,7 @@
       
         <a
           class="song"
-          href="/songs/bad-girl/"
+          href="/songs/bad-girl-34/"
         >
           <strong>
             Bad Girl
@@ -796,7 +882,7 @@
       
         <a
           class="song"
-          href="/songs/sad-song/"
+          href="/songs/sad-song-40/"
         >
           <strong>
             SAD SONG
@@ -830,7 +916,7 @@
       
         <a
           class="song"
-          href="/songs/never-grow-up/"
+          href="/songs/never-grow-up-42/"
         >
           <strong>
             Never Grow Up
@@ -881,7 +967,7 @@
       
         <a
           class="song"
-          href="/songs/love-so-sweet/"
+          href="/songs/love-so-sweet-45/"
         >
           <strong>
             Love so sweet
@@ -915,7 +1001,7 @@
       
         <a
           class="song"
-          href="/songs/tiger/"
+          href="/songs/tiger-47/"
         >
           <strong>
             Tiger
@@ -966,7 +1052,7 @@
       
         <a
           class="song"
-          href="/songs/jane-doe/"
+          href="/songs/jane-doe-50/"
         >
           <strong>
             JANE DOE
@@ -983,7 +1069,7 @@
       
         <a
           class="song"
-          href="/songs/non-stop/"
+          href="/songs/non-stop-51/"
         >
           <strong>
             NON STOP
@@ -1034,7 +1120,7 @@
       
         <a
           class="song"
-          href="/songs/golden/"
+          href="/songs/golden-54/"
         >
           <strong>
             Golden
@@ -1051,7 +1137,7 @@
       
         <a
           class="song"
-          href="/songs/kiss-n-tell/"
+          href="/songs/kiss-n-tell-55/"
         >
           <strong>
             KISS N TELL
@@ -1085,7 +1171,7 @@
       
         <a
           class="song"
-          href="/songs/blue-shining-star/"
+          href="/songs/blue-shining-star-57/"
         >
           <strong>
             Blue Shining Star
@@ -1187,7 +1273,7 @@
       
         <a
           class="song"
-          href="/songs/sos/"
+          href="/songs/sos-63/"
         >
           <strong>
             SOS
@@ -1204,7 +1290,7 @@
       
         <a
           class="song"
-          href="/songs/truth-in-the-dark/"
+          href="/songs/truth-in-the-dark-64/"
         >
           <strong>
             Truth in the dark
@@ -1221,7 +1307,7 @@
       
         <a
           class="song"
-          href="/songs/777/"
+          href="/songs/777-65/"
         >
           <strong>
             777
@@ -1238,7 +1324,7 @@
       
         <a
           class="song"
-          href="/songs/live-to-survive/"
+          href="/songs/live-to-survive-66/"
         >
           <strong>
             Live to Survive
@@ -1255,7 +1341,7 @@
       
         <a
           class="song"
-          href="/songs/love-me-forever/"
+          href="/songs/love-me-forever-67/"
         >
           <strong>
             Love me forever!
@@ -1340,7 +1426,7 @@
       
         <a
           class="song"
-          href="/songs/standing-here/"
+          href="/songs/standing-here-72/"
         >
           <strong>
             Standing Here
@@ -1357,7 +1443,7 @@
       
         <a
           class="song"
-          href="/songs/my-affection/"
+          href="/songs/my-affection-73/"
         >
           <strong>
             My Affection
@@ -1391,7 +1477,7 @@
       
         <a
           class="song"
-          href="/songs/dance-forever/"
+          href="/songs/dance-forever-75/"
         >
           <strong>
             Dance Forever
@@ -1476,7 +1562,7 @@
       
         <a
           class="song"
-          href="/songs/fiction-love/"
+          href="/songs/fiction-love-80/"
         >
           <strong>
             Fiction Love
@@ -1493,7 +1579,7 @@
       
         <a
           class="song"
-          href="/songs/summer-song/"
+          href="/songs/summer-song-81/"
         >
           <strong>
             SUMMER SONG
@@ -1510,7 +1596,7 @@
       
         <a
           class="song"
-          href="/songs/yes/"
+          href="/songs/yes-82/"
         >
           <strong>
             YES
@@ -1578,7 +1664,7 @@
       
         <a
           class="song"
-          href="/songs/luminous/"
+          href="/songs/luminous-86/"
         >
           <strong>
             ルミナス - Luminous
@@ -1663,7 +1749,7 @@
       
         <a
           class="song"
-          href="/songs/good-day/"
+          href="/songs/good-day-91/"
         >
           <strong>
             GOOD DAY
@@ -1697,7 +1783,7 @@
       
         <a
           class="song"
-          href="/songs/sanitizer/"
+          href="/songs/sanitizer-93/"
         >
           <strong>
             Sanitizer
@@ -1748,7 +1834,7 @@
       
         <a
           class="song"
-          href="/songs/feat-suis-from/"
+          href="/songs/feat-suis-from-96/"
         >
           <strong>
             風のアンセム (feat. suis from ヨルシカ)
@@ -1765,7 +1851,7 @@
       
         <a
           class="song"
-          href="/songs/hallelujah/"
+          href="/songs/hallelujah-97/"
         >
           <strong>
             Hallelujah
@@ -1799,7 +1885,7 @@
       
         <a
           class="song"
-          href="/songs/lemon/"
+          href="/songs/lemon-99/"
         >
           <strong>
             Lemon
@@ -1832,6 +1918,12 @@
         </a>
       
     </div>
+
+    <p class="notice">
+      楽曲音域は音域データを基にした目安です。
+      歌唱方法や裏声の扱いなどによって
+      情報が異なる場合があります。
+    </p>
 
   </main>
 
