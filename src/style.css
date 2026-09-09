@@ -1,0 +1,1562 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+
+  background:
+    linear-gradient(
+      180deg,
+      #f7f8fc,
+      #eef1f8
+    );
+
+  color: #1c1c1e;
+
+  font-family:
+    Arial,
+    "Helvetica Neue",
+    sans-serif;
+}
+
+button,
+input {
+  font-family: inherit;
+}
+
+button {
+  cursor: pointer;
+
+  -webkit-tap-highlight-color:
+    transparent;
+}
+
+.container {
+  width: min(100%, 700px);
+
+  min-height: 100vh;
+
+  margin: 0 auto;
+
+  padding:
+    28px 14px
+    60px;
+
+  text-align: center;
+}
+
+.hidden {
+  display: none !important;
+}
+
+
+/* ==========================================
+   ヘッダー
+========================================== */
+
+.app-header {
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 0;
+
+  font-size: 32px;
+}
+
+.subtitle {
+  margin: 8px 0 0;
+
+  color: #777;
+
+  font-size: 14px;
+}
+
+
+/* ==========================================
+   現在音
+========================================== */
+
+.pitch-card {
+  padding: 24px 18px;
+
+  margin-bottom: 14px;
+
+  background: white;
+
+  border-radius: 24px;
+
+  box-shadow:
+    0 10px 35px
+    rgba(0, 0, 0, 0.08);
+}
+
+.note-display {
+  min-height: 78px;
+
+  font-size: 64px;
+
+  font-weight: 800;
+}
+
+.frequency-display {
+  color: #777;
+
+  font-size: 18px;
+}
+
+.pitch-guide {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  margin-top: 25px;
+
+  color: #888;
+
+  font-size: 12px;
+}
+
+.pitch-meter {
+  position: relative;
+
+  flex: 1;
+
+  height: 14px;
+
+  background: #e7e7ed;
+
+  border-radius: 20px;
+}
+
+.center-line {
+  position: absolute;
+
+  left: 50%;
+
+  top: -5px;
+
+  width: 2px;
+
+  height: 24px;
+
+  background: #111;
+
+  transform:
+    translateX(-50%);
+}
+
+.pitch-indicator {
+  position: absolute;
+
+  left: 50%;
+
+  top: 50%;
+
+  width: 18px;
+
+  height: 18px;
+
+  background: #111;
+
+  border-radius: 50%;
+
+  transform:
+    translate(-50%, -50%);
+
+  transition:
+    left 0.08s linear;
+}
+
+.pitch-message {
+  min-height: 24px;
+
+  margin-top: 18px;
+
+  font-weight: bold;
+}
+
+.pitch-message.correct {
+  color: #169c53;
+}
+
+.pitch-message.warning {
+  color: #e58b15;
+}
+
+
+/* ==========================================
+   練習
+========================================== */
+
+.practice-card {
+  margin-bottom: 14px;
+
+  padding: 18px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 7px 24px
+    rgba(0, 0, 0, 0.06);
+}
+
+.practice-top {
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 12px;
+}
+
+.practice-title {
+  text-align: left;
+
+  font-weight: 800;
+}
+
+.practice-subtitle {
+  margin-top: 4px;
+
+  text-align: left;
+
+  color: #888;
+
+  font-size: 11px;
+}
+
+.practice-button {
+  flex-shrink: 0;
+
+  padding: 10px 13px;
+
+  border: none;
+
+  border-radius: 12px;
+
+  background: #ececf1;
+
+  font-weight: bold;
+}
+
+.practice-button.active {
+  background: #7c4dff;
+
+  color: white;
+}
+
+.practice-result {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-top: 18px;
+}
+
+.practice-item {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 6px;
+
+  padding: 12px 6px;
+
+  background: #f7f7fa;
+
+  border-radius: 14px;
+}
+
+.practice-item span {
+  color: #888;
+
+  font-size: 11px;
+}
+
+.practice-item strong {
+  font-size: 22px;
+}
+
+.practice-feedback {
+  display: flex;
+
+  min-height: 48px;
+
+  align-items: center;
+
+  justify-content: center;
+
+  margin-top: 12px;
+
+  padding: 12px;
+
+  background: #f2f2f6;
+
+  border-radius: 14px;
+
+  font-weight: 800;
+}
+
+.practice-feedback.perfect {
+  background: #dff8e9;
+
+  color: #118442;
+
+  font-size: 21px;
+}
+
+.practice-feedback.good {
+  background: #e9f7ef;
+
+  color: #169c53;
+}
+
+.practice-feedback.adjust {
+  background: #fff3df;
+
+  color: #c5780a;
+}
+
+
+/* ==========================================
+   グラフ
+========================================== */
+
+.pitch-graph-card,
+.microphone-card,
+.stable-card {
+  margin-bottom: 14px;
+
+  padding: 18px;
+
+  background: white;
+
+  border-radius: 20px;
+
+  box-shadow:
+    0 7px 24px
+    rgba(0, 0, 0, 0.06);
+}
+
+.graph-header {
+  display: flex;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  margin-bottom: 12px;
+}
+
+.graph-title {
+  text-align: left;
+
+  font-weight: bold;
+}
+
+.graph-description {
+  margin-top: 3px;
+
+  text-align: left;
+
+  color: #888;
+
+  font-size: 11px;
+}
+
+.graph-current-note {
+  padding: 7px 10px;
+
+  background: #111;
+
+  color: white;
+
+  border-radius: 12px;
+
+  font-size: 18px;
+
+  font-weight: 800;
+}
+
+.graph-wrapper {
+  width: 100%;
+
+  height: 260px;
+
+  overflow: hidden;
+
+  border:
+    1px solid #eceef1;
+
+  border-radius: 14px;
+}
+
+#pitchCanvas {
+  display: block;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+.graph-bottom {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  padding-top: 7px;
+
+  color: #aaa;
+
+  font-size: 10px;
+}
+
+
+/* ==========================================
+   マイク
+========================================== */
+
+.mic-title {
+  margin-bottom: 15px;
+
+  font-weight: bold;
+}
+
+.volume-label-row {
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  margin-bottom: 7px;
+
+  color: #666;
+
+  font-size: 12px;
+}
+
+.volume-meter,
+.stable-bar {
+  width: 100%;
+
+  height: 14px;
+
+  overflow: hidden;
+
+  background: #e8e8ed;
+
+  border-radius: 999px;
+}
+
+.volume-bar,
+.stable-progress {
+  width: 0%;
+
+  height: 100%;
+
+  background: #35c77a;
+
+  border-radius: 999px;
+
+  transition:
+    width 0.08s linear;
+}
+
+.sensitivity-row {
+  display: grid;
+
+  grid-template-columns:
+    auto 1fr 30px;
+
+  align-items: center;
+
+  gap: 12px;
+
+  margin-top: 18px;
+}
+
+#sensitivitySlider {
+  width: 100%;
+}
+
+#sensitivityValue {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: 30px;
+
+  height: 30px;
+
+  background: #111;
+
+  color: white;
+
+  border-radius: 50%;
+}
+
+.mic-help,
+.stable-text {
+  margin: 10px 0 0;
+
+  color: #888;
+
+  font-size: 11px;
+}
+
+.stable-title {
+  margin-bottom: 10px;
+
+  font-weight: bold;
+}
+
+
+/* ==========================================
+   オクターブ
+========================================== */
+
+.octave-buttons {
+  display: flex;
+
+  gap: 8px;
+
+  overflow-x: auto;
+
+  margin-bottom: 10px;
+
+  padding-bottom: 3px;
+}
+
+.octave-button {
+  flex: 0 0 auto;
+
+  padding: 10px 14px;
+
+  border:
+    1px solid #ddd;
+
+  border-radius: 12px;
+
+  background: white;
+
+  font-weight: bold;
+}
+
+
+/* ==========================================
+   ピアノ
+========================================== */
+
+.keyboard-section {
+  width: 100%;
+
+  overflow-x: auto;
+
+  padding: 8px 0 18px;
+}
+
+.keyboard {
+  position: relative;
+
+  width: 2100px;
+
+  height: 220px;
+}
+
+.white-keys {
+  display: flex;
+
+  width: 100%;
+
+  height: 100%;
+}
+
+.piano-key {
+  touch-action:
+    manipulation;
+}
+
+.white-key {
+  position: relative;
+
+  flex: 1;
+
+  height: 100%;
+
+  padding: 0;
+
+  background:
+    linear-gradient(
+      white,
+      #f6f6f6
+    );
+
+  border:
+    1px solid #b8b8b8;
+
+  border-radius:
+    0 0 9px 9px;
+}
+
+.white-key span {
+  position: absolute;
+
+  bottom: 12px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 12px;
+
+  font-weight: bold;
+}
+
+.black-keys {
+  position: absolute;
+
+  left: 0;
+
+  top: 0;
+
+  width: 100%;
+}
+
+.black-key {
+  position: absolute;
+
+  width: 31px;
+
+  height: 135px;
+
+  margin-left: -15px;
+
+  padding: 0;
+
+  background:
+    linear-gradient(
+      #222,
+      #000
+    );
+
+  color: white;
+
+  border:
+    1px solid #000;
+
+  border-radius:
+    0 0 6px 6px;
+
+  z-index: 5;
+}
+
+.black-key span {
+  position: absolute;
+
+  bottom: 8px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%);
+
+  font-size: 9px;
+}
+
+
+/* ==========================================
+   限界音域
+========================================== */
+
+.white-key.in-limit-range {
+  background:
+    linear-gradient(
+      #fff6d7,
+      #ffe29b
+    );
+}
+
+.black-key.in-limit-range {
+  background:
+    linear-gradient(
+      #80672b,
+      #5c481b
+    );
+}
+
+
+/* ==========================================
+   快適音域
+========================================== */
+
+.white-key.in-comfort-range {
+  background:
+    linear-gradient(
+      #dcf8e7,
+      #75d99f
+    );
+}
+
+.black-key.in-comfort-range {
+  background:
+    linear-gradient(
+      #36a667,
+      #187744
+    );
+}
+
+
+/* ==========================================
+   限界端
+========================================== */
+
+.white-key.limit-edge {
+  box-shadow:
+    inset 0 0 0 3px
+    #ef7c34;
+}
+
+.black-key.limit-edge {
+  box-shadow:
+    0 0 0 3px
+    #ef7c34;
+}
+
+
+/* ==========================================
+   現在の声
+========================================== */
+
+.white-key.current-note {
+  background:
+    linear-gradient(
+      #69e6a3,
+      #20b967
+    );
+
+  box-shadow:
+    inset 0 0 0 4px
+    #0b8f4b;
+}
+
+.black-key.current-note {
+  background:
+    linear-gradient(
+      #67f0a6,
+      #13a857
+    );
+
+  box-shadow:
+    0 0 14px
+    rgba(
+      20,
+      200,
+      100,
+      0.8
+    );
+}
+
+
+/* ==========================================
+   練習目標音
+========================================== */
+
+.white-key.target-note {
+  box-shadow:
+    inset 0 0 0 4px
+    #7c4dff;
+
+  background:
+    linear-gradient(
+      #eee7ff,
+      #bba5ff
+    );
+}
+
+.black-key.target-note {
+  background: #6840d9;
+
+  box-shadow:
+    0 0 18px
+    rgba(
+      124,
+      77,
+      255,
+      0.8
+    );
+}
+
+
+/* ==========================================
+   音域凡例
+========================================== */
+
+.range-legend {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 18px;
+
+  margin:
+    -4px 0 14px;
+
+  color: #666;
+
+  font-size: 12px;
+}
+
+.range-legend span {
+  display: flex;
+
+  align-items: center;
+
+  gap: 5px;
+}
+
+.range-legend i {
+  display: inline-block;
+
+  width: 12px;
+
+  height: 12px;
+
+  border-radius: 3px;
+}
+
+.legend-comfort {
+  background: #75d99f;
+}
+
+.legend-limit {
+  background: #ffe29b;
+}
+
+.legend-edge {
+  background: white;
+
+  border:
+    3px solid #ef7c34;
+}
+
+
+/* ==========================================
+   メインボタン
+========================================== */
+
+.main-button,
+.range-button,
+.comfort-range-button {
+  width: 100%;
+
+  padding: 17px;
+
+  margin-top: 10px;
+
+  border: none;
+
+  border-radius: 16px;
+
+  font-size: 17px;
+
+  font-weight: bold;
+}
+
+.main-button {
+  background: #111;
+
+  color: white;
+}
+
+.range-button {
+  background: #fff0df;
+
+  color: #a85b1c;
+}
+
+.range-button.measuring {
+  background: #e76632;
+
+  color: white;
+}
+
+.comfort-range-button {
+  background: #e5f7ed;
+
+  color: #137a44;
+}
+
+.comfort-range-button.measuring {
+  background: #27ae60;
+
+  color: white;
+}
+
+
+/* ==========================================
+   音域測定
+========================================== */
+
+.range-measure-section {
+  margin-top: 18px;
+
+  padding: 20px 18px;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 28px
+    rgba(0, 0, 0, 0.07);
+}
+
+.range-measure-section h2 {
+  margin:
+    0 0 6px;
+
+  font-size: 21px;
+}
+
+.range-description {
+  margin:
+    0 0 14px;
+
+  color: #888;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.button-description {
+  margin:
+    6px 0 10px;
+
+  color: #999;
+
+  font-size: 11px;
+}
+
+
+/* ==========================================
+   音域結果
+========================================== */
+
+.range-card {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 25px;
+
+  margin-top: 18px;
+
+  padding: 18px;
+
+  background: white;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 7px 24px
+    rgba(0, 0, 0, 0.06);
+}
+
+.range-card-double {
+  flex-direction: column;
+
+  gap: 14px;
+}
+
+.range-group {
+  width: 100%;
+
+  padding: 16px;
+
+  border-radius: 16px;
+}
+
+.limit-group {
+  background: #fff4e8;
+}
+
+.comfort-group {
+  background: #eaf9f0;
+}
+
+.range-label {
+  margin-bottom: 8px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+}
+
+.range-values {
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  gap: 12px;
+}
+
+.range-values strong {
+  font-size: 28px;
+}
+
+.range-values span {
+  color: #777;
+
+  font-size: 22px;
+}
+
+.range-group p {
+  margin:
+    8px 0 0;
+
+  color: #777;
+
+  font-size: 11px;
+}
+
+.reset-button {
+  margin:
+    10px 0 22px;
+
+  padding: 10px;
+
+  border: none;
+
+  background: transparent;
+
+  color: #777;
+}
+
+
+/* ==========================================
+   J-POP
+========================================== */
+
+.song-section {
+  margin-top: 18px;
+
+  padding: 20px;
+
+  text-align: left;
+
+  background: white;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 8px 28px
+    rgba(0, 0, 0, 0.07);
+}
+
+.section-heading {
+  display: flex;
+
+  align-items:
+    flex-start;
+
+  gap: 12px;
+
+  margin-bottom: 18px;
+}
+
+.section-icon {
+  font-size: 26px;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-size: 18px;
+}
+
+.section-heading p {
+  margin: 5px 0 0;
+
+  color: #888;
+
+  font-size: 12px;
+
+  line-height: 1.5;
+}
+
+.range-required {
+  padding: 18px;
+
+  text-align: center;
+
+  background: #f5f5f8;
+
+  color: #777;
+
+  border-radius: 14px;
+}
+
+
+/* ==========================================
+   おすすめ曲
+========================================== */
+
+.recommendations {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+.song-card {
+  display: flex;
+
+  width: 100%;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  gap: 10px;
+
+  padding: 14px;
+
+  text-align: left;
+
+  border:
+    1px solid #eeeef2;
+
+  border-radius: 14px;
+
+  background: #fafafd;
+}
+
+.song-card:hover {
+  background: #f5f5fa;
+}
+
+.song-card-main {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.song-card-main strong {
+  font-size: 15px;
+}
+
+.song-card-main span {
+  color: #888;
+
+  font-size: 11px;
+}
+
+.song-card-main small {
+  margin-top: 3px;
+
+  color: #6b6b73;
+
+  font-size: 10px;
+}
+
+.song-card-right {
+  flex-shrink: 0;
+
+  text-align: right;
+}
+
+.stars {
+  color: #f4a51c;
+
+  white-space: nowrap;
+
+  font-size: 12px;
+}
+
+.mini-key {
+  display: block;
+
+  margin-top: 5px;
+
+  color: #7c4dff;
+
+  font-size: 16px;
+}
+
+
+/* ==========================================
+   曲検索
+========================================== */
+
+.song-search {
+  width: 100%;
+
+  padding: 14px 15px;
+
+  border:
+    1px solid #ddd;
+
+  border-radius: 14px;
+
+  outline: none;
+
+  font-size: 16px;
+}
+
+.song-search:focus {
+  border-color: #7c4dff;
+
+  box-shadow:
+    0 0 0 3px
+    rgba(
+      124,
+      77,
+      255,
+      0.1
+    );
+}
+
+.song-search-results {
+  margin-top: 10px;
+}
+
+.search-song-item {
+  display: flex;
+
+  width: 100%;
+
+  align-items: center;
+
+  justify-content:
+    space-between;
+
+  padding: 14px 8px;
+
+  text-align: left;
+
+  border: none;
+
+  border-bottom:
+    1px solid #eee;
+
+  background: transparent;
+}
+
+.search-song-item div {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.search-song-item strong {
+  font-size: 14px;
+}
+
+.search-song-item span {
+  color: #888;
+
+  font-size: 11px;
+}
+
+.search-arrow {
+  font-size: 26px !important;
+}
+
+.no-song {
+  padding: 18px;
+
+  text-align: center;
+
+  color: #888;
+}
+
+
+/* ==========================================
+   曲分析
+========================================== */
+
+.song-analysis-card {
+  margin-top: 18px;
+
+  padding: 22px 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #ffffff,
+      #f7f3ff
+    );
+
+  border:
+    1px solid #e6ddff;
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 10px 30px
+    rgba(
+      80,
+      50,
+      150,
+      0.1
+    );
+}
+
+.analysis-label {
+  color: #7c4dff;
+
+  font-size: 11px;
+
+  font-weight: bold;
+}
+
+.song-analysis-card h2 {
+  margin:
+    7px 0 3px;
+
+  font-size: 25px;
+}
+
+.analysis-artist {
+  color: #777;
+
+  font-size: 13px;
+}
+
+.analysis-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  gap: 8px;
+
+  margin-top: 20px;
+}
+
+.analysis-grid div {
+  padding: 13px 5px;
+
+  background: white;
+
+  border-radius: 14px;
+}
+
+.analysis-grid span {
+  display: block;
+
+  margin-bottom: 7px;
+
+  color: #888;
+
+  font-size: 10px;
+}
+
+.analysis-grid strong {
+  font-size: 16px;
+}
+
+.analysis-grid .key-result {
+  color: #7c4dff;
+
+  font-size: 26px;
+}
+
+.key-judgement {
+  margin-top: 15px;
+
+  padding: 14px;
+
+  border-radius: 14px;
+
+  font-size: 13px;
+
+  font-weight: bold;
+
+  line-height: 1.5;
+}
+
+.key-judgement.good {
+  background: #e4f8ec;
+
+  color: #148a4b;
+}
+
+.key-judgement.caution {
+  background: #fff7dc;
+
+  color: #9a7200;
+}
+
+.key-judgement.warning {
+  background: #fff0e5;
+
+  color: #b15e16;
+}
+
+.song-practice-button {
+  width: 100%;
+
+  margin-top: 14px;
+
+  padding: 14px;
+
+  border: none;
+
+  border-radius: 14px;
+
+  background: #7c4dff;
+
+  color: white;
+
+  font-weight: bold;
+
+  font-size: 15px;
+}
+
+
+/* ==========================================
+   ステータス
+========================================== */
+
+.status {
+  min-height: 24px;
+
+  margin-top: 20px;
+
+  color: #777;
+
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   スマホ
+========================================== */
+
+@media (
+  max-width: 600px
+) {
+  .container {
+    padding:
+      20px 12px
+      45px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .subtitle {
+    font-size: 12px;
+  }
+
+  .note-display {
+    font-size: 56px;
+  }
+
+  .practice-top {
+    align-items:
+      flex-start;
+  }
+
+  .practice-button {
+    font-size: 11px;
+  }
+
+  .practice-item strong {
+    font-size: 20px;
+  }
+
+  .graph-wrapper {
+    height: 230px;
+  }
+
+  .keyboard-section {
+    margin-left: -12px;
+
+    width:
+      calc(
+        100% + 24px
+      );
+
+    padding-left: 12px;
+
+    padding-right: 12px;
+  }
+
+  .keyboard {
+    height: 205px;
+  }
+
+  .black-key {
+    height: 125px;
+  }
+
+  .range-legend {
+    gap: 11px;
+
+    font-size: 11px;
+  }
+
+  .range-values strong {
+    font-size: 26px;
+  }
+
+  .song-section {
+    padding: 17px 14px;
+  }
+
+  .song-analysis-card {
+    padding: 20px 13px;
+  }
+
+  .analysis-grid {
+    gap: 5px;
+  }
+
+  .analysis-grid strong {
+    font-size: 13px;
+  }
+
+  .analysis-grid .key-result {
+    font-size: 23px;
+  }
+
+  .stars {
+    font-size: 11px;
+  }
+}
