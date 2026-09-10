@@ -1,0 +1,79 @@
+{
+  "updatedAt": "2026-09-10T17:55:02.372Z",
+  "sources": [
+    "DAM",
+    "JOYSOUND"
+  ],
+  "songs": [
+    {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 2,
+      "score": 198
+    },
+    {
+      "title": "マリーゴールド",
+      "artist": "あいみょん",
+      "damRank": 3,
+      "joysoundRank": 3,
+      "score": 196
+    },
+    {
+      "title": "怪獣の花唄",
+      "artist": "Vaundy",
+      "damRank": 2,
+      "joysoundRank": 4,
+      "score": 196
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
+      "damRank": 3,
+      "joysoundRank": 5,
+      "score": 194
+    },
+    {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 8,
+      "joysoundRank": 7,
+      "score": 187
+    },
+    {
+      "title": "サウダージ",
+      "artist": "ポルノグラフィティ",
+      "damRank": 9,
+      "joysoundRank": 6,
+      "score": 187
+    },
+    {
+      "title": "さよならエレジー",
+      "artist": "菅田将暉",
+      "damRank": 7,
+      "joysoundRank": 9,
+      "score": 186
+    },
+    {
+      "title": "高嶺の花子さん",
+      "artist": "back number",
+      "damRank": 10,
+      "joysoundRank": 8,
+      "score": 184
+    },
+    {
+      "title": "ドライフラワー",
+      "artist": "優里",
+      "damRank": 11,
+      "joysoundRank": 10,
+      "score": 181
+    },
+    {
+      "title": "ライラック",
+      "artist": "Mrs. GREEN APPLE",
+      "damRank": 1,
+      "joysoundRank": null,
+      "score": 100
+    }
+  ]
+}

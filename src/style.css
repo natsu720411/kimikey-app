@@ -1702,3 +1702,116 @@ h1 {
   }
 
 }
+/* ==========================================
+   人気曲ランキング番号
+========================================== */
+
+.popular-rank {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #f0ebff;
+
+  color: #7c4dff;
+
+  font-size: 14px;
+  font-weight: 800;
+}
+
+
+/* 1位 */
+
+.search-song-item:nth-child(1)
+.popular-rank {
+  background: #fff1b8;
+  color: #a56b00;
+}
+
+
+/* 2位 */
+
+.search-song-item:nth-child(2)
+.popular-rank {
+  background: #eeeeee;
+  color: #666;
+}
+
+
+/* 3位 */
+
+.search-song-item:nth-child(3)
+.popular-rank {
+  background: #f3dfd1;
+  color: #9a5b32;
+}
+/* ==========================================
+   最新ランキング
+========================================== */
+
+.popular-loading {
+  padding: 20px;
+
+  text-align: center;
+
+  color: #888;
+}
+
+.popular-source {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #999;
+
+  font-size: 11px;
+}
+
+.popular-rank {
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #f0ebff;
+
+  color: #7c4dff;
+
+  font-weight: 800;
+}
+
+#popularSongs
+.search-song-item:nth-child(1)
+.popular-rank {
+  background: #fff0b3;
+  color: #9b6b00;
+}
+
+#popularSongs
+.search-song-item:nth-child(2)
+.popular-rank {
+  background: #eeeeee;
+  color: #666;
+}
+
+#popularSongs
+.search-song-item:nth-child(3)
+.popular-rank {
+  background: #f3ddd0;
+  color: #965b35;
+}

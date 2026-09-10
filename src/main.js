@@ -712,13 +712,13 @@ app.innerHTML = `
     ></div>
 <div class="popular-songs-block">
 
-  <div class="popular-songs-title">
-    🔥 人気曲から選ぶ
-  </div>
+<div class="popular-songs-title">
+  🔥 今日の人気曲10選
+</div>
 
-  <p class="popular-songs-description">
-    よく歌われる人気曲10曲
-  </p>
+<p class="popular-songs-description">
+  人気曲候補から毎日10曲をピックアップ
+</p>
 
   <div
     id="popularSongs"
@@ -1454,7 +1454,12 @@ function renderRecommendations() {
 // 人気10曲
 // ==========================================
 
-const POPULAR_SONGS = [
+// ==========================================
+// 人気曲候補
+// 毎日この中から10曲を自動表示
+// ==========================================
+
+const POPULAR_SONGS_POOL = [
 
   {
     title: 'ライラック',
@@ -1504,12 +1509,265 @@ const POPULAR_SONGS = [
   {
     title: 'マリーゴールド',
     artist: 'あいみょん'
+  },
+
+  {
+    title: 'ケセラセラ',
+    artist: 'Mrs. GREEN APPLE'
+  },
+
+  {
+    title: '青と夏',
+    artist: 'Mrs. GREEN APPLE'
+  },
+
+  {
+    title: 'ダーリン',
+    artist: 'Mrs. GREEN APPLE'
+  },
+
+  {
+    title: '僕のこと',
+    artist: 'Mrs. GREEN APPLE'
+  },
+
+  {
+    title: 'ダンスホール',
+    artist: 'Mrs. GREEN APPLE'
+  },
+
+  {
+    title: '新時代',
+    artist: 'Ado'
+  },
+
+  {
+    title: '唱',
+    artist: 'Ado'
+  },
+
+  {
+    title: '私は最強',
+    artist: 'Ado'
+  },
+
+  {
+    title: '踊',
+    artist: 'Ado'
+  },
+
+  {
+    title: '夜に駆ける',
+    artist: 'YOASOBI'
+  },
+
+  {
+    title: '怪物',
+    artist: 'YOASOBI'
+  },
+
+  {
+    title: '群青',
+    artist: 'YOASOBI'
+  },
+
+  {
+    title: 'ベテルギウス',
+    artist: '優里'
+  },
+
+  {
+    title: '水平線',
+    artist: 'back number'
+  },
+
+  {
+    title: '高嶺の花子さん',
+    artist: 'back number'
+  },
+
+  {
+    title: 'Lemon',
+    artist: '米津玄師'
+  },
+
+  {
+    title: 'きらり',
+    artist: '藤井風'
+  },
+
+  {
+    title: '花',
+    artist: '藤井風'
+  },
+
+  {
+    title: 'SPECIALZ',
+    artist: 'King Gnu'
+  },
+
+  {
+    title: '花になって',
+    artist: '緑黄色社会'
   }
 
 ]
 
 
-function renderPopularSongs() {
+// ==========================================
+// 日付から固定乱数を作る
+// 同じ日は同じ10曲
+// 翌日になると自動で変わる
+// ==========================================
+
+function getDailySeed() {
+
+  const now =
+    new Date()
+
+
+  const dateText =
+    `${now.getFullYear()}-${now.getMonth() + 1}-${now.getDate()}`
+
+
+  let seed = 0
+
+
+  for (
+    let i = 0;
+    i < dateText.length;
+    i++
+  ) {
+
+    seed =
+      (
+        seed * 31 +
+        dateText.charCodeAt(i)
+      ) >>> 0
+
+  }
+
+
+  return seed
+}
+
+
+function seededRandom(seed) {
+
+  let value =
+    seed >>> 0
+
+
+  return function () {
+
+    value +=
+      0x6D2B79F5
+
+
+    let t =
+      value
+
+
+    t =
+      Math.imul(
+        t ^ (t >>> 15),
+        t | 1
+      )
+
+
+    t ^=
+      t +
+      Math.imul(
+        t ^ (t >>> 7),
+        t | 61
+      )
+
+
+    return (
+      (
+        t ^ (t >>> 14)
+      ) >>> 0
+    ) / 4294967296
+
+  }
+}
+
+
+// ==========================================
+// 今日の人気10曲
+// ==========================================
+
+function getDailyPopularSongs() {
+
+  const availableSongs =
+    POPULAR_SONGS_POOL
+      .map(
+        popular => {
+
+          return SONGS.find(
+            song =>
+              song.title ===
+                popular.title &&
+              song.artist ===
+                popular.artist
+          )
+
+        }
+      )
+      .filter(Boolean)
+
+
+  const random =
+    seededRandom(
+      getDailySeed()
+    )
+
+
+  const shuffled =
+    [...availableSongs]
+
+
+  for (
+    let i =
+      shuffled.length - 1;
+    i > 0;
+    i--
+  ) {
+
+    const j =
+      Math.floor(
+        random() *
+        (i + 1)
+      )
+
+
+    const temp =
+      shuffled[i]
+
+    shuffled[i] =
+      shuffled[j]
+
+    shuffled[j] =
+      temp
+  }
+
+
+  return shuffled.slice(
+    0,
+    10
+  )
+}
+
+
+// ==========================================
+// 人気10曲表示
+// ==========================================
+
+// ==========================================
+// 最新人気10曲
+// ==========================================
+
+async function renderPopularSongs() {
 
   const container =
     document.querySelector(
@@ -1522,11 +1780,45 @@ function renderPopularSongs() {
   }
 
 
-  container.innerHTML = ''
+  container.innerHTML = `
+    <div class="popular-loading">
+      人気ランキングを読み込んでいます...
+    </div>
+  `
 
 
-  POPULAR_SONGS.forEach(
-    popular => {
+  try {
+
+    const response =
+      await fetch(
+        `/popular-songs.json?t=${Date.now()}`
+      )
+
+
+    if (!response.ok) {
+
+      throw new Error(
+        'ランキング取得失敗'
+      )
+
+    }
+
+
+    const data =
+      await response.json()
+
+
+    container.innerHTML = ''
+
+
+    let displayed =
+      0
+
+
+    for (
+      const popular of
+      data.songs
+    ) {
 
       const song =
         SONGS.find(
@@ -1539,8 +1831,11 @@ function renderPopularSongs() {
 
 
       if (!song) {
-        return
+        continue
       }
+
+
+      displayed++
 
 
       const item =
@@ -1553,20 +1848,94 @@ function renderPopularSongs() {
         'search-song-item'
 
 
+      let rankDetail = ''
+
+
+      if (
+        popular.damRank ||
+        popular.joysoundRank
+      ) {
+
+        const details = []
+
+
+        if (
+          popular.damRank
+        ) {
+
+          details.push(
+            `DAM ${popular.damRank}位`
+          )
+
+        }
+
+
+        if (
+          popular.joysoundRank
+        ) {
+
+          details.push(
+            `JOYSOUND ${popular.joysoundRank}位`
+          )
+
+        }
+
+
+        rankDetail =
+          details.join(' / ')
+
+      }
+
+
       item.innerHTML = `
-        <div>
 
-          <strong>
-            ${song.title}
-          </strong>
+        <div
+          style="
+            display:flex;
+            align-items:center;
+            gap:12px;
+          "
+        >
 
-          <span>
-            ${song.artist}
-          </span>
+          <div
+            class="popular-rank"
+          >
+            ${displayed}
+          </div>
+
+
+          <div>
+
+            <strong>
+              ${song.title}
+            </strong>
+
+
+            <span>
+              ${song.artist}
+            </span>
+
+
+            ${
+              rankDetail
+                ? `
+                  <small
+                    class="popular-source"
+                  >
+                    ${rankDetail}
+                  </small>
+                `
+                : ''
+            }
+
+          </div>
 
         </div>
 
-        <span class="search-arrow">
+
+        <span
+          class="search-arrow"
+        >
           ›
         </span>
       `
@@ -1589,8 +1958,48 @@ function renderPopularSongs() {
       )
 
     }
-  )
+
+
+    const description =
+      document.querySelector(
+        '.popular-songs-description'
+      )
+
+
+    if (
+      description &&
+      data.updatedAt
+    ) {
+
+      const date =
+        new Date(
+          data.updatedAt
+        )
+
+
+      description.textContent =
+        `DAM・JOYSOUNDランキング参考 / ${date.toLocaleDateString('ja-JP')}更新`
+
+    }
+
+  } catch (error) {
+
+    console.error(
+      error
+    )
+
+
+    container.innerHTML = `
+      <div class="no-song">
+        人気曲ランキングを読み込めませんでした
+      </div>
+    `
+
+  }
 }
+
+
+
 function renderSearchResults(
   searchText = ''
 ) {
