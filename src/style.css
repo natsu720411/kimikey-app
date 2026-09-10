@@ -1560,3 +1560,145 @@ h1 {
     font-size: 11px;
   }
 }
+/* ==========================================
+   人気10曲
+========================================== */
+
+.popular-songs-block {
+  margin-top: 28px;
+}
+
+.popular-songs-title {
+  margin-bottom: 4px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.popular-songs-description {
+  margin-top: 0;
+  margin-bottom: 14px;
+
+  color: #888;
+  font-size: 13px;
+}
+
+
+/* ==========================================
+   キー変更表
+========================================== */
+
+.key-table-section {
+  margin-top: 26px;
+}
+
+.key-table-title {
+  margin-bottom: 4px;
+
+  font-size: 18px;
+  font-weight: 800;
+}
+
+.key-table-description {
+  margin-top: 0;
+  margin-bottom: 12px;
+
+  color: #888;
+  font-size: 13px;
+}
+
+.key-shift-table {
+  overflow: hidden;
+
+  border: 1px solid #ececf2;
+  border-radius: 16px;
+}
+
+.key-shift-row {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  min-height: 52px;
+
+  padding: 10px 16px;
+
+  background: #fff;
+
+  border-bottom: 1px solid #eeeeF3;
+}
+
+.key-shift-row:last-child {
+  border-bottom: none;
+}
+
+.key-shift-row.recommended {
+  background: #f3eeff;
+
+  box-shadow:
+    inset 4px 0 0 #7c4dff;
+}
+
+.key-shift-name {
+  display: flex;
+
+  align-items: center;
+  gap: 8px;
+}
+
+.key-shift-name strong {
+  min-width: 48px;
+
+  font-size: 16px;
+}
+
+.key-shift-range {
+  color: #444;
+
+  font-weight: 700;
+}
+
+.key-shift-range span {
+  margin: 0 5px;
+
+  color: #aaa;
+}
+
+.recommended-badge {
+  padding: 3px 8px;
+
+  border-radius: 999px;
+
+  background: #7c4dff;
+
+  color: white;
+
+  font-size: 11px;
+  font-weight: 700;
+}
+
+
+/* スマホ */
+
+@media (max-width: 520px) {
+
+  .key-shift-row {
+    padding: 10px 12px;
+  }
+
+  .key-shift-name strong {
+    min-width: 42px;
+  }
+
+  .key-shift-range {
+    font-size: 14px;
+  }
+
+  .recommended-badge {
+    padding: 2px 6px;
+
+    font-size: 10px;
+  }
+
+}

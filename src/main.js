@@ -710,7 +710,22 @@ app.innerHTML = `
       id="songSearchResults"
       class="song-search-results"
     ></div>
+<div class="popular-songs-block">
 
+  <div class="popular-songs-title">
+    🔥 人気曲から選ぶ
+  </div>
+
+  <p class="popular-songs-description">
+    よく歌われる人気曲10曲
+  </p>
+
+  <div
+    id="popularSongs"
+    class="song-search-results"
+  ></div>
+
+</div>
   </section>
 
 
@@ -766,7 +781,22 @@ app.innerHTML = `
       id="keyJudgement"
       class="key-judgement"
     ></div>
+<div class="key-table-section">
 
+  <div class="key-table-title">
+    🎼 キー変更表
+  </div>
+
+  <p class="key-table-description">
+    キーを変えたときの最低音・最高音
+  </p>
+
+  <div
+    id="keyShiftTable"
+    class="key-shift-table"
+  ></div>
+
+</div>
 
     <button
       id="practiceSongKey"
@@ -855,7 +885,174 @@ let targetMidi = null
 
 let selectedSong = null
 let selectedSongAnalysis = null
+// ==========================================
+// 音域保存
+// ==========================================
 
+const RANGE_STORAGE_KEY =
+  'kimikey-vocal-range-v1'
+
+
+function saveRangeData() {
+
+  if (!hasAnyRange()) {
+    return
+  }
+
+
+  const data = {
+
+    limitLowestMidi,
+    limitHighestMidi,
+
+    comfortLowestMidi,
+    comfortHighestMidi,
+
+    savedAt:
+      Date.now()
+
+  }
+
+
+  localStorage.setItem(
+    RANGE_STORAGE_KEY,
+    JSON.stringify(data)
+  )
+}
+
+
+function loadRangeData() {
+
+  try {
+
+    const saved =
+      localStorage.getItem(
+        RANGE_STORAGE_KEY
+      )
+
+
+    if (!saved) {
+      return false
+    }
+
+
+    const data =
+      JSON.parse(saved)
+
+
+    if (
+      Number.isFinite(
+        data.limitLowestMidi
+      ) &&
+      Number.isFinite(
+        data.limitHighestMidi
+      )
+    ) {
+
+      limitLowestMidi =
+        data.limitLowestMidi
+
+      limitHighestMidi =
+        data.limitHighestMidi
+
+    }
+
+
+    if (
+      Number.isFinite(
+        data.comfortLowestMidi
+      ) &&
+      Number.isFinite(
+        data.comfortHighestMidi
+      )
+    ) {
+
+      comfortLowestMidi =
+        data.comfortLowestMidi
+
+      comfortHighestMidi =
+        data.comfortHighestMidi
+
+    }
+
+
+    return hasAnyRange()
+
+  } catch (error) {
+
+    console.error(
+      '音域データの読み込み失敗',
+      error
+    )
+
+    return false
+  }
+}
+
+
+function updateSavedRangeDisplay() {
+
+  if (hasLimitRange()) {
+
+    document.querySelector(
+      '#limitLowestNote'
+    ).textContent =
+      midiToNoteName(
+        limitLowestMidi
+      )
+
+
+    document.querySelector(
+      '#limitHighestNote'
+    ).textContent =
+      midiToNoteName(
+        limitHighestMidi
+      )
+
+  }
+
+
+  if (hasComfortRange()) {
+
+    document.querySelector(
+      '#comfortLowestNote'
+    ).textContent =
+      midiToNoteName(
+        comfortLowestMidi
+      )
+
+
+    document.querySelector(
+      '#comfortHighestNote'
+    ).textContent =
+      midiToNoteName(
+        comfortHighestMidi
+      )
+
+  }
+
+
+  if (hasAnyRange()) {
+
+    document.querySelector(
+      '#status'
+    ).textContent =
+      '✅ 保存済みの音域を読み込みました'
+
+
+    document.querySelector(
+      '#rangeRequired'
+    )?.classList.add(
+      'hidden'
+    )
+
+  }
+
+
+  updateRangeKeys()
+
+  renderRecommendations()
+}
 
 // ==========================================
 // 音域があるか
@@ -1253,7 +1450,147 @@ function renderRecommendations() {
 // 曲検索
 // ★ 入力するまで一覧を表示しない
 // ==========================================
+// ==========================================
+// 人気10曲
+// ==========================================
 
+const POPULAR_SONGS = [
+
+  {
+    title: 'ライラック',
+    artist: 'Mrs. GREEN APPLE'
+  },
+
+  {
+    title: '怪獣の花唄',
+    artist: 'Vaundy'
+  },
+
+  {
+    title: 'Bling-Bang-Bang-Born',
+    artist: 'Creepy Nuts'
+  },
+
+  {
+    title: '幾億光年',
+    artist: 'Omoinotake'
+  },
+
+  {
+    title: '晩餐歌',
+    artist: 'tuki.'
+  },
+
+  {
+    title: 'Subtitle',
+    artist: 'Official髭男dism'
+  },
+
+  {
+    title: 'アイドル',
+    artist: 'YOASOBI'
+  },
+
+  {
+    title: 'ドライフラワー',
+    artist: '優里'
+  },
+
+  {
+    title: '残響散歌',
+    artist: 'Aimer'
+  },
+
+  {
+    title: 'マリーゴールド',
+    artist: 'あいみょん'
+  }
+
+]
+
+
+function renderPopularSongs() {
+
+  const container =
+    document.querySelector(
+      '#popularSongs'
+    )
+
+
+  if (!container) {
+    return
+  }
+
+
+  container.innerHTML = ''
+
+
+  POPULAR_SONGS.forEach(
+    popular => {
+
+      const song =
+        SONGS.find(
+          item =>
+            item.title ===
+              popular.title &&
+            item.artist ===
+              popular.artist
+        )
+
+
+      if (!song) {
+        return
+      }
+
+
+      const item =
+        document.createElement(
+          'button'
+        )
+
+
+      item.className =
+        'search-song-item'
+
+
+      item.innerHTML = `
+        <div>
+
+          <strong>
+            ${song.title}
+          </strong>
+
+          <span>
+            ${song.artist}
+          </span>
+
+        </div>
+
+        <span class="search-arrow">
+          ›
+        </span>
+      `
+
+
+      item.addEventListener(
+        'click',
+        () => {
+
+          showSongAnalysis(
+            song
+          )
+
+        }
+      )
+
+
+      container.appendChild(
+        item
+      )
+
+    }
+  )
+}
 function renderSearchResults(
   searchText = ''
 ) {
@@ -1374,7 +1711,128 @@ document.querySelector(
   }
 )
 
+// ==========================================
+// キー変更表
+// ==========================================
 
+function renderKeyShiftTable(
+  song,
+  recommendedShift = null
+) {
+
+  const container =
+    document.querySelector(
+      '#keyShiftTable'
+    )
+
+
+  if (!container) {
+    return
+  }
+
+
+  const songLow =
+    getSongLowMidi(song)
+
+  const songHigh =
+    getSongHighMidi(song)
+
+
+  if (
+    !Number.isFinite(songLow) ||
+    !Number.isFinite(songHigh)
+  ) {
+
+    container.innerHTML =
+      '音域データがありません'
+
+    return
+  }
+
+
+  container.innerHTML = ''
+
+
+  for (
+    let shift = -6;
+    shift <= 6;
+    shift++
+  ) {
+
+    const shiftedLow =
+      songLow + shift
+
+    const shiftedHigh =
+      songHigh + shift
+
+
+    const row =
+      document.createElement(
+        'div'
+      )
+
+
+    row.className =
+      'key-shift-row'
+
+
+    if (
+      recommendedShift !== null &&
+      shift === recommendedShift
+    ) {
+
+      row.classList.add(
+        'recommended'
+      )
+
+    }
+
+
+    const recommendedBadge =
+      recommendedShift !== null &&
+      shift === recommendedShift
+        ? '<span class="recommended-badge">おすすめ</span>'
+        : ''
+
+
+    row.innerHTML = `
+
+      <div class="key-shift-name">
+
+        <strong>
+          ${formatKeyShift(
+            shift
+          )}
+        </strong>
+
+        ${recommendedBadge}
+
+      </div>
+
+
+      <div class="key-shift-range">
+
+        ${midiToNoteName(
+          shiftedLow
+        )}
+
+        <span>〜</span>
+
+        ${midiToNoteName(
+          shiftedHigh
+        )}
+
+      </div>
+
+    `
+
+
+    container.appendChild(
+      row
+    )
+
+  }
+}
 // ==========================================
 // 曲分析
 // ==========================================
@@ -1472,6 +1930,10 @@ function showSongAnalysis(song) {
   selectedSongAnalysis =
     result
 
+    renderKeyShiftTable(
+      song,
+      result.shift
+    )
 
   keyElement.textContent =
     formatKeyShift(
@@ -4092,6 +4554,8 @@ function stopRangeMeasurement() {
 
   updateRangeKeys()
 
+  saveRangeData()
+
   renderRecommendations()
 
 
@@ -4176,7 +4640,9 @@ document.querySelector(
     candidateStartTime = null
 
     confirmedNotes.clear()
-
+localStorage.removeItem(
+  RANGE_STORAGE_KEY
+)
 
     document.querySelector(
       '#limitLowestNote'
@@ -4248,12 +4714,29 @@ document.querySelector(
 // 起動
 // ==========================================
 
-// 検索欄は最初は空
+// 人気10曲
+renderPopularSongs()
+
+// 検索欄
 renderSearchResults('')
 
-// 音域測定前はおすすめを表示しない
-renderRecommendations()
+// 前回の音域を読み込み
+const restoredRange =
+  loadRangeData()
 
+
+if (restoredRange) {
+
+  updateSavedRangeDisplay()
+
+} else {
+
+  renderRecommendations()
+
+}
+
+
+// ピアノ音源
 createPianoSampler()
 
 
@@ -4263,5 +4746,6 @@ requestAnimationFrame(
     resizeCanvas()
 
     graphLoop()
+
   }
 )
