@@ -1,8 +1,10 @@
 
 <!doctype html>
+
 <html lang="ja">
 
 <head>
+
   <meta charset="UTF-8">
 
   <meta
@@ -12,20 +14,29 @@
 
   
     <!-- Google tag (gtag.js) -->
+
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"
     ></script>
 
     <script>
-      window.dataLayer = window.dataLayer || [];
+      window.dataLayer =
+        window.dataLayer || [];
 
       function gtag() {
         dataLayer.push(arguments);
       }
 
-      gtag('js', new Date());
-      gtag('config', 'G-1B35Z51M10');
+      gtag(
+        'js',
+        new Date()
+      );
+
+      gtag(
+        'config',
+        'G-1B35Z51M10'
+      );
     </script>
   
 
@@ -49,66 +60,35 @@
   >
 
   <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:title"
-    content="J-POP曲別音域一覧｜最低音・最高音を調べる｜キミキー"
-  >
-
-  <meta
-    property="og:description"
-    content="J-POPの曲別音域一覧。各曲の最低音・最高音を確認し、自分の声の音域に合うおすすめキーをキミキーで調べられます。"
-  >
-
-  <meta
-    property="og:url"
-    content="https://kimikey-app.vercel.app/songs/"
-  >
-
-  <meta
-    property="og:site_name"
-    content="キミキー"
-  >
-
-  <meta
     name="theme-color"
     content="#111111"
   >
 
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "CollectionPage",
-  "name": "J-POP曲別音域一覧｜最低音・最高音を調べる｜キミキー",
-  "description": "J-POPの曲別音域一覧。各曲の最低音・最高音を確認し、自分の声の音域に合うおすすめキーをキミキーで調べられます。",
-  "url": "https://kimikey-app.vercel.app/songs/",
-  "inLanguage": "ja",
-  "isPartOf": {
-    "@type": "WebSite",
-    "name": "キミキー",
-    "url": "https://kimikey-app.vercel.app"
-  }
-}
-  </script>
-
   <style>
+
     * {
-      box-sizing: border-box;
+      box-sizing:
+        border-box;
     }
 
     body {
-      margin: 0;
+      margin:
+        0;
+
       font-family:
         -apple-system,
         BlinkMacSystemFont,
         "Segoe UI",
         sans-serif;
-      background: #f6f7fb;
-      color: #222;
-      line-height: 1.7;
+
+      background:
+        #f6f7fb;
+
+      color:
+        #222;
+
+      line-height:
+        1.7;
     }
 
     .container {
@@ -117,74 +97,162 @@
           760px,
           calc(100% - 30px)
         );
-      margin: 0 auto;
-      padding: 25px 0 60px;
+
+      margin:
+        0 auto;
+
+      padding:
+        25px 0 60px;
     }
 
     .logo {
-      color: #222;
-      font-size: 22px;
-      font-weight: 800;
-      text-decoration: none;
+      color:
+        #222;
+
+      font-size:
+        22px;
+
+      font-weight:
+        800;
+
+      text-decoration:
+        none;
     }
 
     h1 {
       margin:
         25px 0 5px;
-      line-height: 1.4;
     }
 
     .description {
-      margin-bottom: 25px;
-      color: #666;
+      margin-bottom:
+        25px;
+
+      color:
+        #666;
+    }
+
+    .nav-link {
+      display:
+        block;
+
+      margin-bottom:
+        12px;
+
+      padding:
+        15px;
+
+      background:
+        white;
+
+      border-radius:
+        14px;
+
+      color:
+        #222;
+
+      font-weight:
+        700;
+
+      text-align:
+        center;
+
+      text-decoration:
+        none;
     }
 
     .app-link {
-      display: block;
-      margin-bottom: 28px;
-      padding: 16px;
-      background: #111;
-      border-radius: 14px;
-      color: white;
-      font-weight: 700;
-      text-align: center;
-      text-decoration: none;
+      display:
+        block;
+
+      margin-bottom:
+        28px;
+
+      padding:
+        16px;
+
+      background:
+        #111;
+
+      border-radius:
+        14px;
+
+      color:
+        white;
+
+      font-weight:
+        700;
+
+      text-align:
+        center;
+
+      text-decoration:
+        none;
     }
 
     .songs {
-      display: grid;
-      gap: 10px;
+      display:
+        grid;
+
+      gap:
+        10px;
     }
 
     .song {
-      display: block;
-      padding: 16px;
-      background: white;
-      border-radius: 14px;
-      color: #222;
-      text-decoration: none;
+      display:
+        block;
+
+      padding:
+        16px;
+
+      background:
+        white;
+
+      border-radius:
+        14px;
+
+      color:
+        #222;
+
+      text-decoration:
+        none;
+
       box-shadow:
         0 3px 15px
-        rgba(0, 0, 0, 0.04);
+        rgba(0,0,0,.04);
     }
 
     .song strong {
-      display: block;
-      margin-bottom: 3px;
+      display:
+        block;
+
+      margin-bottom:
+        3px;
     }
 
     .song span {
-      color: #777;
-      font-size: 13px;
+      color:
+        #777;
+
+      font-size:
+        13px;
     }
 
     .notice {
-      margin-top: 28px;
-      color: #777;
-      font-size: 12px;
+      margin-top:
+        28px;
+
+      color:
+        #777;
+
+      font-size:
+        12px;
     }
+
   </style>
+
 </head>
+
 
 <body>
 
@@ -197,16 +265,28 @@
       🎤 キミキー
     </a>
 
+
     <h1>
       J-POP 曲別音域一覧
     </h1>
 
+
     <p class="description">
-      曲名を選ぶと、
-      最低音・最高音・音域の広さを確認できます。
-      自分に合うキーを知りたい場合は、
-      キミキーで自分の声の音域も測定できます。
+
+      192曲の
+      最低音・最高音・音域の広さを
+      確認できます。
+
     </p>
+
+
+    <a
+      class="nav-link"
+      href="/artists/"
+    >
+      👤 アーティスト別に探す
+    </a>
+
 
     <a
       class="app-link"
@@ -215,12 +295,14 @@
       🎤 自分の音域を測定する
     </a>
 
+
     <div class="songs">
       
         <a
           class="song"
           href="/songs/brand-new-1/"
         >
+
           <strong>
             Brand New
           </strong>
@@ -232,12 +314,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-2/"
         >
+
           <strong>
             ライラック
           </strong>
@@ -249,12 +333,14 @@
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-3/"
         >
+
           <strong>
             好きすぎて滅!
           </strong>
@@ -262,16 +348,18 @@
           <span>
             M!LK
             ・
-            B3
+            B2
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/iris-out-4/"
         >
+
           <strong>
             IRIS OUT
           </strong>
@@ -279,16 +367,18 @@
           <span>
             米津玄師
             ・
-            A#3
+            A#2
             〜
-            A5
+            A4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-5/"
         >
+
           <strong>
             青と夏
           </strong>
@@ -300,12 +390,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/blue-jeans-6/"
         >
+
           <strong>
             Blue Jeans
           </strong>
@@ -315,14 +407,16 @@
             ・
             E3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-7/"
         >
+
           <strong>
             恋、はじめました。
           </strong>
@@ -330,16 +424,18 @@
           <span>
             =LOVE
             ・
-            A4
+            A3
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/soranji-8/"
         >
+
           <strong>
             Soranji
           </strong>
@@ -351,12 +447,14 @@
             〜
             F#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/lulu-9/"
         >
+
           <strong>
             lulu.
           </strong>
@@ -368,12 +466,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-10/"
         >
+
           <strong>
             アイドルパワー
           </strong>
@@ -383,14 +483,16 @@
             ・
             D3
             〜
-            A#5
+            A#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/happy-birthday-11/"
         >
+
           <strong>
             HAPPY BIRTHDAY
           </strong>
@@ -400,14 +502,16 @@
             ・
             G#2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-12/"
         >
+
           <strong>
             ケセラセラ
           </strong>
@@ -419,12 +523,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/i-got-your-back-13/"
         >
+
           <strong>
             I Got Your Back
           </strong>
@@ -436,12 +542,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-14/"
         >
+
           <strong>
             ダーリン
           </strong>
@@ -453,12 +561,14 @@
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/rose-15/"
         >
+
           <strong>
             ROSE
           </strong>
@@ -470,12 +580,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-16/"
         >
+
           <strong>
             ブルーアンバー
           </strong>
@@ -483,16 +595,18 @@
           <span>
             back number
             ・
-            A#3
+            A#2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-17/"
         >
+
           <strong>
             僕のこと
           </strong>
@@ -504,12 +618,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-18/"
         >
+
           <strong>
             マイオンリー
           </strong>
@@ -519,14 +635,16 @@
             ・
             C#3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-19/"
         >
+
           <strong>
             水平線
           </strong>
@@ -538,12 +656,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-20/"
         >
+
           <strong>
             ヒロイン
           </strong>
@@ -553,14 +673,16 @@
             ・
             D3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/magic-21/"
         >
+
           <strong>
             Magic
           </strong>
@@ -572,12 +694,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-22/"
         >
+
           <strong>
             怪獣
           </strong>
@@ -587,14 +711,16 @@
             ・
             F3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/115-23/"
         >
+
           <strong>
             115万キロのフィルム
           </strong>
@@ -606,12 +732,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-24/"
         >
+
           <strong>
             ダンスホール
           </strong>
@@ -619,16 +747,18 @@
           <span>
             Mrs. GREEN APPLE
             ・
-            A4
+            A3
             〜
             F#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/pretender-25/"
         >
+
           <strong>
             Pretender
           </strong>
@@ -640,12 +770,14 @@
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/aizo-26/"
         >
+
           <strong>
             AIZO
           </strong>
@@ -655,14 +787,16 @@
             ・
             D3
             〜
-            A#5
+            A#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/feat-asmi-27/"
         >
+
           <strong>
             ブルーアンビエンス (feat. asmi)
           </strong>
@@ -674,12 +808,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/bad-28/"
         >
+
           <strong>
             BAD
           </strong>
@@ -691,12 +827,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/bpm-feat-kreva-29/"
         >
+
           <strong>
             BPM (feat. KREVA)
           </strong>
@@ -708,12 +846,14 @@
             〜
             G#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/automatic-30/"
         >
+
           <strong>
             Automatic
           </strong>
@@ -725,12 +865,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-31/"
         >
+
           <strong>
             インディゴ地平線
           </strong>
@@ -740,14 +882,16 @@
             ・
             D3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/subtitle-32/"
         >
+
           <strong>
             Subtitle
           </strong>
@@ -759,12 +903,14 @@
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/start-33/"
         >
+
           <strong>
             StaRt
           </strong>
@@ -774,14 +920,16 @@
             ・
             F#3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/bad-girl-34/"
         >
+
           <strong>
             Bad Girl
           </strong>
@@ -793,12 +941,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-35/"
         >
+
           <strong>
             波乗りジョニー
           </strong>
@@ -806,16 +956,18 @@
           <span>
             桑田佳祐
             ・
-            B3
+            B2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-36/"
         >
+
           <strong>
             インフェルノ
           </strong>
@@ -823,16 +975,18 @@
           <span>
             Mrs. GREEN APPLE
             ・
-            B3
+            B2
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-37/"
         >
+
           <strong>
             夜に駆ける
           </strong>
@@ -844,12 +998,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-38/"
         >
+
           <strong>
             きらり
           </strong>
@@ -857,16 +1013,18 @@
           <span>
             藤井風
             ・
-            B3
+            B2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-39/"
         >
+
           <strong>
             劇薬中毒
           </strong>
@@ -874,16 +1032,18 @@
           <span>
             =LOVE
             ・
-            A4
+            A3
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/sad-song-40/"
         >
+
           <strong>
             SAD SONG
           </strong>
@@ -895,12 +1055,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-41/"
         >
+
           <strong>
             ドライフラワー
           </strong>
@@ -912,12 +1074,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/never-grow-up-42/"
         >
+
           <strong>
             Never Grow Up
           </strong>
@@ -929,12 +1093,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-43/"
         >
+
           <strong>
             ハレンチ
           </strong>
@@ -942,16 +1108,18 @@
           <span>
             ちゃんみな
             ・
-            B3
+            B2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-44/"
         >
+
           <strong>
             クスシキ
           </strong>
@@ -963,12 +1131,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/love-so-sweet-45/"
         >
+
           <strong>
             Love so sweet
           </strong>
@@ -978,14 +1148,16 @@
             ・
             D3
             〜
-            A5
+            A4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-46/"
         >
+
           <strong>
             群青
           </strong>
@@ -997,12 +1169,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/tiger-47/"
         >
+
           <strong>
             Tiger
           </strong>
@@ -1014,12 +1188,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-48/"
         >
+
           <strong>
             イエスタデイ
           </strong>
@@ -1031,12 +1207,14 @@
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-49/"
         >
+
           <strong>
             今夜このまま
           </strong>
@@ -1048,12 +1226,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/jane-doe-50/"
         >
+
           <strong>
             JANE DOE
           </strong>
@@ -1065,12 +1245,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/non-stop-51/"
         >
+
           <strong>
             NON STOP
           </strong>
@@ -1080,14 +1262,16 @@
             ・
             F#3
             〜
-            A#5
+            A#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-52/"
         >
+
           <strong>
             ロマンチシズム
           </strong>
@@ -1099,12 +1283,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-53/"
         >
+
           <strong>
             怪盗
           </strong>
@@ -1114,14 +1300,16 @@
             ・
             C#3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/golden-54/"
         >
+
           <strong>
             Golden
           </strong>
@@ -1133,12 +1321,14 @@
             〜
             F#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/kiss-n-tell-55/"
         >
+
           <strong>
             KISS N TELL
           </strong>
@@ -1150,12 +1340,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-56/"
         >
+
           <strong>
             晴々
           </strong>
@@ -1167,12 +1359,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/blue-shining-star-57/"
         >
+
           <strong>
             Blue Shining Star
           </strong>
@@ -1180,16 +1374,18 @@
           <span>
             アイナ・ジ・エンド
             ・
-            B3
+            B2
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-58/"
         >
+
           <strong>
             グッタイム
           </strong>
@@ -1201,12 +1397,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-59/"
         >
+
           <strong>
             イケナイ太陽
           </strong>
@@ -1216,14 +1414,16 @@
             ・
             D3
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-60/"
         >
+
           <strong>
             小さな恋のうた
           </strong>
@@ -1231,16 +1431,18 @@
           <span>
             MONGOL800
             ・
-            A#3
+            A#2
             〜
             G#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-61/"
         >
+
           <strong>
             宿命
           </strong>
@@ -1252,12 +1454,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-62/"
         >
+
           <strong>
             モンストロ
           </strong>
@@ -1269,12 +1473,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/sos-63/"
         >
+
           <strong>
             SOS
           </strong>
@@ -1282,16 +1488,18 @@
           <span>
             tuki.
             ・
-            A4
+            A3
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/truth-in-the-dark-64/"
         >
+
           <strong>
             Truth in the dark
           </strong>
@@ -1303,12 +1511,14 @@
             〜
             F#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/777-65/"
         >
+
           <strong>
             777
           </strong>
@@ -1316,16 +1526,18 @@
           <span>
             YAO
             ・
-            A4
+            A3
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/live-to-survive-66/"
         >
+
           <strong>
             Live to Survive
           </strong>
@@ -1333,16 +1545,18 @@
           <span>
             Aimer
             ・
-            B4
+            B3
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/love-me-forever-67/"
         >
+
           <strong>
             Love me forever!
           </strong>
@@ -1354,12 +1568,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-68/"
         >
+
           <strong>
             うるさ
           </strong>
@@ -1371,12 +1587,14 @@
             〜
             D#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-69/"
         >
+
           <strong>
             景色
           </strong>
@@ -1384,16 +1602,18 @@
           <span>
             JI BLUE, JO1 &amp; INI
             ・
-            B3
+            B2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-70/"
         >
+
           <strong>
             新宝島
           </strong>
@@ -1403,14 +1623,16 @@
             ・
             D3
             〜
-            A#5
+            A#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-71/"
         >
+
           <strong>
             翼の折れたエンジェル
           </strong>
@@ -1418,16 +1640,18 @@
           <span>
             LANA
             ・
-            B4
+            B3
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/standing-here-72/"
         >
+
           <strong>
             Standing Here
           </strong>
@@ -1439,12 +1663,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/my-affection-73/"
         >
+
           <strong>
             My Affection
           </strong>
@@ -1454,14 +1680,16 @@
             ・
             C3
             〜
-            A#5
+            A#4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-74/"
         >
+
           <strong>
             春に舞う
           </strong>
@@ -1473,12 +1701,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/dance-forever-75/"
         >
+
           <strong>
             Dance Forever
           </strong>
@@ -1490,12 +1720,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-76/"
         >
+
           <strong>
             お姫様の作り方
           </strong>
@@ -1507,12 +1739,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-77/"
         >
+
           <strong>
             スターダスト
           </strong>
@@ -1524,12 +1758,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-78/"
         >
+
           <strong>
             きゃわぽっぴんどぅー
           </strong>
@@ -1541,12 +1777,14 @@
             〜
             F5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-79/"
         >
+
           <strong>
             絶対アイドル辞めないで
           </strong>
@@ -1558,12 +1796,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/fiction-love-80/"
         >
+
           <strong>
             Fiction Love
           </strong>
@@ -1575,12 +1815,14 @@
             〜
             C5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/summer-song-81/"
         >
+
           <strong>
             SUMMER SONG
           </strong>
@@ -1592,12 +1834,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/yes-82/"
         >
+
           <strong>
             YES
           </strong>
@@ -1609,12 +1853,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-83/"
         >
+
           <strong>
             灰色
           </strong>
@@ -1626,12 +1872,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-84/"
         >
+
           <strong>
             あぶく
           </strong>
@@ -1643,12 +1891,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-85/"
         >
+
           <strong>
             綺羅
           </strong>
@@ -1656,16 +1906,18 @@
           <span>
             Ado
             ・
-            B4
+            B3
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/luminous-86/"
         >
+
           <strong>
             ルミナス - Luminous
           </strong>
@@ -1677,12 +1929,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-87/"
         >
+
           <strong>
             らしさ
           </strong>
@@ -1694,12 +1948,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-88/"
         >
+
           <strong>
             ノーダウト
           </strong>
@@ -1711,12 +1967,14 @@
             〜
             C#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-89/"
         >
+
           <strong>
             章
           </strong>
@@ -1728,12 +1986,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-90/"
         >
+
           <strong>
             エルダーフラワー
           </strong>
@@ -1745,12 +2005,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/good-day-91/"
         >
+
           <strong>
             GOOD DAY
           </strong>
@@ -1762,12 +2024,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-92/"
         >
+
           <strong>
             コールドスリープ
           </strong>
@@ -1779,12 +2043,14 @@
             〜
             G5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/sanitizer-93/"
         >
+
           <strong>
             Sanitizer
           </strong>
@@ -1796,12 +2062,14 @@
             〜
             E5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-94/"
         >
+
           <strong>
             劇上
           </strong>
@@ -1813,12 +2081,14 @@
             〜
             F#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-95/"
         >
+
           <strong>
             アイドルライフメガパック
           </strong>
@@ -1826,16 +2096,18 @@
           <span>
             iLiFE!
             ・
-            A#4
+            A#3
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/feat-suis-from-96/"
         >
+
           <strong>
             風のアンセム (feat. suis from ヨルシカ)
           </strong>
@@ -1843,16 +2115,18 @@
           <span>
             Eve
             ・
-            A3
+            A2
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/hallelujah-97/"
         >
+
           <strong>
             Hallelujah
           </strong>
@@ -1864,12 +2138,14 @@
             〜
             D#5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-98/"
         >
+
           <strong>
             怪獣の花唄
           </strong>
@@ -1881,12 +2157,14 @@
             〜
             D5
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/lemon-99/"
         >
+
           <strong>
             Lemon
           </strong>
@@ -1894,16 +2172,18 @@
           <span>
             米津玄師
             ・
-            B3
+            B2
             〜
-            B5
+            B4
           </span>
+
         </a>
       
         <a
           class="song"
           href="/songs/song-100/"
         >
+
           <strong>
             マリーゴールド
           </strong>
@@ -1913,16 +2193,1770 @@
             ・
             F3
             〜
-            B5
+            B4
           </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-101/"
+        >
+
+          <strong>
+            残酷な天使のテーゼ
+          </strong>
+
+          <span>
+            高橋洋子
+            ・
+            A3
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-102/"
+        >
+
+          <strong>
+            サウダージ
+          </strong>
+
+          <span>
+            ポルノグラフィティ
+            ・
+            G3
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-103/"
+        >
+
+          <strong>
+            高嶺の花子さん
+          </strong>
+
+          <span>
+            back number
+            ・
+            D3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-104/"
+        >
+
+          <strong>
+            さよならエレジー
+          </strong>
+
+          <span>
+            菅田将暉
+            ・
+            C#3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-105/"
+        >
+
+          <strong>
+            奏（かなで）
+          </strong>
+
+          <span>
+            スキマスイッチ
+            ・
+            D3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-106/"
+        >
+
+          <strong>
+            ひまわりの約束
+          </strong>
+
+          <span>
+            秦 基博
+            ・
+            F3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-107/"
+        >
+
+          <strong>
+            カブトムシ
+          </strong>
+
+          <span>
+            aiko
+            ・
+            G#3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-108/"
+        >
+
+          <strong>
+            チェリー
+          </strong>
+
+          <span>
+            スピッツ
+            ・
+            E3
+            〜
+            A4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-109/"
+        >
+
+          <strong>
+            恋人ごっこ
+          </strong>
+
+          <span>
+            マカロニえんぴつ
+            ・
+            F#3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-110/"
+        >
+
+          <strong>
+            天体観測
+          </strong>
+
+          <span>
+            BUMP OF CHICKEN
+            ・
+            C3
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-111/"
+        >
+
+          <strong>
+            真夏の果実
+          </strong>
+
+          <span>
+            サザンオールスターズ
+            ・
+            B2
+            〜
+            B4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/hot-limit-112/"
+        >
+
+          <strong>
+            HOT LIMIT
+          </strong>
+
+          <span>
+            T.M.Revolution
+            ・
+            F#3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-113/"
+        >
+
+          <strong>
+            打上花火
+          </strong>
+
+          <span>
+            DAOKO×米津玄師
+            ・
+            A#2
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/feat-114/"
+        >
+
+          <strong>
+            点描の唄 (feat. 井上苑子)
+          </strong>
+
+          <span>
+            Mrs. GREEN APPLE
+            ・
+            G3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-115/"
+        >
+
+          <strong>
+            ベテルギウス
+          </strong>
+
+          <span>
+            優里
+            ・
+            F#2
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-116/"
+        >
+
+          <strong>
+            シンデレラボーイ
+          </strong>
+
+          <span>
+            Saucy Dog
+            ・
+            D#3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-117/"
+        >
+
+          <strong>
+            ハナミズキ
+          </strong>
+
+          <span>
+            一青窈
+            ・
+            G3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/first-love-118/"
+        >
+
+          <strong>
+            First Love
+          </strong>
+
+          <span>
+            宇多田ヒカル
+            ・
+            E3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-119/"
+        >
+
+          <strong>
+            愛をこめて花束を
+          </strong>
+
+          <span>
+            Superfly
+            ・
+            G3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/wherever-you-are-120/"
+        >
+
+          <strong>
+            Wherever you are
+          </strong>
+
+          <span>
+            ONE OK ROCK
+            ・
+            F2
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-121/"
+        >
+
+          <strong>
+            丸の内サディスティック
+          </strong>
+
+          <span>
+            椎名林檎
+            ・
+            A#3
+            〜
+            G5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-122/"
+        >
+
+          <strong>
+            裸の心
+          </strong>
+
+          <span>
+            あいみょん
+            ・
+            F3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/mela-123/"
+        >
+
+          <strong>
+            Mela!
+          </strong>
+
+          <span>
+            緑黄色社会
+            ・
+            G#3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-124/"
+        >
+
+          <strong>
+            ただ君に晴れ
+          </strong>
+
+          <span>
+            ヨルシカ
+            ・
+            D4
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-125/"
+        >
+
+          <strong>
+            アイドル
+          </strong>
+
+          <span>
+            YOASOBI
+            ・
+            F#3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-126/"
+        >
+
+          <strong>
+            勇者
+          </strong>
+
+          <span>
+            YOASOBI
+            ・
+            G3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/specialz-127/"
+        >
+
+          <strong>
+            SPECIALZ
+          </strong>
+
+          <span>
+            King Gnu
+            ・
+            C#3
+            〜
+            F#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-128/"
+        >
+
+          <strong>
+            絆ノ奇跡
+          </strong>
+
+          <span>
+            MAN WITH A MISSION &amp; milet
+            ・
+            F3
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-129/"
+        >
+
+          <strong>
+            こっから
+          </strong>
+
+          <span>
+            SixTONES
+            ・
+            E3
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-130/"
+        >
+
+          <strong>
+            青のすみか
+          </strong>
+
+          <span>
+            キタニタツヤ
+            ・
+            A#2
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-131/"
+        >
+
+          <strong>
+            ラビットホール
+          </strong>
+
+          <span>
+            DECO*27
+            ・
+            G3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-132/"
+        >
+
+          <strong>
+            強風オールバック
+          </strong>
+
+          <span>
+            ゆこぴ
+            ・
+            G3
+            〜
+            A4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-133/"
+        >
+
+          <strong>
+            オーバーライド
+          </strong>
+
+          <span>
+            吉田夜世
+            ・
+            G#3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-134/"
+        >
+
+          <strong>
+            晩餐歌
+          </strong>
+
+          <span>
+            tuki.
+            ・
+            G3
+            〜
+            F#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-135/"
+        >
+
+          <strong>
+            美少女無罪♡パイレーツ
+          </strong>
+
+          <span>
+            宝鐘マリン
+            ・
+            G3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/internet-yamero-136/"
+        >
+
+          <strong>
+            INTERNET YAMERO
+          </strong>
+
+          <span>
+            NEEDY GIRL OVERDOSE, KOTOKO &amp; Aiobahn
+            ・
+            F3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-137/"
+        >
+
+          <strong>
+            君のまま
+          </strong>
+
+          <span>
+            百足 &amp; 韻マン
+            ・
+            F#2
+            〜
+            E4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/feat-138/"
+        >
+
+          <strong>
+            バグ (feat. 宵崎奏, 朝比奈まふゆ, 東雲絵名, 暁山瑞希 &amp; 鏡音レン)
+          </strong>
+
+          <span>
+            25時、ナイトコードで。
+            ・
+            A#3
+            〜
+            F#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-139/"
+        >
+
+          <strong>
+            あいしていたのに
+          </strong>
+
+          <span>
+            MARETU
+            ・
+            C#4
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/lady-140/"
+        >
+
+          <strong>
+            LADY
+          </strong>
+
+          <span>
+            米津玄師
+            ・
+            D3
+            〜
+            B4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/m-141/"
+        >
+
+          <strong>
+            匿名M
+          </strong>
+
+          <span>
+            ピノキオピー
+            ・
+            F#2
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/mainstream-142/"
+        >
+
+          <strong>
+            Mainstream
+          </strong>
+
+          <span>
+            BE:FIRST
+            ・
+            F2
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-143/"
+        >
+
+          <strong>
+            ホワイトノイズ
+          </strong>
+
+          <span>
+            Official髭男dism
+            ・
+            D#3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/fake-face-dance-music-144/"
+        >
+
+          <strong>
+            fake face dance music
+          </strong>
+
+          <span>
+            音田雅則
+            ・
+            G#2
+            〜
+            F#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-145/"
+        >
+
+          <strong>
+            ダーリン
+          </strong>
+
+          <span>
+            須田景凪
+            ・
+            F3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-146/"
+        >
+
+          <strong>
+            スピカ
+          </strong>
+
+          <span>
+            ロクデナシ
+            ・
+            F#3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/tattoo-147/"
+        >
+
+          <strong>
+            TATTOO
+          </strong>
+
+          <span>
+            Official髭男dism
+            ・
+            C3
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-148/"
+        >
+
+          <strong>
+            アタシは問題作
+          </strong>
+
+          <span>
+            Ado
+            ・
+            D3
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-149/"
+        >
+
+          <strong>
+            フライデー・ナイト
+          </strong>
+
+          <span>
+            なとり
+            ・
+            G#2
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-150/"
+        >
+
+          <strong>
+            ランデヴー
+          </strong>
+
+          <span>
+            シャイトープ
+            ・
+            C3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-151/"
+        >
+
+          <strong>
+            紡ぐ
+          </strong>
+
+          <span>
+            とた
+            ・
+            A3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/feat-152/"
+        >
+
+          <strong>
+            レクイエム (feat. 星街すいせい)
+          </strong>
+
+          <span>
+            Kanaria
+            ・
+            F3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-153/"
+        >
+
+          <strong>
+            セブンティーン
+          </strong>
+
+          <span>
+            YOASOBI
+            ・
+            F3
+            〜
+            F5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/bitter-154/"
+        >
+
+          <strong>
+            そんなbitterな話
+          </strong>
+
+          <span>
+            Vaundy
+            ・
+            E3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-155/"
+        >
+
+          <strong>
+            向日葵
+          </strong>
+
+          <span>
+            Ado
+            ・
+            A3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/biri-biri-156/"
+        >
+
+          <strong>
+            Biri-Biri
+          </strong>
+
+          <span>
+            YOASOBI
+            ・
+            G#3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-157/"
+        >
+
+          <strong>
+            美しい鰭
+          </strong>
+
+          <span>
+            スピッツ
+            ・
+            D3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-158/"
+        >
+
+          <strong>
+            クラクラ
+          </strong>
+
+          <span>
+            Ado
+            ・
+            A3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/anytime-anywhere-159/"
+        >
+
+          <strong>
+            Anytime Anywhere
+          </strong>
+
+          <span>
+            milet
+            ・
+            G3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-160/"
+        >
+
+          <strong>
+            のだ
+          </strong>
+
+          <span>
+            大漠波新
+            ・
+            G3
+            〜
+            D#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/slow-161/"
+        >
+
+          <strong>
+            slow...
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            A#2
+            〜
+            F#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/spiral-162/"
+        >
+
+          <strong>
+            spiral
+          </strong>
+
+          <span>
+            LONGMAN
+            ・
+            A#2
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-163/"
+        >
+
+          <strong>
+            ライアーダンサー
+          </strong>
+
+          <span>
+            マサラダ
+            ・
+            F#3
+            〜
+            E5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-164/"
+        >
+
+          <strong>
+            可愛いあの子が気にゐらない
+          </strong>
+
+          <span>
+            なるみや
+            ・
+            C4
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-165/"
+        >
+
+          <strong>
+            猿芝居
+          </strong>
+
+          <span>
+            なとり
+            ・
+            A2
+            〜
+            E4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-166/"
+        >
+
+          <strong>
+            コイコガレ
+          </strong>
+
+          <span>
+            milet &amp; MAN WITH A MISSION
+            ・
+            G3
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/ceremony-167/"
+        >
+
+          <strong>
+            CEREMONY
+          </strong>
+
+          <span>
+            Stray Kids
+            ・
+            E3
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-168/"
+        >
+
+          <strong>
+            カリスマックス
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            A#2
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-169/"
+        >
+
+          <strong>
+            タペストリー
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            F3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/dangerholic-170/"
+        >
+
+          <strong>
+            Dangerholic
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            F#2
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-171/"
+        >
+
+          <strong>
+            プロポーズ
+          </strong>
+
+          <span>
+            なとり
+            ・
+            C3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-172/"
+        >
+
+          <strong>
+            君の彼氏になりたい。
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            C3
+            〜
+            G4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/on-the-way-173/"
+        >
+
+          <strong>
+            革命道中 - On The Way
+          </strong>
+
+          <span>
+            アイナ・ジ・エンド
+            ・
+            D3
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-174/"
+        >
+
+          <strong>
+            テレパシ
+          </strong>
+
+          <span>
+            DECO*27
+            ・
+            G3
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/sby-175/"
+        >
+
+          <strong>
+            SBY
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            D#3
+            〜
+            A4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/bow-and-arrow-176/"
+        >
+
+          <strong>
+            BOW AND ARROW
+          </strong>
+
+          <span>
+            米津玄師
+            ・
+            D3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/plazma-177/"
+        >
+
+          <strong>
+            Plazma
+          </strong>
+
+          <span>
+            米津玄師
+            ・
+            D3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/love-trigger-178/"
+        >
+
+          <strong>
+            LOVE TRIGGER
+          </strong>
+
+          <span>
+            Snow Man
+            ・
+            C#3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-179/"
+        >
+
+          <strong>
+            どんなときも。
+          </strong>
+
+          <span>
+            槇原敬之
+            ・
+            E3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/say-yes-180/"
+        >
+
+          <strong>
+            SAY YES
+          </strong>
+
+          <span>
+            CHAGE and ASKA
+            ・
+            D3
+            〜
+            G#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-181/"
+        >
+
+          <strong>
+            ラブ・ストーリーは突然に
+          </strong>
+
+          <span>
+            小田和正
+            ・
+            E3
+            〜
+            B4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-182/"
+        >
+
+          <strong>
+            冬がはじまるよ
+          </strong>
+
+          <span>
+            槇原敬之
+            ・
+            E3
+            〜
+            G4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/say-anything-183/"
+        >
+
+          <strong>
+            Say Anything
+          </strong>
+
+          <span>
+            X JAPAN
+            ・
+            F3
+            〜
+            D5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-184/"
+        >
+
+          <strong>
+            あなたに会えてよかった
+          </strong>
+
+          <span>
+            小泉今日子
+            ・
+            A#3
+            〜
+            B4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-185/"
+        >
+
+          <strong>
+            それが大事
+          </strong>
+
+          <span>
+            大事MANブラザーズバンド
+            ・
+            E3
+            〜
+            A#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/piece-of-my-wish-186/"
+        >
+
+          <strong>
+            PIECE OF MY WISH
+          </strong>
+
+          <span>
+            今井美樹
+            ・
+            A3
+            〜
+            C5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/runaway-187/"
+        >
+
+          <strong>
+            孤独のRunaway
+          </strong>
+
+          <span>
+            B&#039;z
+            ・
+            E3
+            〜
+            B4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/eyes-to-me-188/"
+        >
+
+          <strong>
+            Eyes to me
+          </strong>
+
+          <span>
+            DREAMS COME TRUE
+            ・
+            G#3
+            〜
+            C#5
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-189/"
+        >
+
+          <strong>
+            少年期
+          </strong>
+
+          <span>
+            武田鉄矢
+            ・
+            B2
+            〜
+            F4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/song-190/"
+        >
+
+          <strong>
+            風の谷のナウシカ
+          </strong>
+
+          <span>
+            安田成美
+            ・
+            G#3
+            〜
+            B4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/love-train-191/"
+        >
+
+          <strong>
+            LOVE TRAIN
+          </strong>
+
+          <span>
+            TMN
+            ・
+            C3
+            〜
+            F#4
+          </span>
+
+        </a>
+      
+        <a
+          class="song"
+          href="/songs/wild-life-192/"
+        >
+
+          <strong>
+            Wild Life
+          </strong>
+
+          <span>
+            B&#039;z
+            ・
+            G#3
+            〜
+            B4
+          </span>
+
         </a>
       
     </div>
 
+
     <p class="notice">
-      楽曲音域は音域データを基にした目安です。
+
+      楽曲音域は
+      音域データを基にした目安です。
+
       歌唱方法や裏声の扱いなどによって
       情報が異なる場合があります。
+
     </p>
 
   </main>
