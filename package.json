@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build":"node scripts/generate-song-pages.mjs && vite build",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "node scripts/generate-song-pages.mjs && vite build",
+  "check:songs": "node scripts/check-songs.mjs",
+  "preview": "vite preview"
+},
   "devDependencies": {
     "vite": "^8.2.2"
   },

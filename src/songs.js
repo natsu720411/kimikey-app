@@ -1417,24 +1417,44 @@ const RAW_SONGS = [
   },
 ]
 
-export const SONGS = RAW_SONGS.map((song, index) => {
-  const minMidi = pitchLabelToMidi(song.lowLabel)
-  const maxMidi = pitchLabelToMidi(song.highLabel)
+export const SONGS =
+  RAW_SONGS.map(
+    (song, index) => {
 
-  return {
-    id: index + 1,
-    ...song,
+      const minMidi =
+        pitchLabelToMidi(
+          song.lowLabel
+        )
 
-    // キミキーのキー判定で使用
-    minMidi,
-    maxMidi,
+      const maxMidi =
+        pitchLabelToMidi(
+          song.highLabel
+        )
 
-    // main.js側の名前が違っても使えるようにしています
-    lowMidi: minMidi,
-    highMidi: maxMidi,
-    low: minMidi,
-    high: maxMidi,
+      return {
+        id:
+          song.id ??
+          index + 1,
 
-    sourceType: '音域ベースの目安',
-  }
-})
+        ...song,
+
+        minMidi,
+        maxMidi,
+
+        lowMidi:
+          minMidi,
+
+        highMidi:
+          maxMidi,
+
+        low:
+          minMidi,
+
+        high:
+          maxMidi,
+
+        sourceType:
+          '音域ベースの目安',
+      }
+    }
+  )
