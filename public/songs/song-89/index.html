@@ -14,7 +14,6 @@
 
   
     <!-- Google tag (gtag.js) -->
-
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"
@@ -28,15 +27,8 @@
         dataLayer.push(arguments);
       }
 
-      gtag(
-        'js',
-        new Date()
-      );
-
-      gtag(
-        'config',
-        'G-1B35Z51M10'
-      );
+      gtag('js', new Date());
+      gtag('config', 'G-1B35Z51M10');
     </script>
   
 
@@ -46,7 +38,7 @@
 
   <meta
     name="description"
-    content="緑黄色社会「章」の音域はG#3〜D#5が目安。最低音・最高音、音域の広さを確認し、キミキーで自分の声に合うキーを無料でチェックできます。"
+    content="緑黄色社会「章」の音域はG#3〜D#5が目安。最低音・最高音を確認し、キミキーで自分の声に合うキーをチェックできます。"
   >
 
   <meta
@@ -59,498 +51,206 @@
     href="https://kimikey-app.vercel.app/songs/song-89/"
   >
 
-  <meta
-    property="og:type"
-    content="website"
-  >
-
-  <meta
-    property="og:title"
-    content="章の音域は？最低音・最高音とおすすめキー｜キミキー"
-  >
-
-  <meta
-    property="og:description"
-    content="緑黄色社会「章」の音域はG#3〜D#5が目安。最低音・最高音、音域の広さを確認し、キミキーで自分の声に合うキーを無料でチェックできます。"
-  >
-
-  <meta
-    property="og:url"
-    content="https://kimikey-app.vercel.app/songs/song-89/"
-  >
-
-  <meta
-    property="og:site_name"
-    content="キミキー"
-  >
-
-  <meta
-    name="twitter:card"
-    content="summary"
-  >
-
-  <meta
-    name="theme-color"
-    content="#111111"
-  >
-
-  <script
-    type="application/ld+json"
-  >
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebPage",
-      "@id": "https://kimikey-app.vercel.app/songs/song-89/",
-      "url": "https://kimikey-app.vercel.app/songs/song-89/",
-      "name": "章の音域は？最低音・最高音とおすすめキー｜キミキー",
-      "description": "緑黄色社会「章」の音域はG#3〜D#5が目安。最低音・最高音、音域の広さを確認し、キミキーで自分の声に合うキーを無料でチェックできます。",
-      "inLanguage": "ja",
-      "isPartOf": {
-        "@type": "WebSite",
-        "name": "キミキー",
-        "url": "https://kimikey-app.vercel.app"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "キミキー",
-          "item": "https://kimikey-app.vercel.app/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "曲別音域一覧",
-          "item": "https://kimikey-app.vercel.app/songs/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 3,
-          "name": "章の音域",
-          "item": "https://kimikey-app.vercel.app/songs/song-89/"
-        }
-      ]
-    }
-  ]
-}
-  </script>
-
-
   <style>
 
-    * {
-      box-sizing:
-        border-box;
-    }
+    
+  * {
+    box-sizing: border-box;
+  }
 
-    body {
-      margin:
-        0;
+  body {
+    margin: 0;
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    background: #f6f7fb;
+    color: #222;
+    line-height: 1.75;
+  }
 
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
+  .container {
+    width:
+      min(
+        760px,
+        calc(100% - 30px)
+      );
+    margin: 0 auto;
+    padding: 25px 0 60px;
+  }
 
-      background:
-        #f6f7fb;
+  .logo {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #222;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+  }
 
-      color:
-        #222;
+  .breadcrumb {
+    margin-bottom: 15px;
+    color: #777;
+    font-size: 13px;
+  }
 
-      line-height:
-        1.75;
-    }
+  .breadcrumb a {
+    color: #555;
+  }
 
-    .container {
-      width:
-        min(
-          760px,
-          calc(100% - 32px)
-        );
+  .card {
+    padding: 28px;
+    background: white;
+    border-radius: 20px;
+    box-shadow:
+      0 8px 30px
+      rgba(0,0,0,.06);
+  }
 
-      margin:
-        0 auto;
+  h1 {
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
 
-      padding:
-        22px 0 60px;
-    }
+  h2 {
+    font-size: 21px;
+  }
 
-    .logo {
-      display:
-        inline-block;
+  .description {
+    color: #666;
+  }
 
-      margin-bottom:
-        18px;
+  .songs {
+    display: grid;
+    gap: 10px;
+  }
 
-      color:
-        #222;
+  .song {
+    display: block;
+    padding: 16px;
+    background: #f7f8fc;
+    border-radius: 14px;
+    color: #222;
+    text-decoration: none;
+  }
 
-      font-size:
-        22px;
+  .song strong {
+    display: block;
+    margin-bottom: 3px;
+  }
 
-      font-weight:
-        800;
+  .song span {
+    color: #777;
+    font-size: 13px;
+  }
 
-      text-decoration:
-        none;
-    }
+  .cta {
+    display: block;
+    margin-top: 28px;
+    padding: 17px;
+    background: #111;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
 
-    .breadcrumb {
-      margin-bottom:
-        12px;
+  .back {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+  }
 
-      color:
-        #777;
+  .notice {
+    margin-top: 25px;
+    color: #777;
+    font-size: 12px;
+  }
 
-      font-size:
-        13px;
-    }
-
-    .breadcrumb a {
-      color:
-        #555;
-    }
-
+  @media (
+    max-width: 520px
+  ) {
     .card {
-      padding:
-        28px;
-
-      background:
-        white;
-
-      border-radius:
-        20px;
-
-      box-shadow:
-        0 8px 30px
-        rgba(0, 0, 0, 0.06);
+      padding: 20px 16px;
     }
+  }
 
-    h1 {
-      margin:
-        0 0 7px;
-
-      font-size:
-        clamp(
-          26px,
-          7vw,
-          38px
-        );
-
-      line-height:
-        1.35;
-    }
-
-    h2 {
-      margin-top:
-        0;
-
-      font-size:
-        21px;
-    }
 
     .artist {
-      margin-bottom:
-        25px;
-
-      color:
-        #666;
-
-      font-size:
-        18px;
+      margin-bottom: 25px;
+      color: #666;
+      font-size: 18px;
     }
 
     .artist a {
-      color:
-        inherit;
-
-      text-decoration:
-        underline;
+      color: inherit;
     }
 
     .range-box {
-      display:
-        grid;
-
+      display: grid;
       grid-template-columns:
         1fr auto 1fr;
-
-      gap:
-        12px;
-
-      align-items:
-        center;
-
-      margin:
-        24px 0;
-
-      padding:
-        22px;
-
-      background:
-        #f7f8fc;
-
-      border-radius:
-        16px;
-
-      text-align:
-        center;
+      gap: 12px;
+      align-items: center;
+      margin: 24px 0;
+      padding: 22px;
+      background: #f7f8fc;
+      border-radius: 16px;
+      text-align: center;
     }
 
     .range-item span {
-      display:
-        block;
-
-      margin-bottom:
-        4px;
-
-      color:
-        #777;
-
-      font-size:
-        13px;
+      display: block;
+      color: #777;
+      font-size: 13px;
     }
 
     .range-item strong {
-      font-size:
-        29px;
+      font-size: 29px;
     }
 
     .arrow {
-      color:
-        #aaa;
-
-      font-size:
-        24px;
+      color: #aaa;
+      font-size: 24px;
     }
 
     .summary {
-      margin:
-        18px 0 28px;
-
-      padding:
-        14px 16px;
-
-      background:
-        #fafafa;
-
-      border-radius:
-        12px;
-
-      font-size:
-        14px;
+      margin: 18px 0 28px;
+      padding: 14px 16px;
+      background: #fafafa;
+      border-radius: 12px;
     }
 
     .info {
-      margin:
-        30px 0;
-    }
-
-    .info p {
-      margin:
-        8px 0 12px;
+      margin: 30px 0;
     }
 
     .featured-info {
-      padding:
-        20px;
-
-      background:
-        #fff8e8;
-
-      border-radius:
-        16px;
+      margin: 30px 0;
+      padding: 20px;
+      background: #fff8e8;
+      border-radius: 16px;
     }
 
     .featured-badge {
-      display:
-        inline-block;
-
-      margin-bottom:
-        10px;
-
-      padding:
-        4px 9px;
-
-      background:
-        #111;
-
-      border-radius:
-        999px;
-
-      color:
-        white;
-
-      font-size:
-        12px;
-
-      font-weight:
-        700;
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 9px;
+      background: #111;
+      border-radius: 999px;
+      color: white;
+      font-size: 12px;
+      font-weight: 700;
     }
 
     .cta-area {
-      margin:
-        30px 0;
-
-      padding:
-        22px;
-
-      background:
-        #f2f3f8;
-
-      border-radius:
-        18px;
-    }
-
-    .cta {
-      display:
-        block;
-
-      margin-top:
-        16px;
-
-      padding:
-        17px 20px;
-
-      background:
-        #111;
-
-      border-radius:
-        14px;
-
-      color:
-        white;
-
-      font-weight:
-        700;
-
-      text-align:
-        center;
-
-      text-decoration:
-        none;
-    }
-
-    .related {
-      margin-top:
-        35px;
-    }
-
-    .related-list {
-      display:
-        grid;
-
-      gap:
-        10px;
-    }
-
-    .related-song {
-      display:
-        block;
-
-      padding:
-        14px 16px;
-
-      background:
-        #f7f8fc;
-
-      border-radius:
-        12px;
-
-      color:
-        #222;
-
-      text-decoration:
-        none;
-    }
-
-    .related-song strong {
-      display:
-        block;
-
-      margin-bottom:
-        3px;
-    }
-
-    .related-song span {
-      color:
-        #777;
-
-      font-size:
-        13px;
-    }
-
-    .back {
-      display:
-        block;
-
-      margin-top:
-        24px;
-
-      text-align:
-        center;
-
-      color:
-        #555;
-    }
-
-    .notice {
-      margin-top:
-        28px;
-
-      padding-top:
-        18px;
-
-      border-top:
-        1px solid #eee;
-
-      color:
-        #777;
-
-      font-size:
-        12px;
-    }
-
-    @media (
-      max-width: 520px
-    ) {
-
-      .container {
-        width:
-          min(
-            calc(100% - 20px),
-            760px
-          );
-
-        padding-top:
-          14px;
-      }
-
-      .card {
-        padding:
-          22px 17px;
-
-        border-radius:
-          16px;
-      }
-
-      .range-item strong {
-        font-size:
-          23px;
-      }
-
-      .cta-area {
-        padding:
-          18px;
-      }
-
+      margin: 30px 0;
+      padding: 22px;
+      background: #f2f3f8;
+      border-radius: 18px;
     }
 
   </style>
@@ -608,14 +308,6 @@
       </div>
 
 
-      <p>
-        緑黄色社会
-        「章」の
-        最低音・最高音と、
-        歌うときのキー調整の考え方を紹介します。
-      </p>
-
-
       <div class="range-box">
 
         <div class="range-item">
@@ -662,9 +354,11 @@
         </strong>
 
         ／
+
         約19半音
 
         ／
+
         やや広めの音域
 
       </div>
@@ -680,7 +374,7 @@
         <p>
           緑黄色社会の
           「章」
-          の音域は、
+          の音域は
 
           <strong>
             G#3
@@ -689,15 +383,6 @@
           </strong>
 
           が目安です。
-        </p>
-
-        <p>
-          最低音は
-          <strong>G#3</strong>、
-
-          最高音は
-          <strong>D#5</strong>
-          です。
         </p>
 
       </section>
@@ -712,23 +397,11 @@
 
         <p>
           
-      最低音から最高音までの幅は
-      約19半音です。
+      最低音から最高音までの幅は約19半音です。
       比較的広い音域を使う曲なので、
-      最高音だけでなく
-      最低音が無理なく出せるかも
-      確認しながらキーを決めるのがおすすめです。
+      最高音だけでなく最低音も確認しながら
+      キーを決めるのがおすすめです。
     
-        </p>
-
-        <p>
-          同じ最高音でも、
-          一瞬だけ登場する場合と
-          高音が連続する場合では
-          歌いやすさが異なります。
-
-          ここでの判定は
-          音域データを基にした目安です。
         </p>
 
       </section>
@@ -744,25 +417,9 @@
         </h2>
 
         <p>
-          原曲キーで最高音が
-          出しにくい場合は
-          キーを下げる方法があります。
-
-          一方で、
-          下げすぎると最低音が
-          出しにくくなることもあります。
-        </p>
-
-        <p>
-          そのため、
-
-          <strong>
-            最高音だけではなく
-            最低音も含めて
-            自分の音域と比較する
-          </strong>
-
-          ことが重要です。
+          最高音だけではなく、
+          最低音も含めて自分の音域と
+          比較することが大切です。
         </p>
 
       </section>
@@ -775,36 +432,30 @@
         </h2>
 
         <p>
-          キミキーでは
-          スマートフォンやPCのマイクを使って
-          自分の声の音域を測定できます。
-
-          測定した音域と曲の音域を比較して、
-          おすすめキーの目安を確認できます。
+          キミキーで自分の音域を測定して、
+          この曲の音域と比較できます。
         </p>
 
         <a
           class="cta"
           href="/"
-          data-song="章"
         >
-          🎤 自分の音域と
-          おすすめキーを調べる
+          🎤 自分の音域とおすすめキーを調べる
         </a>
 
       </section>
 
 
-      <section class="related">
+      <section>
 
         <h2>
           音域が近い曲
         </h2>
 
-        <div class="related-list">
+        <div class="songs">
           
           <a
-            class="related-song"
+            class="song"
             href="/songs/song-49/"
           >
 
@@ -823,7 +474,7 @@
           </a>
         
           <a
-            class="related-song"
+            class="song"
             href="/songs/love-me-forever-67/"
           >
 
@@ -842,7 +493,7 @@
           </a>
         
           <a
-            class="related-song"
+            class="song"
             href="/songs/song-74/"
           >
 
@@ -861,7 +512,7 @@
           </a>
         
           <a
-            class="related-song"
+            class="song"
             href="/songs/biri-biri-156/"
           >
 
@@ -888,63 +539,23 @@
         class="back"
         href="/songs/"
       >
-        ← J-POP曲別音域一覧を見る
+        ← 曲別音域一覧を見る
       </a>
 
 
-      <div class="notice">
+      <p class="notice">
 
         楽曲音域・おすすめキーは
         音域データを基にした目安です。
 
-        歌唱方法、
-        裏声の扱い、
-        音源、
-        データの取得方法などによって
+        歌唱方法・裏声・音源などによって
         情報が異なる場合があります。
 
-      </div>
+      </p>
 
     </article>
 
   </main>
-
-
-  <script>
-
-    const cta =
-      document.querySelector(
-        '.cta'
-      );
-
-    if (cta) {
-
-      cta.addEventListener(
-        'click',
-        () => {
-
-          if (
-            typeof window.gtag ===
-            'function'
-          ) {
-
-            window.gtag(
-              'event',
-              'song_page_cta_click',
-              {
-                song_title:
-                  cta.dataset.song
-              }
-            );
-
-          }
-
-        }
-      );
-
-    }
-
-  </script>
 
 </body>
 

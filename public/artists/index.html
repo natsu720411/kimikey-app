@@ -7,14 +7,8 @@
 
   <meta charset="UTF-8">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
-
   
     <!-- Google tag (gtag.js) -->
-
     <script
       async
       src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"
@@ -28,17 +22,15 @@
         dataLayer.push(arguments);
       }
 
-      gtag(
-        'js',
-        new Date()
-      );
-
-      gtag(
-        'config',
-        'G-1B35Z51M10'
-      );
+      gtag('js', new Date());
+      gtag('config', 'G-1B35Z51M10');
     </script>
   
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
 
   <title>
     アーティスト別J-POP音域一覧｜キミキー
@@ -46,7 +38,7 @@
 
   <meta
     name="description"
-    content="J-POPのアーティスト別音域一覧。アーティストごとにキミキー収録曲の最低音・最高音をまとめて確認できます。"
+    content="アーティスト別にJ-POPの音域を確認できます。"
   >
 
   <meta
@@ -59,140 +51,135 @@
     href="https://kimikey-app.vercel.app/artists/"
   >
 
-  <meta
-    name="theme-color"
-    content="#111111"
-  >
-
   <style>
+    
+  * {
+    box-sizing: border-box;
+  }
 
-    * {
-      box-sizing:
-        border-box;
+  body {
+    margin: 0;
+    font-family:
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+    background: #f6f7fb;
+    color: #222;
+    line-height: 1.75;
+  }
+
+  .container {
+    width:
+      min(
+        760px,
+        calc(100% - 30px)
+      );
+    margin: 0 auto;
+    padding: 25px 0 60px;
+  }
+
+  .logo {
+    display: inline-block;
+    margin-bottom: 18px;
+    color: #222;
+    font-size: 22px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .breadcrumb {
+    margin-bottom: 15px;
+    color: #777;
+    font-size: 13px;
+  }
+
+  .breadcrumb a {
+    color: #555;
+  }
+
+  .card {
+    padding: 28px;
+    background: white;
+    border-radius: 20px;
+    box-shadow:
+      0 8px 30px
+      rgba(0,0,0,.06);
+  }
+
+  h1 {
+    margin: 0 0 10px;
+    line-height: 1.4;
+  }
+
+  h2 {
+    font-size: 21px;
+  }
+
+  .description {
+    color: #666;
+  }
+
+  .songs {
+    display: grid;
+    gap: 10px;
+  }
+
+  .song {
+    display: block;
+    padding: 16px;
+    background: #f7f8fc;
+    border-radius: 14px;
+    color: #222;
+    text-decoration: none;
+  }
+
+  .song strong {
+    display: block;
+    margin-bottom: 3px;
+  }
+
+  .song span {
+    color: #777;
+    font-size: 13px;
+  }
+
+  .cta {
+    display: block;
+    margin-top: 28px;
+    padding: 17px;
+    background: #111;
+    border-radius: 14px;
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .back {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #555;
+  }
+
+  .notice {
+    margin-top: 25px;
+    color: #777;
+    font-size: 12px;
+  }
+
+  @media (
+    max-width: 520px
+  ) {
+    .card {
+      padding: 20px 16px;
     }
-
-    body {
-      margin:
-        0;
-
-      font-family:
-        -apple-system,
-        BlinkMacSystemFont,
-        "Segoe UI",
-        sans-serif;
-
-      background:
-        #f6f7fb;
-
-      color:
-        #222;
-
-      line-height:
-        1.7;
-    }
-
-    .container {
-      width:
-        min(
-          760px,
-          calc(100% - 30px)
-        );
-
-      margin:
-        0 auto;
-
-      padding:
-        25px 0 60px;
-    }
-
-    .logo {
-      color:
-        #222;
-
-      font-size:
-        22px;
-
-      font-weight:
-        800;
-
-      text-decoration:
-        none;
-    }
-
-    h1 {
-      margin:
-        25px 0 8px;
-    }
-
-    .description {
-      margin-bottom:
-        25px;
-
-      color:
-        #666;
-    }
-
-    .back {
-      display:
-        block;
-
-      margin-bottom:
-        20px;
-
-      color:
-        #555;
-    }
-
-    .artists {
-      display:
-        grid;
-
-      gap:
-        10px;
-    }
-
-    .artist-item {
-      display:
-        flex;
-
-      justify-content:
-        space-between;
-
-      align-items:
-        center;
-
-      padding:
-        16px;
-
-      background:
-        white;
-
-      border-radius:
-        14px;
-
-      color:
-        #222;
-
-      text-decoration:
-        none;
-
-      box-shadow:
-        0 3px 15px
-        rgba(0,0,0,.04);
-    }
-
-    .artist-item span {
-      color:
-        #777;
-
-      font-size:
-        13px;
-    }
+  }
 
   </style>
 
 </head>
-
 
 <body>
 
@@ -205,36 +192,19 @@
       🎤 キミキー
     </a>
 
-
     <h1>
       アーティスト別 音域一覧
     </h1>
 
-
-    <p class="description">
-
+    <p>
       103組の
-      アーティストから曲を探せます。
-
-      アーティストを選ぶと、
-      キミキーに収録されている曲の
-      最低音・最高音を確認できます。
-
+      アーティストを掲載しています。
     </p>
 
-
-    <a
-      class="back"
-      href="/songs/"
-    >
-      ← 曲別音域一覧を見る
-    </a>
-
-
-    <div class="artists">
+    <div class="songs">
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/mrs-green-apple/"
         >
 
@@ -249,7 +219,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/official-hige-dandism/"
         >
 
@@ -264,7 +234,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/snow-man/"
         >
 
@@ -279,7 +249,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/yoasobi/"
         >
 
@@ -294,7 +264,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/ado/"
         >
 
@@ -309,7 +279,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/back-number/"
         >
 
@@ -324,7 +294,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/kenshi-yonezu/"
         >
 
@@ -339,7 +309,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/hana-1bd64/"
         >
 
@@ -354,7 +324,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/love-yxnvz/"
         >
 
@@ -369,7 +339,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/sixtones/"
         >
 
@@ -384,7 +354,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/spitz/"
         >
 
@@ -399,7 +369,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/chanmina/"
         >
 
@@ -414,7 +384,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/aimyon/"
         >
 
@@ -429,7 +399,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/ryokushaka/"
         >
 
@@ -444,7 +414,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-m6sfbs/"
         >
 
@@ -459,7 +429,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-7bsb0/"
         >
 
@@ -474,7 +444,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/m-lk-1dwc3/"
         >
 
@@ -489,7 +459,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/sakanaction/"
         >
 
@@ -504,7 +474,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/king-gnu/"
         >
 
@@ -519,7 +489,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/hikaru-utada/"
         >
 
@@ -534,7 +504,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/yuuri/"
         >
 
@@ -549,7 +519,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/tuki-1tx46n/"
         >
 
@@ -564,7 +534,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/lana-1dx48/"
         >
 
@@ -579,7 +549,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/ilife-k3ou9w/"
         >
 
@@ -594,7 +564,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/yorushika/"
         >
 
@@ -609,7 +579,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/vaundy/"
         >
 
@@ -624,7 +594,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/deco-27-xnc15q/"
         >
 
@@ -639,7 +609,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-dp17vb/"
         >
 
@@ -654,7 +624,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/b-z-1dyt/"
         >
 
@@ -669,7 +639,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/illit-hana-b698wi/"
         >
 
@@ -684,7 +654,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/ateez-119qcn/"
         >
 
@@ -699,7 +669,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/kvi-baba-xt42v4/"
         >
 
@@ -714,7 +684,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-dn7wjg/"
         >
 
@@ -729,7 +699,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/fuji-kaze/"
         >
 
@@ -744,7 +714,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-ifk/"
         >
 
@@ -759,7 +729,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-ivwxhm/"
         >
 
@@ -774,7 +744,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/huntr-x-wt4t48/"
         >
 
@@ -789,7 +759,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/aespa-1j6z9c/"
         >
 
@@ -804,7 +774,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/orange-range-upkc45/"
         >
 
@@ -819,7 +789,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/mongol800-ijvneo/"
         >
 
@@ -834,7 +804,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/yao-1vlz/"
         >
 
@@ -849,7 +819,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/aimer-11nziq/"
         >
 
@@ -864,7 +834,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/ayase-11xyqj/"
         >
 
@@ -879,7 +849,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/ji-blue-jo1-ini-7fhbuh/"
         >
 
@@ -894,7 +864,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/bmsg-strikers-2iq25o/"
         >
 
@@ -909,7 +879,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/kis-my-ft2-886qn9/"
         >
 
@@ -924,7 +894,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-a8z2u6/"
         >
 
@@ -939,7 +909,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/yui-1w31/"
         >
 
@@ -954,7 +924,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/lisa-1eqwb/"
         >
 
@@ -969,7 +939,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-bokxiw/"
         >
 
@@ -984,7 +954,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/perfume-gaxrtw/"
         >
 
@@ -999,7 +969,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/eve-1i2c/"
         >
 
@@ -1014,7 +984,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/alexandros-taqyl7/"
         >
 
@@ -1029,7 +999,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/yoko-takahashi/"
         >
 
@@ -1044,7 +1014,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/porno-graffitti/"
         >
 
@@ -1059,7 +1029,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-h3xhn2/"
         >
 
@@ -1074,7 +1044,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-gvlyb7/"
         >
 
@@ -1089,7 +1059,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-fdxvkq/"
         >
 
@@ -1104,7 +1074,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/aiko/"
         >
 
@@ -1119,7 +1089,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/macaroni-enpitsu/"
         >
 
@@ -1134,7 +1104,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/bump-of-chicken/"
         >
 
@@ -1149,7 +1119,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-fpk4zv/"
         >
 
@@ -1164,7 +1134,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/t-m-revolution-ooc1l0/"
         >
 
@@ -1179,7 +1149,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/daoko-7ur1qe/"
         >
 
@@ -1194,7 +1164,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/saucy-dog/"
         >
 
@@ -1209,7 +1179,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-c5pbq/"
         >
 
@@ -1224,7 +1194,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/superfly-qlqthk/"
         >
 
@@ -1239,7 +1209,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/one-ok-rock/"
         >
 
@@ -1254,7 +1224,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/sheena-ringo/"
         >
 
@@ -1269,7 +1239,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/man-with-a-mission-milet-4o8282/"
         >
 
@@ -1284,7 +1254,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-bqu7a2/"
         >
 
@@ -1299,7 +1269,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-7ccjr/"
         >
 
@@ -1314,7 +1284,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-b3639d/"
         >
 
@@ -1329,7 +1299,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-lxoii4/"
         >
 
@@ -1344,7 +1314,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/needy-girl-overdose-kotoko-aiobahn-2lcoyp/"
         >
 
@@ -1359,7 +1329,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-3uhd5h/"
         >
 
@@ -1374,7 +1344,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/25-gx8glr/"
         >
 
@@ -1389,7 +1359,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/maretu-xjeovs/"
         >
 
@@ -1404,7 +1374,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-6xme7z/"
         >
 
@@ -1419,7 +1389,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/be-first-vdenq1/"
         >
 
@@ -1434,7 +1404,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-jntzlr/"
         >
 
@@ -1449,7 +1419,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-jnz69v/"
         >
 
@@ -1464,7 +1434,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-fg5cvi/"
         >
 
@@ -1479,7 +1449,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-6ha2gl/"
         >
 
@@ -1494,7 +1464,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-8hyv/"
         >
 
@@ -1509,7 +1479,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/kanaria-bzlhhd/"
         >
 
@@ -1524,7 +1494,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/milet-1puwvz/"
         >
 
@@ -1539,7 +1509,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-bpm2zr/"
         >
 
@@ -1554,7 +1524,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/longman-hn3rjy/"
         >
 
@@ -1569,7 +1539,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-6d9cy6/"
         >
 
@@ -1584,7 +1554,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-6b6cqu/"
         >
 
@@ -1599,7 +1569,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/milet-man-with-a-mission-wzwrfw/"
         >
 
@@ -1614,7 +1584,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/stray-kids-zbh77g/"
         >
 
@@ -1629,7 +1599,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/chage-and-aska-tja0cp/"
         >
 
@@ -1644,7 +1614,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-c3l060/"
         >
 
@@ -1659,7 +1629,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/x-japan-te7voe/"
         >
 
@@ -1674,7 +1644,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-iuilx7/"
         >
 
@@ -1689,7 +1659,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/man-wgrk7v/"
         >
 
@@ -1704,7 +1674,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-a9vohi/"
         >
 
@@ -1719,7 +1689,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/dreams-come-true-zh52qu/"
         >
 
@@ -1734,7 +1704,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-e1j220/"
         >
 
@@ -1749,7 +1719,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/artist-c19uo5/"
         >
 
@@ -1764,7 +1734,7 @@
         </a>
       
         <a
-          class="artist-item"
+          class="song"
           href="/artists/tmn-1s6t/"
         >
 
