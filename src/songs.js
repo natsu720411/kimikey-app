@@ -99,7 +99,7 @@ const RAW_SONGS = [
   {
     title: '青と夏',
     artist: 'Mrs. GREEN APPLE',
-    lowLabel: 'lowF',
+    lowLabel: 'mid1D#',
     highLabel: 'hiE',
     gender: 'hard',
     singerGender: 'unknown',
@@ -427,7 +427,7 @@ const RAW_SONGS = [
   {
     title: 'ドライフラワー',
     artist: '優里',
-    lowLabel: 'lowF',
+    lowLabel: 'mid1G',
     highLabel: 'hiC',
     gender: 'male',
     singerGender: 'male',
@@ -927,7 +927,7 @@ const RAW_SONGS = [
   {
     title: '風のアンセム (feat. suis from ヨルシカ)',
     artist: 'Eve',
-    lowLabel: 'mid1A',
+    lowLabel: 'lowF#',
     highLabel: 'hiD#',
     gender: 'hard',
     singerGender: 'unknown',
@@ -1100,7 +1100,7 @@ const RAW_SONGS = [
   {
     title: 'ベテルギウス',
     artist: '優里',
-    lowLabel: 'lowF#',
+    lowLabel: 'mid1D',
     highLabel: 'hiD',
     gender: 'male',
     singerGender: 'male',
@@ -1145,8 +1145,8 @@ const RAW_SONGS = [
   {
     title: 'Wherever you are',
     artist: 'ONE OK ROCK',
-    lowLabel: 'lowF',
-    highLabel: 'hiC',
+    lowLabel: 'mid1G#',
+    highLabel: 'hiC#',
     gender: 'hard',
     singerGender: 'unknown',
     difficulty: 'unknown',
@@ -1505,8 +1505,8 @@ const RAW_SONGS = [
   {
     title: 'のだ',
     artist: '大漠波新',
-    lowLabel: 'mid1G',
-    highLabel: 'hiD#',
+    lowLabel: 'mid1D#',
+    highLabel: 'hiG',
     gender: 'female',
     singerGender: 'unknown',
     difficulty: 'unknown',
@@ -3058,7 +3058,7 @@ const RAW_SONGS = [
   { id: 452, title: '阿修羅ちゃん', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
   { id: 453, title: '夜のピエロ', artist: 'Ado', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
   { id: 454, title: 'シャッター', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
-  { id: 455, title: '飛行船', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 455, title: '飛行船', artist: '優里', lowLabel: 'mid1B', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
   { id: 456, title: 'レオ', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
   { id: 457, title: '黄色', artist: 'back number', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
   { id: 458, title: 'ハート', artist: 'あいみょん', lowLabel: 'mid1F', highLabel: 'hiC#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
