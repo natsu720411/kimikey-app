@@ -1111,6 +1111,44 @@ h1 {
   line-height: 1.5;
 }
 
+.song-browse-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.song-browse-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 48px;
+  padding: 12px 8px;
+  border: 1px solid #eeeef2;
+  border-radius: 14px;
+  background: #fafafd;
+  color: #333;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+  overflow-wrap: anywhere;
+}
+
+.song-browse-link:hover {
+  background: #f5f5fa;
+}
+
+.song-browse-link:focus-visible {
+  outline: 3px solid #7c4dff;
+  outline-offset: 3px;
+}
+
+@media (max-width: 360px) {
+  .song-browse-links {
+    grid-template-columns: 1fr;
+  }
+}
+
 .range-required {
   padding: 18px;
 

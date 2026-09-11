@@ -673,6 +673,26 @@ app.innerHTML = `
   </section>
 
 
+  <!-- 曲一覧へのリンク -->
+
+  <section class="song-section" aria-labelledby="songBrowseTitle">
+    <div class="section-heading">
+      <span class="section-icon" aria-hidden="true">🎵</span>
+      <div>
+        <h2 id="songBrowseTitle">曲を探す</h2>
+        <p>曲名が決まっていないときは、気になる一覧から探せます</p>
+      </div>
+    </div>
+
+    <nav class="song-browse-links" aria-label="曲の種類から探す">
+      <a class="song-browse-link" href="/guides/male-songs/">男性向けの曲</a>
+      <a class="song-browse-link" href="/guides/female-songs/">女性向けの曲</a>
+      <a class="song-browse-link" href="/guides/low-voice-songs/">低音向けの曲</a>
+      <a class="song-browse-link" href="/guides/high-note-songs/">高音向けの曲</a>
+    </nav>
+  </section>
+
+
   <!-- 曲検索 -->
 
   <section class="song-section">
