@@ -1,6 +1,41 @@
 import './style.css'
-import * as Tone from 'tone'
 import { SONGS } from './songs.js'
+import {
+  calculateSongKey,
+  formatKeyShift,
+  getSongStars,
+} from './song-key-utils.js'
+import {
+  RANGE_STORAGE_KEY,
+  saveRangeData as saveRangeDataToStorage,
+  loadRangeData as loadRangeDataFromStorage,
+  updateSavedRangeDisplay as updateSavedRangeDisplayFromStorage,
+} from './range-storage.js'
+import { initSongSearch } from './song-search.js'
+import {
+  midiToFrequency,
+  frequencyToMidi,
+  frequencyToCents,
+  calculateRms,
+  yinPitchDetection,
+  getSmoothedFrequency,
+  frequencyHistory,
+} from './pitch-detection.js'
+import {
+  createMicrophoneInput,
+  releaseMicrophoneInput,
+} from './microphone.js'
+import {
+  createPianoSampler,
+  playTone as playPianoTone,
+  initPiano,
+  highlightCurrentNote,
+  clearCurrentNote,
+} from './piano.js'
+
+function playTone(frequency) {
+  return playPianoTone(frequency, { frequencyToMidi, midiToNoteName })
+}
 
 // ==========================================
 // 基本設定
@@ -46,79 +81,9 @@ function midiToNoteName(midi) {
   return `${name}${octave}`
 }
 
-function midiToFrequency(midi) {
-  return (
-    440 *
-    Math.pow(
-      2,
-      (midi - 69) / 12
-    )
-  )
-}
-
-function frequencyToMidi(frequency) {
-  return (
-    69 +
-    12 *
-    Math.log2(
-      frequency / 440
-    )
-  )
-}
-
-function frequencyToCents(frequency, midi) {
-  const target =
-    midiToFrequency(midi)
-
-  return (
-    1200 *
-    Math.log2(
-      frequency / target
-    )
-  )
-}
-
 function isBlackKey(midi) {
-  return [
-    1, 3, 6, 8, 10
-  ].includes(
-    ((midi % 12) + 12) % 12
-  )
+  return [1, 3, 6, 8, 10].includes(((midi % 12) + 12) % 12)
 }
-
-function formatKeyShift(shift) {
-  if (shift === 0) {
-    return '原キー'
-  }
-
-  if (shift > 0) {
-    return `+${shift}`
-  }
-
-  return `${shift}`
-}
-
-
-// songs.js の名前違いにも対応
-
-function getSongLowMidi(song) {
-  return (
-    song.lowestMidi ??
-    song.minMidi ??
-    song.lowMidi ??
-    song.low
-  )
-}
-
-function getSongHighMidi(song) {
-  return (
-    song.highestMidi ??
-    song.maxMidi ??
-    song.highMidi ??
-    song.high
-  )
-}
-
 
 // ==========================================
 // ピアノ鍵盤
@@ -892,13 +857,10 @@ const confirmedNotes =
 
 let lastValidPitchTime = 0
 
-const frequencyHistory = []
 
 let voiceCandidateStart = null
 let lastRawMidi = null
 
-let pianoSampler = null
-let pianoLoaded = false
 
 let practiceMode = false
 let targetMidi = null
@@ -909,172 +871,23 @@ let selectedSongAnalysis = null
 // 音域保存
 // ==========================================
 
-const RANGE_STORAGE_KEY =
-  'kimikey-vocal-range-v1'
-
-
 function saveRangeData() {
-
-  if (!hasAnyRange()) {
-    return
-  }
-
-
-  const data = {
-
-    limitLowestMidi,
-    limitHighestMidi,
-
-    comfortLowestMidi,
-    comfortHighestMidi,
-
-    savedAt:
-      Date.now()
-
-  }
-
-
-  localStorage.setItem(
-    RANGE_STORAGE_KEY,
-    JSON.stringify(data)
-  )
+  saveRangeDataToStorage({ hasAnyRange, limitLowestMidi, limitHighestMidi, comfortLowestMidi, comfortHighestMidi })
 }
-
 
 function loadRangeData() {
-
-  try {
-
-    const saved =
-      localStorage.getItem(
-        RANGE_STORAGE_KEY
-      )
-
-
-    if (!saved) {
-      return false
-    }
-
-
-    const data =
-      JSON.parse(saved)
-
-
-    if (
-      Number.isFinite(
-        data.limitLowestMidi
-      ) &&
-      Number.isFinite(
-        data.limitHighestMidi
-      )
-    ) {
-
-      limitLowestMidi =
-        data.limitLowestMidi
-
-      limitHighestMidi =
-        data.limitHighestMidi
-
-    }
-
-
-    if (
-      Number.isFinite(
-        data.comfortLowestMidi
-      ) &&
-      Number.isFinite(
-        data.comfortHighestMidi
-      )
-    ) {
-
-      comfortLowestMidi =
-        data.comfortLowestMidi
-
-      comfortHighestMidi =
-        data.comfortHighestMidi
-
-    }
-
-
-    return hasAnyRange()
-
-  } catch (error) {
-
-    console.error(
-      '音域データの読み込み失敗',
-      error
-    )
-
-    return false
-  }
+  const data = loadRangeDataFromStorage()
+  if (!data) return false
+  limitLowestMidi = data.limitLowestMidi
+  limitHighestMidi = data.limitHighestMidi
+  comfortLowestMidi = data.comfortLowestMidi
+  comfortHighestMidi = data.comfortHighestMidi
+  return hasAnyRange()
 }
-
 
 function updateSavedRangeDisplay() {
-
-  if (hasLimitRange()) {
-
-    document.querySelector(
-      '#limitLowestNote'
-    ).textContent =
-      midiToNoteName(
-        limitLowestMidi
-      )
-
-
-    document.querySelector(
-      '#limitHighestNote'
-    ).textContent =
-      midiToNoteName(
-        limitHighestMidi
-      )
-
-  }
-
-
-  if (hasComfortRange()) {
-
-    document.querySelector(
-      '#comfortLowestNote'
-    ).textContent =
-      midiToNoteName(
-        comfortLowestMidi
-      )
-
-
-    document.querySelector(
-      '#comfortHighestNote'
-    ).textContent =
-      midiToNoteName(
-        comfortHighestMidi
-      )
-
-  }
-
-
-  if (hasAnyRange()) {
-
-    document.querySelector(
-      '#status'
-    ).textContent =
-      '✅ 保存済みの音域を読み込みました'
-
-
-    document.querySelector(
-      '#rangeRequired'
-    )?.classList.add(
-      'hidden'
-    )
-
-  }
-
-
-  updateRangeKeys()
-
-  renderRecommendations()
+  updateSavedRangeDisplayFromStorage({ hasLimitRange, hasComfortRange, hasAnyRange, limitLowestMidi, limitHighestMidi, comfortLowestMidi, comfortHighestMidi, midiToNoteName, updateRangeKeys, renderRecommendations })
 }
-
-// ==========================================
 // 音域があるか
 // ==========================================
 
@@ -1103,175 +916,6 @@ function hasAnyRange() {
 // ==========================================
 // おすすめキー計算
 // ==========================================
-
-function calculateSongKey(song) {
-
-  if (!hasAnyRange()) {
-    return null
-  }
-
-
-  const songLow =
-    getSongLowMidi(song)
-
-  const songHigh =
-    getSongHighMidi(song)
-
-
-  if (
-    !Number.isFinite(songLow) ||
-    !Number.isFinite(songHigh)
-  ) {
-    return null
-  }
-
-
-  const targetLow =
-    hasComfortRange()
-      ? comfortLowestMidi
-      : limitLowestMidi
-
-
-  const targetHigh =
-    hasComfortRange()
-      ? comfortHighestMidi
-      : limitHighestMidi
-
-
-  const targetCenter =
-    (
-      targetLow +
-      targetHigh
-    ) / 2
-
-
-  let best = null
-
-
-  for (
-    let shift = -6;
-    shift <= 6;
-    shift++
-  ) {
-
-    const shiftedLow =
-      songLow + shift
-
-    const shiftedHigh =
-      songHigh + shift
-
-
-    const lowOverflow =
-      Math.max(
-        0,
-        targetLow - shiftedLow
-      )
-
-    const highOverflow =
-      Math.max(
-        0,
-        shiftedHigh - targetHigh
-      )
-
-    const overflow =
-      lowOverflow +
-      highOverflow
-
-
-    const shiftedCenter =
-      (
-        shiftedLow +
-        shiftedHigh
-      ) / 2
-
-
-    const centerDistance =
-      Math.abs(
-        shiftedCenter -
-        targetCenter
-      )
-
-
-    const fitsComfort =
-      hasComfortRange() &&
-      shiftedLow >=
-        comfortLowestMidi &&
-      shiftedHigh <=
-        comfortHighestMidi
-
-
-    const fitsLimit =
-      hasLimitRange() &&
-      shiftedLow >=
-        limitLowestMidi &&
-      shiftedHigh <=
-        limitHighestMidi
-
-
-    const score =
-      lowOverflow * 100 +
-      highOverflow * 140 +
-      centerDistance * 2 +
-      Math.abs(shift) * 0.25
-
-
-    if (
-      best === null ||
-      score < best.score
-    ) {
-
-      best = {
-        shift,
-        shiftedLow,
-        shiftedHigh,
-        lowOverflow,
-        highOverflow,
-        overflow,
-        fitsComfort,
-        fitsLimit,
-        score
-      }
-
-    }
-
-  }
-
-
-  return best
-}
-
-
-// ==========================================
-// 星
-// ==========================================
-
-function getSongStars(result) {
-
-  if (!result) {
-    return 0
-  }
-
-  if (
-    result.fitsComfort &&
-    Math.abs(result.shift) <= 1
-  ) {
-    return 5
-  }
-
-  if (result.fitsComfort) {
-    return 4
-  }
-
-  if (result.fitsLimit) {
-    return 3
-  }
-
-  if (result.overflow <= 2) {
-    return 2
-  }
-
-  return 1
-}
 
 function starText(number) {
   return (
@@ -1324,7 +968,7 @@ function renderRecommendations() {
         song => {
 
           const result =
-            calculateSongKey(song)
+            calculateSongKey(song, { limitLowestMidi, limitHighestMidi, comfortLowestMidi, comfortHighestMidi })
 
           return {
             song,
@@ -2020,126 +1664,6 @@ async function renderPopularSongs() {
 
 
 
-function renderSearchResults(
-  searchText = ''
-) {
-
-  const container =
-    document.querySelector(
-      '#songSearchResults'
-    )
-
-  container.innerHTML = ''
-
-
-  const query =
-    searchText
-      .trim()
-      .toLowerCase()
-
-
-  // ★ 空欄なら曲を出さない
-  if (!query) {
-    return
-  }
-
-
-  const results =
-    SONGS.filter(
-      song => {
-
-        return (
-          song.title
-            .toLowerCase()
-            .includes(query) ||
-
-          song.artist
-            .toLowerCase()
-            .includes(query)
-        )
-      }
-    )
-
-
-  if (
-    results.length === 0
-  ) {
-
-    container.innerHTML = `
-      <div class="no-song">
-        曲が見つかりません
-      </div>
-    `
-
-    return
-  }
-
-
-  results.forEach(
-    song => {
-
-      const item =
-        document.createElement(
-          'button'
-        )
-
-      item.className =
-        'search-song-item'
-
-
-      item.innerHTML = `
-        <div>
-
-          <strong>
-            ${song.title}
-          </strong>
-
-          <span>
-            ${song.artist}
-          </span>
-
-        </div>
-
-        <span class="search-arrow">
-          ›
-        </span>
-      `
-
-
-      item.addEventListener(
-        'click',
-        () => {
-
-          showSongAnalysis(
-            song
-          )
-
-        }
-      )
-
-
-      container.appendChild(
-        item
-      )
-
-    }
-  )
-}
-
-
-document.querySelector(
-  '#songSearch'
-).addEventListener(
-  'input',
-  event => {
-
-    renderSearchResults(
-      event.target.value
-    )
-
-  }
-)
-
 // ==========================================
 // キー変更表
 // ==========================================
@@ -2358,7 +1882,7 @@ function showSongAnalysis(song) {
 
 
   const result =
-    calculateSongKey(song)
+    calculateSongKey(song, { limitLowestMidi, limitHighestMidi, comfortLowestMidi, comfortHighestMidi })
 
   selectedSongAnalysis =
     result
@@ -3394,163 +2918,8 @@ if (linkedSong) {
 }
 
 
-// ピアノ音源
 // ==========================================
 
-function createPianoSampler() {
-
-  if (pianoSampler) {
-    return
-  }
-
-
-  pianoSampler =
-    new Tone.Sampler({
-
-      urls: {
-
-        A0: 'A0.mp3',
-
-        C1: 'C1.mp3',
-        'D#1': 'Ds1.mp3',
-        'F#1': 'Fs1.mp3',
-        A1: 'A1.mp3',
-
-        C2: 'C2.mp3',
-        'D#2': 'Ds2.mp3',
-        'F#2': 'Fs2.mp3',
-        A2: 'A2.mp3',
-
-        C3: 'C3.mp3',
-        'D#3': 'Ds3.mp3',
-        'F#3': 'Fs3.mp3',
-        A3: 'A3.mp3',
-
-        C4: 'C4.mp3',
-        'D#4': 'Ds4.mp3',
-        'F#4': 'Fs4.mp3',
-        A4: 'A4.mp3',
-
-        C5: 'C5.mp3',
-        'D#5': 'Ds5.mp3',
-        'F#5': 'Fs5.mp3',
-        A5: 'A5.mp3',
-
-        C6: 'C6.mp3',
-        'D#6': 'Ds6.mp3',
-        'F#6': 'Fs6.mp3',
-        A6: 'A6.mp3',
-
-        C7: 'C7.mp3'
-      },
-
-      release: 1.5,
-
-      baseUrl:
-        'https://tonejs.github.io/audio/salamander/',
-
-      onload: () => {
-
-        pianoLoaded = true
-
-        document.querySelector(
-          '#status'
-        ).textContent =
-          '🎹 ピアノ音源を読み込みました'
-      }
-
-    }).toDestination()
-}
-
-
-async function playTone(frequency) {
-
-  try {
-
-    await Tone.start()
-
-
-    if (!pianoSampler) {
-      createPianoSampler()
-    }
-
-
-    if (!pianoLoaded) {
-
-      document.querySelector(
-        '#status'
-      ).textContent =
-        '🎹 ピアノ音源を読み込み中...'
-
-      await Tone.loaded()
-
-      pianoLoaded = true
-    }
-
-
-    const midi =
-      Math.round(
-        frequencyToMidi(
-          frequency
-        )
-      )
-
-
-    pianoSampler
-      .triggerAttackRelease(
-        midiToNoteName(midi),
-        1.5
-      )
-
-  } catch (error) {
-
-    console.error(error)
-  }
-}
-
-
-// ==========================================
-// 鍵盤
-// ==========================================
-
-document.querySelectorAll(
-  '.piano-key'
-).forEach(
-  key => {
-
-    key.addEventListener(
-      'click',
-      async () => {
-
-        const frequency =
-          Number(
-            key.dataset.frequency
-          )
-
-        const midi =
-          Number(
-            key.dataset.midi
-          )
-
-
-        await playTone(
-          frequency
-        )
-
-
-        if (practiceMode) {
-
-          setTargetNote(
-            midi
-          )
-        }
-      }
-    )
-  }
-)
-
-
-// ==========================================
 // オクターブボタン
 // ==========================================
 
@@ -3596,361 +2965,25 @@ document.querySelectorAll(
 // RMS
 // ==========================================
 
-function calculateRms(buffer) {
-
-  let sum = 0
-
-
-  for (
-    let i = 0;
-    i < buffer.length;
-    i++
-  ) {
-
-    sum +=
-      buffer[i] *
-      buffer[i]
-  }
-
-
-  return Math.sqrt(
-    sum /
-    buffer.length
-  )
-}
-
-
 function updateVolumeMeter(rms) {
+  let percent = rms * 800
+  percent = Math.max(0, Math.min(100, percent))
 
-  let percent =
-    rms * 800
-
-
-  percent =
-    Math.max(
-      0,
-      Math.min(
-        100,
-        percent
-      )
-    )
-
-
-  document.querySelector(
-    '#volumeBar'
-  ).style.width =
-    `${percent}%`
-
-
-  document.querySelector(
-    '#volumePercent'
-  ).textContent =
-    `${Math.round(
-      percent
-    )}%`
+  document.querySelector('#volumeBar').style.width = `${percent}%`
+  document.querySelector('#volumePercent').textContent = `${Math.round(percent)}%`
 }
-
 
 // ==========================================
 // YIN
 // ==========================================
 
-function yinPitchDetection(
-  buffer,
-  sampleRate
-) {
-
-  const rms =
-    calculateRms(buffer)
-
-
-  if (
-    rms <
-    micThreshold
-  ) {
-    return -1
-  }
-
-
-  const threshold = 0.12
-
-  const minFrequency = 60
-  const maxFrequency = 1600
-
-
-  const minTau =
-    Math.floor(
-      sampleRate /
-      maxFrequency
-    )
-
-
-  const maxTau =
-    Math.min(
-      Math.floor(
-        sampleRate /
-        minFrequency
-      ),
-      Math.floor(
-        buffer.length /
-        2
-      )
-    )
-
-
-  const yinBuffer =
-    new Float32Array(
-      maxTau + 1
-    )
-
-
-  for (
-    let tau = 1;
-    tau <= maxTau;
-    tau++
-  ) {
-
-    let sum = 0
-
-
-    for (
-      let i = 0;
-      i <
-        buffer.length -
-        tau;
-      i++
-    ) {
-
-      const delta =
-        buffer[i] -
-        buffer[
-          i + tau
-        ]
-
-      sum +=
-        delta *
-        delta
-    }
-
-
-    yinBuffer[tau] =
-      sum
-  }
-
-
-  yinBuffer[0] = 1
-
-  let runningSum = 0
-
-
-  for (
-    let tau = 1;
-    tau <= maxTau;
-    tau++
-  ) {
-
-    runningSum +=
-      yinBuffer[tau]
-
-
-    yinBuffer[tau] =
-      runningSum === 0
-        ? 1
-        : (
-            yinBuffer[tau] *
-            tau
-          ) /
-          runningSum
-  }
-
-
-  let tauEstimate = -1
-
-
-  for (
-    let tau = minTau;
-    tau < maxTau;
-    tau++
-  ) {
-
-    if (
-      yinBuffer[tau] <
-      threshold
-    ) {
-
-      while (
-        tau + 1 <
-          maxTau &&
-        yinBuffer[
-          tau + 1
-        ] <
-          yinBuffer[tau]
-      ) {
-
-        tau++
-      }
-
-
-      tauEstimate = tau
-
-      break
-    }
-  }
-
-
-  if (
-    tauEstimate === -1
-  ) {
-    return -1
-  }
-
-
-  let betterTau =
-    tauEstimate
-
-
-  if (
-    tauEstimate > 1 &&
-    tauEstimate + 1 <
-      yinBuffer.length
-  ) {
-
-    const s0 =
-      yinBuffer[
-        tauEstimate - 1
-      ]
-
-    const s1 =
-      yinBuffer[
-        tauEstimate
-      ]
-
-    const s2 =
-      yinBuffer[
-        tauEstimate + 1
-      ]
-
-
-    const denominator =
-      2 *
-      (
-        2 * s1 -
-        s2 -
-        s0
-      )
-
-
-    if (
-      denominator !== 0
-    ) {
-
-      betterTau =
-        tauEstimate +
-        (
-          s2 - s0
-        ) /
-        denominator
-    }
-  }
-
-
-  const frequency =
-    sampleRate /
-    betterTau
-
-
-  if (
-    frequency <
-      minFrequency ||
-    frequency >
-      maxFrequency
-  ) {
-    return -1
-  }
-
-
-  return frequency
-}
-
-
 // ==========================================
 // 音程平滑化
 // ==========================================
 
-function getSmoothedFrequency(
-  frequency
-) {
-
-  frequencyHistory.push(
-    frequency
-  )
-
-
-  if (
-    frequencyHistory.length >
-    HISTORY_SIZE
-  ) {
-
-    frequencyHistory.shift()
-  }
-
-
-  const sorted =
-    [
-      ...frequencyHistory
-    ].sort(
-      (a, b) => a - b
-    )
-
-
-  return sorted[
-    Math.floor(
-      sorted.length / 2
-    )
-  ]
-}
-
-
 // ==========================================
 // 現在音の鍵盤
 // ==========================================
-
-function clearCurrentNote() {
-
-  document.querySelectorAll(
-    '.piano-key'
-  ).forEach(
-    key => {
-
-      key.classList.remove(
-        'current-note'
-      )
-    }
-  )
-}
-
-
-function highlightCurrentNote(
-  midi
-) {
-
-  clearCurrentNote()
-
-
-  const key =
-    document.querySelector(
-      `[data-midi="${midi}"]`
-    )
-
-
-  if (key) {
-
-    key.classList.add(
-      'current-note'
-    )
-  }
-}
-
 
 // ==========================================
 // 音域鍵盤色
@@ -4448,7 +3481,8 @@ function detectPitch() {
   const frequency =
     yinPitchDetection(
       buffer,
-      audioContext.sampleRate
+      audioContext.sampleRate,
+      micThreshold
     )
 
 
@@ -4569,50 +3603,12 @@ async function startMicrophone() {
 
   try {
 
-    stream =
-      await navigator
-        .mediaDevices
-        .getUserMedia({
+    const input = await createMicrophoneInput()
 
-          audio: {
-
-            echoCancellation: true,
-
-            noiseSuppression: true,
-
-            autoGainControl: false,
-
-            channelCount: 1
-          }
-        })
-
-
-    audioContext =
-      new AudioContext()
-
-
-    analyser =
-      audioContext
-        .createAnalyser()
-
-
-    analyser.fftSize =
-      4096
-
-    analyser.smoothingTimeConstant =
-      0
-
-
-    microphone =
-      audioContext
-        .createMediaStreamSource(
-          stream
-        )
-
-
-    microphone.connect(
-      analyser
-    )
+    stream = input.stream
+    audioContext = input.audioContext
+    analyser = input.analyser
+    microphone = input.microphone
 
 
     running = true
@@ -4683,26 +3679,7 @@ function stopMicrophoneInput() {
   }
 
 
-  if (stream) {
-
-    stream
-      .getTracks()
-      .forEach(
-        track =>
-          track.stop()
-      )
-  }
-
-
-  if (audioContext) {
-
-    audioContext
-      .close()
-      .catch(
-        () => {}
-      )
-  }
-
+  releaseMicrophoneInput({ stream, audioContext })
 
   clearCurrentNote()
 
@@ -5185,6 +4162,10 @@ localStorage.removeItem(
 renderPopularSongs()
 
 // 検索欄
+const renderSearchResults = initSongSearch({
+  songs: SONGS,
+  onSongSelected: showSongAnalysis,
+})
 renderSearchResults('')
 
 // 前回の音域を読み込み
@@ -5204,7 +4185,7 @@ if (restoredRange) {
 
 
 // ピアノ音源
-createPianoSampler()
+initPiano({ frequencyToMidi, midiToNoteName, onPracticeNote: midi => { if (practiceMode) setTargetNote(midi) } })
 
 
 requestAnimationFrame(
