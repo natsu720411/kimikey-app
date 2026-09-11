@@ -2311,6 +2311,10 @@ function showSongAnalysis(song) {
     selectedSongAnalysis =
       null
 
+    document.querySelector(
+      '#keyShiftTable'
+    ).innerHTML = ''
+
     keyElement.textContent =
       '---'
 
@@ -3358,6 +3362,18 @@ updateSensitivity(5)
 
 
 // ==========================================
+// 曲紹介ページから引き継いだ曲を、保存音域の読み込み後に診断
+const linkedSongId =
+  new URLSearchParams(window.location.search).get('song')
+
+const linkedSong =
+  SONGS.find(song => String(song.id) === linkedSongId)
+
+if (linkedSong) {
+  showSongAnalysis(linkedSong)
+}
+
+
 // ピアノ音源
 // ==========================================
 
@@ -4624,9 +4640,19 @@ async function startMicrophone() {
 
 function stopMicrophone() {
 
-  running = false
+  if (measuringMode) {
+    stopRangeMeasurement()
+    return
+  }
 
-  measuringMode = null
+  stopMicrophoneInput()
+}
+
+
+// マイク入力だけを停止する共通処理
+function stopMicrophoneInput() {
+
+  running = false
 
 
   if (animationId) {
@@ -4889,6 +4915,8 @@ function stopRangeMeasurement() {
 
   measuringMode = null
 
+  stopMicrophoneInput()
+
   candidateMidi = null
   candidateStartTime = null
 
@@ -4960,6 +4988,16 @@ function stopRangeMeasurement() {
     '測定が完了しました'
   )
 
+
+  for (const [selector, midi] of [
+    ['#limitLowestNote', limitLowestMidi],
+    ['#limitHighestNote', limitHighestMidi],
+    ['#comfortLowestNote', comfortLowestMidi],
+    ['#comfortHighestNote', comfortHighestMidi]
+  ]) {
+    document.querySelector(selector).textContent =
+      midi === null ? '---' : midiToNoteName(midi)
+  }
 
   updateRangeKeys()
 

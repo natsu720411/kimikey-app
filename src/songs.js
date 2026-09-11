@@ -66,6 +66,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiE',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ライラック',
@@ -73,6 +75,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '好きすぎて滅!',
@@ -80,6 +84,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiC#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'IRIS OUT',
@@ -87,6 +93,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '青と夏',
@@ -94,6 +102,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF',
     highLabel: 'hiE',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Blue Jeans',
@@ -101,6 +111,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiB',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '恋、はじめました。',
@@ -108,6 +120,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Soranji',
@@ -115,6 +129,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiF#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'lulu.',
@@ -122,6 +138,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiD#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'アイドルパワー',
@@ -129,6 +147,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -137,6 +157,8 @@ const RAW_SONGS = [
     lowLabel: 'lowG#',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ケセラセラ',
@@ -144,6 +166,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiF',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'I Got Your Back',
@@ -151,6 +175,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ダーリン',
@@ -158,6 +184,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ROSE',
@@ -165,6 +193,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ブルーアンバー',
@@ -172,6 +202,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '僕のこと',
@@ -179,6 +211,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiD#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'マイオンリー',
@@ -186,6 +220,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '水平線',
@@ -193,6 +229,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ヒロイン',
@@ -200,6 +238,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -208,6 +248,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiF',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '怪獣',
@@ -215,6 +257,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiB',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '115万キロのフィルム',
@@ -222,6 +266,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ダンスホール',
@@ -229,6 +275,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiF#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Pretender',
@@ -236,6 +284,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiC#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'AIZO',
@@ -243,6 +293,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ブルーアンビエンス (feat. asmi)',
@@ -250,6 +302,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'BAD',
@@ -257,6 +311,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiC',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'BPM (feat. KREVA)',
@@ -264,6 +320,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Automatic',
@@ -271,6 +329,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -279,6 +339,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Subtitle',
@@ -286,6 +348,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiC#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'StaRt',
@@ -293,6 +357,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiB',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Bad Girl',
@@ -300,6 +366,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '波乗りジョニー',
@@ -307,6 +375,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'インフェルノ',
@@ -314,6 +384,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiD#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '夜に駆ける',
@@ -321,6 +393,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'きらり',
@@ -328,6 +402,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '劇薬中毒',
@@ -335,6 +411,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiC#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'SAD SONG',
@@ -342,6 +420,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
 
   {
@@ -350,6 +430,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'Never Grow Up',
@@ -357,6 +439,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'ハレンチ',
@@ -364,6 +448,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'クスシキ',
@@ -371,6 +457,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiF',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Love so sweet',
@@ -378,6 +466,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '群青',
@@ -385,6 +475,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Tiger',
@@ -392,6 +484,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'イエスタデイ',
@@ -399,6 +493,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiC#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '今夜このまま',
@@ -406,6 +502,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'JANE DOE',
@@ -413,6 +511,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiD#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -421,6 +521,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiA#',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ロマンチシズム',
@@ -428,6 +530,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiD#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '怪盗',
@@ -435,6 +539,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Golden',
@@ -442,6 +548,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiF#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'KISS N TELL',
@@ -449,6 +557,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '晴々',
@@ -456,6 +566,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Blue Shining Star',
@@ -463,6 +575,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiE',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'グッタイム',
@@ -470,6 +584,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiC',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'イケナイ太陽',
@@ -477,6 +593,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '小さな恋のうた',
@@ -484,6 +602,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -492,6 +612,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiC',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'モンストロ',
@@ -499,6 +621,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'SOS',
@@ -506,6 +630,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Truth in the dark',
@@ -513,6 +639,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiF#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '777',
@@ -520,6 +648,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Live to Survive',
@@ -527,6 +657,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2B',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'Love me forever!',
@@ -534,6 +666,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'うるさ',
@@ -541,6 +675,8 @@ const RAW_SONGS = [
     lowLabel: 'lowG',
     highLabel: 'mid2D#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '景色',
@@ -548,6 +684,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '新宝島',
@@ -555,6 +693,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -563,6 +703,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2B',
     highLabel: 'hiC#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Standing Here',
@@ -570,6 +712,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF',
     highLabel: 'hiE',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'My Affection',
@@ -577,6 +721,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '春に舞う',
@@ -584,6 +730,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'Dance Forever',
@@ -591,6 +739,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'お姫様の作り方',
@@ -598,6 +748,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'スターダスト',
@@ -605,6 +757,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiD#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'きゃわぽっぴんどぅー',
@@ -612,6 +766,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '絶対アイドル辞めないで',
@@ -619,6 +775,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Fiction Love',
@@ -626,6 +784,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
 
   {
@@ -634,6 +794,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'YES',
@@ -641,6 +803,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: '灰色',
@@ -648,6 +812,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'あぶく',
@@ -655,6 +821,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '綺羅',
@@ -662,6 +830,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2B',
     highLabel: 'hiC#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'ルミナス - Luminous',
@@ -669,6 +839,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiD#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'らしさ',
@@ -676,6 +848,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ノーダウト',
@@ -683,6 +857,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '章',
@@ -690,6 +866,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'エルダーフラワー',
@@ -697,6 +875,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -705,6 +885,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiD',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'コールドスリープ',
@@ -712,6 +894,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2C',
     highLabel: 'hiG',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Sanitizer',
@@ -719,6 +903,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiE',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '劇上',
@@ -726,6 +912,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'アイドルライフメガパック',
@@ -733,6 +921,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A#',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '風のアンセム (feat. suis from ヨルシカ)',
@@ -740,6 +930,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'hiD#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Hallelujah',
@@ -747,6 +939,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiD#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '怪獣の花唄',
@@ -754,6 +948,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiD',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     
@@ -762,6 +958,8 @@ const RAW_SONGS = [
       lowLabel: 'mid1B',
       highLabel: 'hiB',
       gender: 'male',
+      singerGender: 'male',
+      difficulty: 'unknown',
     
   },
   {
@@ -770,6 +968,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiB',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: '残酷な天使のテーゼ',
@@ -777,6 +977,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'サウダージ',
@@ -784,6 +986,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '高嶺の花子さん',
@@ -791,6 +995,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'さよならエレジー',
@@ -798,6 +1004,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '奏（かなで）',
@@ -805,6 +1013,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ひまわりの約束',
@@ -812,6 +1022,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'カブトムシ',
@@ -819,6 +1031,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'チェリー',
@@ -826,6 +1040,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '恋人ごっこ',
@@ -833,6 +1049,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '天体観測',
@@ -840,6 +1058,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '真夏の果実',
@@ -847,6 +1067,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'HOT LIMIT',
@@ -854,6 +1076,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '打上花火',
@@ -861,6 +1085,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'hiD#',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '点描の唄 (feat. 井上苑子)',
@@ -868,6 +1094,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ベテルギウス',
@@ -875,6 +1103,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF#',
     highLabel: 'hiD',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'シンデレラボーイ',
@@ -882,6 +1112,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ハナミズキ',
@@ -889,6 +1121,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'First Love',
@@ -896,6 +1130,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '愛をこめて花束を',
@@ -903,6 +1139,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Wherever you are',
@@ -910,6 +1148,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF',
     highLabel: 'hiC',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '丸の内サディスティック',
@@ -917,6 +1157,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A#',
     highLabel: 'hiG',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: '裸の心',
@@ -924,6 +1166,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'Mela!',
@@ -931,6 +1175,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ただ君に晴れ',
@@ -938,6 +1184,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2D',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'アイドル',
@@ -945,6 +1193,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '勇者',
@@ -952,6 +1202,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'SPECIALZ',
@@ -959,6 +1211,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'mid2F#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '絆ノ奇跡',
@@ -966,6 +1220,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'こっから',
@@ -973,6 +1229,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '青のすみか',
@@ -980,6 +1238,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'ラビットホール',
@@ -987,6 +1247,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '強風オールバック',
@@ -994,6 +1256,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiA',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'オーバーライド',
@@ -1001,6 +1265,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiC#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '晩餐歌',
@@ -1008,6 +1274,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiF#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '美少女無罪♡パイレーツ',
@@ -1015,6 +1283,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'INTERNET YAMERO',
@@ -1022,6 +1292,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '君のまま',
@@ -1029,6 +1301,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF#',
     highLabel: 'mid2E',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'バグ (feat. 宵崎奏, 朝比奈まふゆ, 東雲絵名, 暁山瑞希 & 鏡音レン)',
@@ -1036,6 +1310,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A#',
     highLabel: 'hiF#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'あいしていたのに',
@@ -1043,6 +1319,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2C#',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'LADY',
@@ -1050,6 +1328,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '匿名M',
@@ -1057,6 +1337,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF#',
     highLabel: 'hiC#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Mainstream',
@@ -1064,6 +1346,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ホワイトノイズ',
@@ -1071,6 +1355,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiD#',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'fake face dance music',
@@ -1078,6 +1364,8 @@ const RAW_SONGS = [
     lowLabel: 'lowG#',
     highLabel: 'mid2F#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'ダーリン',
@@ -1085,6 +1373,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiC#',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'スピカ',
@@ -1092,6 +1382,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'TATTOO',
@@ -1099,6 +1391,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiC',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'アタシは問題作',
@@ -1106,6 +1400,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiD',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'フライデー・ナイト',
@@ -1113,6 +1409,8 @@ const RAW_SONGS = [
     lowLabel: 'lowG#',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'ランデヴー',
@@ -1120,6 +1418,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '紡ぐ',
@@ -1127,6 +1427,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'レクイエム (feat. 星街すいせい)',
@@ -1134,6 +1436,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'セブンティーン',
@@ -1141,6 +1445,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiF',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'そんなbitterな話',
@@ -1148,6 +1454,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiE',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '向日葵',
@@ -1155,6 +1463,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'Biri-Biri',
@@ -1162,6 +1472,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '美しい鰭',
@@ -1169,6 +1481,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'クラクラ',
@@ -1176,6 +1490,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'Anytime Anywhere',
@@ -1183,6 +1499,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'のだ',
@@ -1190,6 +1508,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'slow...',
@@ -1197,6 +1517,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'mid2F#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'spiral',
@@ -1204,6 +1526,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ライアーダンサー',
@@ -1211,6 +1535,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '可愛いあの子が気にゐらない',
@@ -1218,6 +1544,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2C',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '猿芝居',
@@ -1225,6 +1553,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'mid2E',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'コイコガレ',
@@ -1232,6 +1562,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'CEREMONY',
@@ -1239,6 +1571,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'カリスマックス',
@@ -1246,6 +1580,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A#',
     highLabel: 'hiD',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'タペストリー',
@@ -1253,6 +1589,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiA#',
     gender: 'both',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Dangerholic',
@@ -1260,6 +1598,8 @@ const RAW_SONGS = [
     lowLabel: 'lowF#',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'プロポーズ',
@@ -1267,6 +1607,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '君の彼氏になりたい。',
@@ -1274,6 +1616,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '革命道中 - On The Way',
@@ -1281,6 +1625,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'テレパシ',
@@ -1288,6 +1634,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'SBY',
@@ -1295,6 +1643,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'BOW AND ARROW',
@@ -1302,6 +1652,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'Plazma',
@@ -1309,6 +1661,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'LOVE TRIGGER',
@@ -1316,6 +1670,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'どんなときも。',
@@ -1323,6 +1679,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'SAY YES',
@@ -1330,6 +1688,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'ラブ・ストーリーは突然に',
@@ -1337,6 +1697,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiB',
     gender: 'hard',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '冬がはじまるよ',
@@ -1344,6 +1706,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: 'Say Anything',
@@ -1351,6 +1715,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'あなたに会えてよかった',
@@ -1358,6 +1724,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A#',
     highLabel: 'hiB',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'それが大事',
@@ -1365,6 +1733,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'PIECE OF MY WISH',
@@ -1372,6 +1742,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: '孤独のRunaway',
@@ -1379,6 +1751,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: 'Eyes to me',
@@ -1386,6 +1760,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiC#',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     title: '少年期',
@@ -1393,6 +1769,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'mid2F',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     title: '風の谷のナウシカ',
@@ -1400,6 +1778,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G#',
     highLabel: 'hiB',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     title: 'LOVE TRAIN',
@@ -1407,13 +1787,17 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'mid2F#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
-    title: 'Wild Life',
+    title: 'WILD LIFE',
     artist: 'B\'z',
     lowLabel: 'mid1G#',
     highLabel: 'hiB',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 193,
@@ -1422,6 +1806,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 194,
@@ -1430,6 +1816,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 195,
@@ -1438,6 +1826,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'mid2F#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 196,
@@ -1446,6 +1836,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 197,
@@ -1454,6 +1846,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 198,
@@ -1462,6 +1856,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 199,
@@ -1470,6 +1866,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
  
   {
@@ -1479,6 +1877,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 202,
@@ -1487,6 +1887,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1496,6 +1898,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A#',
     highLabel: 'hiC',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 204,
@@ -1504,6 +1908,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1513,6 +1919,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 206,
@@ -1521,6 +1929,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 207,
@@ -1529,6 +1939,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D#',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 208,
@@ -1537,6 +1949,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1546,6 +1960,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 210,
@@ -1554,6 +1970,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1563,6 +1981,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiA#',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   
   {
@@ -1572,6 +1992,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 213,
@@ -1580,6 +2002,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1589,6 +2013,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 215,
@@ -1597,6 +2023,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
  
@@ -1607,6 +2035,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1616,6 +2046,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 219,
@@ -1624,6 +2056,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1633,6 +2067,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 221,
@@ -1641,6 +2077,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1650,6 +2088,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 223,
@@ -1658,6 +2098,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1667,6 +2109,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 225,
@@ -1675,6 +2119,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1684,6 +2130,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 227,
@@ -1692,6 +2140,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1A',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1701,6 +2151,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 229,
@@ -1709,6 +2161,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   
   {
@@ -1718,6 +2172,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 231,
@@ -1726,6 +2182,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   
   {
@@ -1735,6 +2193,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1744,6 +2204,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 234,
@@ -1752,6 +2214,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1761,6 +2225,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   
   {
@@ -1770,6 +2236,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   
   {
@@ -1779,6 +2247,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1788,6 +2258,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     id: 239,
@@ -1796,6 +2268,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   
  
@@ -1807,6 +2281,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1816,6 +2292,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 243,
@@ -1824,6 +2302,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 244,
@@ -1832,6 +2312,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 245,
@@ -1840,6 +2322,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C#',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 246,
@@ -1848,6 +2332,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 247,
@@ -1856,6 +2342,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 248,
@@ -1864,6 +2352,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'mid2G#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 249,
@@ -1872,6 +2362,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 250,
@@ -1880,6 +2372,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1F#',
     highLabel: 'hiC#',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 251,
@@ -1888,6 +2382,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2C',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 252,
@@ -1896,6 +2392,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiC',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1905,6 +2403,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1E',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 254,
@@ -1913,6 +2413,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 255,
@@ -1921,6 +2423,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 256,
@@ -1929,6 +2433,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 257,
@@ -1937,6 +2443,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1946,6 +2454,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 259,
@@ -1954,6 +2464,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 260,
@@ -1962,6 +2474,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 261,
@@ -1970,6 +2484,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 262,
@@ -1978,6 +2494,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiB',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -1987,6 +2505,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
 
   {
@@ -1996,6 +2516,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 266,
@@ -2004,6 +2526,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2013,6 +2537,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 268,
@@ -2021,6 +2547,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 269,
@@ -2029,6 +2557,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 270,
@@ -2037,6 +2567,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2046,6 +2578,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 272,
@@ -2054,6 +2588,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 273,
@@ -2062,6 +2598,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2071,6 +2609,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 275,
@@ -2079,6 +2619,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 276,
@@ -2087,6 +2629,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2096,6 +2640,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     id: 278,
@@ -2104,6 +2650,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     id: 279,
@@ -2112,6 +2660,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   
   {
@@ -2121,6 +2671,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     id: 281,
@@ -2129,6 +2681,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   {
     id: 282,
@@ -2137,6 +2691,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2146,6 +2702,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 284,
@@ -2154,6 +2712,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'female',
+    difficulty: 'unknown',
   },
   
   {
@@ -2163,6 +2723,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 286,
@@ -2171,6 +2733,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiE',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2180,6 +2744,8 @@ const RAW_SONGS = [
     lowLabel: 'mid2A',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 288,
@@ -2188,6 +2754,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1G',
     highLabel: 'hiD',
     gender: 'female',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2197,6 +2765,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 290,
@@ -2205,6 +2775,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2214,6 +2786,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   {
     id: 292,
@@ -2222,6 +2796,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
   
   {
@@ -2231,6 +2807,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
  
   {
@@ -2240,6 +2818,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   
   {
@@ -2249,6 +2829,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 297,
@@ -2257,6 +2839,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1D',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   
   {
@@ -2266,6 +2850,8 @@ const RAW_SONGS = [
     lowLabel: 'lowG',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 299,
@@ -2274,6 +2860,8 @@ const RAW_SONGS = [
     lowLabel: 'lowG',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   
   {
@@ -2283,6 +2871,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'mid2G',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 301,
@@ -2291,6 +2881,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 302,
@@ -2299,6 +2891,8 @@ const RAW_SONGS = [
     lowLabel: 'mid1B',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'male',
+    difficulty: 'unknown',
   },
   {
     id: 303,
@@ -2307,213 +2901,215 @@ const RAW_SONGS = [
     lowLabel: 'mid1C',
     highLabel: 'hiA',
     gender: 'male',
+    singerGender: 'unknown',
+    difficulty: 'unknown',
   },
-  { id: 304, title: '月を見ていた', artist: '米津玄師', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 305, title: 'アドベンチャー', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 306, title: '唱', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 307, title: 'DIGNITY', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 308, title: 'いばら', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 309, title: 'オールナイトレディオ', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 310, title: 'ビリミリオン', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 311, title: '恋人じゃなくなった日', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 312, title: 'Chessboard', artist: 'Official髭男dism', lowLabel: 'mid1C#', highLabel: 'hiC', gender: 'hard', year: 2023, rangeVerified: false },
-  { id: 313, title: 'SOULSOUP', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiC#', gender: 'hard', year: 2023, rangeVerified: false },
-  { id: 314, title: '日常', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'hard', year: 2023, rangeVerified: false },
-  { id: 315, title: 'リンジュー・ラヴ', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 316, title: '愛の波', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 317, title: '悲しみはバスに乗って', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 318, title: '愛の花', artist: 'あいみょん', lowLabel: 'mid1E', highLabel: 'hiC', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 319, title: 'あのね', artist: 'あいみょん', lowLabel: 'mid1E', highLabel: 'hiC#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 320, title: '花', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 321, title: 'Workin\' Hard', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 322, title: 'トドメの一撃 feat. Cory Wong', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 323, title: '現在を生きるのだ。', artist: 'Saucy Dog', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 324, title: '夢みるスーパーマン', artist: 'Saucy Dog', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 325, title: 'オトナブルー', artist: '新しい学校のリーダーズ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 326, title: 'Suki Lie', artist: '新しい学校のリーダーズ', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 327, title: 'トウキョウ・シャンディ・ランデヴ', artist: 'MAISONdes', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 328, title: 'メフィスト', artist: '女王蜂', lowLabel: 'mid1D', highLabel: 'hiF', gender: 'hard', year: 2023, rangeVerified: false },
-  { id: 329, title: '硝子窓', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 330, title: 'more than words', artist: '羊文学', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 331, title: '永遠のブルー', artist: '羊文学', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 332, title: 'NIGHT DANCER', artist: 'imase', lowLabel: 'lowG#', highLabel: 'mid2G#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 333, title: 'Nagisa', artist: 'imase', lowLabel: 'lowG#', highLabel: 'mid2G#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 334, title: 'ユートピア', artist: 'imase', lowLabel: 'lowG#', highLabel: 'mid2G#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 335, title: 'I AM', artist: 'IVE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 336, title: 'UNFORGIVEN', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 337, title: 'Perfect Night', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 338, title: 'Super Shy', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 339, title: 'ETA', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 340, title: 'SET ME FREE', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 341, title: 'Hare Hare', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 342, title: 'Boom Boom Back', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 343, title: 'Smile Again', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 344, title: 'D.U.N.K.', artist: 'SKY-HI', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 345, title: 'ABARERO', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 346, title: 'CREAK', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 347, title: 'Life goes on', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 348, title: 'なにもの', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2023, rangeVerified: false },
-  { id: 349, title: 'Paradise', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 350, title: 'HEARTRIS', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 351, title: '愛が灯る', artist: 'ロクデナシ', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 352, title: 'slash', artist: 'yama', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 353, title: '偽顔', artist: 'yama', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 354, title: 'Super Ball', artist: 'TOMOO', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 355, title: 'Ginger', artist: 'TOMOO', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2023, rangeVerified: false },
+  { id: 304, title: '月を見ていた', artist: '米津玄師', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 305, title: 'アドベンチャー', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 306, title: '唱', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 307, title: 'DIGNITY', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 308, title: 'いばら', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 309, title: 'オールナイトレディオ', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 310, title: 'ビリミリオン', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 311, title: '恋人じゃなくなった日', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 312, title: 'Chessboard', artist: 'Official髭男dism', lowLabel: 'mid1C#', highLabel: 'hiC', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 313, title: 'SOULSOUP', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiC#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 314, title: '日常', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 315, title: 'リンジュー・ラヴ', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 316, title: '愛の波', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 317, title: '悲しみはバスに乗って', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 318, title: '愛の花', artist: 'あいみょん', lowLabel: 'mid1E', highLabel: 'hiC', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 319, title: 'あのね', artist: 'あいみょん', lowLabel: 'mid1E', highLabel: 'hiC#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 320, title: '花', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 321, title: 'Workin\' Hard', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiA#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 322, title: 'トドメの一撃 feat. Cory Wong', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 323, title: '現在を生きるのだ。', artist: 'Saucy Dog', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 324, title: '夢みるスーパーマン', artist: 'Saucy Dog', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 325, title: 'オトナブルー', artist: '新しい学校のリーダーズ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 326, title: 'Suki Lie', artist: '新しい学校のリーダーズ', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 327, title: 'トウキョウ・シャンディ・ランデヴ', artist: 'MAISONdes', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 328, title: 'メフィスト', artist: '女王蜂', lowLabel: 'mid1D', highLabel: 'hiF', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 329, title: '硝子窓', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 330, title: 'more than words', artist: '羊文学', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 331, title: '永遠のブルー', artist: '羊文学', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 332, title: 'NIGHT DANCER', artist: 'imase', lowLabel: 'lowG#', highLabel: 'mid2G#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 333, title: 'Nagisa', artist: 'imase', lowLabel: 'lowG#', highLabel: 'mid2G#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 334, title: 'ユートピア', artist: 'imase', lowLabel: 'lowG#', highLabel: 'mid2G#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 335, title: 'I AM', artist: 'IVE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 336, title: 'UNFORGIVEN', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 337, title: 'Perfect Night', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 338, title: 'Super Shy', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 339, title: 'ETA', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 340, title: 'SET ME FREE', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 341, title: 'Hare Hare', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 342, title: 'Boom Boom Back', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 343, title: 'Smile Again', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 344, title: 'D.U.N.K.', artist: 'SKY-HI', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 345, title: 'ABARERO', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 346, title: 'CREAK', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 347, title: 'Life goes on', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 348, title: 'なにもの', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 349, title: 'Paradise', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 350, title: 'HEARTRIS', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 351, title: '愛が灯る', artist: 'ロクデナシ', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 352, title: 'slash', artist: 'yama', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 353, title: '偽顔', artist: 'yama', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 354, title: 'Super Ball', artist: 'TOMOO', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 355, title: 'Ginger', artist: 'TOMOO', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2023, rangeVerified: false },
   
-  { id: 356, title: 'Bling-Bang-Bang-Born', artist: 'Creepy Nuts', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 357, title: '二度寝', artist: 'Creepy Nuts', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 358, title: '幾億光年', artist: 'Omoinotake', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 359, title: '蕾', artist: 'Omoinotake', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 360, title: 'タイムパラドックス', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 361, title: '満ちてゆく', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 362, title: 'Feelin\' Go(o)d', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 363, title: '晴る', artist: 'ヨルシカ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 364, title: '忘れてください', artist: 'ヨルシカ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 365, title: 'I wonder', artist: 'Da-iCE', lowLabel: 'mid1D', highLabel: 'hiC#', gender: 'hard', year: 2024, rangeVerified: false },
-  { id: 366, title: 'オレンジ', artist: 'SPYAIR', lowLabel: 'mid1C', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 367, title: 'はいよろこんで', artist: 'こっちのけんと', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 368, title: 'もういいよ', artist: 'こっちのけんと', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 369, title: '最高到達点', artist: 'SEKAI NO OWARI', lowLabel: 'mid1D', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 370, title: '花になって', artist: '緑黄色社会', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 371, title: 'サマータイムシンデレラ', artist: '緑黄色社会', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2023, rangeVerified: false },
-  { id: 372, title: 'ナハトムジーク', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1C#', highLabel: 'hiD#', gender: 'hard', year: 2024, rangeVerified: false },
-  { id: 373, title: 'コロンブス', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD#', gender: 'hard', year: 2024, rangeVerified: false },
-  { id: 374, title: 'Dear', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1C#', highLabel: 'hiD#', gender: 'hard', year: 2024, rangeVerified: false },
-  { id: 375, title: 'familie', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD', gender: 'hard', year: 2024, rangeVerified: false },
-  { id: 376, title: 'ANTENNA', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD#', gender: 'hard', year: 2023, rangeVerified: false },
-  { id: 377, title: '新しい恋人達に', artist: 'back number', lowLabel: 'mid1C', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 378, title: '冬と春', artist: 'back number', lowLabel: 'mid1C', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 379, title: '夢幻', artist: 'MY FIRST STORY × HYDE', lowLabel: 'mid1C', highLabel: 'hiC', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 380, title: 'ファタール', artist: 'GEMN', lowLabel: 'mid1C', highLabel: 'hiC', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 381, title: 'ビビデバ', artist: '星街すいせい', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 382, title: 'モニタリング', artist: 'DECO*27', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 383, title: 'Magnetic', artist: 'ILLIT', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 384, title: 'Cherish (My Love)', artist: 'ILLIT', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 385, title: 'EASY', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 386, title: 'CRAZY', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 387, title: 'Supernova', artist: 'aespa', lowLabel: 'mid1G#', highLabel: 'hiF', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 388, title: 'Armageddon', artist: 'aespa', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 389, title: 'Whiplash', artist: 'aespa', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 390, title: 'How Sweet', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 391, title: 'Bubble Gum', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 392, title: 'HEYA', artist: 'IVE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 393, title: 'Accendio', artist: 'IVE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 394, title: 'GOAT', artist: 'Number_i', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 395, title: 'BON', artist: 'Number_i', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 396, title: 'INZM', artist: 'Number_i', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 397, title: 'Masterplan', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 398, title: 'Sailing', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 399, title: 'We\'ll go together', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 400, title: 'BREAKOUT', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 401, title: 'GONG', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 402, title: '音色', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 403, title: 'moooove!!', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 404, title: 'halfmoon', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 405, title: 'SWEET NONFICTION', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 406, title: 'Rise Up', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 407, title: '鬼ノ宴', artist: '友成空', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 408, title: '睨めっ娘', artist: '友成空', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 409, title: 'かわいいだけじゃだめですか？', artist: 'CUTIE STREET', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 410, title: 'NEW KAWAII', artist: 'FRUITS ZIPPER', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 411, title: 'かがみ', artist: 'FRUITS ZIPPER', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 412, title: '愛♡スクリ～ム！', artist: 'AiScReam', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 413, title: 'Burning', artist: '羊文学', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 414, title: 'Present', artist: 'TOMOO', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 415, title: '幾億光年 (Acoustic)', artist: 'Omoinotake', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', year: 2024, rangeVerified: false },
-  { id: 416, title: 'I GOT YOU', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 417, title: 'ビターバカンス', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD#', gender: 'hard', year: 2024, rangeVerified: false },
-  { id: 418, title: 'APT.', artist: 'ロゼ & ブルーノ・マーズ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'both', year: 2024, rangeVerified: false },
+  { id: 356, title: 'Bling-Bang-Bang-Born', artist: 'Creepy Nuts', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 357, title: '二度寝', artist: 'Creepy Nuts', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 358, title: '幾億光年', artist: 'Omoinotake', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 359, title: '蕾', artist: 'Omoinotake', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 360, title: 'タイムパラドックス', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 361, title: '満ちてゆく', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 362, title: 'Feelin\' Go(o)d', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiA#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 363, title: '晴る', artist: 'ヨルシカ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 364, title: '忘れてください', artist: 'ヨルシカ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 365, title: 'I wonder', artist: 'Da-iCE', lowLabel: 'mid1D', highLabel: 'hiC#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 366, title: 'オレンジ', artist: 'SPYAIR', lowLabel: 'mid1C', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 367, title: 'はいよろこんで', artist: 'こっちのけんと', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 368, title: 'もういいよ', artist: 'こっちのけんと', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 369, title: '最高到達点', artist: 'SEKAI NO OWARI', lowLabel: 'mid1D', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 370, title: '花になって', artist: '緑黄色社会', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 371, title: 'サマータイムシンデレラ', artist: '緑黄色社会', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 372, title: 'ナハトムジーク', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1C#', highLabel: 'hiD#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 373, title: 'コロンブス', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 374, title: 'Dear', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1C#', highLabel: 'hiD#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 375, title: 'familie', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 376, title: 'ANTENNA', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2023, rangeVerified: false },
+  { id: 377, title: '新しい恋人達に', artist: 'back number', lowLabel: 'mid1C', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 378, title: '冬と春', artist: 'back number', lowLabel: 'mid1C', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 379, title: '夢幻', artist: 'MY FIRST STORY × HYDE', lowLabel: 'mid1C', highLabel: 'hiC', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 380, title: 'ファタール', artist: 'GEMN', lowLabel: 'mid1C', highLabel: 'hiC', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 381, title: 'ビビデバ', artist: '星街すいせい', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 382, title: 'モニタリング', artist: 'DECO*27', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 383, title: 'Magnetic', artist: 'ILLIT', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 384, title: 'Cherish (My Love)', artist: 'ILLIT', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 385, title: 'EASY', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 386, title: 'CRAZY', artist: 'LE SSERAFIM', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 387, title: 'Supernova', artist: 'aespa', lowLabel: 'mid1G#', highLabel: 'hiF', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 388, title: 'Armageddon', artist: 'aespa', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 389, title: 'Whiplash', artist: 'aespa', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 390, title: 'How Sweet', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 391, title: 'Bubble Gum', artist: 'NewJeans', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 392, title: 'HEYA', artist: 'IVE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 393, title: 'Accendio', artist: 'IVE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 394, title: 'GOAT', artist: 'Number_i', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 395, title: 'BON', artist: 'Number_i', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 396, title: 'INZM', artist: 'Number_i', lowLabel: 'lowG', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 397, title: 'Masterplan', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 398, title: 'Sailing', artist: 'BE:FIRST', lowLabel: 'lowG', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 399, title: 'We\'ll go together', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 400, title: 'BREAKOUT', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 401, title: 'GONG', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 402, title: '音色', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 403, title: 'moooove!!', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 404, title: 'halfmoon', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 405, title: 'SWEET NONFICTION', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 406, title: 'Rise Up', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 407, title: '鬼ノ宴', artist: '友成空', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 408, title: '睨めっ娘', artist: '友成空', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 409, title: 'かわいいだけじゃだめですか？', artist: 'CUTIE STREET', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 410, title: 'NEW KAWAII', artist: 'FRUITS ZIPPER', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 411, title: 'かがみ', artist: 'FRUITS ZIPPER', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 412, title: '愛♡スクリ～ム！', artist: 'AiScReam', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 413, title: 'Burning', artist: '羊文学', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 414, title: 'Present', artist: 'TOMOO', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 415, title: '幾億光年 (Acoustic)', artist: 'Omoinotake', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 416, title: 'I GOT YOU', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 417, title: 'ビターバカンス', artist: 'Mrs. GREEN APPLE', lowLabel: 'mid1D', highLabel: 'hiD#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 418, title: 'APT.', artist: 'ロゼ & ブルーノ・マーズ', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'both', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
   
-  { id: 419, title: '倍倍FIGHT!', artist: 'CANDY TUNE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2025, rangeVerified: false },
-  { id: 420, title: 'キス・ミー・パティシエ', artist: 'CANDY TUNE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2025, rangeVerified: false },
-  { id: 421, title: 'イイじゃん', artist: 'M!LK', lowLabel: 'mid1B', highLabel: 'hiC#', gender: 'male', year: 2025, rangeVerified: false },
-  { id: 422, title: 'テトリス', artist: '柊マグネタイト', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2024, rangeVerified: false },
-  { id: 423, title: 'Almond Chocolate', artist: 'ILLIT', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2025, rangeVerified: false },
-  { id: 424, title: 'Burning Flower', artist: 'HANA', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2025, rangeVerified: false },
-  { id: 425, title: 'Drop', artist: 'HANA', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2025, rangeVerified: false },
-  { id: 426, title: 'ノノガ', artist: 'HANA', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2025, rangeVerified: false },
-  { id: 427, title: '倍倍FIGHT! - Special ver.', artist: 'CANDY TUNE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2025, rangeVerified: false },
+  { id: 419, title: '倍倍FIGHT!', artist: 'CANDY TUNE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 420, title: 'キス・ミー・パティシエ', artist: 'CANDY TUNE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 421, title: 'イイじゃん', artist: 'M!LK', lowLabel: 'mid1B', highLabel: 'hiC#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 422, title: 'テトリス', artist: '柊マグネタイト', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2024, rangeVerified: false },
+  { id: 423, title: 'Almond Chocolate', artist: 'ILLIT', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 424, title: 'Burning Flower', artist: 'HANA', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 425, title: 'Drop', artist: 'HANA', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 426, title: 'ノノガ', artist: 'HANA', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
+  { id: 427, title: '倍倍FIGHT! - Special ver.', artist: 'CANDY TUNE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2025, rangeVerified: false },
   
-  { id: 428, title: '勿忘', artist: 'Awesome City Club', lowLabel: 'mid1F#', highLabel: 'hiC#', gender: 'both', year: 2021, rangeVerified: false },
-  { id: 429, title: '怪物', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 430, title: '優しい彗星', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 431, title: '三原色', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 432, title: 'もう少しだけ', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 433, title: 'たぶん', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 434, title: 'ハルジオン', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 435, title: 'Pale Blue', artist: '米津玄師', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 436, title: '死神', artist: '米津玄師', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 437, title: 'ゆめうつつ', artist: '米津玄師', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 438, title: '不思議', artist: '星野源', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 439, title: '創造', artist: '星野源', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 440, title: 'Cry Baby', artist: 'Official髭男dism', lowLabel: 'mid1D#', highLabel: 'hiC#', gender: 'hard', year: 2021, rangeVerified: false },
-  { id: 441, title: 'Universe', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'hard', year: 2021, rangeVerified: false },
-  { id: 442, title: 'アポトーシス', artist: 'Official髭男dism', lowLabel: 'mid1C#', highLabel: 'hiC', gender: 'hard', year: 2021, rangeVerified: false },
-  { id: 443, title: 'フィラメント', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'hard', year: 2021, rangeVerified: false },
-  { id: 444, title: '旅路', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiA', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 445, title: '燃えよ', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 446, title: '花占い', artist: 'Vaundy', lowLabel: 'mid1E', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 447, title: 'しわあわせ', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 448, title: '踊り子', artist: 'Vaundy', lowLabel: 'mid1E', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 449, title: 'ギラギラ', artist: 'Ado', lowLabel: 'mid1G#', highLabel: 'hiE', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 450, title: '踊', artist: 'Ado', lowLabel: 'mid1G#', highLabel: 'hiF', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 451, title: '会いたくて', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 452, title: '阿修羅ちゃん', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 453, title: '夜のピエロ', artist: 'Ado', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 454, title: 'シャッター', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 455, title: '飛行船', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 456, title: 'レオ', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 457, title: '黄色', artist: 'back number', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 458, title: 'ハート', artist: 'あいみょん', lowLabel: 'mid1F', highLabel: 'hiC#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 459, title: '愛を知るまでは', artist: 'あいみょん', lowLabel: 'mid1E', highLabel: 'hiC#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 460, title: 'Renegades', artist: 'ONE OK ROCK', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 461, title: 'Broken Heart of Gold', artist: 'ONE OK ROCK', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 462, title: 'Take a picture', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 463, title: 'Poppin\' Shakin\'', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 464, title: 'Chopstick', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 465, title: 'Secret Touch', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 466, title: 'HELLO HELLO', artist: 'Snow Man', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 467, title: 'Grandeur', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 468, title: 'マスカラ', artist: 'SixTONES', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 469, title: '僕が僕じゃないみたいだ', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 470, title: '恋降る月夜に君想ふ', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 471, title: 'Magic Touch', artist: 'King & Prince', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 472, title: 'Permission to Dance', artist: 'BTS', lowLabel: 'mid1C#', highLabel: 'hiC', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 473, title: 'Film out', artist: 'BTS', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', year: 2021, rangeVerified: false },
-  { id: 474, title: 'The Feels', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 475, title: 'One Last Kiss', artist: '宇多田ヒカル', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
-  { id: 476, title: 'PINK BLOOD', artist: '宇多田ヒカル', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', year: 2021, rangeVerified: false },
+  { id: 428, title: '勿忘', artist: 'Awesome City Club', lowLabel: 'mid1F#', highLabel: 'hiC#', gender: 'both', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 429, title: '怪物', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 430, title: '優しい彗星', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 431, title: '三原色', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 432, title: 'もう少しだけ', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 433, title: 'たぶん', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 434, title: 'ハルジオン', artist: 'YOASOBI', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 435, title: 'Pale Blue', artist: '米津玄師', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 436, title: '死神', artist: '米津玄師', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 437, title: 'ゆめうつつ', artist: '米津玄師', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 438, title: '不思議', artist: '星野源', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 439, title: '創造', artist: '星野源', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 440, title: 'Cry Baby', artist: 'Official髭男dism', lowLabel: 'mid1D#', highLabel: 'hiC#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 441, title: 'Universe', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 442, title: 'アポトーシス', artist: 'Official髭男dism', lowLabel: 'mid1C#', highLabel: 'hiC', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 443, title: 'フィラメント', artist: 'Official髭男dism', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 444, title: '旅路', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 445, title: '燃えよ', artist: '藤井風', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 446, title: '花占い', artist: 'Vaundy', lowLabel: 'mid1E', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 447, title: 'しわあわせ', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 448, title: '踊り子', artist: 'Vaundy', lowLabel: 'mid1E', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 449, title: 'ギラギラ', artist: 'Ado', lowLabel: 'mid1G#', highLabel: 'hiE', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 450, title: '踊', artist: 'Ado', lowLabel: 'mid1G#', highLabel: 'hiF', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 451, title: '会いたくて', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 452, title: '阿修羅ちゃん', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 453, title: '夜のピエロ', artist: 'Ado', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 454, title: 'シャッター', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 455, title: '飛行船', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC#', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 456, title: 'レオ', artist: '優里', lowLabel: 'lowG', highLabel: 'hiC', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 457, title: '黄色', artist: 'back number', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 458, title: 'ハート', artist: 'あいみょん', lowLabel: 'mid1F', highLabel: 'hiC#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 459, title: '愛を知るまでは', artist: 'あいみょん', lowLabel: 'mid1E', highLabel: 'hiC#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 460, title: 'Renegades', artist: 'ONE OK ROCK', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 461, title: 'Broken Heart of Gold', artist: 'ONE OK ROCK', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 462, title: 'Take a picture', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 463, title: 'Poppin\' Shakin\'', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 464, title: 'Chopstick', artist: 'NiziU', lowLabel: 'mid1G', highLabel: 'hiD', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 465, title: 'Secret Touch', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 466, title: 'HELLO HELLO', artist: 'Snow Man', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 467, title: 'Grandeur', artist: 'Snow Man', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 468, title: 'マスカラ', artist: 'SixTONES', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 469, title: '僕が僕じゃないみたいだ', artist: 'SixTONES', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 470, title: '恋降る月夜に君想ふ', artist: 'King & Prince', lowLabel: 'mid1D', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 471, title: 'Magic Touch', artist: 'King & Prince', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 472, title: 'Permission to Dance', artist: 'BTS', lowLabel: 'mid1C#', highLabel: 'hiC', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 473, title: 'Film out', artist: 'BTS', lowLabel: 'mid1B', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 474, title: 'The Feels', artist: 'TWICE', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 475, title: 'One Last Kiss', artist: '宇多田ヒカル', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
+  { id: 476, title: 'PINK BLOOD', artist: '宇多田ヒカル', lowLabel: 'mid1F#', highLabel: 'hiD#', gender: 'female', singerGender: 'unknown', difficulty: 'unknown', year: 2021, rangeVerified: false },
   
-  { id: 477, title: '残響散歌', artist: 'Aimer', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 478, title: '朝が来る', artist: 'Aimer', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 479, title: 'W / X / Y', artist: 'Tani Yuuki', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 480, title: '愛言葉', artist: 'Tani Yuuki', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 481, title: 'ミックスナッツ', artist: 'Official髭男dism', lowLabel: 'mid1D#', highLabel: 'hiC#', gender: 'hard', year: 2022, rangeVerified: false },
-  { id: 482, title: 'Anarchy', artist: 'Official髭男dism', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'hard', year: 2022, rangeVerified: false },
-  { id: 483, title: '新時代', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 484, title: '私は最強', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 485, title: '逆光', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 486, title: 'ウタカタララバイ', artist: 'Ado', lowLabel: 'mid1G#', highLabel: 'hiF#', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 487, title: 'Tot Musica', artist: 'Ado', lowLabel: 'mid1F#', highLabel: 'hiF#', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 488, title: '世界のつづき', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 489, title: '風のゆくえ', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', year: 2022, rangeVerified: false },
-  { id: 490, title: 'なんでもないよ、', artist: 'マカロニえんぴつ', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 491, title: '星が泳ぐ', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 492, title: 'たましいの居場所', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 493, title: '一途', artist: 'King Gnu', lowLabel: 'mid1C#', highLabel: 'hiA', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 494, title: '逆夢', artist: 'King Gnu', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 495, title: 'カメレオン', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 496, title: 'Stardom', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 497, title: '雨燦々', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 498, title: 'Habit', artist: 'SEKAI NO OWARI', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 499, title: 'Diary', artist: 'SEKAI NO OWARI', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 500, title: 'CITRUS', artist: 'Da-iCE', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'hard', year: 2022, rangeVerified: false },
-  { id: 501, title: 'スターマイン', artist: 'Da-iCE', lowLabel: 'mid1D', highLabel: 'hiC#', gender: 'hard', year: 2022, rangeVerified: false },
-  { id: 502, title: '恋風邪にのせて', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 503, title: '裸の勇者', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 504, title: 'mabataki', artist: 'Vaundy', lowLabel: 'mid1E', highLabel: 'hiB', gender: 'male', year: 2022, rangeVerified: false },
-  { id: 505, title: 'CHAINSAW BLOOD', artist: 'Vaundy', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', year: 2022, rangeVerified: false },
+  { id: 477, title: '残響散歌', artist: 'Aimer', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 478, title: '朝が来る', artist: 'Aimer', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 479, title: 'W / X / Y', artist: 'Tani Yuuki', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 480, title: '愛言葉', artist: 'Tani Yuuki', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 481, title: 'ミックスナッツ', artist: 'Official髭男dism', lowLabel: 'mid1D#', highLabel: 'hiC#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 482, title: 'Anarchy', artist: 'Official髭男dism', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 483, title: '新時代', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiE', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 484, title: '私は最強', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 485, title: '逆光', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiF', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 486, title: 'ウタカタララバイ', artist: 'Ado', lowLabel: 'mid1G#', highLabel: 'hiF#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 487, title: 'Tot Musica', artist: 'Ado', lowLabel: 'mid1F#', highLabel: 'hiF#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 488, title: '世界のつづき', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 489, title: '風のゆくえ', artist: 'Ado', lowLabel: 'mid1G', highLabel: 'hiD#', gender: 'female', singerGender: 'female', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 490, title: 'なんでもないよ、', artist: 'マカロニえんぴつ', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 491, title: '星が泳ぐ', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 492, title: 'たましいの居場所', artist: 'マカロニえんぴつ', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 493, title: '一途', artist: 'King Gnu', lowLabel: 'mid1C#', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 494, title: '逆夢', artist: 'King Gnu', lowLabel: 'mid1C#', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 495, title: 'カメレオン', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 496, title: 'Stardom', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA#', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 497, title: '雨燦々', artist: 'King Gnu', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 498, title: 'Habit', artist: 'SEKAI NO OWARI', lowLabel: 'mid1D', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 499, title: 'Diary', artist: 'SEKAI NO OWARI', lowLabel: 'mid1C', highLabel: 'hiA', gender: 'male', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 500, title: 'CITRUS', artist: 'Da-iCE', lowLabel: 'mid1D', highLabel: 'hiC', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 501, title: 'スターマイン', artist: 'Da-iCE', lowLabel: 'mid1D', highLabel: 'hiC#', gender: 'hard', singerGender: 'unknown', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 502, title: '恋風邪にのせて', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 503, title: '裸の勇者', artist: 'Vaundy', lowLabel: 'mid1D', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 504, title: 'mabataki', artist: 'Vaundy', lowLabel: 'mid1E', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
+  { id: 505, title: 'CHAINSAW BLOOD', artist: 'Vaundy', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
 ]
 
 export const SONGS =

@@ -88,6 +88,14 @@ function getSongHighMidi(song) {
 }
 
 
+// 新分類を優先し、未確認の曲だけ旧分類にフォールバック
+function getSongSingerGender(song) {
+  return song.singerGender === 'unknown'
+    ? song.gender
+    : song.singerGender
+}
+
+
 // ==========================================
 // エスケープ
 // ==========================================
@@ -1259,7 +1267,7 @@ function createFeaturedSection(song) {
 
       <a
         class="cta"
-        href="/"
+        href="/?song=${encodeURIComponent(song.id)}"
         onclick="
           if (
             typeof gtag === 'function'
@@ -1452,7 +1460,7 @@ const guidePages = [
     songs:
       songMeta.filter(
         song =>
-          song.gender === 'male'
+          getSongSingerGender(song) === 'male'
       ),
   },
 
@@ -1476,7 +1484,7 @@ const guidePages = [
     songs:
       songMeta.filter(
         song =>
-          song.gender === 'female'
+          getSongSingerGender(song) === 'female'
       ),
   },
 
@@ -1588,7 +1596,7 @@ const guidePages = [
       [...songMeta]
         .filter(
           song =>
-            song.gender === 'female' &&
+            getSongSingerGender(song) === 'female' &&
             song.highMidi <= 73
         )
         .sort(
@@ -1619,7 +1627,7 @@ const guidePages = [
       [...songMeta]
         .filter(
           song =>
-            song.gender === 'male' &&
+            getSongSingerGender(song) === 'male' &&
             song.highMidi >= 69
         )
         .sort(
@@ -1685,7 +1693,7 @@ const guidePages = [
       [...songMeta]
         .filter(
           song =>
-            song.gender === 'male' &&
+            getSongSingerGender(song) === 'male' &&
             song.highMidi <= 68
         )
         .sort(
@@ -1716,7 +1724,7 @@ const guidePages = [
       [...songMeta]
         .filter(
           song =>
-            song.gender === 'female' &&
+            getSongSingerGender(song) === 'female' &&
             song.highMidi >= 74
         )
         .sort(
@@ -2137,7 +2145,7 @@ function createSongPage(song) {
 
         <a
           class="cta"
-          href="/"
+          href="/?song=${encodeURIComponent(song.id)}"
         >
           🎤 自分の音域とおすすめキーを調べる
         </a>
