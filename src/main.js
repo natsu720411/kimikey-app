@@ -134,6 +134,18 @@ app.innerHTML = `
 
   </header>
 
+  <section class="getting-started" aria-labelledby="gettingStartedTitle">
+    <h2 id="gettingStartedTitle">はじめての方はこちら</h2>
+    <div class="step-list">
+      <div class="step-item"><span>1</span><strong>マイクを開始</strong></div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step-item"><span>2</span><strong>音域を測定</strong></div>
+      <div class="step-arrow" aria-hidden="true">→</div>
+      <div class="step-item"><span>3</span><strong>歌いたい曲を診断</strong></div>
+    </div>
+    <button id="micButton" class="main-button top-mic-button">🎤 マイクを開始</button>
+  </section>
+
 
   <!-- 現在の音 -->
 
@@ -186,6 +198,8 @@ app.innerHTML = `
 
   <!-- ピッチ練習 -->
 
+  <details class="collapsible-panel">
+    <summary>🎯 ピッチ練習 <span>タップして表示</span></summary>
   <section class="practice-card">
 
     <div class="practice-top">
@@ -241,10 +255,12 @@ app.innerHTML = `
     </div>
 
   </section>
-
+  </details>
 
   <!-- 音程グラフ -->
 
+  <details class="collapsible-panel">
+    <summary>〰️ 声の音程 <span>タップして表示</span></summary>
   <section class="pitch-graph-card">
 
     <div class="graph-header">
@@ -287,10 +303,12 @@ app.innerHTML = `
     </div>
 
   </section>
-
+  </details>
 
   <!-- マイク -->
 
+  <details class="collapsible-panel">
+    <summary>🎤 マイク入力 <span>タップして表示</span></summary>
   <section class="microphone-card">
 
     <div class="mic-title">
@@ -340,7 +358,7 @@ app.innerHTML = `
     </p>
 
   </section>
-
+  </details>
 
   <!-- 音の認定 -->
 
@@ -393,6 +411,7 @@ app.innerHTML = `
 
   <!-- ピアノ -->
 
+  <p class="keyboard-scroll-hint">↔ 鍵盤は左右にスワイプできます</p>
   <section class="keyboard-section">
 
     <div
@@ -484,14 +503,6 @@ app.innerHTML = `
   </div>
 
 
-  <button
-    id="micButton"
-    class="main-button"
-  >
-    🎤 マイク開始
-  </button>
-
-
   <!-- 音域 -->
 
   <section class="range-measure-section">
@@ -513,7 +524,7 @@ app.innerHTML = `
     </button>
 
     <p class="button-description">
-      頑張れば出せる最低音〜最高音を測定
+      頑張れば出せる範囲
     </p>
 
 
@@ -525,7 +536,7 @@ app.innerHTML = `
     </button>
 
     <p class="button-description">
-      無理なく安定して歌える最低音〜最高音を測定
+      無理なく安定して歌える範囲
     </p>
 
   </section>
@@ -612,11 +623,11 @@ app.innerHTML = `
       <div>
 
         <h2>
-          あなたに歌いやすいJ-POP
+          あなたへのおすすめ5曲
         </h2>
 
         <p>
-          あなたの音域に合うおすすめ5曲を表示します
+          あなたの音域に合う曲を紹介します
         </p>
 
       </div>
@@ -704,7 +715,7 @@ app.innerHTML = `
 </div>
 
 <p class="popular-songs-description">
-  人気曲候補から毎日10曲をピックアップ
+  今よく歌われている曲から探せます
 </p>
 
   <div
@@ -724,8 +735,10 @@ app.innerHTML = `
   >
 
     <div class="analysis-label">
-      選択した曲
+      曲診断
     </div>
+
+    <p class="analysis-description">選んだ曲が自分の音域に合うか確認できます</p>
 
     <h2 id="analysisTitle">
       ---
@@ -1644,7 +1657,7 @@ async function renderPopularSongs() {
 
 
       description.textContent =
-        `DAM・JOYSOUNDランキング参考 / ${date.toLocaleDateString('ja-JP')}更新`
+        `今よく歌われている曲から探せます（${date.toLocaleDateString('ja-JP')}更新）`
 
     }
 
@@ -4162,6 +4175,12 @@ localStorage.removeItem(
 
 // 人気10曲
 renderPopularSongs()
+
+document.querySelectorAll('.collapsible-panel').forEach(panel => {
+  panel.addEventListener('toggle', () => {
+    if (panel.open) resizeCanvas()
+  })
+})
 
 // 検索欄
 const renderSearchResults = initSongSearch({

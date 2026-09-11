@@ -54,6 +54,50 @@ button {
   display: none !important;
 }
 
+.collapsible-panel {
+  margin-bottom: 14px;
+}
+
+.collapsible-panel summary {
+  padding: 14px 16px;
+  background: white;
+  border-radius: 20px;
+  box-shadow: 0 7px 24px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  list-style: none;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: left;
+}
+
+.collapsible-panel summary::-webkit-details-marker {
+  display: none;
+}
+
+.collapsible-panel summary::after {
+  content: '+';
+  float: right;
+  color: #888;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.collapsible-panel[open] summary {
+  margin-bottom: 10px;
+}
+
+.collapsible-panel[open] summary::after {
+  content: '−';
+}
+
+.collapsible-panel summary span {
+  float: right;
+  margin-right: 22px;
+  color: #999;
+  font-size: 11px;
+  font-weight: normal;
+}
+
 
 /* ==========================================
    ヘッダー
@@ -75,6 +119,56 @@ h1 {
   color: #777;
 
   font-size: 14px;
+}
+
+.getting-started {
+  margin-bottom: 14px;
+  padding: 16px;
+  background: white;
+  border: 1px solid #e6e8ef;
+  border-radius: 20px;
+  box-shadow: 0 7px 24px rgba(0, 0, 0, 0.05);
+}
+
+.getting-started h2 {
+  margin: 0 0 12px;
+  font-size: 17px;
+}
+
+.step-list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.step-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: #444;
+  font-size: 12px;
+  white-space: nowrap;
+}
+
+.step-item span {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #111;
+  color: white;
+  font-weight: bold;
+}
+
+.step-arrow {
+  color: #aaa;
+  font-weight: bold;
+}
+
+.top-mic-button {
+  margin-top: 14px;
 }
 
 
@@ -1003,10 +1097,12 @@ h1 {
 
 .limit-group {
   background: #fff4e8;
+  border-left: 4px solid #ef9a45;
 }
 
 .comfort-group {
   background: #eaf9f0;
+  border-left: 4px solid #35b86b;
 }
 
 .range-label {
@@ -1381,6 +1477,13 @@ h1 {
   font-weight: bold;
 }
 
+.analysis-description {
+  margin: 4px 0 8px;
+  color: #777;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
 .song-analysis-card h2 {
   margin:
     7px 0 3px;
@@ -1522,8 +1625,44 @@ h1 {
     font-size: 12px;
   }
 
+  .getting-started {
+    padding: 14px 10px;
+  }
+
+  .step-list {
+    gap: 4px;
+  }
+
+  .step-item {
+    gap: 3px;
+    font-size: 10px;
+  }
+
+  .step-item span {
+    width: 22px;
+    height: 22px;
+  }
+
+  .step-arrow {
+    font-size: 11px;
+  }
+
   .note-display {
-    font-size: 56px;
+    min-height: 64px;
+    font-size: 50px;
+  }
+
+  .pitch-card {
+    padding: 18px 14px;
+  }
+
+  .pitch-guide {
+    margin-top: 16px;
+  }
+
+  .collapsible-panel summary {
+    padding: 12px 14px;
+    font-size: 14px;
   }
 
   .practice-top {
@@ -1852,4 +1991,141 @@ h1 {
 .popular-rank {
   background: #f3ddd0;
   color: #965b35;
+}
+
+.keyboard-scroll-hint { display: none; }
+
+/* 共通の密度・余白。主要カードは18px、補助カードは14pxの角丸。 */
+.getting-started,
+.pitch-card,
+.range-measure-section,
+.range-card,
+.song-section,
+.song-analysis-card {
+  border-radius: 18px;
+  padding: 16px;
+}
+
+.app-header { margin-bottom: 16px; }
+.getting-started,
+.pitch-card,
+.collapsible-panel { margin-bottom: 10px; }
+.range-measure-section,
+.range-card,
+.song-section,
+.song-analysis-card { margin-top: 14px; }
+
+.collapsible-panel summary,
+.practice-card,
+.pitch-graph-card,
+.microphone-card,
+.stable-card {
+  border-radius: 14px;
+  padding: 12px 14px;
+}
+
+.collapsible-panel summary { min-height: 44px; }
+.collapsible-panel > section { margin-bottom: 0; }
+.stable-card { margin-bottom: 10px; }
+.section-heading { gap: 10px; margin-bottom: 12px; }
+.section-icon { font-size: 22px; }
+.section-heading h2,
+.popular-songs-title { font-size: 18px; line-height: 1.4; }
+.range-measure-section h2 { font-size: 20px; }
+.range-description { margin-bottom: 10px; }
+.button-description,
+.range-group p,
+.practice-subtitle,
+.mic-help,
+.stable-text,
+.graph-description { font-size: 12px; line-height: 1.5; }
+.button-description { margin: 5px 0 8px; }
+.range-card-double { gap: 10px; }
+.range-group { padding: 12px; border-radius: 12px; }
+.range-label { margin-bottom: 6px; font-size: 14px; }
+.range-group p { margin-top: 6px; }
+.reset-button { min-height: 44px; margin: 4px 0 8px; }
+.range-required { padding: 12px; }
+.popular-songs-block { margin-top: 20px; }
+.popular-songs-description { margin-bottom: 10px; }
+
+.main-button,
+.range-button,
+.comfort-range-button,
+.song-practice-button {
+  min-height: 48px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-size: 16px;
+  line-height: 1.5;
+}
+.practice-button,
+.octave-button { min-height: 44px; }
+.top-mic-button { margin-top: 12px; }
+
+@media (max-width: 600px) {
+  .container { padding-top: 16px; }
+  .getting-started { padding: 12px 10px; }
+  .pitch-card { padding: 14px; }
+  .range-measure-section,
+  .range-card,
+  .song-section,
+  .song-analysis-card { padding: 14px; margin-top: 12px; }
+  .section-heading h2,
+  .popular-songs-title { font-size: 17px; }
+  .range-measure-section h2 { font-size: 19px; }
+}
+
+/* スマホのタップ領域と、長い文字列の収まり */
+@media (max-width: 600px) {
+  .step-list {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) auto minmax(0, 1fr);
+    align-items: start;
+  }
+  .step-item {
+    min-width: 0;
+    flex-direction: column;
+    gap: 5px;
+    white-space: normal;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .step-arrow { padding-top: 3px; }
+  .collapsible-panel summary {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    min-height: 48px;
+    flex-wrap: wrap;
+  }
+  .collapsible-panel summary span {
+    float: none;
+    margin: 0 0 0 auto;
+    font-size: 12px;
+  }
+  .collapsible-panel summary::after {
+    float: none;
+    flex: 0 0 auto;
+  }
+  .practice-top { flex-wrap: wrap; }
+  .practice-button { font-size: 13px; }
+  .section-heading > div,
+  .song-card-main,
+  .search-song-item > div,
+  .analysis-grid > div { min-width: 0; overflow-wrap: anywhere; }
+  .song-card,
+  .search-song-item { min-height: 48px; gap: 8px; }
+  .search-song-item span,
+  .song-card-main span { font-size: 12px; }
+  .song-search { min-width: 0; max-width: 100%; }
+  .keyboard-scroll-hint {
+    display: block;
+    margin: 0 0 4px;
+    color: #666;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+  .range-button { border: 1px solid #ef9a45; }
+  .comfort-range-button { border: 1px solid #35b86b; }
 }
