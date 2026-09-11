@@ -1,8 +1,8 @@
-function getSongLowMidi(song) {
+export function getSongLowMidi(song) {
   return song.lowestMidi ?? song.minMidi ?? song.lowMidi ?? song.low
 }
 
-function getSongHighMidi(song) {
+export function getSongHighMidi(song) {
   return song.highestMidi ?? song.maxMidi ?? song.highMidi ?? song.high
 }
 

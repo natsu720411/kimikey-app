@@ -4,6 +4,8 @@ import {
   calculateSongKey,
   formatKeyShift,
   getSongStars,
+  getSongLowMidi,
+  getSongHighMidi,
 } from './song-key-utils.js'
 import {
   RANGE_STORAGE_KEY,
