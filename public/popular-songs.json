@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-11T03:39:07.678Z",
+  "updatedAt": "2026-09-12T03:38:10.125Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -16,19 +16,19 @@
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 4,
-      "score": 196
-    },
-    {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
-      "damRank": 3,
       "joysoundRank": 3,
-      "score": 196
+      "score": 197
     },
     {
       "title": "マリーゴールド",
       "artist": "あいみょん",
+      "damRank": 3,
+      "joysoundRank": 4,
+      "score": 195
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
       "damRank": 3,
       "joysoundRank": 5,
       "score": 194
