@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-12T03:38:10.125Z",
+  "updatedAt": "2026-09-13T03:38:13.843Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -20,15 +20,15 @@
       "score": 197
     },
     {
-      "title": "マリーゴールド",
-      "artist": "あいみょん",
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
       "damRank": 3,
       "joysoundRank": 4,
       "score": 195
     },
     {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
+      "title": "マリーゴールド",
+      "artist": "あいみょん",
       "damRank": 3,
       "joysoundRank": 5,
       "score": 194
@@ -41,32 +41,32 @@
       "score": 187
     },
     {
-      "title": "さよならエレジー",
-      "artist": "菅田将暉",
-      "damRank": 7,
-      "joysoundRank": 9,
-      "score": 186
-    },
-    {
       "title": "水平線",
       "artist": "back number",
       "damRank": 8,
-      "joysoundRank": 8,
-      "score": 186
+      "joysoundRank": 7,
+      "score": 187
+    },
+    {
+      "title": "さよならエレジー",
+      "artist": "菅田将暉",
+      "damRank": 7,
+      "joysoundRank": 10,
+      "score": 185
     },
     {
       "title": "高嶺の花子さん",
       "artist": "back number",
       "damRank": 10,
-      "joysoundRank": 7,
-      "score": 185
+      "joysoundRank": 8,
+      "score": 184
     },
     {
       "title": "IRIS OUT",
       "artist": "米津玄師",
       "damRank": 32,
-      "joysoundRank": 10,
-      "score": 160
+      "joysoundRank": 9,
+      "score": 161
     },
     {
       "title": "ライラック",
