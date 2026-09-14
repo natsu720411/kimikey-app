@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-13T03:38:13.843Z",
+  "updatedAt": "2026-09-14T03:40:36.544Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -34,17 +34,17 @@
       "score": 194
     },
     {
-      "title": "サウダージ",
-      "artist": "ポルノグラフィティ",
-      "damRank": 9,
-      "joysoundRank": 6,
-      "score": 187
-    },
-    {
       "title": "水平線",
       "artist": "back number",
       "damRank": 8,
       "joysoundRank": 7,
+      "score": 187
+    },
+    {
+      "title": "サウダージ",
+      "artist": "ポルノグラフィティ",
+      "damRank": 9,
+      "joysoundRank": 6,
       "score": 187
     },
     {
