@@ -1,17 +1,10 @@
 {
-  "updatedAt": "2026-09-14T03:40:36.544Z",
+  "updatedAt": "2026-09-15T03:40:10.473Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
-    {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198
-    },
     {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
@@ -23,8 +16,15 @@
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
+      "joysoundRank": 2,
+      "score": 197
+    },
+    {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
       "joysoundRank": 4,
-      "score": 195
+      "score": 196
     },
     {
       "title": "マリーゴールド",
@@ -51,8 +51,8 @@
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 7,
-      "joysoundRank": 10,
-      "score": 185
+      "joysoundRank": 9,
+      "score": 186
     },
     {
       "title": "高嶺の花子さん",
@@ -65,8 +65,8 @@
       "title": "IRIS OUT",
       "artist": "米津玄師",
       "damRank": 32,
-      "joysoundRank": 9,
-      "score": 161
+      "joysoundRank": 10,
+      "score": 160
     },
     {
       "title": "ライラック",
