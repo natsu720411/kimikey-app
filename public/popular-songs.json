@@ -1,29 +1,29 @@
 {
-  "updatedAt": "2026-09-15T03:40:10.473Z",
+  "updatedAt": "2026-09-16T03:39:20.707Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
     {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 2,
+      "score": 198
+    },
+    {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 3,
-      "score": 197
+      "joysoundRank": 4,
+      "score": 196
     },
     {
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 2,
-      "score": 197
-    },
-    {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 4,
+      "joysoundRank": 3,
       "score": 196
     },
     {
@@ -32,13 +32,6 @@
       "damRank": 3,
       "joysoundRank": 5,
       "score": 194
-    },
-    {
-      "title": "水平線",
-      "artist": "back number",
-      "damRank": 8,
-      "joysoundRank": 7,
-      "score": 187
     },
     {
       "title": "サウダージ",
@@ -55,11 +48,18 @@
       "score": 186
     },
     {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 8,
+      "joysoundRank": 8,
+      "score": 186
+    },
+    {
       "title": "高嶺の花子さん",
       "artist": "back number",
       "damRank": 10,
-      "joysoundRank": 8,
-      "score": 184
+      "joysoundRank": 7,
+      "score": 185
     },
     {
       "title": "IRIS OUT",
