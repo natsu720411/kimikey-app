@@ -15,6 +15,94 @@ export function initSongSearch({
   let artistListQuery = ''
 
 
+  function hasRangeData(song) {
+    return (
+      Number.isFinite(song.minMidi) &&
+      Number.isFinite(song.maxMidi)
+    )
+  }
+
+
+  function normalizeSearchText(
+    value = ''
+  ) {
+    return String(value)
+      .normalize('NFKC')
+      .toLowerCase()
+      .replace(
+        /[\s・･._\-‐‑–—'’"“”!?！？。、「」()（）&＆+＋]/g,
+        ''
+      )
+  }
+
+
+  function matchesSearch(
+    value,
+    searchText = ''
+  ) {
+    const normalizedValue =
+      normalizeSearchText(value)
+
+    const tokens =
+      String(searchText)
+        .normalize('NFKC')
+        .toLowerCase()
+        .split(/\s+/)
+        .map(normalizeSearchText)
+        .filter(Boolean)
+
+    if (tokens.length === 0) {
+      return true
+    }
+
+    return tokens.every(
+      token =>
+        normalizedValue.includes(token)
+    )
+  }
+
+
+  function sortSongsForDisplay(
+    songList
+  ) {
+    return [...songList].sort(
+      (a, b) => {
+        const rangeDifference =
+          Number(hasRangeData(b)) -
+          Number(hasRangeData(a))
+
+        if (rangeDifference !== 0) {
+          return rangeDifference
+        }
+
+        return a.title.localeCompare(
+          b.title,
+          'ja'
+        )
+      }
+    )
+  }
+
+
+  function getArtistStats(artist) {
+    const artistSongs =
+      songs.filter(
+        song =>
+          song.artist === artist
+      )
+
+    const readyCount =
+      artistSongs.filter(
+        hasRangeData
+      ).length
+
+    return {
+      artistSongs,
+      readyCount,
+    }
+  }
+
+
   function createSongButton(song) {
     const item =
       document.createElement(
@@ -24,13 +112,9 @@ export function initSongSearch({
     item.className =
       'search-song-item'
 
-    const hasRangeData =
-      Number.isFinite(song.minMidi) &&
-      Number.isFinite(song.maxMidi)
-
     const songStatus =
-      hasRangeData
-        ? song.artist
+      hasRangeData(song)
+        ? `${song.artist} ・ 音域あり`
         : `${song.artist} ・ 音域準備中`
 
     item.innerHTML = `
@@ -59,11 +143,10 @@ export function initSongSearch({
     artist,
     backMode = 'search'
   ) {
-    const artistSongs =
-      songs.filter(
-        song =>
-          song.artist === artist
-      )
+    const {
+      artistSongs,
+      readyCount,
+    } = getArtistStats(artist)
 
     const item =
       document.createElement(
@@ -80,7 +163,7 @@ export function initSongSearch({
         </strong>
 
         <span>
-          ${artistSongs.length}曲
+          全${artistSongs.length}曲 ・ 音域あり${readyCount}曲
         </span>
       </div>
 
@@ -109,11 +192,10 @@ export function initSongSearch({
   ) {
     container.innerHTML = ''
 
-    const artistSongs =
-      songs.filter(
-        song =>
-          song.artist === artist
-      )
+    const {
+      artistSongs,
+      readyCount,
+    } = getArtistStats(artist)
 
 
     const backButton =
@@ -168,7 +250,7 @@ export function initSongSearch({
       'no-song'
 
     heading.textContent =
-      `🎤 ${artist} の曲一覧（${artistSongs.length}曲）`
+      `🎤 ${artist} の曲一覧（全${artistSongs.length}曲・音域あり${readyCount}曲）`
 
     container.appendChild(
       heading
@@ -212,18 +294,15 @@ export function initSongSearch({
     ) {
       songResults.innerHTML = ''
 
-      const query =
-        searchText
-          .trim()
-          .toLowerCase()
-
-
       const filteredSongs =
-        artistSongs.filter(
-          song =>
-            song.title
-              .toLowerCase()
-              .includes(query)
+        sortSongsForDisplay(
+          artistSongs.filter(
+            song =>
+              matchesSearch(
+                song.title,
+                searchText
+              )
+          )
         )
 
 
@@ -389,11 +468,6 @@ export function initSongSearch({
     ) {
       artistResults.innerHTML = ''
 
-      const query =
-        searchText
-          .trim()
-          .toLowerCase()
-
       artistListQuery =
         searchText
 
@@ -401,9 +475,10 @@ export function initSongSearch({
       const filteredArtists =
         artists.filter(
           artist =>
-            artist
-              .toLowerCase()
-              .includes(query)
+            matchesSearch(
+              artist,
+              searchText
+            )
         )
 
 
@@ -508,13 +583,7 @@ export function initSongSearch({
   ) {
     container.innerHTML = ''
 
-    const query =
-      searchText
-        .trim()
-        .toLowerCase()
-
-
-    if (!query) {
+    if (!normalizeSearchText(searchText)) {
       renderBrowseButton()
       return
     }
@@ -534,9 +603,10 @@ export function initSongSearch({
       artists
         .filter(
           artist =>
-            artist
-              .toLowerCase()
-              .includes(query)
+            matchesSearch(
+              artist,
+              searchText
+            )
         )
         .sort(
           (a, b) =>
@@ -548,11 +618,14 @@ export function initSongSearch({
 
 
     const songResults =
-      songs.filter(
-        song =>
-          song.title
-            .toLowerCase()
-            .includes(query)
+      sortSongsForDisplay(
+        songs.filter(
+          song =>
+            matchesSearch(
+              `${song.artist} ${song.title}`,
+              searchText
+            )
+        )
       )
 
 
