@@ -190,7 +190,6 @@ const missingSongs = SONGS
   })
 
 const registeredCount = SONGS.length - missingSongs.length
-
 const artistMap = new Map()
 
 for (const song of missingSongs) {
@@ -229,15 +228,13 @@ const artistGroups = [...artistMap.entries()].sort(
   }
 )
 
-const demandedSongs = missingSongs.filter(
-  song => song.requestCount > 0
-)
+const demandedSongs = missingSongs.filter(song => song.requestCount > 0)
 
 const markdownLines = [
   '# キミキー 音域未登録曲バックログ',
   '',
   '> このファイルは `npm run report:ranges` で自動生成されます。',
-  '> 曲の最低音・最高音は推測で入力せず、信頼できる情報源で確認してから `src/songs.js` または `src/songs-extra.js` を更新してください。',
+  '> 曲の最低音・最高音は推測で入力せず、信頼できる情報源で確認してから `src/songs.js` を更新してください。',
   '> `reports/range-demand.csv` に Analytics の需要件数を入れると、リクエストが多い曲ほど上位になります。',
   '',
   '## 集計',
@@ -274,9 +271,7 @@ if (artistGroups.length === 0) {
     )
 
     const requestLabel =
-      artistRequests > 0
-        ? `・需要${artistRequests}件`
-        : ''
+      artistRequests > 0 ? `・需要${artistRequests}件` : ''
 
     markdownLines.push(
       `### ${artist}（${artistSongs.length}曲${requestLabel}）`,
@@ -285,9 +280,7 @@ if (artistGroups.length === 0) {
 
     for (const song of artistSongs) {
       const demandLabel =
-        song.requestCount > 0
-          ? ` — **${song.requestCount}件**`
-          : ''
+        song.requestCount > 0 ? ` — **${song.requestCount}件**` : ''
 
       markdownLines.push(`- [ ] ${song.title}${demandLabel}`)
     }
@@ -311,9 +304,7 @@ missingSongs.forEach((song, index) => {
 })
 
 const csvText =
-  csvRows
-    .map(row => row.map(csvEscape).join(','))
-    .join('\n') + '\n'
+  csvRows.map(row => row.map(csvEscape).join(',')).join('\n') + '\n'
 
 const artistOptions = [
   '<option value="">すべてのアーティスト</option>',
@@ -335,7 +326,6 @@ const tableRows = missingSongs
       <tr
         data-artist="${htmlEscape(song.artist)}"
         data-search="${htmlEscape(`${song.artist} ${song.title}`.toLowerCase())}"
-        data-requests="${song.requestCount}"
       >
         <td>${index + 1}</td>
         <td class="requests">${song.requestCount}</td>
@@ -349,16 +339,18 @@ const tableRows = missingSongs
               href="${htmlEscape(searchUrl)}"
               target="_blank"
               rel="noopener noreferrer"
-            >
-              音域を検索
-            </a>
+            >音域を検索</a>
             <button
               class="copy-button"
               type="button"
               data-copy="${htmlEscape(copyText)}"
-            >
-              曲情報をコピー
-            </button>
+            >曲情報をコピー</button>
+            <button
+              class="code-button"
+              type="button"
+              data-artist="${htmlEscape(song.artist)}"
+              data-title="${htmlEscape(song.title)}"
+            >登録コード作成</button>
           </div>
         </td>
       </tr>
@@ -413,13 +405,13 @@ const htmlText = `<!doctype html>
       gap: 12px;
       margin-bottom: 16px;
     }
-    input, select {
+    input, select, textarea, button { font: inherit; }
+    input, select, textarea {
       width: 100%;
       padding: 12px 14px;
       border: 1px solid #d8dbe5;
       border-radius: 10px;
       background: white;
-      font: inherit;
     }
     .table-wrap {
       overflow-x: auto;
@@ -430,7 +422,7 @@ const htmlText = `<!doctype html>
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 980px;
+      min-width: 1060px;
     }
     th, td {
       padding: 12px 14px;
@@ -445,9 +437,7 @@ const htmlText = `<!doctype html>
       font-size: 13px;
       color: #606675;
     }
-    .requests {
-      font-weight: 700;
-    }
+    .requests { font-weight: 700; }
     .status {
       display: inline-block;
       padding: 4px 8px;
@@ -462,8 +452,7 @@ const htmlText = `<!doctype html>
       gap: 8px;
       flex-wrap: wrap;
     }
-    .action-link,
-    .copy-button {
+    .action-link, .copy-button, .code-button, .primary-button, .secondary-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -480,29 +469,90 @@ const htmlText = `<!doctype html>
       color: #3158a8;
       border: 1px solid #cad8ff;
     }
-    .copy-button {
+    .copy-button, .secondary-button {
       background: white;
       color: #454b59;
       border: 1px solid #d8dbe5;
     }
-    .copy-button.copied {
-      background: #edf9f1;
-      border-color: #b8dfc4;
-      color: #27703f;
+    .code-button, .primary-button {
+      background: #272b36;
+      color: white;
+      border: 1px solid #272b36;
+    }
+    .copied {
+      background: #edf9f1 !important;
+      border-color: #b8dfc4 !important;
+      color: #27703f !important;
     }
     #visibleCount {
       margin: 0 0 10px;
       color: #606675;
       font-size: 14px;
     }
+    .modal-backdrop {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(20, 23, 31, .58);
+      z-index: 1000;
+    }
+    .modal-backdrop.open { display: flex; }
+    .modal {
+      width: min(620px, 100%);
+      max-height: calc(100vh - 40px);
+      overflow-y: auto;
+      background: white;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 20px 60px rgba(0,0,0,.25);
+    }
+    .modal h2 { margin: 0 0 6px; }
+    .modal-song {
+      margin: 0 0 18px;
+      color: #606675;
+    }
+    .range-inputs {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 10px;
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .help, .error {
+      margin: 8px 0;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .help { color: #686e7c; }
+    .error { color: #b3261e; min-height: 20px; }
+    #generatedCode {
+      min-height: 190px;
+      font-family: Consolas, "Courier New", monospace;
+      font-size: 13px;
+      line-height: 1.55;
+      resize: vertical;
+    }
+    .modal-actions {
+      display: flex;
+      justify-content: flex-end;
+      gap: 8px;
+      margin-top: 12px;
+      flex-wrap: wrap;
+    }
     @media (max-width: 700px) {
       main {
         width: min(100% - 20px, 1240px);
         margin-top: 20px;
       }
-      .filters {
-        grid-template-columns: 1fr;
-      }
+      .filters, .range-inputs { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -512,7 +562,7 @@ const htmlText = `<!doctype html>
     <p class="note">
       音域データを追加する順番を決めるためのローカル管理画面です。<br />
       requests が多い曲ほど、実際のユーザー需要が高い候補です。<br />
-      「音域を検索」で調査を始め、最低音・最高音は1つの検索結果だけで決めず、複数の情報を確認してください。
+      最低音・最高音は1つの検索結果だけで決めず、複数の情報を確認してから登録してください。
     </p>
 
     <section class="stats">
@@ -523,14 +573,8 @@ const htmlText = `<!doctype html>
     </section>
 
     <section class="filters">
-      <input
-        id="searchInput"
-        type="search"
-        placeholder="曲名・アーティスト名で検索"
-      />
-      <select id="artistFilter">
-        ${artistOptions}
-      </select>
+      <input id="searchInput" type="search" placeholder="曲名・アーティスト名で検索" />
+      <select id="artistFilter">${artistOptions}</select>
     </section>
 
     <p id="visibleCount"></p>
@@ -544,15 +588,44 @@ const htmlText = `<!doctype html>
             <th>アーティスト</th>
             <th>曲名</th>
             <th>状態</th>
-            <th>調査</th>
+            <th>調査・登録</th>
           </tr>
         </thead>
-        <tbody id="backlogBody">
-          ${tableRows}
-        </tbody>
+        <tbody id="backlogBody">${tableRows}</tbody>
       </table>
     </div>
   </main>
+
+  <div id="codeModal" class="modal-backdrop" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <h2 id="modalTitle">音域登録コード作成</h2>
+      <p id="modalSong" class="modal-song"></p>
+
+      <div class="range-inputs">
+        <label>
+          最低音
+          <input id="lowLabelInput" type="text" placeholder="例: mid1D" autocomplete="off" />
+        </label>
+        <label>
+          最高音
+          <input id="highLabelInput" type="text" placeholder="例: hiA#" autocomplete="off" />
+        </label>
+      </div>
+
+      <p class="help">
+        使用できる形式: lowA〜lowG# / mid1A〜mid1G# / mid2A〜mid2G# / hiA〜hiG#<br />
+        調査結果を確認してから入力してください。
+      </p>
+      <p id="codeError" class="error"></p>
+
+      <textarea id="generatedCode" readonly placeholder="最低音と最高音を入力すると、ここに完成コードが表示されます"></textarea>
+
+      <div class="modal-actions">
+        <button id="closeModalButton" class="secondary-button" type="button">閉じる</button>
+        <button id="copyCodeButton" class="primary-button" type="button">コードをコピー</button>
+      </div>
+    </section>
+  </div>
 
   <script>
     const searchInput = document.querySelector('#searchInput')
@@ -560,6 +633,18 @@ const htmlText = `<!doctype html>
     const rows = [...document.querySelectorAll('#backlogBody tr')]
     const visibleCount = document.querySelector('#visibleCount')
     const copyButtons = [...document.querySelectorAll('.copy-button')]
+    const codeButtons = [...document.querySelectorAll('.code-button')]
+    const codeModal = document.querySelector('#codeModal')
+    const modalSong = document.querySelector('#modalSong')
+    const lowLabelInput = document.querySelector('#lowLabelInput')
+    const highLabelInput = document.querySelector('#highLabelInput')
+    const generatedCode = document.querySelector('#generatedCode')
+    const codeError = document.querySelector('#codeError')
+    const closeModalButton = document.querySelector('#closeModalButton')
+    const copyCodeButton = document.querySelector('#copyCodeButton')
+
+    let selectedArtist = ''
+    let selectedTitle = ''
 
     function normalize(value) {
       return String(value || '')
@@ -589,13 +674,71 @@ const htmlText = `<!doctype html>
       visibleCount.textContent = count + '曲を表示中'
     }
 
-    async function copySongInfo(button) {
-      const text = button.dataset.copy || ''
+    function jsString(value) {
+      return String(value)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+    }
+
+    function isPitchLabel(value) {
+      return /^(low|mid1|mid2|hi)[A-G](#)?$/.test(value)
+    }
+
+    function updateGeneratedCode() {
+      const lowLabel = lowLabelInput.value.trim()
+      const highLabel = highLabelInput.value.trim()
+
+      generatedCode.value = ''
+      codeError.textContent = ''
+
+      if (!lowLabel && !highLabel) {
+        return
+      }
+
+      if (!isPitchLabel(lowLabel)) {
+        codeError.textContent = '最低音の形式を確認してください。例: mid1D / lowG#'
+        return
+      }
+
+      if (!isPitchLabel(highLabel)) {
+        codeError.textContent = '最高音の形式を確認してください。例: hiA / mid2G#'
+        return
+      }
+
+      generatedCode.value =
+        "{\\n" +
+        "  title: '" + jsString(selectedTitle) + "',\\n" +
+        "  artist: '" + jsString(selectedArtist) + "',\\n" +
+        "  lowLabel: '" + jsString(lowLabel) + "',\\n" +
+        "  highLabel: '" + jsString(highLabel) + "',\\n" +
+        "  rangeVerified: true,\\n" +
+        "},"
+    }
+
+    function openCodeModal(button) {
+      selectedArtist = button.dataset.artist || ''
+      selectedTitle = button.dataset.title || ''
+      modalSong.textContent = selectedArtist + ' - ' + selectedTitle
+      lowLabelInput.value = ''
+      highLabelInput.value = ''
+      generatedCode.value = ''
+      codeError.textContent = ''
+      codeModal.classList.add('open')
+      codeModal.setAttribute('aria-hidden', 'false')
+      window.setTimeout(() => lowLabelInput.focus(), 0)
+    }
+
+    function closeCodeModal() {
+      codeModal.classList.remove('open')
+      codeModal.setAttribute('aria-hidden', 'true')
+    }
+
+    async function copyText(text, button, successText) {
       const originalText = button.textContent.trim()
 
       try {
         await navigator.clipboard.writeText(text)
-        button.textContent = 'コピーしました'
+        button.textContent = successText
         button.classList.add('copied')
       } catch {
         window.prompt('この文字をコピーしてください', text)
@@ -610,11 +753,39 @@ const htmlText = `<!doctype html>
 
     searchInput.addEventListener('input', filterRows)
     artistFilter.addEventListener('change', filterRows)
+    lowLabelInput.addEventListener('input', updateGeneratedCode)
+    highLabelInput.addEventListener('input', updateGeneratedCode)
+    closeModalButton.addEventListener('click', closeCodeModal)
+
+    codeModal.addEventListener('click', event => {
+      if (event.target === codeModal) {
+        closeCodeModal()
+      }
+    })
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape' && codeModal.classList.contains('open')) {
+        closeCodeModal()
+      }
+    })
 
     copyButtons.forEach(button => {
       button.addEventListener('click', () => {
-        copySongInfo(button)
+        copyText(button.dataset.copy || '', button, 'コピーしました')
       })
+    })
+
+    codeButtons.forEach(button => {
+      button.addEventListener('click', () => openCodeModal(button))
+    })
+
+    copyCodeButton.addEventListener('click', () => {
+      if (!generatedCode.value) {
+        codeError.textContent = '最低音と最高音を正しい形式で入力してください。'
+        return
+      }
+
+      copyText(generatedCode.value, copyCodeButton, 'コピーしました')
     })
 
     filterRows()
