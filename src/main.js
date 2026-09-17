@@ -668,6 +668,102 @@ app.innerHTML = `
       <a class="song-browse-link" href="/guides/low-voice-songs/">低音向けの曲</a>
       <a class="song-browse-link" href="/guides/high-note-songs/">高音向けの曲</a>
     </nav>
+      <!-- 歌・音域のお役立ち記事 -->
+
+  <section class="song-section" aria-labelledby="guideArticleTitle">
+
+    <div class="section-heading">
+
+      <span class="section-icon">
+        📚
+      </span>
+
+      <div>
+
+        <h2 id="guideArticleTitle">
+          歌・音域のお役立ち記事
+        </h2>
+
+        <p>
+          音域測定・曲選び・カラオケのキー調整を分かりやすく解説
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <nav
+      class="song-browse-links"
+      aria-label="歌と音域のお役立ち記事"
+    >
+
+      <a
+        class="song-browse-link"
+        href="/vocal-range-check/"
+      >
+        自分の音域を調べる
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/karaoke-key-guide/"
+      >
+        カラオケのキーの合わせ方
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/song-finder-guide/"
+      >
+        自分に合う曲の探し方
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/male-vocal-range/"
+      >
+        男性の音域の調べ方
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/female-vocal-range/"
+      >
+        女性の音域の調べ方
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/karaoke-high-note-problem/"
+      >
+        高音が出ないときは？
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/vocal-range-training/"
+      >
+        音域を広げるには？
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/chest-falsetto-difference/"
+      >
+        地声と裏声の違い
+      </a>
+
+      <a
+        class="song-browse-link"
+        href="/low-voice-karaoke-guide/"
+      >
+        声が低い人の曲選び
+      </a>
+
+    </nav>
+
+  </section>
   </section>
 
 
