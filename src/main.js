@@ -668,6 +668,7 @@ app.innerHTML = `
       <a class="song-browse-link" href="/guides/low-voice-songs/">低音向けの曲</a>
       <a class="song-browse-link" href="/guides/high-note-songs/">高音向けの曲</a>
     </nav>
+    </section>
       <!-- 歌・音域のお役立ち記事 -->
 
   <section class="song-section" aria-labelledby="guideArticleTitle">
@@ -763,7 +764,7 @@ app.innerHTML = `
 
     </nav>
 
-  </section>
+ 
   </section>
 
 
