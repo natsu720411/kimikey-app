@@ -3405,14 +3405,18 @@ export const SONGS =
     (song, index) => {
 
       const minMidi =
-        pitchLabelToMidi(
-          song.lowLabel
-        )
+  song.lowLabel
+    ? pitchLabelToMidi(
+        song.lowLabel
+      )
+    : null
 
-      const maxMidi =
-        pitchLabelToMidi(
-          song.highLabel
-        )
+const maxMidi =
+  song.highLabel
+    ? pitchLabelToMidi(
+        song.highLabel
+      )
+    : null
 
       return {
         id:
