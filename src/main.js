@@ -2957,61 +2957,7 @@ document.querySelector(
   }
 )
 
-    if (practiceMode) {
-
-      button.textContent =
-        '練習モード ON'
-
-      button.classList.add(
-        'active'
-      )
-
-      document.querySelector(
-        '#practiceFeedback'
-      ).textContent =
-        '鍵盤から練習したい音を選んでください'
-
-    } else {
-
-      button.textContent =
-        '練習モード OFF'
-
-      button.classList.remove(
-        'active'
-      )
-
-      targetMidi = null
-
-      document.querySelector(
-        '#targetNote'
-      ).textContent =
-        '---'
-
-      document.querySelector(
-        '#practiceCurrentNote'
-      ).textContent =
-        '---'
-
-      document.querySelector(
-        '#practiceCents'
-      ).textContent =
-        '---'
-
-      document.querySelector(
-        '#practiceFeedback'
-      ).textContent =
-        '練習モードをONにしてください'
-
-      document.querySelector(
-        '#practiceFeedback'
-      ).className =
-        'practice-feedback'
-
-      updateTargetKey()
-    }
-  }
-)
-
+    
 
 // ==========================================
 // 曲の最高音を練習
