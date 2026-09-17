@@ -198,7 +198,10 @@ app.innerHTML = `
 
   <!-- ピッチ練習 -->
 
-  <details class="collapsible-panel">
+<details
+  id="pitchPracticePanel"
+  class="collapsible-panel"
+>
     <summary>🎯 ピッチ練習 <span>タップして表示</span></summary>
   <section class="practice-card">
 
