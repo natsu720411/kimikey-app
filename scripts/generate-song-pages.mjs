@@ -1303,7 +1303,22 @@ function createFeaturedSection(song) {
 // ==========================================
 
 const songMeta =
-  SONGS.map(
+  SONGS
+    .filter(
+      song => {
+        const lowMidi =
+          getSongLowMidi(song)
+
+        const highMidi =
+          getSongHighMidi(song)
+
+        return (
+          Number.isFinite(lowMidi) &&
+          Number.isFinite(highMidi)
+        )
+      }
+    )
+    .map(
     (song, index) => {
 
       const lowMidi =
