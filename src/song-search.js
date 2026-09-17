@@ -24,10 +24,19 @@ export function initSongSearch({
     item.className =
       'search-song-item'
 
+    const hasRangeData =
+      Number.isFinite(song.minMidi) &&
+      Number.isFinite(song.maxMidi)
+
+    const songStatus =
+      hasRangeData
+        ? song.artist
+        : `${song.artist} ・ 音域準備中`
+
     item.innerHTML = `
       <div>
         <strong>${song.title}</strong>
-        <span>${song.artist}</span>
+        <span>${songStatus}</span>
       </div>
 
       <span class="search-arrow">
