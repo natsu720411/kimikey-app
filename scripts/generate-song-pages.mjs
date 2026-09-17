@@ -3011,8 +3011,23 @@ const guidesIndexHtml = `
       条件別に曲を探せます。
     </p>
 
-    <div class="songs">
+        <div class="songs">
+
+      <a
+        class="song"
+        href="/vocal-range-check/"
+      >
+        <strong>
+          自分の音域を調べる方法
+        </strong>
+
+        <span>
+          無料で音域を測定する方法を解説
+        </span>
+      </a>
+
       ${guideLinks}
+
     </div>
 
     <a
