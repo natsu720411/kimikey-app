@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-1B35Z51M10');
+  </script>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>
+    自分の音域を調べる方法｜無料で簡単に音域測定｜キミキー
+  </title>
+
+  <meta
+    name="description"
+    content="自分の声の音域を調べる方法を初心者向けに解説。最低音・最高音の確認方法、測定のコツ、カラオケのキー調整まで紹介します。キミキーならマイクを使って無料で音程・音域をチェックできます。"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://kimikey-app.vercel.app/vocal-range-check/"
+  >
+
+  <link
+    rel="icon"
+    type="image/svg+xml"
+    href="/favicon.svg"
+  >
+
+  <meta
+    property="og:type"
+    content="article"
+  >
+
+  <meta
+    property="og:site_name"
+    content="キミキー"
+  >
+
+  <meta
+    property="og:title"
+    content="自分の音域を調べる方法｜無料で簡単に音域測定"
+  >
+
+  <meta
+    property="og:description"
+    content="自分の最低音・最高音を確認する方法と、カラオケのキー調整に活かすコツを初心者向けに解説します。"
+  >
+
+  <meta
+    property="og:url"
+    content="https://kimikey-app.vercel.app/vocal-range-check/"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "自分の音域はどうやって調べますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "低い音から高い音まで少しずつ声を出し、安定して出せる最低音と最高音を確認します。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "音域は広げられますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "発声練習によって安定して使える範囲が変わることはあります。ただし無理な発声は避けてください。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "カラオケのキーはいくつ下げればいいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "決まった数はありません。曲の最高音と最低音を自分の歌いやすい音域と比較して調整します。"
+        }
+      }
+    ]
+  }
+  </script>
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+      background: #f6f7fb;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    .container {
+      width: min(
+        780px,
+        calc(100% - 30px)
+      );
+      margin: 0 auto;
+      padding: 24px 0 60px;
+    }
+
+    .logo {
+      display: inline-block;
+      margin-bottom: 18px;
+      color: #222;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .breadcrumb {
+      margin-bottom: 15px;
+      color: #777;
+      font-size: 13px;
+    }
+
+    .breadcrumb a {
+      color: #555;
+    }
+
+    .card {
+      padding: 30px;
+      background: white;
+      border-radius: 20px;
+      box-shadow:
+        0 8px 30px
+        rgba(0, 0, 0, 0.06);
+    }
+
+    h1 {
+      margin: 0 0 15px;
+      font-size: 34px;
+      line-height: 1.4;
+    }
+
+    h2 {
+      margin-top: 42px;
+      padding-bottom: 8px;
+      border-bottom:
+        2px solid #eef0f7;
+      font-size: 23px;
+      line-height: 1.5;
+    }
+
+    h3 {
+      margin-top: 28px;
+      font-size: 18px;
+    }
+
+    .lead {
+      color: #555;
+      font-size: 17px;
+    }
+
+    .point {
+      margin: 25px 0;
+      padding: 18px;
+      background: #f7f8fc;
+      border-radius: 14px;
+    }
+
+    .steps {
+      padding-left: 24px;
+    }
+
+    .steps li {
+      margin-bottom: 14px;
+    }
+
+    .cta-box {
+      margin: 32px 0;
+      padding: 24px;
+      background:
+        linear-gradient(
+          135deg,
+          #f1efff,
+          #eef6ff
+        );
+      border-radius: 18px;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      margin: 0 0 8px;
+      padding: 0;
+      border: 0;
+    }
+
+    .cta {
+      display: block;
+      margin-top: 16px;
+      padding: 16px;
+      background: #111;
+      border-radius: 14px;
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .faq {
+      margin: 15px 0;
+      padding: 16px;
+      border:
+        1px solid #e7e9f1;
+      border-radius: 14px;
+    }
+
+    .faq h3 {
+      margin: 0 0 8px;
+    }
+
+    .faq p {
+      margin: 0;
+      color: #555;
+    }
+
+    .related {
+      display: grid;
+      gap: 10px;
+    }
+
+    .related a {
+      display: block;
+      padding: 14px;
+      background: #f7f8fc;
+      border-radius: 12px;
+      color: #222;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .notice {
+      margin-top: 30px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .back {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #555;
+    }
+
+    @media (
+      max-width: 520px
+    ) {
+
+      .container {
+        width: calc(100% - 20px);
+        padding-top: 16px;
+      }
+
+      .card {
+        padding: 22px 16px;
+      }
+
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 21px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <main class="container">
+
+    <a
+      class="logo"
+      href="/"
+    >
+      🎤 キミキー
+    </a>
+
+    <div class="breadcrumb">
+
+      <a href="/">
+        トップ
+      </a>
+
+      ＞
+
+      自分の音域を調べる方法
+
+    </div>
+
+    <article class="card">
+
+      <h1>
+        自分の音域を調べる方法
+      </h1>
+
+      <p class="lead">
+        「自分はどこまで低い声・高い声が出るの？」
+        「カラオケで自分に合うキーが分からない」
+        という人向けに、自分の音域を調べる方法を分かりやすく解説します。
+      </p>
+
+      <div class="point">
+
+        <strong>
+          先に結論
+        </strong>
+
+        <p>
+          自分の音域を知るには、
+          低い音から高い音まで少しずつ声を出して、
+          安定して出せる最低音と最高音を確認します。
+        </p>
+
+        <p>
+          キミキーでは、スマホやパソコンのマイクを使って
+          現在の音程を確認できます。
+        </p>
+
+      </div>
+
+      <h2>
+        音域とは？
+      </h2>
+
+      <p>
+        音域とは、声で出せる音の高さの範囲です。
+      </p>
+
+      <p>
+        例えば最低音がC3、最高音がC5なら、
+        C3からC5までがその人の音域の目安になります。
+      </p>
+
+      <p>
+        ただし、
+        「一瞬だけ出せる音」と
+        「曲の中で安定して歌える音」は違います。
+      </p>
+
+      <p>
+        キミキーでは、
+        頑張れば出せる<strong>限界音域</strong>と、
+        無理なく歌いやすい<strong>快適音域</strong>を
+        分けて測ることができます。
+      </p>
+
+      <h2>
+        自分の音域を知るメリット
+      </h2>
+
+      <p>
+        自分の音域が分かると、
+        カラオケで曲を選ぶときに
+        「この曲は自分には高そう」
+        「キーを少し下げれば歌えそう」
+        と判断しやすくなります。
+      </p>
+
+      <p>
+        また、曲の最高音と最低音を
+        自分の音域と比較することで、
+        自分に合うキーを探す目安にもなります。
+      </p>
+
+      <h2>
+        自分で音域を調べる方法
+      </h2>
+
+      <ol class="steps">
+
+        <li>
+          できるだけ静かな場所で測定します。
+        </li>
+
+        <li>
+          普段出しやすい高さから声を出します。
+        </li>
+
+        <li>
+          少しずつ声を低くして、
+          安定して出せる最低音を確認します。
+        </li>
+
+        <li>
+          次に少しずつ声を高くして、
+          安定して出せる最高音を確認します。
+        </li>
+
+        <li>
+          最低音と最高音を記録します。
+        </li>
+
+      </ol>
+
+      <div class="cta-box">
+
+        <h2>
+          自分の音域を測ってみる
+        </h2>
+
+        <p>
+          キミキーなら、
+          マイクを使って無料で音程・音域を確認できます。
+        </p>
+
+        <a
+          class="cta"
+          href="/"
+        >
+          🎤 キミキーで音域を測定する
+        </a>
+
+      </div>
+
+      <h2>
+        音域を測るときのコツ
+      </h2>
+
+      <h3>
+        一定の高さで少し声を伸ばす
+      </h3>
+
+      <p>
+        一瞬だけ声を出すよりも、
+        同じ高さを少し保った方が
+        音程を確認しやすくなります。
+      </p>
+
+      <h3>
+        一度だけで決めない
+      </h3>
+
+      <p>
+        体調やウォームアップの状態によっても
+        声の出しやすさは変わります。
+      </p>
+
+      <p>
+        何度か測定して、
+        安定して出せる範囲を確認するのがおすすめです。
+      </p>
+
+      <h3>
+        無理に高音を出さない
+      </h3>
+
+      <p>
+        音域を広く見せることより、
+        無理なく歌える範囲を知ることの方が大切です。
+      </p>
+
+      <p>
+        喉に痛みや強い違和感がある場合は、
+        無理に声を出さないでください。
+      </p>
+
+      <h2>
+        カラオケで自分に合うキーを見つける方法
+      </h2>
+
+      <p>
+        カラオケでは、
+        曲の最高音だけを見るのではなく、
+        最低音も確認することが大切です。
+      </p>
+
+      <p>
+        原曲の最高音が自分には高すぎる場合、
+        キーを下げることで歌いやすくなることがあります。
+      </p>
+
+      <p>
+        ただし、キーを下げすぎると
+        今度は低音が出しにくくなる場合があります。
+      </p>
+
+      <div class="point">
+
+        <strong>
+          キー調整のポイント
+        </strong>
+
+        <p>
+          曲の最高音・最低音と
+          自分の快適音域を比較して、
+          曲全体ができるだけ自分の音域に収まる位置を探します。
+        </p>
+
+      </div>
+
+      <h2>
+        音域だけで歌いやすさは決まらない
+      </h2>
+
+      <p>
+        同じ音域の曲でも、
+        テンポ、高音が続く時間、
+        音程の変化、声質などによって
+        歌いやすさは変わります。
+      </p>
+
+      <p>
+        音域は曲選びの重要な目安ですが、
+        実際に歌ってみた感覚も大切です。
+      </p>
+
+      <h2>
+        よくある質問
+      </h2>
+
+      <div class="faq">
+
+        <h3>
+          自分の音域はどうやって調べますか？
+        </h3>
+
+        <p>
+          低い音から高い音まで少しずつ声を出し、
+          安定して出せる最低音と最高音を確認します。
+        </p>
+
+      </div>
+
+      <div class="faq">
+
+        <h3>
+          男性・女性で音域は違いますか？
+        </h3>
+
+        <p>
+          声の高さには傾向がありますが、
+          実際の音域には大きな個人差があります。
+          平均だけで判断せず、
+          自分の音域を実際に測るのがおすすめです。
+        </p>
+
+      </div>
+
+      <div class="faq">
+
+        <h3>
+          音域は広げられますか？
+        </h3>
+
+        <p>
+          発声練習によって
+          安定して使える範囲が変わることはあります。
+          ただし、無理な発声は避けてください。
+        </p>
+
+      </div>
+
+      <div class="faq">
+
+        <h3>
+          カラオケのキーはいくつ下げればいいですか？
+        </h3>
+
+        <p>
+          決まった数はありません。
+          曲の最高音・最低音と
+          自分の快適音域を比較して調整します。
+        </p>
+
+      </div>
+
+      <h2>
+        音域から曲を探す
+      </h2>
+
+      <div class="related">
+
+        <a href="/guides/">
+          音域から曲を探す →
+        </a>
+
+        <a href="/guides/male-songs/">
+          男性向けの曲を探す →
+        </a>
+
+        <a href="/guides/female-songs/">
+          女性向けの曲を探す →
+        </a>
+
+        <a href="/guides/low-voice-songs/">
+          低音向けの曲を探す →
+        </a>
+
+        <a href="/guides/high-note-songs/">
+          高音向けの曲を探す →
+        </a>
+
+      </div>
+
+      <div class="cta-box">
+
+        <h2>
+          まずは自分の音域を確認
+        </h2>
+
+        <p>
+          最低音と最高音が分かれば、
+          曲選びやキー調整がしやすくなります。
+        </p>
+
+        <a
+          class="cta"
+          href="/"
+        >
+          🎤 キミキーを使ってみる
+        </a>
+
+      </div>
+
+      <p class="notice">
+        ※ 音域や歌いやすさには個人差があります。
+        喉に痛みや強い違和感がある状態で
+        無理に声を出さないでください。
+      </p>
+
+    </article>
+
+    <a
+      class="back"
+      href="/"
+    >
+      ← キミキーのトップへ戻る
+    </a>
+
+  </main>
+
+</body>
+
+</html>
