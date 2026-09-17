@@ -12,6 +12,8 @@ export function initSongSearch({
       '#songSearch'
     )
 
+  let artistListQuery = ''
+
 
   function createSongButton(song) {
     const item =
@@ -132,7 +134,9 @@ export function initSongSearch({
           backMode ===
           'artists'
         ) {
-          renderArtistList()
+          renderArtistList(
+            artistListQuery
+          )
         } else {
           renderSearchResults(
             input.value
@@ -172,8 +176,14 @@ export function initSongSearch({
   }
 
 
-  function renderArtistList() {
+  function renderArtistList(
+    initialQuery = ''
+  ) {
     container.innerHTML = ''
+
+    artistListQuery =
+      initialQuery
+
 
     const backButton =
       document.createElement(
@@ -198,6 +208,8 @@ export function initSongSearch({
     backButton.addEventListener(
       'click',
       () => {
+        artistListQuery = ''
+
         renderSearchResults(
           input.value
         )
@@ -225,6 +237,41 @@ export function initSongSearch({
     )
 
 
+    const artistSearch =
+      document.createElement(
+        'input'
+      )
+
+    artistSearch.type =
+      'text'
+
+    artistSearch.className =
+      'song-search'
+
+    artistSearch.placeholder =
+      'アーティスト名で絞り込み'
+
+    artistSearch.value =
+      artistListQuery
+
+    container.appendChild(
+      artistSearch
+    )
+
+
+    const artistResults =
+      document.createElement(
+        'div'
+      )
+
+    artistResults.className =
+      'song-search-results'
+
+    container.appendChild(
+      artistResults
+    )
+
+
     const artists =
       [
         ...new Set(
@@ -242,13 +289,77 @@ export function initSongSearch({
         )
 
 
-    artists.forEach(
-      artist => {
-        container.appendChild(
-          createArtistButton(
-            artist,
-            'artists'
+    function renderFilteredArtists(
+      searchText = ''
+    ) {
+      artistResults.innerHTML = ''
+
+      const query =
+        searchText
+          .trim()
+          .toLowerCase()
+
+      artistListQuery =
+        searchText
+
+
+      const filteredArtists =
+        artists.filter(
+          artist =>
+            artist
+              .toLowerCase()
+              .includes(query)
+        )
+
+
+      if (
+        filteredArtists.length === 0
+      ) {
+        artistResults.innerHTML = `
+          <div class="no-song">
+            アーティストが見つかりません
+          </div>
+        `
+
+        return
+      }
+
+
+      filteredArtists.forEach(
+        artist => {
+          artistResults.appendChild(
+            createArtistButton(
+              artist,
+              'artists'
+            )
           )
+        }
+      )
+    }
+
+
+    artistSearch.addEventListener(
+      'input',
+      event => {
+        renderFilteredArtists(
+          event.target.value
+        )
+      }
+    )
+
+
+    renderFilteredArtists(
+      artistListQuery
+    )
+
+
+    requestAnimationFrame(
+      () => {
+        artistSearch.focus()
+
+        artistSearch.setSelectionRange(
+          artistSearch.value.length,
+          artistSearch.value.length
         )
       }
     )
@@ -285,6 +396,8 @@ export function initSongSearch({
     item.addEventListener(
       'click',
       () => {
+        artistListQuery = ''
+
         renderArtistList()
       }
     )
