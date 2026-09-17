@@ -707,6 +707,12 @@ app.innerHTML = `
       >
         🎯 音程を合わせる練習
       </a>
+            <a
+        class="song-browse-link"
+        href="/karaoke-pitch-bar/"
+      >
+        🎤 カラオケの音程バーが合わないとき
+      </a>
       <a
         class="song-browse-link"
         href="/vocal-range-check/"
