@@ -326,8 +326,12 @@ const artistOptions = [
 ].join('\n')
 
 const tableRows = missingSongs
-  .map(
-    (song, index) => `
+  .map((song, index) => {
+    const searchQuery = `${song.artist} ${song.title} 音域 最低音 最高音`
+    const searchUrl = `https://www.google.com/search?q=${encodeURIComponent(searchQuery)}`
+    const copyText = `${song.artist} - ${song.title}`
+
+    return `
       <tr
         data-artist="${htmlEscape(song.artist)}"
         data-search="${htmlEscape(`${song.artist} ${song.title}`.toLowerCase())}"
@@ -338,9 +342,28 @@ const tableRows = missingSongs
         <td>${htmlEscape(song.artist)}</td>
         <td>${htmlEscape(song.title)}</td>
         <td><span class="status">音域未登録</span></td>
+        <td>
+          <div class="actions">
+            <a
+              class="action-link"
+              href="${htmlEscape(searchUrl)}"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              音域を検索
+            </a>
+            <button
+              class="copy-button"
+              type="button"
+              data-copy="${htmlEscape(copyText)}"
+            >
+              曲情報をコピー
+            </button>
+          </div>
+        </td>
       </tr>
     `
-  )
+  })
   .join('')
 
 const htmlText = `<!doctype html>
@@ -358,7 +381,7 @@ const htmlText = `<!doctype html>
       color: #20222a;
     }
     main {
-      width: min(1180px, calc(100% - 32px));
+      width: min(1240px, calc(100% - 32px));
       margin: 32px auto 64px;
     }
     h1 { margin-bottom: 8px; }
@@ -407,12 +430,13 @@ const htmlText = `<!doctype html>
     table {
       width: 100%;
       border-collapse: collapse;
-      min-width: 760px;
+      min-width: 980px;
     }
     th, td {
       padding: 12px 14px;
       text-align: left;
       border-bottom: 1px solid #eceef3;
+      vertical-align: middle;
     }
     th {
       position: sticky;
@@ -433,6 +457,39 @@ const htmlText = `<!doctype html>
       font-size: 12px;
       white-space: nowrap;
     }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .action-link,
+    .copy-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 34px;
+      padding: 7px 10px;
+      border-radius: 8px;
+      font-size: 13px;
+      text-decoration: none;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+    .action-link {
+      background: #edf2ff;
+      color: #3158a8;
+      border: 1px solid #cad8ff;
+    }
+    .copy-button {
+      background: white;
+      color: #454b59;
+      border: 1px solid #d8dbe5;
+    }
+    .copy-button.copied {
+      background: #edf9f1;
+      border-color: #b8dfc4;
+      color: #27703f;
+    }
     #visibleCount {
       margin: 0 0 10px;
       color: #606675;
@@ -440,7 +497,7 @@ const htmlText = `<!doctype html>
     }
     @media (max-width: 700px) {
       main {
-        width: min(100% - 20px, 1180px);
+        width: min(100% - 20px, 1240px);
         margin-top: 20px;
       }
       .filters {
@@ -454,7 +511,8 @@ const htmlText = `<!doctype html>
     <h1>キミキー 音域未登録曲バックログ</h1>
     <p class="note">
       音域データを追加する順番を決めるためのローカル管理画面です。<br />
-      requests が多い曲ほど、実際のユーザー需要が高い候補です。
+      requests が多い曲ほど、実際のユーザー需要が高い候補です。<br />
+      「音域を検索」で調査を始め、最低音・最高音は1つの検索結果だけで決めず、複数の情報を確認してください。
     </p>
 
     <section class="stats">
@@ -486,6 +544,7 @@ const htmlText = `<!doctype html>
             <th>アーティスト</th>
             <th>曲名</th>
             <th>状態</th>
+            <th>調査</th>
           </tr>
         </thead>
         <tbody id="backlogBody">
@@ -500,6 +559,7 @@ const htmlText = `<!doctype html>
     const artistFilter = document.querySelector('#artistFilter')
     const rows = [...document.querySelectorAll('#backlogBody tr')]
     const visibleCount = document.querySelector('#visibleCount')
+    const copyButtons = [...document.querySelectorAll('.copy-button')]
 
     function normalize(value) {
       return String(value || '')
@@ -529,8 +589,34 @@ const htmlText = `<!doctype html>
       visibleCount.textContent = count + '曲を表示中'
     }
 
+    async function copySongInfo(button) {
+      const text = button.dataset.copy || ''
+      const originalText = button.textContent.trim()
+
+      try {
+        await navigator.clipboard.writeText(text)
+        button.textContent = 'コピーしました'
+        button.classList.add('copied')
+      } catch {
+        window.prompt('この文字をコピーしてください', text)
+        return
+      }
+
+      window.setTimeout(() => {
+        button.textContent = originalText
+        button.classList.remove('copied')
+      }, 1200)
+    }
+
     searchInput.addEventListener('input', filterRows)
     artistFilter.addEventListener('change', filterRows)
+
+    copyButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        copySongInfo(button)
+      })
+    })
+
     filterRows()
   </script>
 </body>
