@@ -947,7 +947,47 @@ app.innerHTML = `
 
 </main>
 `
+// ==========================================
+// ピッチ練習ページから来た場合
+// 自動で練習パネルを開く
+// ==========================================
 
+const pitchPracticePanel =
+  document.querySelector(
+    '#pitchPracticePanel'
+  )
+
+function openPitchPracticeFromHash() {
+
+  if (
+    window.location.hash !==
+    '#pitch-practice'
+  ) {
+    return
+  }
+
+  if (!pitchPracticePanel) {
+    return
+  }
+
+  pitchPracticePanel.open = true
+
+  requestAnimationFrame(
+    () => {
+      pitchPracticePanel.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      })
+    }
+  )
+}
+
+openPitchPracticeFromHash()
+
+window.addEventListener(
+  'hashchange',
+  openPitchPracticeFromHash
+)
 
 // ==========================================
 // 状態
