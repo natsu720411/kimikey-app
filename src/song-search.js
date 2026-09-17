@@ -1,44 +1,254 @@
-export function initSongSearch({ songs, onSongSelected }) {
-  const container = document.querySelector('#songSearchResults')
-
-  function renderSearchResults(searchText = '') {
-    container.innerHTML = ''
-    const query = searchText.trim().toLowerCase()
-
-    if (!query) return
-
-    const results = songs.filter(song =>
-      song.title.toLowerCase().includes(query) ||
-      song.artist.toLowerCase().includes(query)
+export function initSongSearch({
+  songs,
+  onSongSelected
+}) {
+  const container =
+    document.querySelector(
+      '#songSearchResults'
     )
 
-    if (results.length === 0) {
-      container.innerHTML = `
-        <div class="no-song">
-          曲が見つかりません
-        </div>
-      `
+  const input =
+    document.querySelector(
+      '#songSearch'
+    )
+
+
+  function createSongButton(song) {
+    const item =
+      document.createElement(
+        'button'
+      )
+
+    item.className =
+      'search-song-item'
+
+    item.innerHTML = `
+      <div>
+        <strong>${song.title}</strong>
+        <span>${song.artist}</span>
+      </div>
+
+      <span class="search-arrow">
+        ›
+      </span>
+    `
+
+    item.addEventListener(
+      'click',
+      () => {
+        onSongSelected(song)
+      }
+    )
+
+    return item
+  }
+
+
+  function renderArtistSongs(
+    artist
+  ) {
+    container.innerHTML = ''
+
+    const artistSongs =
+      songs.filter(
+        song =>
+          song.artist === artist
+      )
+
+
+    const backButton =
+      document.createElement(
+        'button'
+      )
+
+    backButton.className =
+      'search-song-item'
+
+    backButton.innerHTML = `
+      <div>
+        <strong>
+          ← 検索結果に戻る
+        </strong>
+
+        <span>
+          ${artist}
+        </span>
+      </div>
+    `
+
+    backButton.addEventListener(
+      'click',
+      () => {
+        renderSearchResults(
+          input.value
+        )
+      }
+    )
+
+    container.appendChild(
+      backButton
+    )
+
+
+    const heading =
+      document.createElement(
+        'div'
+      )
+
+    heading.className =
+      'no-song'
+
+    heading.textContent =
+      `🎤 ${artist} の曲一覧（${artistSongs.length}曲）`
+
+    container.appendChild(
+      heading
+    )
+
+
+    artistSongs.forEach(
+      song => {
+        container.appendChild(
+          createSongButton(song)
+        )
+      }
+    )
+  }
+
+
+  function renderSearchResults(
+    searchText = ''
+  ) {
+    container.innerHTML = ''
+
+    const query =
+      searchText
+        .trim()
+        .toLowerCase()
+
+
+    if (!query) {
       return
     }
 
-    results.forEach(song => {
-      const item = document.createElement('button')
-      item.className = 'search-song-item'
-      item.innerHTML = `
-        <div>
-          <strong>${song.title}</strong>
-          <span>${song.artist}</span>
+
+    const artists =
+      [
+        ...new Set(
+          songs.map(
+            song => song.artist
+          )
+        )
+      ]
+
+
+    const artistResults =
+      artists
+        .filter(
+          artist =>
+            artist
+              .toLowerCase()
+              .includes(query)
+        )
+        .sort(
+          (a, b) =>
+            a.localeCompare(
+              b,
+              'ja'
+            )
+        )
+
+
+    const songResults =
+      songs.filter(
+        song =>
+          song.title
+            .toLowerCase()
+            .includes(query)
+      )
+
+
+    if (
+      artistResults.length === 0 &&
+      songResults.length === 0
+    ) {
+      container.innerHTML = `
+        <div class="no-song">
+          曲またはアーティストが見つかりません
         </div>
-        <span class="search-arrow">›</span>
       `
-      item.addEventListener('click', () => onSongSelected(song))
-      container.appendChild(item)
-    })
+
+      return
+    }
+
+
+    artistResults.forEach(
+      artist => {
+        const artistSongs =
+          songs.filter(
+            song =>
+              song.artist === artist
+          )
+
+        const item =
+          document.createElement(
+            'button'
+          )
+
+        item.className =
+          'search-song-item'
+
+        item.innerHTML = `
+          <div>
+            <strong>
+              🎤 ${artist}
+            </strong>
+
+            <span>
+              ${artistSongs.length}曲
+            </span>
+          </div>
+
+          <span class="search-arrow">
+            ›
+          </span>
+        `
+
+        item.addEventListener(
+          'click',
+          () => {
+            renderArtistSongs(
+              artist
+            )
+          }
+        )
+
+        container.appendChild(
+          item
+        )
+      }
+    )
+
+
+    songResults.forEach(
+      song => {
+        container.appendChild(
+          createSongButton(song)
+        )
+      }
+    )
   }
 
-  document.querySelector('#songSearch').addEventListener('input', event => {
-    renderSearchResults(event.target.value)
-  })
+
+  input.addEventListener(
+    'input',
+    event => {
+      renderSearchResults(
+        event.target.value
+      )
+    }
+  )
+
 
   return renderSearchResults
 }
