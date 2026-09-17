@@ -40,7 +40,7 @@
       font-size: 13px;
       font-weight: 600;
     }
-    input, textarea, button {
+    input, textarea, button, a {
       font: inherit;
     }
     input, textarea {
@@ -68,26 +68,28 @@
       font-size: 13px;
       margin: 8px 0 12px;
     }
-    .ok {
-      color: #27703f;
-    }
+    .ok { color: #27703f; }
     .actions {
       display: flex;
       gap: 8px;
       flex-wrap: wrap;
       margin-top: 12px;
     }
-    button {
+    button, .back-link {
       border: 0;
       border-radius: 9px;
       padding: 10px 14px;
       cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
     }
     #copyButton {
       background: #272b36;
       color: white;
     }
-    #clearButton {
+    #clearButton, .back-link {
       background: #eceef3;
       color: #333844;
     }
@@ -146,6 +148,7 @@
       <div class="actions">
         <button id="copyButton" type="button">コードをコピー</button>
         <button id="clearButton" type="button">入力をクリア</button>
+        <a class="back-link" href="range-backlog.html">バックログへ戻る</a>
       </div>
     </section>
   </main>
@@ -284,6 +287,28 @@
       artistInput.focus()
     }
 
+    function prefillFromUrl() {
+      const params = new URLSearchParams(window.location.search)
+      const artist = params.get('artist') || ''
+      const title = params.get('title') || ''
+
+      if (artist) {
+        artistInput.value = artist
+      }
+
+      if (title) {
+        titleInput.value = title
+      }
+
+      if (artist || title) {
+        lowInput.focus()
+      } else {
+        artistInput.focus()
+      }
+
+      update()
+    }
+
     ;[
       artistInput,
       titleInput,
@@ -296,6 +321,7 @@
 
     copyButton.addEventListener('click', copyCode)
     clearButton.addEventListener('click', clearAll)
+    prefillFromUrl()
   </script>
 </body>
 </html>
