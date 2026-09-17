@@ -2887,6 +2887,82 @@ document.querySelector(
 
     if (practiceMode) {
 
+      // GA4：ピッチ練習を開始した回数を計測
+      if (
+        typeof window.gtag ===
+        'function'
+      ) {
+
+        window.gtag(
+          'event',
+          'pitch_practice_start',
+          {
+            practice_source:
+              window.location.hash ===
+              '#pitch-practice'
+                ? 'pitch_practice_link'
+                : 'top_page'
+          }
+        )
+      }
+
+
+      button.textContent =
+        '練習モード ON'
+
+      button.classList.add(
+        'active'
+      )
+
+      document.querySelector(
+        '#practiceFeedback'
+      ).textContent =
+        '鍵盤から練習したい音を選んでください'
+
+    } else {
+
+      button.textContent =
+        '練習モード OFF'
+
+      button.classList.remove(
+        'active'
+      )
+
+      targetMidi = null
+
+      document.querySelector(
+        '#targetNote'
+      ).textContent =
+        '---'
+
+      document.querySelector(
+        '#practiceCurrentNote'
+      ).textContent =
+        '---'
+
+      document.querySelector(
+        '#practiceCents'
+      ).textContent =
+        '---'
+
+      document.querySelector(
+        '#practiceFeedback'
+      ).textContent =
+        '練習モードをONにしてください'
+
+      document.querySelector(
+        '#practiceFeedback'
+      ).className =
+        'practice-feedback'
+
+      updateTargetKey()
+    }
+  }
+)
+
+
+    if (practiceMode) {
+
       button.textContent =
         '練習モード ON'
 
