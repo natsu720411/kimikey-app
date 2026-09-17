@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
   "dev": "vite",
-  "build": "node scripts/generate-song-pages.mjs && vite build",
+ "build": "node scripts/generate-song-pages.mjs && node scripts/generate-seo-pages.mjs && vite build",
   "check:songs": "node scripts/check-songs.mjs",
   "update:popular": "node scripts/update-popular-songs.mjs",
   "preview": "vite preview"
