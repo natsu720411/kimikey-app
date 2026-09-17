@@ -1,0 +1,913 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+
+  <!-- Google Analytics -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"
+  ></script>
+
+  <script>
+    window.dataLayer =
+      window.dataLayer || []
+
+    function gtag() {
+      dataLayer.push(arguments)
+    }
+
+    gtag('js', new Date())
+
+    gtag(
+      'config',
+      'G-1B35Z51M10'
+    )
+  </script>
+
+
+  <title>
+    カラオケの音程バーが合わない原因と練習方法｜音程を合わせるコツ｜キミキー
+  </title>
+
+  <meta
+    name="description"
+    content="カラオケで音程バーが合わない、音程が上下にズレる人向けに原因と練習方法を解説。1音ずつ目標音に声を合わせながら、無料のキミキーで音程をリアルタイム確認できます。"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://kimikey-app.vercel.app/karaoke-pitch-bar/"
+  >
+
+
+  <meta
+    property="og:title"
+    content="カラオケの音程バーが合わない原因と練習方法｜キミキー"
+  >
+
+  <meta
+    property="og:description"
+    content="カラオケの音程バーがズレるときに確認したいポイントと、自宅でできる音程練習方法を紹介します。"
+  >
+
+  <meta
+    property="og:type"
+    content="article"
+  >
+
+  <meta
+    property="og:url"
+    content="https://kimikey-app.vercel.app/karaoke-pitch-bar/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="キミキー"
+  >
+
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="カラオケの音程バーが合わない原因と練習方法｜キミキー"
+  >
+
+  <meta
+    name="twitter:description"
+    content="音程バーが合わないときの練習方法を解説。声の高さをリアルタイムで確認しながら練習できます。"
+  >
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "カラオケの音程バーが合わない原因と練習方法",
+    "description": "カラオケで音程バーが合わないときに考えられる要因と、音程を合わせるための練習方法を解説します。",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://kimikey-app.vercel.app/karaoke-pitch-bar/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "キミキー"
+    }
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "カラオケの音程バーが合わないのはなぜですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "目標音より声が高い・低い、音の移動に追いついていない、長い音を一定の高さで保てていないなど、さまざまな要因が考えられます。まずは1音ずつ目標音と自分の声を比較すると確認しやすくなります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "音程を合わせるにはどんな練習がいいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "ピアノなどで目標音を聞き、その音と同じ高さで声を出します。自分の声が高いか低いかを確認しながら少しずつ目標音へ近づける練習が基本です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "自宅でカラオケの音程練習はできますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "キミキーではブラウザからマイクを使い、目標音と現在の声の高さをリアルタイムで比較できます。"
+        }
+      }
+    ]
+  }
+  </script>
+
+
+  <style>
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+      background: #f6f7fb;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    .container {
+      width:
+        min(
+          820px,
+          calc(100% - 30px)
+        );
+      margin: 0 auto;
+      padding:
+        24px 0 70px;
+    }
+
+    .logo {
+      display: inline-block;
+      margin-bottom: 24px;
+      color: #222;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding: 42px 30px;
+      background:
+        linear-gradient(
+          135deg,
+          #fff0f3,
+          #f1edff
+        );
+      border-radius: 28px;
+      text-align: center;
+    }
+
+    .label {
+      display: inline-block;
+      margin-bottom: 13px;
+      padding: 6px 14px;
+      background: white;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin: 0 0 18px;
+      font-size:
+        clamp(
+          28px,
+          7vw,
+          43px
+        );
+      line-height: 1.4;
+    }
+
+    .lead {
+      max-width: 630px;
+      margin:
+        0
+        auto
+        26px;
+      color: #555;
+      font-size: 17px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 16px 27px;
+      background: #111;
+      border-radius: 15px;
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .card {
+      margin-top: 28px;
+      padding: 28px;
+      background: white;
+      border-radius: 22px;
+      box-shadow:
+        0
+        7px
+        25px
+        rgba(0, 0, 0, .05);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      line-height: 1.5;
+    }
+
+    h3 {
+      margin-bottom: 7px;
+      font-size: 18px;
+    }
+
+    .reason-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .reason {
+      padding: 18px;
+      background: #f8f9fc;
+      border-radius: 16px;
+    }
+
+    .reason h3 {
+      margin-top: 0;
+    }
+
+    .reason p {
+      margin-bottom: 0;
+      color: #5f6368;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns:
+        44px
+        1fr;
+      gap: 14px;
+      padding: 17px;
+      background: #f8f9fc;
+      border-radius: 16px;
+    }
+
+    .step-number {
+      display: flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      border-radius: 50%;
+      color: white;
+      font-weight: 800;
+    }
+
+    .step h3 {
+      margin-top: 0;
+    }
+
+    .step p {
+      margin-bottom: 0;
+      color: #666;
+    }
+
+    .highlight {
+      margin-top: 20px;
+      padding: 20px;
+      background: #f5f2ff;
+      border-radius: 17px;
+    }
+
+    .point-list {
+      padding-left: 22px;
+    }
+
+    .point-list li {
+      margin-bottom: 10px;
+    }
+
+    .faq {
+      padding: 18px 0;
+      border-bottom:
+        1px
+        solid
+        #eee;
+    }
+
+    .faq:last-child {
+      border-bottom: 0;
+    }
+
+    .faq h3 {
+      margin-top: 0;
+    }
+
+    .faq p {
+      margin-bottom: 0;
+      color: #555;
+    }
+
+    .links {
+      display: grid;
+      gap: 10px;
+    }
+
+    .links a {
+      display: block;
+      padding: 15px;
+      background: #f8f9fc;
+      border-radius: 13px;
+      color: #222;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .cta {
+      margin-top: 30px;
+      padding: 34px 24px;
+      background: #111;
+      border-radius: 24px;
+      color: white;
+      text-align: center;
+    }
+
+    .cta h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta p {
+      color: #ddd;
+    }
+
+    .cta .button {
+      background: white;
+      color: #111;
+    }
+
+    .notice {
+      margin-top: 22px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (
+      max-width: 600px
+    ) {
+
+      .hero {
+        padding:
+          32px
+          18px;
+      }
+
+      .card {
+        padding:
+          23px
+          18px;
+      }
+
+      .button {
+        width: 100%;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+
+<body>
+
+  <main class="container">
+
+
+    <a
+      class="logo"
+      href="/"
+    >
+      🎤 キミキー
+    </a>
+
+
+    <section class="hero">
+
+      <div class="label">
+        カラオケの音程で悩んでいる人へ
+      </div>
+
+      <h1>
+        カラオケの音程バーが
+        合わないときの練習方法
+      </h1>
+
+      <p class="lead">
+        歌っているつもりなのに
+        音程バーより高くなったり低くなったりする。
+        そんなときは、
+        まず1音ずつ自分の声と目標音を
+        比較する練習から始めてみましょう。
+      </p>
+
+      <a
+        class="button"
+        href="/#pitch-practice"
+      >
+        🎯 無料で音程を合わせる練習をする
+      </a>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        音程バーが合わないときに
+        確認したいこと
+      </h2>
+
+      <p>
+        カラオケの音程がずれる原因は
+        1つとは限りません。
+        まずは自分がどのように
+        ずれているのかを確認することが大切です。
+      </p>
+
+
+      <div class="reason-list">
+
+
+        <div class="reason">
+
+          <h3>
+            ① 目標より声が高い・低い
+          </h3>
+
+          <p>
+            自分では同じ音を出しているつもりでも、
+            実際には目標音より少し高かったり
+            低かったりする場合があります。
+          </p>
+
+        </div>
+
+
+        <div class="reason">
+
+          <h3>
+            ② 音が変わるときに追いつかない
+          </h3>
+
+          <p>
+            音程が大きく変化する部分では、
+            次の音へ移動するタイミングや高さが
+            ずれやすくなります。
+          </p>
+
+        </div>
+
+
+        <div class="reason">
+
+          <h3>
+            ③ 長い音の高さが安定しない
+          </h3>
+
+          <p>
+            最初は合っていても、
+            音を伸ばしている途中で
+            徐々に高くなったり
+            低くなったりすることがあります。
+          </p>
+
+        </div>
+
+
+        <div class="reason">
+
+          <h3>
+            ④ 曲のキーが自分に合っていない
+          </h3>
+
+          <p>
+            高音や低音が自分の出しやすい範囲から
+            大きく外れていると、
+            音程を安定させにくくなる場合があります。
+          </p>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        まずは1音だけ合わせてみる
+      </h2>
+
+      <p>
+        曲を最初から最後まで歌いながら
+        音程を直そうとすると、
+        どこでずれているのか
+        分かりにくくなることがあります。
+      </p>
+
+      <p>
+        そのため、
+        まずはピアノなどで1音を聞き、
+        その高さと自分の声を合わせる練習をすると
+        音程の違いを確認しやすくなります。
+      </p>
+
+
+      <div class="highlight">
+
+        <strong>
+          目標音 → 声を出す → 高い・低いを確認 → 修正
+        </strong>
+
+        <p>
+          この流れを繰り返して、
+          同じ高さに近づけていきます。
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        キミキーを使った音程練習
+      </h2>
+
+
+      <div class="steps">
+
+
+        <div class="step">
+
+          <div class="step-number">
+            1
+          </div>
+
+          <div>
+
+            <h3>
+              マイクを開始する
+            </h3>
+
+            <p>
+              キミキーで
+              「マイクを開始」を押します。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            2
+          </div>
+
+          <div>
+
+            <h3>
+              ピッチ練習をON
+            </h3>
+
+            <p>
+              「ピッチ練習」を開いて
+              練習モードをONにします。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            3
+          </div>
+
+          <div>
+
+            <h3>
+              鍵盤で目標音を設定
+            </h3>
+
+            <p>
+              ピアノ鍵盤を押して、
+              合わせたい音を聞きます。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            4
+          </div>
+
+          <div>
+
+            <h3>
+              同じ高さを狙って声を出す
+            </h3>
+
+            <p>
+              目標音を思い出しながら、
+              同じ高さで発声します。
+            </p>
+
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            5
+          </div>
+
+          <div>
+
+            <h3>
+              高い・低いを見ながら修正
+            </h3>
+
+            <p>
+              現在の音と目標音の差を確認しながら、
+              少しずつ声の高さを調整します。
+            </p>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        カラオケで試すときのポイント
+      </h2>
+
+      <ul class="point-list">
+
+        <li>
+          最初はゆっくりした部分から確認する
+        </li>
+
+        <li>
+          苦手なフレーズだけ繰り返す
+        </li>
+
+        <li>
+          音が大きく上下する場所を重点的に練習する
+        </li>
+
+        <li>
+          長く伸ばす音が安定しているか確認する
+        </li>
+
+        <li>
+          高音だけでなく低音も無理なく出せるか確認する
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        キーが合っているかも確認する
+      </h2>
+
+      <p>
+        原曲キーでは高すぎる、
+        または低すぎる場合、
+        カラオケのキーを調整すると
+        自分の出しやすい音域へ
+        近づけられることがあります。
+      </p>
+
+      <p>
+        ただし、
+        高音だけを見てキーを下げすぎると
+        今度は低音が出しづらくなることがあります。
+      </p>
+
+      <p>
+        最低音と最高音の両方を
+        自分の音域と比べることが大切です。
+      </p>
+
+      <div class="links">
+
+        <a href="/karaoke-key-guide/">
+          🎚 カラオケのキーの合わせ方を見る
+        </a>
+
+        <a href="/vocal-range-check/">
+          🎤 自分の音域を調べる方法を見る
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        よくある質問
+      </h2>
+
+
+      <div class="faq">
+
+        <h3>
+          カラオケの音程バーが
+          いつも少しずれるのはなぜ？
+        </h3>
+
+        <p>
+          自分がイメージしている音と
+          実際に出している声の高さに
+          少し差がある可能性があります。
+          まず1音ずつ比較すると
+          高い・低いの傾向を確認しやすくなります。
+        </p>
+
+      </div>
+
+
+      <div class="faq">
+
+        <h3>
+          音程を合わせる感覚が分かりません
+        </h3>
+
+        <p>
+          目標音を聞いてから声を出し、
+          高い場合は少し下げ、
+          低い場合は少し上げる練習を
+          繰り返してみてください。
+        </p>
+
+      </div>
+
+
+      <div class="faq">
+
+        <h3>
+          スマホだけでも練習できますか？
+        </h3>
+
+        <p>
+          対応ブラウザでマイクを許可すれば、
+          キミキーを使って
+          スマートフォンからも
+          声の高さを確認できます。
+        </p>
+
+      </div>
+
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        関連ページ
+      </h2>
+
+      <div class="links">
+
+        <a href="/pitch-training/">
+          🎯 音程を合わせる練習方法
+        </a>
+
+        <a href="/vocal-range-check/">
+          🎤 自分の音域をチェック
+        </a>
+
+        <a href="/karaoke-key-guide/">
+          🎚 カラオケのキー調整方法
+        </a>
+
+        <a href="/vocal-range-training/">
+          🎵 音域を広げる練習方法
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <section class="cta">
+
+      <h2>
+        自分の声が高いか低いか
+        確認してみよう
+      </h2>
+
+      <p>
+        ピアノの目標音と
+        自分の声をリアルタイムで比較できます。
+      </p>
+
+      <a
+        class="button"
+        href="/#pitch-practice"
+      >
+        🎯 無料でピッチ練習を始める
+      </a>
+
+    </section>
+
+
+    <p class="notice">
+      無理に高音・低音を出したり、
+      喉に痛みや強い違和感がある状態で
+      発声を続けたりしないでください。
+    </p>
+
+
+  </main>
+
+</body>
+
+</html>
