@@ -3054,6 +3054,8 @@ const sitemapUrls = [
 
   `${SITE_URL}/guides/`,
 
+    `${SITE_URL}/vocal-range-check/`,
+
   ...songMeta.map(
     song =>
       `${SITE_URL}/songs/${song.slug}/`
