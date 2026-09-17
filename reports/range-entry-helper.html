@@ -1,0 +1,301 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>キミキー 音域登録ヘルパー</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: #f5f6fa;
+      color: #20222a;
+    }
+    main {
+      width: min(760px, calc(100% - 28px));
+      margin: 32px auto 60px;
+    }
+    .panel {
+      background: #fff;
+      border-radius: 16px;
+      padding: 22px;
+      box-shadow: 0 3px 16px rgba(0,0,0,.07);
+    }
+    h1 { margin-top: 0; }
+    .note {
+      color: #606675;
+      line-height: 1.7;
+      margin-bottom: 22px;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    label {
+      display: grid;
+      gap: 6px;
+      margin-bottom: 12px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    input, textarea, button {
+      font: inherit;
+    }
+    input, textarea {
+      width: 100%;
+      border: 1px solid #d8dbe5;
+      border-radius: 10px;
+      padding: 11px 12px;
+      background: #fff;
+    }
+    textarea {
+      min-height: 220px;
+      resize: vertical;
+      font-family: Consolas, "Courier New", monospace;
+      line-height: 1.55;
+    }
+    .hint {
+      margin: 0 0 12px;
+      color: #6a7080;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+    .error {
+      min-height: 22px;
+      color: #b3261e;
+      font-size: 13px;
+      margin: 8px 0 12px;
+    }
+    .ok {
+      color: #27703f;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 12px;
+    }
+    button {
+      border: 0;
+      border-radius: 9px;
+      padding: 10px 14px;
+      cursor: pointer;
+    }
+    #copyButton {
+      background: #272b36;
+      color: white;
+    }
+    #clearButton {
+      background: #eceef3;
+      color: #333844;
+    }
+    @media (max-width: 640px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="panel">
+      <h1>キミキー 音域登録ヘルパー</h1>
+      <p class="note">
+        調査済みの最低音・最高音から、<code>src/songs.js</code> に貼れるコードを作ります。<br />
+        音域は必ず複数の情報源で確認してから登録してください。
+      </p>
+
+      <label>
+        アーティスト名
+        <input id="artist" type="text" placeholder="例: GLAY" />
+      </label>
+
+      <label>
+        曲名
+        <input id="title" type="text" placeholder="例: HOWEVER" />
+      </label>
+
+      <div class="grid">
+        <label>
+          最低音
+          <input id="lowLabel" type="text" placeholder="例: mid1D" />
+        </label>
+
+        <label>
+          最高音
+          <input id="highLabel" type="text" placeholder="例: hiA#" />
+        </label>
+      </div>
+
+      <p class="hint">
+        使用形式: lowA〜lowG# / mid1A〜mid1G# / mid2A〜mid2G# / hiA〜hiG#
+      </p>
+
+      <label>
+        確認元
+        <input id="source" type="text" placeholder="URLまたはサイト名。例: https://..." />
+      </label>
+
+      <p id="message" class="error"></p>
+
+      <label>
+        生成コード
+        <textarea id="output" readonly></textarea>
+      </label>
+
+      <div class="actions">
+        <button id="copyButton" type="button">コードをコピー</button>
+        <button id="clearButton" type="button">入力をクリア</button>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const artistInput = document.querySelector('#artist')
+    const titleInput = document.querySelector('#title')
+    const lowInput = document.querySelector('#lowLabel')
+    const highInput = document.querySelector('#highLabel')
+    const sourceInput = document.querySelector('#source')
+    const output = document.querySelector('#output')
+    const message = document.querySelector('#message')
+    const copyButton = document.querySelector('#copyButton')
+    const clearButton = document.querySelector('#clearButton')
+
+    const BAND_START = {
+      low: 33,
+      mid1: 45,
+      mid2: 57,
+      hi: 69,
+    }
+
+    const OFFSET_FROM_A = {
+      A: 0,
+      'A#': 1,
+      B: 2,
+      C: 3,
+      'C#': 4,
+      D: 5,
+      'D#': 6,
+      E: 7,
+      F: 8,
+      'F#': 9,
+      G: 10,
+      'G#': 11,
+    }
+
+    function pitchToMidi(label) {
+      const match = String(label).trim().match(/^(low|mid1|mid2|hi)([A-G](?:#)?)$/)
+
+      if (!match) {
+        return null
+      }
+
+      const [, band, note] = match
+      return BAND_START[band] + OFFSET_FROM_A[note]
+    }
+
+    function jsString(value) {
+      return String(value)
+        .replace(/\\/g, '\\\\')
+        .replace(/'/g, "\\'")
+    }
+
+    function update() {
+      const artist = artistInput.value.trim()
+      const title = titleInput.value.trim()
+      const lowLabel = lowInput.value.trim()
+      const highLabel = highInput.value.trim()
+      const source = sourceInput.value.trim()
+
+      output.value = ''
+      message.textContent = ''
+      message.classList.remove('ok')
+
+      if (!artist || !title || !lowLabel || !highLabel || !source) {
+        message.textContent = 'すべての項目を入力してください。'
+        return
+      }
+
+      const lowMidi = pitchToMidi(lowLabel)
+      const highMidi = pitchToMidi(highLabel)
+
+      if (lowMidi === null) {
+        message.textContent = '最低音の形式を確認してください。例: mid1D / lowG#'
+        return
+      }
+
+      if (highMidi === null) {
+        message.textContent = '最高音の形式を確認してください。例: hiA / mid2G#'
+        return
+      }
+
+      if (lowMidi > highMidi) {
+        message.textContent = '最低音が最高音より高くなっています。入力を確認してください。'
+        return
+      }
+
+      output.value =
+        "{\n" +
+        "  title: '" + jsString(title) + "',\n" +
+        "  artist: '" + jsString(artist) + "',\n" +
+        "  lowLabel: '" + jsString(lowLabel) + "',\n" +
+        "  highLabel: '" + jsString(highLabel) + "',\n" +
+        "  rangeVerified: true,\n" +
+        "  rangeSource: '" + jsString(source) + "',\n" +
+        "},"
+
+      message.textContent = '入力内容を確認できました。'
+      message.classList.add('ok')
+    }
+
+    async function copyCode() {
+      if (!output.value) {
+        update()
+      }
+
+      if (!output.value) {
+        return
+      }
+
+      const original = copyButton.textContent
+
+      try {
+        await navigator.clipboard.writeText(output.value)
+        copyButton.textContent = 'コピーしました'
+      } catch {
+        window.prompt('このコードをコピーしてください', output.value)
+        return
+      }
+
+      setTimeout(() => {
+        copyButton.textContent = original
+      }, 1200)
+    }
+
+    function clearAll() {
+      artistInput.value = ''
+      titleInput.value = ''
+      lowInput.value = ''
+      highInput.value = ''
+      sourceInput.value = ''
+      output.value = ''
+      message.textContent = ''
+      message.classList.remove('ok')
+      artistInput.focus()
+    }
+
+    ;[
+      artistInput,
+      titleInput,
+      lowInput,
+      highInput,
+      sourceInput,
+    ].forEach(input => {
+      input.addEventListener('input', update)
+    })
+
+    copyButton.addEventListener('click', copyCode)
+    clearButton.addEventListener('click', clearAll)
+  </script>
+</body>
+</html>
