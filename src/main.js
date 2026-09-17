@@ -1978,6 +1978,59 @@ function showSongAnalysis(song) {
   const songHigh =
     getSongHighMidi(song)
 
+  if (
+  !Number.isFinite(songLow) ||
+  !Number.isFinite(songHigh)
+) {
+  selectedSongAnalysis = null
+
+  document.querySelector(
+    '#analysisTitle'
+  ).textContent =
+    song.title
+
+  document.querySelector(
+    '#analysisArtist'
+  ).textContent =
+    song.artist
+
+  document.querySelector(
+    '#originalRange'
+  ).textContent =
+    '音域データ準備中'
+
+  document.querySelector(
+    '#recommendedKey'
+  ).textContent =
+    '---'
+
+  document.querySelector(
+    '#shiftedRange'
+  ).textContent =
+    '---'
+
+  document.querySelector(
+    '#keyShiftTable'
+  ).innerHTML = ''
+
+  const judgement =
+    document.querySelector(
+      '#keyJudgement'
+    )
+
+  judgement.className =
+    'key-judgement warning'
+
+  judgement.textContent =
+    'この曲の音域データは現在準備中です'
+
+  card.scrollIntoView({
+    behavior: 'smooth',
+    block: 'center'
+  })
+
+  return
+}
 
   document.querySelector(
     '#analysisTitle'
