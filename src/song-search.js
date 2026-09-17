@@ -166,11 +166,97 @@ export function initSongSearch({
     )
 
 
-    artistSongs.forEach(
-      song => {
-        container.appendChild(
-          createSongButton(song)
+    const songFilter =
+      document.createElement(
+        'input'
+      )
+
+    songFilter.type =
+      'text'
+
+    songFilter.className =
+      'song-search'
+
+    songFilter.placeholder =
+      '曲名で絞り込み'
+
+    container.appendChild(
+      songFilter
+    )
+
+
+    const songResults =
+      document.createElement(
+        'div'
+      )
+
+    songResults.className =
+      'song-search-results'
+
+    container.appendChild(
+      songResults
+    )
+
+
+    function renderFilteredSongs(
+      searchText = ''
+    ) {
+      songResults.innerHTML = ''
+
+      const query =
+        searchText
+          .trim()
+          .toLowerCase()
+
+
+      const filteredSongs =
+        artistSongs.filter(
+          song =>
+            song.title
+              .toLowerCase()
+              .includes(query)
         )
+
+
+      if (
+        filteredSongs.length === 0
+      ) {
+        songResults.innerHTML = `
+          <div class="no-song">
+            曲が見つかりません
+          </div>
+        `
+
+        return
+      }
+
+
+      filteredSongs.forEach(
+        song => {
+          songResults.appendChild(
+            createSongButton(song)
+          )
+        }
+      )
+    }
+
+
+    songFilter.addEventListener(
+      'input',
+      event => {
+        renderFilteredSongs(
+          event.target.value
+        )
+      }
+    )
+
+
+    renderFilteredSongs()
+
+
+    requestAnimationFrame(
+      () => {
+        songFilter.focus()
       }
     )
   }
