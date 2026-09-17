@@ -698,7 +698,12 @@ app.innerHTML = `
       class="song-browse-links"
       aria-label="歌と音域のお役立ち記事"
     >
-
+      <a
+        class="song-browse-link"
+        href="/pitch-training/"
+      >
+        🎯 音程を合わせる練習
+      </a>
       <a
         class="song-browse-link"
         href="/vocal-range-check/"
