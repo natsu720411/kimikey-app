@@ -3388,7 +3388,10 @@ const RAW_SONGS = [
 ]
 
 export const SONGS =
-  RAW_SONGS.map(
+  [
+    ...RAW_SONGS,
+    ...EXTRA_SONGS,
+  ].map(
     (song, index) => {
 
       const minMidi =
