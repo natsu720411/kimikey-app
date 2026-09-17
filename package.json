@@ -4,12 +4,13 @@
   "private": true,
   "type": "module",
   "scripts": {
-  "dev": "vite",
- "build": "node scripts/generate-song-pages.mjs && node scripts/generate-seo-pages.mjs && node scripts/generate-seo-pages-2.mjs && vite build",
-  "check:songs": "node scripts/check-songs.mjs",
-  "update:popular": "node scripts/update-popular-songs.mjs",
-  "preview": "vite preview"
-},
+    "dev": "vite",
+    "build": "node scripts/generate-song-pages.mjs && node scripts/generate-seo-pages.mjs && node scripts/generate-seo-pages-2.mjs && vite build",
+    "check:songs": "node scripts/check-songs.mjs",
+    "update:popular": "node scripts/update-popular-songs.mjs",
+    "report:ranges": "node scripts/generate-range-backlog.mjs",
+    "preview": "vite preview"
+  },
   "devDependencies": {
     "vite": "^8.2.2"
   },
