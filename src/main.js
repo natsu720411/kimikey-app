@@ -2878,12 +2878,10 @@ document.querySelector(
     practiceMode =
       !practiceMode
 
-
     const button =
       document.querySelector(
         '#practiceButton'
       )
-
 
     if (practiceMode) {
 
@@ -2905,7 +2903,6 @@ document.querySelector(
           }
         )
       }
-
 
       button.textContent =
         '練習モード ON'
@@ -2959,7 +2956,6 @@ document.querySelector(
     }
   }
 )
-
 
     if (practiceMode) {
 
