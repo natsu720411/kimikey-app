@@ -1,0 +1,970 @@
+<!doctype html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <!-- Google tag (gtag.js) -->
+  <script
+    async
+    src="https://www.googletagmanager.com/gtag/js?id=G-1B35Z51M10"
+  ></script>
+
+  <script>
+    window.dataLayer =
+      window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag(
+      'config',
+      'G-1B35Z51M10'
+    );
+  </script>
+
+
+  <title>
+    音程練習｜声のピッチをリアルタイムで合わせる無料ツール｜キミキー
+  </title>
+
+  <meta
+    name="description"
+    content="音程を合わせる練習を無料でできます。ピアノの目標音を聞いて声を出すと、現在の音程・高い低い・セント差をリアルタイムで確認できます。カラオケや歌のピッチ練習に。"
+  >
+
+  <meta
+    name="robots"
+    content="index, follow"
+  >
+
+  <link
+    rel="canonical"
+    href="https://kimikey-app.vercel.app/pitch-training/"
+  >
+
+
+  <!-- OGP -->
+  <meta
+    property="og:title"
+    content="音程練習｜声のピッチをリアルタイムで合わせる無料ツール｜キミキー"
+  >
+
+  <meta
+    property="og:description"
+    content="声の音程が合っているかリアルタイムでチェック。目標音とのズレを確認しながら無料でピッチ練習できます。"
+  >
+
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:url"
+    content="https://kimikey-app.vercel.app/pitch-training/"
+  >
+
+  <meta
+    property="og:site_name"
+    content="キミキー"
+  >
+
+
+  <!-- Twitter -->
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+
+  <meta
+    name="twitter:title"
+    content="音程練習｜声のピッチをリアルタイムで合わせる無料ツール｜キミキー"
+  >
+
+  <meta
+    name="twitter:description"
+    content="ピアノの目標音に声を合わせて、高い・低い・セント差を確認しながら音程練習できます。"
+  >
+
+
+  <!-- 構造化データ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "音程練習｜声のピッチをリアルタイムで合わせる無料ツール",
+    "url": "https://kimikey-app.vercel.app/pitch-training/",
+    "description": "声の音程をリアルタイムで確認しながら、目標音に合わせるピッチ練習ができる無料ツールです。",
+    "isPartOf": {
+      "@type": "WebSite",
+      "name": "キミキー",
+      "url": "https://kimikey-app.vercel.app/"
+    }
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "HowTo",
+    "name": "音程を合わせる練習方法",
+    "description": "キミキーを使って目標音に声を合わせる基本的な練習方法です。",
+    "step": [
+      {
+        "@type": "HowToStep",
+        "name": "マイクを開始する",
+        "text": "キミキーでマイクを開始します。"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "ピッチ練習モードをONにする",
+        "text": "ピッチ練習を開き、練習モードをONにします。"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "鍵盤で目標音を選ぶ",
+        "text": "ピアノ鍵盤を押して、合わせたい目標音を設定します。"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "同じ高さで声を出す",
+        "text": "目標音を聞きながら同じ高さを意識して声を出します。"
+      },
+      {
+        "@type": "HowToStep",
+        "name": "音程のズレを確認する",
+        "text": "現在の音と目標音の差を確認し、高ければ少し下げ、低ければ少し上げて調整します。"
+      }
+    ]
+  }
+  </script>
+
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "音程を合わせる練習はどうすればいいですか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "目標となる音を聞き、その音と同じ高さで声を出します。自分の声が目標より高いか低いかを確認しながら少しずつ調整すると練習しやすくなります。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "音程が合っているか自分で確認できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "キミキーではマイクから声の高さを測定し、目標音とのズレをリアルタイムで確認できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "無料で音程練習できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "キミキーはブラウザから無料で音程やピッチの練習に利用できます。"
+        }
+      }
+    ]
+  }
+  </script>
+
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        sans-serif;
+      background: #f6f7fb;
+      color: #222;
+      line-height: 1.8;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width:
+        min(
+          820px,
+          calc(100% - 30px)
+        );
+      margin: 0 auto;
+      padding:
+        24px
+        0
+        70px;
+    }
+
+    .logo {
+      display: inline-block;
+      margin-bottom: 25px;
+      color: #222;
+      font-size: 22px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .hero {
+      padding:
+        42px
+        30px;
+      background:
+        linear-gradient(
+          135deg,
+          #f0ebff,
+          #eaf3ff
+        );
+      border-radius: 28px;
+      text-align: center;
+    }
+
+    .hero-label {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding:
+        6px
+        13px;
+      background: white;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1 {
+      margin:
+        0
+        0
+        18px;
+      font-size:
+        clamp(
+          28px,
+          7vw,
+          44px
+        );
+      line-height: 1.35;
+    }
+
+    .lead {
+      max-width: 620px;
+      margin:
+        0
+        auto
+        26px;
+      color: #555;
+      font-size: 17px;
+    }
+
+    .main-button {
+      display: inline-block;
+      padding:
+        16px
+        28px;
+      background: #111;
+      border-radius: 15px;
+      color: white;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .small-note {
+      margin-top: 12px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    .card {
+      margin-top: 28px;
+      padding: 28px;
+      background: white;
+      border-radius: 22px;
+      box-shadow:
+        0
+        7px
+        25px
+        rgba(0, 0, 0, .05);
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 24px;
+      line-height: 1.45;
+    }
+
+    h3 {
+      margin-bottom: 7px;
+      font-size: 18px;
+    }
+
+    .steps {
+      display: grid;
+      gap: 14px;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns:
+        44px
+        1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 17px;
+      background: #f8f9fc;
+      border-radius: 16px;
+    }
+
+    .step-number {
+      display: flex;
+      width: 42px;
+      height: 42px;
+      align-items: center;
+      justify-content: center;
+      background: #111;
+      border-radius: 50%;
+      color: white;
+      font-weight: 800;
+    }
+
+    .step p {
+      margin:
+        4px
+        0
+        0;
+      color: #666;
+    }
+
+    .point-list {
+      padding-left: 22px;
+    }
+
+    .point-list li {
+      margin-bottom: 10px;
+    }
+
+    .comparison {
+      display: grid;
+      grid-template-columns:
+        repeat(
+          3,
+          1fr
+        );
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .comparison-item {
+      padding: 18px 10px;
+      background: #f8f9fc;
+      border-radius: 15px;
+      text-align: center;
+    }
+
+    .comparison-item strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 18px;
+    }
+
+    .comparison-item span {
+      color: #777;
+      font-size: 13px;
+    }
+
+    .practice-example {
+      margin-top: 18px;
+      padding: 20px;
+      background: #f8f7ff;
+      border-radius: 17px;
+    }
+
+    .practice-example strong {
+      font-size: 19px;
+    }
+
+    .faq-item {
+      padding:
+        18px
+        0;
+      border-bottom:
+        1px
+        solid
+        #eee;
+    }
+
+    .faq-item:last-child {
+      border-bottom: 0;
+    }
+
+    .faq-item h3 {
+      margin-top: 0;
+    }
+
+    .faq-item p {
+      margin-bottom: 0;
+      color: #555;
+    }
+
+    .related {
+      display: grid;
+      gap: 10px;
+    }
+
+    .related a {
+      display: block;
+      padding: 15px;
+      background: #f8f9fc;
+      border-radius: 13px;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .cta-box {
+      margin-top: 30px;
+      padding: 34px 25px;
+      background: #111;
+      border-radius: 24px;
+      color: white;
+      text-align: center;
+    }
+
+    .cta-box h2 {
+      margin-bottom: 10px;
+    }
+
+    .cta-box p {
+      color: #ddd;
+    }
+
+    .cta-box .main-button {
+      background: white;
+      color: #111;
+    }
+
+    .notice {
+      margin-top: 22px;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (
+      max-width: 600px
+    ) {
+      .hero {
+        padding:
+          32px
+          18px;
+      }
+
+      .card {
+        padding:
+          23px
+          18px;
+      }
+
+      .comparison {
+        grid-template-columns: 1fr;
+      }
+
+      .main-button {
+        width: 100%;
+      }
+    }
+  </style>
+
+</head>
+
+
+<body>
+
+  <main class="container">
+
+    <a
+      class="logo"
+      href="/"
+    >
+      🎤 キミキー
+    </a>
+
+
+    <section class="hero">
+
+      <div class="hero-label">
+        無料・ブラウザで練習
+      </div>
+
+      <h1>
+        音程を合わせる練習を
+        リアルタイムで
+      </h1>
+
+      <p class="lead">
+        ピアノの目標音を聞いて声を出すと、
+        自分の音程が高いか低いか、
+        どれくらいズレているかを
+        リアルタイムで確認できます。
+      </p>
+
+      <a
+        class="main-button"
+        href="/"
+      >
+        🎯 無料で音程練習を始める
+      </a>
+
+      <div class="small-note">
+        アプリのインストール不要
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        音程を合わせる練習とは？
+      </h2>
+
+      <p>
+        歌で音程を安定させるためには、
+        聞こえた音と自分の声の高さを
+        少しずつ近づける練習が基本になります。
+      </p>
+
+      <p>
+        ただ声を出すだけでは、
+        自分の音程が高いのか低いのか
+        分かりにくいことがあります。
+      </p>
+
+      <p>
+        キミキーではマイクから声の高さを測定し、
+        目標音とのズレを見ながら
+        音程を合わせる練習ができます。
+      </p>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        キミキーで音程練習する方法
+      </h2>
+
+      <div class="steps">
+
+        <div class="step">
+
+          <div class="step-number">
+            1
+          </div>
+
+          <div>
+            <h3>
+              マイクを開始
+            </h3>
+
+            <p>
+              キミキーを開いて
+              「マイクを開始」を押します。
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            2
+          </div>
+
+          <div>
+            <h3>
+              ピッチ練習をON
+            </h3>
+
+            <p>
+              「ピッチ練習」を開いて、
+              練習モードをONにします。
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            3
+          </div>
+
+          <div>
+            <h3>
+              鍵盤で目標音を選ぶ
+            </h3>
+
+            <p>
+              ピアノ鍵盤を押して、
+              合わせたい音を聞きます。
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            4
+          </div>
+
+          <div>
+            <h3>
+              同じ高さで声を出す
+            </h3>
+
+            <p>
+              お手本の音を思い出しながら
+              同じ高さを狙って発声します。
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="step">
+
+          <div class="step-number">
+            5
+          </div>
+
+          <div>
+            <h3>
+              ズレを見ながら調整
+            </h3>
+
+            <p>
+              高ければ少し下げ、
+              低ければ少し上げて
+              目標音に近づけます。
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        何を見れば音程が合っている？
+      </h2>
+
+      <div class="comparison">
+
+        <div class="comparison-item">
+
+          <strong>
+            目標
+          </strong>
+
+          <span>
+            合わせたい音
+          </span>
+
+        </div>
+
+
+        <div class="comparison-item">
+
+          <strong>
+            現在
+          </strong>
+
+          <span>
+            今出している声
+          </span>
+
+        </div>
+
+
+        <div class="comparison-item">
+
+          <strong>
+            差
+          </strong>
+
+          <span>
+            目標とのズレ
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <div class="practice-example">
+
+        <strong>
+          例：目標が A4 の場合
+        </strong>
+
+        <p>
+          自分の声が目標より高ければ
+          少し低く調整し、
+          低ければ少し高く調整します。
+        </p>
+
+        <p>
+          一度ぴったり合わせるだけでなく、
+          同じ音を安定して保てるかも
+          確認してみてください。
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        音程が合わないときの練習ポイント
+      </h2>
+
+      <ul class="point-list">
+
+        <li>
+          最初は出しやすい高さの音から練習する
+        </li>
+
+        <li>
+          お手本の音をよく聞いてから声を出す
+        </li>
+
+        <li>
+          1音ずつゆっくり合わせる
+        </li>
+
+        <li>
+          高い・低いの方向を確認して修正する
+        </li>
+
+        <li>
+          合った音を数秒安定して保つ
+        </li>
+
+        <li>
+          無理に高音や低音を出さない
+        </li>
+
+      </ul>
+
+      <p>
+        最初から曲全体を歌うより、
+        1音ずつ音程を合わせる練習から始めると、
+        自分の音程のズレを確認しやすくなります。
+      </p>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        こんな人におすすめ
+      </h2>
+
+      <ul class="point-list">
+
+        <li>
+          カラオケで音程バーが合わない
+        </li>
+
+        <li>
+          自分が音痴なのか確認したい
+        </li>
+
+        <li>
+          ピッチを安定させたい
+        </li>
+
+        <li>
+          ボイストレーニングを自宅でやりたい
+        </li>
+
+        <li>
+          正しい音程で歌えているか確認したい
+        </li>
+
+        <li>
+          ピアノの音に声を合わせる練習をしたい
+        </li>
+
+      </ul>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        よくある質問
+      </h2>
+
+      <div class="faq-item">
+
+        <h3>
+          音程を合わせるにはどう練習すればいい？
+        </h3>
+
+        <p>
+          まず目標音を聞き、
+          同じ高さを意識して声を出します。
+          その後、高いか低いかを確認しながら
+          少しずつ修正する方法が分かりやすいです。
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          音程が合っているか自分で分かりますか？
+        </h3>
+
+        <p>
+          キミキーでは、
+          マイクで現在の声の高さを測定し、
+          目標音との差をリアルタイムで
+          確認できます。
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          スマホでも音程練習できますか？
+        </h3>
+
+        <p>
+          対応ブラウザでマイクを許可すれば、
+          スマートフォンからも利用できます。
+        </p>
+
+      </div>
+
+
+      <div class="faq-item">
+
+        <h3>
+          無料ですか？
+        </h3>
+
+        <p>
+          キミキーはブラウザから
+          音程チェックやピッチ練習に
+          利用できます。
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section class="card">
+
+      <h2>
+        関連ページ
+      </h2>
+
+      <div class="related">
+
+        <a href="/vocal-range-check/">
+          🎤 自分の音域を調べる
+        </a>
+
+        <a href="/vocal-range-training/">
+          🎵 音域を広げる練習方法
+        </a>
+
+        <a href="/karaoke-key-guide/">
+          🎚 カラオケのキーの合わせ方
+        </a>
+
+        <a href="/song-finder-guide/">
+          🔍 自分に合う曲の探し方
+        </a>
+
+      </div>
+
+    </section>
+
+
+    <section class="cta-box">
+
+      <h2>
+        実際に声を出して練習してみよう
+      </h2>
+
+      <p>
+        ピアノの音を聞いて、
+        自分の声とのズレを
+        リアルタイムで確認できます。
+      </p>
+
+      <a
+        class="main-button"
+        href="/"
+      >
+        🎯 キミキーで音程練習を始める
+      </a>
+
+    </section>
+
+
+    <p class="notice">
+      喉に痛みや強い違和感がある場合は、
+      無理に発声を続けないでください。
+    </p>
+
+  </main>
+
+</body>
+
+</html>
