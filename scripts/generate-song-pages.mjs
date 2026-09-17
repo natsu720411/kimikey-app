@@ -2117,16 +2117,146 @@ function createSongPage(song) {
       ${createFeaturedSection(song)}
 
 
-      <section class="info">
+            <section class="info">
 
         <h2>
-          原曲キーが高い・低いと感じたら
+          ${escapeHtml(song.title)}
+          のキーを変えたときの音域
         </h2>
 
         <p>
-          最高音だけではなく、
-          最低音も含めて自分の音域と
-          比較することが大切です。
+          一般的なカラオケでは、
+          キーを1つ動かすと
+          曲全体の音程が半音ずつ変わります。
+        </p>
+
+        <p>
+          「${escapeHtml(song.title)}」の
+          原曲音域
+          <strong>
+            ${song.lowNote}
+            〜
+            ${song.highNote}
+          </strong>
+          を基準にすると、
+          キー変更後の目安は次のようになります。
+        </p>
+
+
+        <div class="songs">
+
+          <div class="song">
+
+            <strong>
+              キー -4
+            </strong>
+
+            <span>
+              ${midiToNoteName(
+                song.lowMidi - 4
+              )}
+              〜
+              ${midiToNoteName(
+                song.highMidi - 4
+              )}
+            </span>
+
+          </div>
+
+
+          <div class="song">
+
+            <strong>
+              キー -2
+            </strong>
+
+            <span>
+              ${midiToNoteName(
+                song.lowMidi - 2
+              )}
+              〜
+              ${midiToNoteName(
+                song.highMidi - 2
+              )}
+            </span>
+
+          </div>
+
+
+          <div class="song">
+
+            <strong>
+              原曲キー
+            </strong>
+
+            <span>
+              ${song.lowNote}
+              〜
+              ${song.highNote}
+            </span>
+
+          </div>
+
+
+          <div class="song">
+
+            <strong>
+              キー +2
+            </strong>
+
+            <span>
+              ${midiToNoteName(
+                song.lowMidi + 2
+              )}
+              〜
+              ${midiToNoteName(
+                song.highMidi + 2
+              )}
+            </span>
+
+          </div>
+
+
+          <div class="song">
+
+            <strong>
+              キー +4
+            </strong>
+
+            <span>
+              ${midiToNoteName(
+                song.lowMidi + 4
+              )}
+              〜
+              ${midiToNoteName(
+                song.highMidi + 4
+              )}
+            </span>
+
+          </div>
+
+        </div>
+
+
+        <p>
+          原曲が高いと感じる場合は
+          マイナス方向へ、
+          低いと感じる場合は
+          プラス方向へ調整するのが基本です。
+        </p>
+
+        <p>
+          ただし、
+          最高音だけに合わせてキーを下げると
+          最低音が出しにくくなることがあります。
+          自分の最低音・最高音の両方と
+          比較してください。
+        </p>
+
+        <p>
+          <a href="/karaoke-key-guide/">
+            カラオケのキーの合わせ方を詳しく見る →
+          </a>
         </p>
 
       </section>
