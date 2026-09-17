@@ -23,6 +23,25 @@ export function initSongSearch({
   }
 
 
+  function trackAnalyticsEvent(
+    eventName,
+    parameters = {}
+  ) {
+    if (
+      typeof window === 'undefined' ||
+      typeof window.gtag !== 'function'
+    ) {
+      return
+    }
+
+    window.gtag(
+      'event',
+      eventName,
+      parameters
+    )
+  }
+
+
   function normalizeSearchText(
     value = ''
   ) {
@@ -112,8 +131,11 @@ export function initSongSearch({
     item.className =
       'search-song-item'
 
-    const songStatus =
+    const rangeAvailable =
       hasRangeData(song)
+
+    const songStatus =
+      rangeAvailable
         ? `${song.artist} ・ 音域あり`
         : `${song.artist} ・ 音域準備中`
 
@@ -131,6 +153,28 @@ export function initSongSearch({
     item.addEventListener(
       'click',
       () => {
+        trackAnalyticsEvent(
+          'song_selected',
+          {
+            song_title: song.title,
+            artist_name: song.artist,
+            range_available:
+              rangeAvailable
+                ? 'yes'
+                : 'no',
+          }
+        )
+
+        if (!rangeAvailable) {
+          trackAnalyticsEvent(
+            'range_data_requested',
+            {
+              song_title: song.title,
+              artist_name: song.artist,
+            }
+          )
+        }
+
         onSongSelected(song)
       }
     )
