@@ -634,6 +634,17 @@ const EXTRA_CATALOG = {
   ],
 }
 
+const EXTRA_RANGE_DATA = {
+  Ado: {
+    "うっせぇわ": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/35685",
+    },
+  },
+}
+
 export const EXTRA_SONGS =
   Object.entries(EXTRA_CATALOG).flatMap(
     ([artist, titles]) =>
@@ -641,5 +652,6 @@ export const EXTRA_SONGS =
         title,
         artist,
         rangeVerified: false,
+        ...(EXTRA_RANGE_DATA[artist]?.[title] ?? {}),
       }))
   )
