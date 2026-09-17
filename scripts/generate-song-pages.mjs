@@ -3103,9 +3103,8 @@ const sitemap =
 ${sitemapUrls
   .map(
     url => `
-  <url>
+    <url>
     <loc>${escapeXml(url)}</loc>
-    <lastmod>${today}</lastmod>
   </url>`
   )
   .join('')}
