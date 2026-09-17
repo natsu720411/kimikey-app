@@ -3201,6 +3201,7 @@ const sitemapUrls = [
 
     `${SITE_URL}/vocal-range-check/`,
   `${SITE_URL}/pitch-training/`,
+  `${SITE_URL}/karaoke-pitch-bar/`,
 
   ...songMeta.map(
     song =>
