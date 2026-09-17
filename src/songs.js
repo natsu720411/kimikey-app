@@ -3387,11 +3387,21 @@ const RAW_SONGS = [
   { id: 505, title: 'CHAINSAW BLOOD', artist: 'Vaundy', lowLabel: 'mid1C#', highLabel: 'hiB', gender: 'male', singerGender: 'male', difficulty: 'unknown', year: 2022, rangeVerified: false },
 ]
 
-export const SONGS =
+const ALL_RAW_SONGS =
   [
     ...RAW_SONGS,
     ...EXTRA_SONGS,
-  ].map(
+  ].filter(
+    (song, index, allSongs) =>
+      allSongs.findIndex(
+        item =>
+          item.artist === song.artist &&
+          item.title === song.title
+      ) === index
+  )
+
+export const SONGS =
+  ALL_RAW_SONGS.map(
     (song, index) => {
 
       const minMidi =
