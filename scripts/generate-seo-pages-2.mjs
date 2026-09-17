@@ -254,7 +254,15 @@ const pages = [
 
     ],
 
-    related: [
+        related: [
+
+      {
+        href:
+          '/pitch-training/',
+
+        label:
+          '音程を合わせる練習をする',
+      },
 
       {
         href:
