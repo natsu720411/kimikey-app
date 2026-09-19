@@ -986,6 +986,87 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "Creepy Nuts": {
+    "オトノケ": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "のびしろ": {
+      lowLabel: "mid1B",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "かつて天才だった俺たちへ": {
+      lowLabel: "mid1G",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "堕天": {
+      lowLabel: "mid1F#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "よふかしのうた": {
+      lowLabel: "mid1C#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "合法的トビ方ノススメ": {
+      lowLabel: "mid1C",
+      highLabel: "mid2F",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "助演男優賞": {
+      lowLabel: "mid1F",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "ビリケン": {
+      lowLabel: "mid1C",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "生業": {
+      lowLabel: "mid1D",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "板の上の魔物": {
+      lowLabel: "mid1B",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "顔役": {
+      lowLabel: "mid1B",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "バレる！": {
+      lowLabel: "mid1B",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
+    },
+    "たりないふたり": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/49967",
+    },
+  },
+
   "Saucy Dog": {
     "いつか": {
       lowLabel: "mid1D",
