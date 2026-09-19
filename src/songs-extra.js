@@ -783,6 +783,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/109852",
     },
+    "LOSER": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/13",
+    },
 },
 
   "Official髭男dism": {
@@ -798,7 +804,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/39",
     },
-  },
+      "Laughter": {
+      lowLabel: "mid1E",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/26901",
+    },
+},
 
   "King Gnu": {
     "Teenager Forever": {
@@ -842,6 +854,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2G#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/60",
+    },
+    "白日": {
+      lowLabel: "mid1A#",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/67",
     },
 },
 
@@ -933,6 +951,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/113571",
     },
+    "貴方解剖純愛歌〜死ね〜": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2607",
+    },
 },
 
   YOASOBI: {
@@ -954,7 +978,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/97045",
     },
-  },
+      "アンコール": {
+      lowLabel: "mid1F#",
+      highLabel: "hiG",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/45069",
+    },
+},
 
   "優里": {
     "かくれんぼ": {
@@ -981,7 +1011,19 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/67318",
     },
-  },
+      "カーテンコール": {
+      lowLabel: "mid1E",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/katenkoru-yuuri",
+    },
+    "おにごっこ": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/o-ni-gokko",
+    },
+},
 
   "ヨルシカ": {
     "春泥棒": {
@@ -1044,6 +1086,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/138",
     },
+    "夜行": {
+      lowLabel: "mid2C",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/19049",
+    },
 },
 
   "緑黄色社会": {
@@ -1076,6 +1124,42 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiF",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/108961",
+    },
+    "sabotage": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/10484",
+    },
+    "ずっとずっとずっと": {
+      lowLabel: "mid1G#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/55802",
+    },
+    "これからのこと、それからのこと": {
+      lowLabel: "mid1F",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/68085",
+    },
+    "恥ずかしいか青春は": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/114479",
+    },
+    "始まりの歌": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/13003",
+    },
+    "夏を生きる": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/29510",
     },
 },
 
@@ -1121,6 +1205,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/16501",
+    },
+    "車輪の唄": {
+      lowLabel: "mid1C#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16547",
+    },
+    "sailing day": {
+      lowLabel: "lowG#",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/610",
     },
 },
 
@@ -1284,6 +1380,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1336",
     },
+    "HOWEVER": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1322",
+    },
 },
 
   "L'Arc-en-Ciel": {
@@ -1427,6 +1529,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2G",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/70203",
+    },
+    "太陽は罪な奴": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/66588",
+    },
+    "みんなのうた": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/865",
     },
 },
 
@@ -2211,6 +2325,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/12619",
     },
+    "光": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1100",
+    },
 },
 
   "SEKAI NO OWARI": {
@@ -2255,6 +2375,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/890",
+    },
+    "RPG": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/882",
+    },
+    "SOS": {
+      lowLabel: "mid1G",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/891",
     },
 },
 
@@ -2382,6 +2514,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/17254",
     },
+    "ミュージック": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1051",
+    },
+    "さよならはエモーション": {
+      lowLabel: "mid1D#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1054",
+    },
 },
 
   "ポルノグラフィティ": {
@@ -2463,6 +2607,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/31152",
     },
+    "瞬く星の下で": {
+      lowLabel: "mid1F#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/963",
+    },
 },
 
   "Mr.Children": {
@@ -2501,6 +2651,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiB",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/416",
+    },
+    "innocent world": {
+      lowLabel: "mid1C#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16737",
     },
 },
 
@@ -2690,6 +2846,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/67478",
+    },
+    "BACK TO BACK": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/9888",
     },
 },
 
