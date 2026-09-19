@@ -1059,12 +1059,6 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/artist/detail/262",
     },
-    "たりないふたり": {
-      lowLabel: "mid1C",
-      highLabel: "mid2G",
-      rangeVerified: true,
-      rangeSource: "https://keytube.net/song/detail/49967",
-    },
   },
 
   "Saucy Dog": {
