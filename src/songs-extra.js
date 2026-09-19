@@ -1014,6 +1014,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1318",
     },
+    "口唇": {
+      lowLabel: "mid1F#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1321",
+    },
+    "pure soul": {
+      lowLabel: "mid1D#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/38936",
+    },
 },
 
   "L'Arc-en-Ciel": {
@@ -1035,7 +1047,25 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/25726",
     },
-  },
+      "flower": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/30721",
+    },
+    "winter fall": {
+      lowLabel: "lowG#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16922",
+    },
+    "STAY AWAY": {
+      lowLabel: "mid1C",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33346",
+    },
+},
 
   "サザンオールスターズ": {
     "いとしのエリー": {
@@ -1071,6 +1101,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/30146",
     },
+    "SAKURA": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3774",
+    },
+    "帰りたくなったよ": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17146",
+    },
 },
 
   Perfume: {
@@ -1098,6 +1140,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1250",
     },
+    "TOKYO GIRL": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1280",
+    },
+    "Spring of Life": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1265",
+    },
+    "レーザービーム": {
+      lowLabel: "mid2C",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/45939",
+    },
 },
 
   Superfly: {
@@ -1113,7 +1173,19 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/369",
     },
-  },
+      "輝く月のように": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/377",
+    },
+    "フレア": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/9788",
+    },
+},
 
   LiSA: {
     "紅蓮華": {
@@ -1140,7 +1212,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/282",
     },
-  },
+      "crossing field": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/28368",
+    },
+},
 
   Aimer: {
     "カタオモイ": {
@@ -1173,7 +1251,25 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/22274",
     },
-  },
+      "I beg you": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/536",
+    },
+    "六等星の夜": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/517",
+    },
+    "花の唄": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/532",
+    },
+},
 
   aiko: {
     "花火": {
@@ -1284,7 +1380,19 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/22058",
     },
-  },
+      "remember": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33902",
+    },
+    "奇蹟": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33890",
+    },
+},
 
   "宇多田ヒカル": {
     "Flavor Of Life": {
@@ -1332,7 +1440,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/13037",
     },
-  },
+      "Dragon Night": {
+      lowLabel: "mid1F",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/886",
+    },
+},
 
   "スピッツ": {
     "正夢": {
@@ -1367,6 +1481,90 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiB",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1042",
+    },
+      "夜の踊り子": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1050",
+    },
+},
+
+  "ポルノグラフィティ": {
+    "アゲハ蝶": {
+      lowLabel: "mid1G",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17340",
+    },
+    "メリッサ": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/636",
+    },
+    "アポロ": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/631",
+    },
+  },
+
+  "Mr.Children": {
+    "GIFT": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16756",
+    },
+    "CROSS ROAD": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/20100",
+    },
+  },
+
+  "マカロニえんぴつ": {
+    "洗濯機と君とラヂオ": {
+      lowLabel: "mid2A#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/13453",
+    },
+    "ブルーベリー・ナイツ": {
+      lowLabel: "mid1C",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/11241",
+    },
+  },
+
+  "Saucy Dog": {
+    "いつか": {
+      lowLabel: "mid1D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2965",
+    },
+  },
+
+  "Da-iCE": {
+    "DREAMIN’ ON": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33386",
+    },
+  },
+
+  "Creepy Nuts": {
+    "のびしろ": {
+      lowLabel: "mid1B",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/58625",
     },
   },
 }
