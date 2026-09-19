@@ -986,6 +986,93 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "サカナクション": {
+    "アイデンティティ": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "ミュージック": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "夜の踊り子": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "忘れられないの": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "モス": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "アルクアラウンド": {
+      lowLabel: "mid1D#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "ネイティブダンサー": {
+      lowLabel: "mid1B",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "ルーキー": {
+      lowLabel: "mid1G#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "多分、風。": {
+      lowLabel: "mid1D",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "グッドバイ": {
+      lowLabel: "mid1C#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "さよならはエモーション": {
+      lowLabel: "mid1D#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "ユリイカ": {
+      lowLabel: "mid1E",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "僕と花": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+    "Aoi": {
+      lowLabel: "mid2A#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/80",
+    },
+  },
+
   "SEKAI NO OWARI": {
     "RPG": {
       lowLabel: "mid1D#",
