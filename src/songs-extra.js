@@ -1986,6 +1986,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/100806",
     },
+    "一番の宝物": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://w.atwiki.jp/saikouon_dokoda/pages/726.html",
+    },
 },
 
   Aimer: {
@@ -3059,6 +3065,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiB",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/12915",
+    },
+    "顔役": {
+      lowLabel: "mid1B",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/262",
     },
 },
 }
