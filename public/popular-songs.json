@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-18T03:38:08.011Z",
+  "updatedAt": "2026-09-19T03:37:31.587Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -9,6 +9,13 @@
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
+      "joysoundRank": 2,
+      "score": 198
+    },
+    {
+      "title": "怪獣の花唄",
+      "artist": "Vaundy",
+      "damRank": 2,
       "joysoundRank": 3,
       "score": 197
     },
@@ -16,15 +23,8 @@
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 2,
-      "score": 197
-    },
-    {
-      "title": "怪獣の花唄",
-      "artist": "Vaundy",
-      "damRank": 2,
       "joysoundRank": 4,
-      "score": 196
+      "score": 195
     },
     {
       "title": "マリーゴールド",
