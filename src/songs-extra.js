@@ -905,6 +905,87 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  Aimer: {
+    "カタオモイ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "蝶々結び": {
+      lowLabel: "mid1C",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "Ref:rain": {
+      lowLabel: "mid1E",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "Brave Shine": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "茜さす": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "I beg you": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "コイワズライ": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "星屑ビーナス": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "六等星の夜": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "SPARK-AGAIN": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "escalate": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "Sign": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+    "花の唄": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/34",
+    },
+  },
+
   LiSA: {
     "紅蓮華": {
       lowLabel: "mid1E",
