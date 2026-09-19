@@ -986,6 +986,99 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "いきものがかり": {
+    "ありがとう": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "YELL": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "ブルーバード": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "SAKURA": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "じょいふる": {
+      lowLabel: "mid2D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "気まぐれロマンティック": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "帰りたくなったよ": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "笑顔": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "茜色の約束": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "風が吹いている": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "コイスルオトメ": {
+      lowLabel: "mid2B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "うるわしきひと": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "ホタルノヒカリ": {
+      lowLabel: "mid2C",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "熱情のスペクトラム": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+    "いつだって僕らは": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/337",
+    },
+  },
+
   "L'Arc-en-Ciel": {
     "HONEY": {
       lowLabel: "lowF",
