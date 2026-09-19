@@ -2839,6 +2839,162 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "ヨルシカ": {
+    "花に亡霊": {
+      lowLabel: "mid2A#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "だから僕は音楽を辞めた": {
+      lowLabel: "mid2B",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "言って。": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/131",
+    },
+    "春泥棒": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "左右盲": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "アルジャーノン": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "月光浴": {
+      lowLabel: "mid1D#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "都落ち": {
+      lowLabel: "mid2B",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "斜陽": {
+      lowLabel: "mid1E",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "パレード": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "ノーチラス": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "夜行": {
+      lowLabel: "mid2B",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+    "雨とカプチーノ": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/7",
+    },
+  },
+
+  "緑黄色社会": {
+    "キャラクター": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "Shout Baby": {
+      lowLabel: "mid1D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "陽はまた昇るから": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "sabotage": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "ずっとずっとずっと": {
+      lowLabel: "mid1G#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "LITMUS": {
+      lowLabel: "mid2B",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "これからのこと、それからのこと": {
+      lowLabel: "mid1F",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "Party!!": {
+      lowLabel: "mid1G#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "恥ずかしいか青春は": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "始まりの歌": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "想い人": {
+      lowLabel: "mid1F#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+    "夏を生きる": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1583",
+    },
+  },
+
 }
 
 export const EXTRA_SONGS =
