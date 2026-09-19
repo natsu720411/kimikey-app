@@ -1041,6 +1041,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://vocal-range.com/archives/post-9320.html",
     },
+    "インフィニティ": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/infiniti",
+    },
 },
 
   "ヨルシカ": {
@@ -1115,6 +1121,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC",
       rangeVerified: true,
       rangeSource: "https://utastep.com/songs/shayo-yorushika",
+    },
+    "花に亡霊": {
+      lowLabel: "mid2B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/hana-ni-borei-yorushika",
     },
 },
 
@@ -1271,6 +1283,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2F#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/14165",
+    },
+    "記念撮影": {
+      lowLabel: "mid1C#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://vocal-range.com/archives/16475486.html",
     },
 },
 
@@ -1962,6 +1980,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/27710",
     },
+    "REALiZE": {
+      lowLabel: "mid1D#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/100806",
+    },
 },
 
   Aimer: {
@@ -2466,6 +2490,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://utastep.com/songs/niji-shoku-no-senso",
     },
+    "スターライトパレード": {
+      lowLabel: "mid2A",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://stepupkaraoke.com/song-introduction/sekai-no-owari/star-light-parade",
+    },
+    "サザンカ": {
+      lowLabel: "mid1C",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://w.atwiki.jp/saikouon_dokoda/pages/779.html",
+    },
 },
 
   "スピッツ": {
@@ -2742,6 +2778,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/16737",
     },
+    "シーソーゲーム〜勇敢な恋の歌〜": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://w.atwiki.jp/saikouon_dokoda/pages/1085.html",
+    },
 },
 
   "マカロニえんぴつ": {
@@ -2942,6 +2984,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://w.atwiki.jp/saikouon_dokoda/pages/1250.html",
+    },
+    "ハッシュ ハッシュ": {
+      lowLabel: "mid1F",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
     },
 },
 
