@@ -1092,6 +1092,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/33658",
     },
+    "逢いたい気持ち": {
+      lowLabel: "mid1A",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1336",
+    },
 },
 
   "L'Arc-en-Ciel": {
@@ -1155,6 +1161,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/2726",
     },
+    "Link": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/62753",
+    },
+    "Blurry Eyes": {
+      lowLabel: "mid1C",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33359",
+    },
 },
 
   "サザンオールスターズ": {
@@ -1164,7 +1182,31 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/864",
     },
-  },
+      "LOVE AFFAIR〜秘密のデート〜": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/36708",
+    },
+    "勝手にシンドバッド": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/34882",
+    },
+    "HOTEL PACIFIC": {
+      lowLabel: "mid1C",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/87759",
+    },
+    "東京VICTORY": {
+      lowLabel: "mid1A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/869",
+    },
+},
 
   "いきものがかり": {
     "YELL": {
@@ -1817,6 +1859,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/429",
+    },
+    "口笛": {
+      lowLabel: "lowG",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/412",
+    },
+    "箒星": {
+      lowLabel: "mid1A",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16726",
+    },
+    "youthful days": {
+      lowLabel: "mid1C",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/416",
     },
 },
 
