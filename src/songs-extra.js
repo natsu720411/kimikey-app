@@ -986,6 +986,93 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "ポルノグラフィティ": {
+    "アゲハ蝶": {
+      lowLabel: "mid1G",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "メリッサ": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "ハネウマライダー": {
+      lowLabel: "mid1F#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "ミュージック・アワー": {
+      lowLabel: "lowF#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "アポロ": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "ジョバイロ": {
+      lowLabel: "mid1G",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "愛が呼ぶほうへ": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "シスター": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "ネオメロドラマティック": {
+      lowLabel: "mid1E",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "ヒトリノ夜": {
+      lowLabel: "mid2A",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "今宵、月が見えずとも": {
+      lowLabel: "mid1D",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "オー！リバル": {
+      lowLabel: "mid1F#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "THE DAY": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+    "瞬く星の下で": {
+      lowLabel: "mid1C",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/45",
+    },
+  },
+
   "サザンオールスターズ": {
     "いとしのエリー": {
       lowLabel: "mid1D",
