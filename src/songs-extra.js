@@ -986,6 +986,93 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "椎名林檎": {
+    "本能": {
+      lowLabel: "mid1F#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "ギブス": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "ここでキスして。": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "歌舞伎町の女王": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "長く短い祭": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "NIPPON": {
+      lowLabel: "mid1G#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "公然の秘密": {
+      lowLabel: "mid1G",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "人生は夢だらけ": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "ありあまる富": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "罪と罰": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "幸福論": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "正しい街": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/18",
+    },
+    "カーネーション": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/228",
+    },
+    "自由へ道連れ": {
+      lowLabel: "mid2B",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/232",
+    },
+  },
+
   aiko: {
     "花火": {
       lowLabel: "mid2B",
