@@ -909,6 +909,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/84684",
     },
+    "会いに行くのに": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/113571",
+    },
 },
 
   YOASOBI: {
@@ -1008,6 +1014,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/107105",
     },
+    "月光浴": {
+      lowLabel: "mid1D#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/107107",
+    },
+    "パレード": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/138",
+    },
 },
 
   "緑黄色社会": {
@@ -1034,6 +1052,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/76999",
+    },
+    "Party!!": {
+      lowLabel: "mid1G#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/108961",
     },
 },
 
@@ -1136,6 +1160,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/487",
+    },
+    "Stand Out Fit In": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/494",
+    },
+    "Taking Off": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/484",
     },
 },
 
@@ -1530,6 +1566,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1267",
     },
+    "ナナナナナイロ": {
+      lowLabel: "mid2D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/27659",
+    },
 },
 
   Superfly: {
@@ -1800,6 +1842,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/21314",
     },
+    "相思相愛": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/111905",
+    },
 },
 
   "椎名林檎": {
@@ -1868,6 +1916,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/228",
+    },
+    "人生は夢だらけ": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/239",
+    },
+    "長く短い祭": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/238",
+    },
+    "自由へ道連れ": {
+      lowLabel: "mid2B",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/232",
     },
 },
 
@@ -1955,6 +2021,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/77021",
+    },
+    "フィラメント": {
+      lowLabel: "mid1F#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/138963",
     },
 },
 
@@ -2066,6 +2138,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiB",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/309",
+    },
+    "涙がキラリ☆": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/319",
+    },
+    "みなと": {
+      lowLabel: "mid1G#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/329",
     },
 },
 
