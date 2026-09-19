@@ -1814,6 +1814,112 @@ const guidePages = [
 ]
 
 // ==========================================
+// ページ共通SEO
+// ==========================================
+
+function createStructuredData({
+  url,
+  name,
+  description,
+  breadcrumbs,
+}) {
+  return JSON.stringify({
+    '@context':
+      'https://schema.org',
+
+    '@graph': [
+      {
+        '@type':
+          'WebPage',
+
+        '@id':
+          url,
+
+        url,
+
+        name,
+
+        description,
+
+        inLanguage:
+          'ja',
+
+        isPartOf: {
+          '@id':
+            `${SITE_URL}/#website`,
+        },
+      },
+
+      {
+        '@type':
+          'BreadcrumbList',
+
+        itemListElement:
+          breadcrumbs.map(
+            (item, index) => ({
+              '@type':
+                'ListItem',
+
+              position:
+                index + 1,
+
+              name:
+                item.name,
+
+              item:
+                item.url,
+            })
+          ),
+      },
+    ],
+  })
+    .replaceAll(
+      '<',
+      '\\u003c'
+    )
+}
+
+
+function createSocialMeta({
+  url,
+  title,
+  description,
+}) {
+  return `
+  <meta
+    property="og:type"
+    content="website"
+  >
+
+  <meta
+    property="og:site_name"
+    content="キミキー"
+  >
+
+  <meta
+    property="og:title"
+    content="${escapeHtml(title)}"
+  >
+
+  <meta
+    property="og:description"
+    content="${escapeHtml(description)}"
+  >
+
+  <meta
+    property="og:url"
+    content="${url}"
+  >
+
+  <meta
+    name="twitter:card"
+    content="summary"
+  >
+  `
+}
+
+
+// ==========================================
 // 曲ページ
 // ==========================================
 
@@ -1832,6 +1938,41 @@ function createSongPage(song) {
 
   const description =
     `${song.artist}「${song.title}」の音域は${song.lowNote}〜${song.highNote}が目安。最低音・最高音を確認し、キミキーで自分の声に合うキーをチェックできます。`
+
+  const structuredData =
+    createStructuredData({
+      url:
+        songUrl,
+
+      name:
+        pageTitle,
+
+      description,
+
+      breadcrumbs: [
+        {
+          name:
+            'トップ',
+
+          url:
+            `${SITE_URL}/`,
+        },
+        {
+          name:
+            '曲別音域',
+
+          url:
+            `${SITE_URL}/songs/`,
+        },
+        {
+          name:
+            song.title,
+
+          url:
+            songUrl,
+        },
+      ],
+    })
 
   const relatedLinks =
     getRelatedSongs(song)
@@ -1897,6 +2038,20 @@ function createSongPage(song) {
     rel="canonical"
     href="${songUrl}"
   >
+
+  ${createSocialMeta({
+    url:
+      songUrl,
+
+    title:
+      pageTitle,
+
+    description,
+  })}
+
+  <script type="application/ld+json">
+    ${structuredData}
+  </script>
 
   <style>
 
@@ -2357,6 +2512,41 @@ function createArtistPage(
   const description =
     `${artistData.artist}の楽曲の最低音・最高音を一覧で比較できます。`
 
+  const structuredData =
+    createStructuredData({
+      url:
+        artistUrl,
+
+      name:
+        title,
+
+      description,
+
+      breadcrumbs: [
+        {
+          name:
+            'トップ',
+
+          url:
+            `${SITE_URL}/`,
+        },
+        {
+          name:
+            'アーティスト',
+
+          url:
+            `${SITE_URL}/artists/`,
+        },
+        {
+          name:
+            artistData.artist,
+
+          url:
+            artistUrl,
+        },
+      ],
+    })
+
   const links =
     artistData.songs
       .map(
@@ -2419,6 +2609,19 @@ function createArtistPage(
     rel="canonical"
     href="${artistUrl}"
   >
+
+  ${createSocialMeta({
+    url:
+      artistUrl,
+
+    title,
+
+    description,
+  })}
+
+  <script type="application/ld+json">
+    ${structuredData}
+  </script>
 
   <style>
     ${COMMON_CSS}
@@ -2524,6 +2727,42 @@ function createGuidePage(guide) {
   const guideUrl =
     `${SITE_URL}/guides/${guide.slug}/`
 
+  const structuredData =
+    createStructuredData({
+      url:
+        guideUrl,
+
+      name:
+        guide.title,
+
+      description:
+        guide.description,
+
+      breadcrumbs: [
+        {
+          name:
+            'トップ',
+
+          url:
+            `${SITE_URL}/`,
+        },
+        {
+          name:
+            '音域から曲を探す',
+
+          url:
+            `${SITE_URL}/guides/`,
+        },
+        {
+          name:
+            guide.heading,
+
+          url:
+            guideUrl,
+        },
+      ],
+    })
+
   const links =
     guide.songs
       .map(
@@ -2592,6 +2831,21 @@ function createGuidePage(guide) {
     rel="canonical"
     href="${guideUrl}"
   >
+
+  ${createSocialMeta({
+    url:
+      guideUrl,
+
+    title:
+      guide.title,
+
+    description:
+      guide.description,
+  })}
+
+  <script type="application/ld+json">
+    ${structuredData}
+  </script>
 
   <style>
     ${COMMON_CSS}
