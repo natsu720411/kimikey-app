@@ -813,7 +813,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/49",
     },
-  },
+      "ハルノヒ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/58",
+    },
+},
 
   YOASOBI: {
     "祝福": {
@@ -912,7 +918,19 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/89171",
     },
-  },
+      "花の名": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16507",
+    },
+    "Hello,world!": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/24876",
+    },
+},
 
   "ONE OK ROCK": {
     "The Beginning": {
@@ -921,7 +939,25 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/468",
     },
-  },
+      "完全感覚Dreamer": {
+      lowLabel: "mid2A",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/453",
+    },
+    "Clock Strikes": {
+      lowLabel: "mid2A",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/474",
+    },
+    "Heartache": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/479",
+    },
+},
 
   "GLAY": {
     "誘惑": {
@@ -942,7 +978,19 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1327",
     },
-  },
+      "SOUL LOVE": {
+      lowLabel: "mid1C",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1323",
+    },
+    "グロリアス": {
+      lowLabel: "mid1C",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1318",
+    },
+},
 
   "L'Arc-en-Ciel": {
     "HONEY": {
@@ -993,7 +1041,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/3775",
     },
-  },
+      "じょいふる": {
+      lowLabel: "mid2D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/30146",
+    },
+},
 
   Perfume: {
     "ポリリズム": {
@@ -1014,7 +1068,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1279",
     },
-  },
+      "Dream Fighter": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1250",
+    },
+},
 
   Superfly: {
     "Beautiful": {
@@ -1098,7 +1158,25 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/16264",
     },
-  },
+      "ボーイフレンド": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/505",
+    },
+    "キラキラ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/510",
+    },
+    "KissHug": {
+      lowLabel: "mid1E",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16206",
+    },
+},
 
   "椎名林檎": {
     "本能": {
@@ -1107,7 +1185,25 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/213",
     },
-  },
+      "罪と罰": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/215",
+    },
+    "歌舞伎町の女王": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/210",
+    },
+    "ギブス": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/214",
+    },
+},
 
   Uru: {
     "プロローグ": {
@@ -1133,6 +1229,48 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/22058",
+    },
+  },
+
+  "宇多田ヒカル": {
+    "Flavor Of Life": {
+      lowLabel: "mid1D#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1106",
+    },
+    "traveling": {
+      lowLabel: "mid1G",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1095",
+    },
+    "Prisoner Of Love": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1108",
+    },
+    "Beautiful World": {
+      lowLabel: "mid2B",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17455",
+    },
+    "COLORS": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1099",
+    },
+  },
+
+  "SEKAI NO OWARI": {
+    "RAIN": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/13037",
     },
   },
 }
