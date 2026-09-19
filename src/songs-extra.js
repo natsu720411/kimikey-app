@@ -696,7 +696,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/105370",
     },
-  },
+      "大不正解": {
+      lowLabel: "mid1C",
+      highLabel: "hiG",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/27733",
+    },
+},
 
   "米津玄師": {
     "KICK BACK": {
@@ -819,6 +825,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/58",
     },
+    "君はロックを聴かない": {
+      lowLabel: "mid1E",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/50",
+    },
 },
 
   YOASOBI: {
@@ -888,7 +900,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/139",
     },
-  },
+      "アルジャーノン": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/106464",
+    },
+},
 
   "緑黄色社会": {
     "Shout Baby": {
@@ -929,6 +947,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2G",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/24876",
+    },
+    "なないろ": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/55153",
     },
 },
 
@@ -1176,6 +1200,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/16206",
     },
+    "カブトムシ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/504",
+    },
+    "桜の時": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16265",
+    },
 },
 
   "椎名林檎": {
@@ -1202,6 +1238,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/214",
+    },
+    "丸ノ内サディスティック": {
+      lowLabel: "mid2A#",
+      highLabel: "hiG",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/212",
+    },
+    "ありあまる富": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/224",
+    },
+    "NIPPON": {
+      lowLabel: "mid1G#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/231",
     },
 },
 
@@ -1263,7 +1317,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1099",
     },
-  },
+      "花束を君に": {
+      lowLabel: "mid1D#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1111",
+    },
+},
 
   "SEKAI NO OWARI": {
     "RAIN": {
@@ -1271,6 +1331,42 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2F#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/13037",
+    },
+  },
+
+  "スピッツ": {
+    "正夢": {
+      lowLabel: "mid1E",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/296",
+    },
+    "魔法のコトバ": {
+      lowLabel: "mid1F",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/320",
+    },
+    "渚": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/306",
+    },
+  },
+
+  "サカナクション": {
+    "新宝島": {
+      lowLabel: "mid1D",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1055",
+    },
+    "アイデンティティ": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1042",
     },
   },
 }
