@@ -1026,6 +1026,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/38936",
     },
+    "生きてく強さ": {
+      lowLabel: "mid1D",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1317",
+    },
+    "Way of Difference": {
+      lowLabel: "mid1E",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1334",
+    },
 },
 
   "L'Arc-en-Ciel": {
@@ -1064,6 +1076,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/33346",
+    },
+    "Pieces": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/90027",
     },
 },
 
@@ -1157,6 +1175,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/45939",
+    },
+    "Magic of Love": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1269",
+    },
+    "ワンルーム・ディスコ": {
+      lowLabel: "mid2C#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1251",
     },
 },
 
@@ -1268,6 +1298,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/532",
+    },
+    "コイワズライ": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/538",
+    },
+    "星屑ビーナス": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/30132",
     },
 },
 
@@ -1524,7 +1566,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/20100",
     },
-  },
+      "365日": {
+      lowLabel: "mid1A#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/429",
+    },
+},
 
   "マカロニえんぴつ": {
     "洗濯機と君とラヂオ": {
