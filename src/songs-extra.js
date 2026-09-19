@@ -2352,6 +2352,36 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1049",
     },
+    "忘れられないの": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1060",
+    },
+    "ルーキー": {
+      lowLabel: "mid1G#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1044",
+    },
+    "多分、風。": {
+      lowLabel: "mid1D",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1056",
+    },
+    "ネイティブダンサー": {
+      lowLabel: "mid1B",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1039",
+    },
+    "Aoi": {
+      lowLabel: "mid2A#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17254",
+    },
 },
 
   "ポルノグラフィティ": {
@@ -2693,6 +2723,42 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2F",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/3166",
+    },
+    "バレる！": {
+      lowLabel: "mid1B",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/79012",
+    },
+    "ビリケン": {
+      lowLabel: "mid1C",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/104697",
+    },
+    "生業": {
+      lowLabel: "mid1D",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3176",
+    },
+    "かつて天才だった俺たちへ": {
+      lowLabel: "mid1G",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/32866",
+    },
+    "板の上の魔物": {
+      lowLabel: "mid1B",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3175",
+    },
+    "助演男優賞": {
+      lowLabel: "mid1F",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/12915",
     },
 },
 }
