@@ -986,6 +986,93 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  aiko: {
+    "花火": {
+      lowLabel: "mid2B",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "ボーイフレンド": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "キラキラ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "ストロー": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "相思相愛": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "milk": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "桜の時": {
+      lowLabel: "mid2A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "えりあし": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "二人": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "KissHug": {
+      lowLabel: "mid1E",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "横顔": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "戻れない明日": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "もっと": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/33",
+    },
+    "くちびる": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/19636",
+    },
+  },
+
   "宇多田ヒカル": {
     "Flavor Of Life": {
       lowLabel: "mid1D#",
