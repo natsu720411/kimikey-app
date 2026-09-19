@@ -986,6 +986,99 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  Perfume: {
+    "ポリリズム": {
+      lowLabel: "mid1G",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "チョコレイト・ディスコ": {
+      lowLabel: "mid2A#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "FLASH": {
+      lowLabel: "mid2A#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "レーザービーム": {
+      lowLabel: "mid2C",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "Spring of Life": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "Spending all my time": {
+      lowLabel: "mid2B",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "Magic of Love": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "Dream Fighter": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "ワンルーム・ディスコ": {
+      lowLabel: "mid2C#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "不自然なガール": {
+      lowLabel: "mid2C#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "ねぇ": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "TOKYO GIRL": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "If you wanna": {
+      lowLabel: "mid2E",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "Cling Cling": {
+      lowLabel: "mid2B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+    "ナナナナナイロ": {
+      lowLabel: "mid2D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/93",
+    },
+  },
+
   Superfly: {
     "Beautiful": {
       lowLabel: "mid2A#",
