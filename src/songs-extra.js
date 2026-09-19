@@ -831,6 +831,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/61",
     },
+    "Tokyo Rendez-Vous": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/60",
+    },
 },
 
   Vaundy: {
@@ -884,6 +890,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/51926",
+    },
+    "空の青さを知る人よ": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/59",
+    },
+    "初恋が泣いている": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/84684",
     },
 },
 
@@ -992,6 +1010,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/10658",
+    },
+    "陽はまた昇るから": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/76999",
     },
 },
 
@@ -1290,6 +1314,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/869",
     },
+    "エロティカ・セブン": {
+      lowLabel: "mid1D",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/66821",
+    },
+    "栄光の男": {
+      lowLabel: "lowF",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/23210",
+    },
 },
 
   "いきものがかり": {
@@ -1352,6 +1388,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/30144",
+    },
+    "笑顔": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/23209",
     },
 },
 
@@ -1427,6 +1469,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1255",
+    },
+    "If you wanna": {
+      lowLabel: "mid2E",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1281",
+    },
+    "Spending all my time": {
+      lowLabel: "mid2B",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1267",
     },
 },
 
@@ -1824,6 +1878,30 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/107149",
     },
+    "そばにいるよ": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/89028",
+    },
+    "ファーストラヴ": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/79172",
+    },
+    "心得": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/107148",
+    },
+    "それを愛と呼ぶなら": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/77021",
+    },
 },
 
   "宇多田ヒカル": {
@@ -1968,6 +2046,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1052",
     },
+    "モス": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1058",
+    },
+    "ユリイカ": {
+      lowLabel: "mid1E",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1053",
+    },
+    "僕と花": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1049",
+    },
 },
 
   "ポルノグラフィティ": {
@@ -2018,6 +2114,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/643",
+    },
+    "オー！リバル": {
+      lowLabel: "mid1F#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/29865",
     },
 },
 
@@ -2112,6 +2214,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/82256",
     },
+    "優しさに溢れた世界で": {
+      lowLabel: "mid1D",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/82252",
+    },
+    "リスポーン": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/84809",
+    },
 },
 
   "Da-iCE": {
@@ -2121,7 +2235,25 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/33386",
     },
-  },
+      "Story": {
+      lowLabel: "mid1C#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/114114",
+    },
+    "Clap and Clap": {
+      lowLabel: "mid1B",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/69777",
+    },
+    "ダンデライオン": {
+      lowLabel: "mid1E",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/116391",
+    },
+},
 
   "Creepy Nuts": {
     "のびしろ": {
