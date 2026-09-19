@@ -986,6 +986,57 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "Mr.Children": {
+    "innocent world": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "シーソーゲーム〜勇敢な恋の歌〜": {
+      lowLabel: "mid1C",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "365日": {
+      lowLabel: "mid1A#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "GIFT": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "youthful days": {
+      lowLabel: "mid1C",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "口笛": {
+      lowLabel: "mid1A",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "CROSS ROAD": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+    "箒星": {
+      lowLabel: "mid1A",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/29",
+    },
+  },
+
   "椎名林檎": {
     "本能": {
       lowLabel: "mid1F#",
