@@ -2533,6 +2533,312 @@ const EXTRA_RANGE_DATA = {
       rangeSource: "https://keytube.net/song/detail/164338",
     },
   },
+  "Mrs. GREEN APPLE": {
+    "Attitude": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/6",
+    },
+    "点描の唄": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/6",
+    },
+    "WanteD! WanteD!": {
+      lowLabel: "mid1E",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/6",
+    },
+    "春愁": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/6",
+    },
+  },
+
+  "back number": {
+    "ハッピーエンド": {
+      lowLabel: "mid1C",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/17",
+    },
+    "クリスマスソング": {
+      lowLabel: "mid1B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/17",
+    },
+    "瞬き": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/17",
+    },
+    "アイラブユー": {
+      lowLabel: "lowG#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/17",
+    },
+    "オールドファッション": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/17",
+    },
+    "大不正解": {
+      lowLabel: "mid1C",
+      highLabel: "hiG",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/17",
+    },
+  },
+
+  "Official髭男dism": {
+    "I LOVE...": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/2",
+    },
+    "Stand By You": {
+      lowLabel: "mid1F",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/39",
+    },
+    "Laughter": {
+      lowLabel: "mid1G",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/2",
+    },
+  },
+
+  "Vaundy": {
+    "不可幸力": {
+      lowLabel: "mid1A#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/34830",
+    },
+    "瞳惚れ": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/88693",
+    },
+    "トドメの一撃": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/104211",
+    },
+    "ホムンクルス": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/113979",
+    },
+    "napori": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/24118",
+    },
+    "東京フラッシュ": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/24495",
+    },
+  },
+
+  "あいみょん": {
+    "君はロックを聴かない": {
+      lowLabel: "mid1E",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "愛を伝えたいだとか": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "ハルノヒ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "貴方解剖純愛歌〜死ね〜": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "空の青さを知る人よ": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/59",
+    },
+    "さよならの今日に": {
+      lowLabel: "mid1G",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "会いに行くのに": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "双葉": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "桜が降る夜は": {
+      lowLabel: "mid1G#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+    "初恋が泣いている": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3",
+    },
+  },
+
+  "YOASOBI": {
+    "祝福": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3414",
+    },
+    "アンコール": {
+      lowLabel: "mid1F#",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3414",
+    },
+    "好きだ": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3414",
+    },
+    "ミスター": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/3414",
+    },
+  },
+
+  "King Gnu": {
+    "白日": {
+      lowLabel: "mid1A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "飛行艇": {
+      lowLabel: "mid1D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "Teenager Forever": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "三文小説": {
+      lowLabel: "mid2B",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "傘": {
+      lowLabel: "mid1A#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "Prayer X": {
+      lowLabel: "mid1C#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "BOY": {
+      lowLabel: "mid1F#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "Vinyl": {
+      lowLabel: "mid1F",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+    "Tokyo Rendez-Vous": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4",
+    },
+  },
+
+  "優里": {
+    "ミズキリ": {
+      lowLabel: "mid1F#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4351",
+    },
+    "桜晴": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4351",
+    },
+    "インフィニティ": {
+      lowLabel: "mid1D#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4351",
+    },
+    "ピーターパン": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4351",
+    },
+    "かくれんぼ": {
+      lowLabel: "lowF",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/4351",
+    },
+  },
+
 }
 
 export const EXTRA_SONGS =
