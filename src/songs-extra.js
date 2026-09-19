@@ -986,6 +986,87 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "BUMP OF CHICKEN": {
+    "ray": {
+      lowLabel: "mid1A#",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "アカシア": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "なないろ": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "Sleep Walking Orchestra": {
+      lowLabel: "lowG#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "SOUVENIR": {
+      lowLabel: "mid1A",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "Hello,world!": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "新世界": {
+      lowLabel: "mid1C",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "記念撮影": {
+      lowLabel: "mid1E",
+      highLabel: "mid2E",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "花の名": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "カルマ": {
+      lowLabel: "mid1C",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "車輪の唄": {
+      lowLabel: "mid1D",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "才悩人応援歌": {
+      lowLabel: "mid1C",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+    "sailing day": {
+      lowLabel: "mid1D",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/44",
+    },
+  },
+
   "いきものがかり": {
     "ありがとう": {
       lowLabel: "mid1F",
