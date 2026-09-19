@@ -986,6 +986,81 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "ONE OK ROCK": {
+    "The Beginning": {
+      lowLabel: "mid1E",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "完全感覚Dreamer": {
+      lowLabel: "mid2A",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Wasted Nights": {
+      lowLabel: "mid1E",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Stand Out Fit In": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "We are": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Heartache": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Clock Strikes": {
+      lowLabel: "mid2A",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Mighty Long Fall": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Taking Off": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Save Yourself": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "Re:make": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+    "キミシダイ列車": {
+      lowLabel: "mid1G#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/31",
+    },
+  },
+
   "BUMP OF CHICKEN": {
     "ray": {
       lowLabel: "mid1A#",
