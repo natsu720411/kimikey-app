@@ -1185,6 +1185,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/484",
     },
+    "Save Yourself": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/105108",
+    },
 },
 
   "GLAY": {
@@ -2445,6 +2451,36 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/10626",
     },
+    "はしりがき": {
+      lowLabel: "mid1B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/54118",
+    },
+    "レモンパイ": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/11757",
+    },
+    "青春と一瞬": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/11212",
+    },
+    "然らば": {
+      lowLabel: "mid1D",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/117768",
+    },
+    "月へ行こう": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/108367",
+    },
 },
 
   "Saucy Dog": {
@@ -2502,6 +2538,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/82255",
     },
+    "あぁ、もう。": {
+      lowLabel: "mid1B",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/67476",
+    },
+    "ゴーストバスター": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2968",
+    },
+    "雷に打たれて": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/155788",
+    },
 },
 
   "Da-iCE": {
@@ -2540,6 +2594,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/168006",
+    },
+    "TOKI": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/6228",
+    },
+    "ナイモノネダリ": {
+      lowLabel: "mid1A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/104484",
     },
 },
 
