@@ -986,6 +986,69 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "サザンオールスターズ": {
+    "いとしのエリー": {
+      lowLabel: "mid1D",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "LOVE AFFAIR〜秘密のデート〜": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "エロティカ・セブン": {
+      lowLabel: "mid1D",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "勝手にシンドバッド": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "HOTEL PACIFIC": {
+      lowLabel: "mid1C",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "太陽は罪な奴": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "ミス・ブランニュー・デイ": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "みんなのうた": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "東京VICTORY": {
+      lowLabel: "mid1A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+    "栄光の男": {
+      lowLabel: "lowF",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/66",
+    },
+  },
+
   "Mr.Children": {
     "innocent world": {
       lowLabel: "mid1C#",
