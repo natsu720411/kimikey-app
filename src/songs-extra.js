@@ -986,6 +986,81 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "宇多田ヒカル": {
+    "Flavor Of Life": {
+      lowLabel: "mid1D#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "Beautiful World": {
+      lowLabel: "mid2B",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "花束を君に": {
+      lowLabel: "mid1D#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "traveling": {
+      lowLabel: "mid1G",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "光": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "Prisoner Of Love": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "Can You Keep A Secret?": {
+      lowLabel: "mid1F#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "Addicted To You": {
+      lowLabel: "mid1F",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "COLORS": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "SAKURAドロップス": {
+      lowLabel: "mid1F",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "Keep Tryin’": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+    "あなた": {
+      lowLabel: "mid2C",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/86",
+    },
+  },
+
   "スピッツ": {
     "優しいあの子": {
       lowLabel: "mid1G",
