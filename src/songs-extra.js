@@ -986,6 +986,99 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "L'Arc-en-Ciel": {
+    "HONEY": {
+      lowLabel: "lowF",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "Driver's High": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "READY STEADY GO": {
+      lowLabel: "mid1D",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "flower": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "虹": {
+      lowLabel: "lowF",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "winter fall": {
+      lowLabel: "lowG#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "HEAVEN'S DRIVE": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "STAY AWAY": {
+      lowLabel: "mid1C",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "NEO UNIVERSE": {
+      lowLabel: "mid1E",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "Pieces": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "snow drop": {
+      lowLabel: "mid1C",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "Blurry Eyes": {
+      lowLabel: "mid1C",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "Link": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "MY HEART DRAWS A DREAM": {
+      lowLabel: "mid1A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+    "DAYBREAK'S BELL": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/71",
+    },
+  },
+
   Perfume: {
     "ポリリズム": {
       lowLabel: "mid1G",
