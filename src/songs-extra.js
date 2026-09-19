@@ -986,6 +986,63 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "マカロニえんぴつ": {
+    "ブルーベリー・ナイツ": {
+      lowLabel: "mid1C",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "洗濯機と君とラヂオ": {
+      lowLabel: "mid2A#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "ヤングアダルト": {
+      lowLabel: "mid1C",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "はしりがき": {
+      lowLabel: "mid1B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "レモンパイ": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "然らば": {
+      lowLabel: "mid1D",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "青春と一瞬": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "hope": {
+      lowLabel: "mid1A",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+    "月へ行こう": {
+      lowLabel: "mid1D#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/1664",
+    },
+  },
+
   "Da-iCE": {
     "DREAMIN’ ON": {
       lowLabel: "mid1F",
