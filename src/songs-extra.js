@@ -986,6 +986,57 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "スピッツ": {
+    "優しいあの子": {
+      lowLabel: "mid1G",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "魔法のコトバ": {
+      lowLabel: "mid1F",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "涙がキラリ☆": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "渚": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "みなと": {
+      lowLabel: "mid1G#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "運命の人": {
+      lowLabel: "mid1F#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "正夢": {
+      lowLabel: "mid1E",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+    "愛のことば": {
+      lowLabel: "mid1D",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/23",
+    },
+  },
+
   "ONE OK ROCK": {
     "The Beginning": {
       lowLabel: "mid1E",
