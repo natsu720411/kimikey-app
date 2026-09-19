@@ -669,6 +669,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/46108",
     },
+    "WanteD! WanteD!": {
+      lowLabel: "mid1E",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/119",
+    },
 },
 
   "back number": {
@@ -1190,6 +1196,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/105108",
+    },
+    "Vandalize": {
+      lowLabel: "mid1G",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/85925",
     },
 },
 
@@ -1764,6 +1776,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/164338",
     },
+    "ADAMAS": {
+      lowLabel: "mid1F",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/27710",
+    },
 },
 
   Aimer: {
@@ -1931,6 +1949,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/16216",
+    },
+    "くちびる": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/19636",
     },
 },
 
@@ -2214,6 +2238,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/36251",
     },
+    "Hey Ho": {
+      lowLabel: "mid1B",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/892",
+    },
+    "ターコイズ": {
+      lowLabel: "mid1F#",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/109289",
+    },
+    "プレゼント": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/890",
+    },
 },
 
   "スピッツ": {
@@ -2481,6 +2523,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/108367",
     },
+    "hope": {
+      lowLabel: "mid1A",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33423",
+    },
 },
 
   "Saucy Dog": {
@@ -2606,6 +2654,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/104484",
+    },
+    "Promise": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/67478",
     },
 },
 
