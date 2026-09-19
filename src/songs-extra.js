@@ -858,7 +858,13 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/24495",
     },
-  },
+      "瞳惚れ": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/88693",
+    },
+},
 
   "あいみょん": {
     "愛を伝えたいだとか": {
@@ -989,6 +995,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/142",
+    },
+    "左右盲": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/103606",
+    },
+    "都落ち": {
+      lowLabel: "mid2B",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/107105",
     },
 },
 
@@ -1281,6 +1299,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/2730",
     },
+    "MY HEART DRAWS A DREAM": {
+      lowLabel: "mid1A",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33335",
+    },
 },
 
   "サザンオールスターズ": {
@@ -1325,6 +1349,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2G",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/23210",
+    },
+    "ミス・ブランニュー・デイ": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/70203",
     },
 },
 
@@ -1394,6 +1424,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/23209",
+    },
+    "熱情のスペクトラム": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33708",
+    },
+    "うるわしきひと": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/19129",
+    },
+    "茜色の約束": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17148",
     },
 },
 
@@ -1544,6 +1592,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/385",
+    },
+    "愛に抱かれて": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/366",
     },
 },
 
@@ -2120,6 +2174,30 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/29865",
+    },
+    "シスター": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/637",
+    },
+    "愛が呼ぶほうへ": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17350",
+    },
+    "今宵、月が見えずとも": {
+      lowLabel: "mid1D",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/640",
+    },
+    "ネオメロドラマティック": {
+      lowLabel: "mid1E",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/31152",
     },
 },
 
