@@ -34,6 +34,17 @@
     content="index, follow"
   />
 
+  <meta
+    name="googlebot"
+    content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+  />
+
+  <link
+    rel="sitemap"
+    type="application/xml"
+    href="/sitemap.xml"
+  />
+
   <link
     rel="canonical"
     href="https://kimikey-app.vercel.app/"
@@ -137,14 +148,30 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "キミキー",
-    "url": "https://kimikey-app.vercel.app/",
-    "description": "マイクを使って声の音域を測定し、自分に合うJ-POPやおすすめキーを確認できるWebアプリです。",
-    "applicationCategory": "MusicApplication",
-    "operatingSystem": "Web",
-    "inLanguage": "ja",
-    "isAccessibleForFree": true
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://kimikey-app.vercel.app/#website",
+        "url": "https://kimikey-app.vercel.app/",
+        "name": "キミキー",
+        "description": "声の音域を測定して、自分に合う曲やカラオケのおすすめキーを調べられる無料Webサイトです。",
+        "inLanguage": "ja"
+      },
+      {
+        "@type": "WebApplication",
+        "@id": "https://kimikey-app.vercel.app/#app",
+        "name": "キミキー",
+        "url": "https://kimikey-app.vercel.app/",
+        "description": "マイクを使って声の音域を測定し、自分に合うJ-POPやおすすめキーを確認できるWebアプリです。",
+        "applicationCategory": "MusicApplication",
+        "operatingSystem": "Web",
+        "inLanguage": "ja",
+        "isAccessibleForFree": true,
+        "isPartOf": {
+          "@id": "https://kimikey-app.vercel.app/#website"
+        }
+      }
+    ]
   }
   </script>
 
@@ -152,7 +179,37 @@
 
 <body>
 
-  <div id="app"></div>
+  <div id="app">
+    <main
+      style="width:min(100%,700px);margin:0 auto;padding:28px 14px 60px;text-align:center;font-family:Arial,'Helvetica Neue',sans-serif;color:#1c1c1e;"
+    >
+      <header>
+        <h1 style="margin:0;font-size:32px;">🎤 キミキー</h1>
+        <p style="margin:8px 0 20px;color:#666;">
+          無料で声の音域を測定して、自分に合うJ-POPやカラオケのおすすめキーを調べられます。
+        </p>
+      </header>
+
+      <section
+        aria-labelledby="seoIntroTitle"
+        style="padding:18px;background:#fff;border:1px solid #e6e8ef;border-radius:20px;text-align:left;"
+      >
+        <h2 id="seoIntroTitle" style="margin:0 0 10px;font-size:20px;">
+          音域測定から曲選びまで
+        </h2>
+        <p style="margin:0 0 14px;line-height:1.8;color:#555;">
+          マイクで最低音・最高音を確認し、曲ごとの音域データと比較できます。原曲キーが高い・低いと感じるときのキー調整にも使えます。
+        </p>
+        <nav aria-label="キミキーの主なページ" style="display:grid;gap:8px;">
+          <a href="/vocal-range-check/">自分の音域を調べる方法</a>
+          <a href="/karaoke-key-guide/">カラオケのキーの合わせ方</a>
+          <a href="/guides/">音域から歌いやすい曲を探す</a>
+          <a href="/songs/">J-POPの曲別音域一覧</a>
+          <a href="/artists/">アーティスト別の音域一覧</a>
+        </nav>
+      </section>
+    </main>
+  </div>
 
   <script
     type="module"
