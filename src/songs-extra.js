@@ -986,6 +986,75 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "Da-iCE": {
+    "DREAMIN’ ON": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "BACK TO BACK": {
+      lowLabel: "mid1G",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "Kartell": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "FAKE ME FAKE ME OUT": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "ダンデライオン": {
+      lowLabel: "mid1E",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "Clap and Clap": {
+      lowLabel: "mid1B",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "Promise": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "ナイモノネダリ": {
+      lowLabel: "mid1A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "TAKE IT BACK": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "TOKI": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+    "ハッシュ ハッシュ": {
+      lowLabel: "mid1F",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/765",
+    },
+  },
+
   "Creepy Nuts": {
     "オトノケ": {
       lowLabel: "mid1C#",
