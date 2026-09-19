@@ -864,6 +864,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/88693",
     },
+    "トドメの一撃": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/104211",
+    },
+    "ホムンクルス": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/113979",
+    },
 },
 
   "あいみょん": {
@@ -1341,6 +1353,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/33335",
     },
+    "NEO UNIVERSE": {
+      lowLabel: "mid1E",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33342",
+    },
 },
 
   "サザンオールスターズ": {
@@ -1478,6 +1496,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/17148",
+    },
+    "いつだって僕らは": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/30175",
     },
 },
 
@@ -1641,6 +1665,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/366",
     },
+    "99": {
+      lowLabel: "mid2A#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33296",
+    },
+    "Fall": {
+      lowLabel: "mid1F",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/388",
+    },
+    "My Best Of My Life": {
+      lowLabel: "mid1F#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/362",
+    },
 },
 
   LiSA: {
@@ -1697,6 +1739,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/34298",
+    },
+    "明け星": {
+      lowLabel: "mid2A#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/61268",
+    },
+    "HADASHi NO STEP": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/82396",
+    },
+    "ブラックボックス": {
+      lowLabel: "mid1E",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/164338",
     },
 },
 
@@ -1848,6 +1908,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/111905",
     },
+    "横顔": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16286",
+    },
+    "二人": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16283",
+    },
+    "戻れない明日": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16216",
+    },
 },
 
   "椎名林檎": {
@@ -1934,6 +2012,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/232",
+    },
+    "公然の秘密": {
+      lowLabel: "mid1G",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/9784",
     },
 },
 
@@ -2091,6 +2175,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1097",
     },
+    "あなた": {
+      lowLabel: "mid2C",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/12619",
+    },
 },
 
   "SEKAI NO OWARI": {
@@ -2105,6 +2195,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/886",
+    },
+    "炎と森のカーニバル": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/885",
+    },
+    "silent": {
+      lowLabel: "mid1E",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/36251",
     },
 },
 
@@ -2388,6 +2490,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/84809",
     },
+    "雀ノ欠伸": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2969",
+    },
+    "Be yourself": {
+      lowLabel: "mid1C#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/82255",
+    },
 },
 
   "Da-iCE": {
@@ -2415,6 +2529,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/116391",
     },
+    "Kartell": {
+      lowLabel: "mid1G",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/57665",
+    },
+    "TAKE IT BACK": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/168006",
+    },
 },
 
   "Creepy Nuts": {
@@ -2435,6 +2561,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/106190",
+    },
+    "よふかしのうた": {
+      lowLabel: "mid1C#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3174",
+    },
+    "合法的トビ方ノススメ": {
+      lowLabel: "mid1C",
+      highLabel: "mid2F",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3166",
     },
 },
 }
