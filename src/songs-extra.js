@@ -1038,6 +1038,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1334",
     },
+    "BEAUTIFUL DREAMER": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1337",
+    },
+    "時の雫": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/74496",
+    },
+    "春を愛する人": {
+      lowLabel: "mid1D#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33658",
+    },
 },
 
   "L'Arc-en-Ciel": {
@@ -1082,6 +1100,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/90027",
+    },
+    "虹": {
+      lowLabel: "lowF",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33371",
+    },
+    "HEAVEN'S DRIVE": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16772",
+    },
+    "snow drop": {
+      lowLabel: "mid1C",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2726",
     },
 },
 
@@ -1130,6 +1166,18 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/17146",
+    },
+    "ありがとう": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/14782",
+    },
+    "風が吹いている": {
+      lowLabel: "mid1G",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17152",
     },
 },
 
@@ -1188,6 +1236,24 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1251",
     },
+    "ねぇ": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1260",
+    },
+    "Cling Cling": {
+      lowLabel: "mid2B",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1273",
+    },
+    "不自然なガール": {
+      lowLabel: "mid2C#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1255",
+    },
 },
 
   Superfly: {
@@ -1214,6 +1280,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiD",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/9788",
+    },
+    "やさしい気持ちで": {
+      lowLabel: "mid1F",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/364",
     },
 },
 
