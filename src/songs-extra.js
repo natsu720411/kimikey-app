@@ -642,6 +642,27 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/35685",
     },
+    "永遠のあくる日": {
+      lowLabel: "mid1E",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/74372",
+    },
+  },
+
+  "Mrs. GREEN APPLE": {
+    "Attitude": {
+      lowLabel: "mid1G",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2614",
+    },
+    "春愁": {
+      lowLabel: "mid1C",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/121",
+    },
   },
 
   "back number": {
@@ -656,6 +677,24 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/28154",
+    },
+    "瞬き": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/12627",
+    },
+    "オールドファッション": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/11601",
+    },
+    "アイラブユー": {
+      lowLabel: "lowG#",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/105370",
     },
   },
 
@@ -684,6 +723,45 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/15",
     },
+    "アイネクライネ": {
+      lowLabel: "mid1C#",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2605",
+    },
+    "Flamingo": {
+      lowLabel: "mid1A",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/20",
+    },
+    "M八七": {
+      lowLabel: "mid1C#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/105405",
+    },
+    "POP SONG": {
+      lowLabel: "mid1D",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/72532",
+    },
+  },
+
+  "Official髭男dism": {
+    "I LOVE...": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/10258",
+    },
+    "Stand By You": {
+      lowLabel: "mid1F",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/39",
+    },
   },
 
   "King Gnu": {
@@ -707,12 +785,54 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
-  "Vaundy": {
+  Vaundy: {
     "不可幸力": {
       lowLabel: "mid1A#",
       highLabel: "hiC",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/34830",
+    },
+    "napori": {
+      lowLabel: "mid1B",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/24118",
+    },
+    "東京フラッシュ": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/24495",
+    },
+  },
+
+  "あいみょん": {
+    "愛を伝えたいだとか": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/49",
+    },
+  },
+
+  YOASOBI: {
+    "祝福": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/87453",
+    },
+    "好きだ": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/80257",
+    },
+    "ミスター": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/97045",
     },
   },
 
@@ -723,29 +843,74 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/27596",
     },
+    "ピーターパン": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33819",
+    },
+    "桜晴": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2G#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/96731",
+    },
+    "ミズキリ": {
+      lowLabel: "mid1F#",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/67318",
+    },
   },
 
-  "LiSA": {
-    "紅蓮華": {
-      lowLabel: "mid1E",
-      highLabel: "hiG",
+  "ヨルシカ": {
+    "春泥棒": {
+      lowLabel: "mid1F",
+      highLabel: "hiD",
       rangeVerified: true,
-      rangeSource: "https://keytube.net/song/detail/11012",
+      rangeSource: "https://keytube.net/song/detail/45211",
     },
-    "炎": {
+    "言って。": {
       lowLabel: "mid1G",
-      highLabel: "hiE",
-      rangeVerified: true,
-      rangeSource: "https://keytube.net/song/detail/35748",
-    },
-  },
-
-  "Aimer": {
-    "カタオモイ": {
-      lowLabel: "mid1G#",
       highLabel: "hiC#",
       rangeVerified: true,
-      rangeSource: "https://keytube.net/song/detail/27853",
+      rangeSource: "https://keytube.net/song/detail/131",
+    },
+    "だから僕は音楽を辞めた": {
+      lowLabel: "mid2B",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/139",
+    },
+  },
+
+  "緑黄色社会": {
+    "Shout Baby": {
+      lowLabel: "mid1D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/18878",
+    },
+    "キャラクター": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/68078",
+    },
+  },
+
+  "BUMP OF CHICKEN": {
+    "ray": {
+      lowLabel: "mid1A#",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/616",
+    },
+    "アカシア": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/89171",
     },
   },
 
@@ -758,7 +923,175 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
-  "aiko": {
+  "GLAY": {
+    "誘惑": {
+      lowLabel: "mid1E",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1324",
+    },
+    "BELOVED": {
+      lowLabel: "mid1C",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1320",
+    },
+    "Winter, again": {
+      lowLabel: "mid1C#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1327",
+    },
+  },
+
+  "L'Arc-en-Ciel": {
+    "HONEY": {
+      lowLabel: "lowF",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/2725",
+    },
+    "Driver's High": {
+      lowLabel: "mid1E",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/16773",
+    },
+    "READY STEADY GO": {
+      lowLabel: "mid1D",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/25726",
+    },
+  },
+
+  "サザンオールスターズ": {
+    "いとしのエリー": {
+      lowLabel: "mid1D",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/864",
+    },
+  },
+
+  "いきものがかり": {
+    "YELL": {
+      lowLabel: "mid1F",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3776",
+    },
+    "ブルーバード": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/17933",
+    },
+    "気まぐれロマンティック": {
+      lowLabel: "mid2A",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/3775",
+    },
+  },
+
+  Perfume: {
+    "ポリリズム": {
+      lowLabel: "mid1G",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1241",
+    },
+    "チョコレイト・ディスコ": {
+      lowLabel: "mid2A#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1246",
+    },
+    "FLASH": {
+      lowLabel: "mid2A#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/1279",
+    },
+  },
+
+  Superfly: {
+    "Beautiful": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/383",
+    },
+    "タマシイレボリューション": {
+      lowLabel: "mid2A",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/369",
+    },
+  },
+
+  LiSA: {
+    "紅蓮華": {
+      lowLabel: "mid1E",
+      highLabel: "hiG",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/11012",
+    },
+    "炎": {
+      lowLabel: "mid1G",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/35748",
+    },
+    "Catch the Moment": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/29546",
+    },
+    "Rising Hope": {
+      lowLabel: "mid2A#",
+      highLabel: "hiF#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/282",
+    },
+  },
+
+  Aimer: {
+    "カタオモイ": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/27853",
+    },
+    "蝶々結び": {
+      lowLabel: "mid1C",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/529",
+    },
+    "Ref:rain": {
+      lowLabel: "mid1E",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/533",
+    },
+    "Brave Shine": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/21918",
+    },
+    "茜さす": {
+      lowLabel: "mid1F#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/22274",
+    },
+  },
+
+  aiko: {
     "花火": {
       lowLabel: "mid2B",
       highLabel: "hiD#",
@@ -776,21 +1109,30 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
-  "Superfly": {
-    "Beautiful": {
-      lowLabel: "mid2A#",
-      highLabel: "hiF",
-      rangeVerified: true,
-      rangeSource: "https://keytube.net/song/detail/383",
-    },
-  },
-
-  "Uru": {
+  Uru: {
     "プロローグ": {
       lowLabel: "mid2C",
       highLabel: "hiE",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/503",
+    },
+    "振り子": {
+      lowLabel: "mid1F#",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/36407",
+    },
+    "フリージア": {
+      lowLabel: "mid2A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/33884",
+    },
+    "あなたがいることで": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/22058",
     },
   },
 }
