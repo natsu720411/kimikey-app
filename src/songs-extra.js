@@ -986,6 +986,81 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "SEKAI NO OWARI": {
+    "RPG": {
+      lowLabel: "mid1D#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "Dragon Night": {
+      lowLabel: "mid1F",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "スターライトパレード": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "炎と森のカーニバル": {
+      lowLabel: "mid1C#",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "眠り姫": {
+      lowLabel: "mid1D",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "虹色の戦争": {
+      lowLabel: "mid1D",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "サザンカ": {
+      lowLabel: "lowF",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "Hey Ho": {
+      lowLabel: "mid1B",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "RAIN": {
+      lowLabel: "mid1D#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "silent": {
+      lowLabel: "mid1E",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "ターコイズ": {
+      lowLabel: "mid1F#",
+      highLabel: "mid2G",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+    "プレゼント": {
+      lowLabel: "mid1D",
+      highLabel: "hiA",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/67",
+    },
+  },
+
   "ポルノグラフィティ": {
     "アゲハ蝶": {
       lowLabel: "mid1G",
