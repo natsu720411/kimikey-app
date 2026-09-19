@@ -986,6 +986,81 @@ const EXTRA_RANGE_DATA = {
     },
   },
 
+  "Saucy Dog": {
+    "いつか": {
+      lowLabel: "mid1D",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "結": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "魔法にかけられて": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "雀ノ欠伸": {
+      lowLabel: "mid1E",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "あぁ、もう。": {
+      lowLabel: "mid1B",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "ゴーストバスター": {
+      lowLabel: "mid1D#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "優しさに溢れた世界で": {
+      lowLabel: "mid1D",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "紫苑": {
+      lowLabel: "mid1G",
+      highLabel: "hiF",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "雷に打たれて": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "Be yourself": {
+      lowLabel: "mid1C#",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "コンタクトケース": {
+      lowLabel: "mid1D",
+      highLabel: "hiD#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+    "リスポーン": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/artist/detail/237",
+    },
+  },
+
   "サカナクション": {
     "アイデンティティ": {
       lowLabel: "mid1B",
