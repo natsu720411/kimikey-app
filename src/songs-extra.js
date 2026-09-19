@@ -861,6 +861,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/67",
     },
+    "三文小説": {
+      lowLabel: "mid2B",
+      highLabel: "hiG",
+      rangeVerified: true,
+      rangeSource: "https://vocal-range.com/archives/25277716.html",
+    },
 },
 
   Vaundy: {
@@ -957,6 +963,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/2607",
     },
+    "さよならの今日に": {
+      lowLabel: "mid1G#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/sayonara-no-kyo-ni",
+    },
 },
 
   YOASOBI: {
@@ -1022,6 +1034,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA#",
       rangeVerified: true,
       rangeSource: "https://utastep.com/songs/o-ni-gokko",
+    },
+    "メリーゴーランド": {
+      lowLabel: "mid1A#",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://vocal-range.com/archives/post-9320.html",
     },
 },
 
@@ -1092,6 +1110,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/19049",
     },
+    "斜陽": {
+      lowLabel: "mid1E",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/shayo-yorushika",
+    },
 },
 
   "緑黄色社会": {
@@ -1161,6 +1185,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/29510",
     },
+    "LITMUS": {
+      lowLabel: "mid2B",
+      highLabel: "hiE",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/58153",
+    },
 },
 
   "BUMP OF CHICKEN": {
@@ -1217,6 +1247,30 @@ const EXTRA_RANGE_DATA = {
       highLabel: "mid2G#",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/610",
+    },
+    "クロノスタシス": {
+      lowLabel: "mid1C",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://w.atwiki.jp/saikouon_dokoda/pages/262.html",
+    },
+    "Sleep Walking Orchestra": {
+      lowLabel: "lowG#",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/sleep-walking-orchestra",
+    },
+    "SOUVENIR": {
+      lowLabel: "mid1A",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://kkti.app/key/songs/1779",
+    },
+    "カルマ": {
+      lowLabel: "mid1C#",
+      highLabel: "mid2F#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/14165",
     },
 },
 
@@ -1386,6 +1440,12 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/1322",
     },
+    "とまどい": {
+      lowLabel: "mid1F",
+      highLabel: "hiC#",
+      rangeVerified: true,
+      rangeSource: "https://stepupkaraoke.com/song-introduction/glay/tomadoi",
+    },
 },
 
   "L'Arc-en-Ciel": {
@@ -1541,6 +1601,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiB",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/865",
+    },
+    "愛の言霊〜Spiritual Message〜": {
+      lowLabel: "mid1D",
+      highLabel: "hiC",
+      rangeVerified: true,
+      rangeSource: "https://system.voicerangechecker.com/VoiceRangeChecker/main/popular_artist/sazan-allstars",
     },
 },
 
@@ -2388,6 +2454,18 @@ const EXTRA_RANGE_DATA = {
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/891",
     },
+    "眠り姫": {
+      lowLabel: "mid1D",
+      highLabel: "mid2F",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/nemuri-hime-sekainoowari",
+    },
+    "虹色の戦争": {
+      lowLabel: "mid1F#",
+      highLabel: "hiB",
+      rangeVerified: true,
+      rangeSource: "https://utastep.com/songs/niji-shoku-no-senso",
+    },
 },
 
   "スピッツ": {
@@ -2432,6 +2510,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiA",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/329",
+    },
+    "愛のことば": {
+      lowLabel: "mid1D",
+      highLabel: "hiA#",
+      rangeVerified: true,
+      rangeSource: "https://keytube.net/song/detail/289",
     },
 },
 
@@ -2852,6 +2936,12 @@ const EXTRA_RANGE_DATA = {
       highLabel: "hiC",
       rangeVerified: true,
       rangeSource: "https://keytube.net/song/detail/9888",
+    },
+    "FAKE ME FAKE ME OUT": {
+      lowLabel: "mid1D",
+      highLabel: "hiD",
+      rangeVerified: true,
+      rangeSource: "https://w.atwiki.jp/saikouon_dokoda/pages/1250.html",
     },
 },
 
