@@ -3468,6 +3468,8 @@ const sitemapUrls = [
 
   `${SITE_URL}/guides/`,
 
+  `${SITE_URL}/popular/`,
+
     `${SITE_URL}/vocal-range-check/`,
   `${SITE_URL}/pitch-training/`,
   `${SITE_URL}/karaoke-pitch-bar/`,

@@ -1273,6 +1273,10 @@ h1 {
 .song-card {
   display: flex;
 
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+
   width: 100%;
 
   align-items: center;
@@ -1387,6 +1391,10 @@ h1 {
 
 .search-song-item {
   display: flex;
+
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
 
   width: 100%;
 

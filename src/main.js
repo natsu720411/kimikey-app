@@ -87,6 +87,22 @@ function isBlackKey(midi) {
   return [1, 3, 6, 8, 10].includes(((midi % 12) + 12) % 12)
 }
 
+function getSongPageHref(song) {
+  const asciiTitle =
+    String(song.title)
+      .normalize('NFKD')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+
+  const slug =
+    asciiTitle
+      ? `${asciiTitle}-${song.id}`
+      : `song-${song.id}`
+
+  return `/songs/${slug}/`
+}
+
 // ==========================================
 // ピアノ鍵盤
 // ==========================================
@@ -666,6 +682,10 @@ app.innerHTML = `
     </div>
 
     <nav class="song-browse-links" aria-label="曲の種類から探す">
+      <a class="song-browse-link" href="/popular/">🔥 今人気の曲</a>
+      <a class="song-browse-link" href="/songs/">曲別の音域一覧</a>
+      <a class="song-browse-link" href="/artists/">アーティスト別</a>
+      <a class="song-browse-link" href="/guides/narrow-range-songs/">音域が狭い曲</a>
       <a class="song-browse-link" href="/guides/male-songs/">男性向けの曲</a>
       <a class="song-browse-link" href="/guides/female-songs/">女性向けの曲</a>
       <a class="song-browse-link" href="/guides/low-voice-songs/">低音向けの曲</a>
@@ -1192,11 +1212,14 @@ function renderRecommendations() {
 
       const card =
         document.createElement(
-          'button'
+          'a'
         )
 
       card.className =
         'song-card'
+
+      card.href =
+        getSongPageHref(song)
 
 
       let badgeText =
@@ -1259,7 +1282,9 @@ function renderRecommendations() {
 
       card.addEventListener(
         'click',
-        () => {
+        event => {
+          event.preventDefault()
+
           showSongAnalysis(
             song
           )
@@ -1670,12 +1695,16 @@ async function renderPopularSongs() {
 
       const item =
         document.createElement(
-          'button'
+          'a'
         )
 
 
       item.className =
         'search-song-item'
+
+      item.href =
+        popular.songUrl ||
+        getSongPageHref(song)
 
 
       let rankDetail = ''
@@ -1773,7 +1802,9 @@ async function renderPopularSongs() {
 
       item.addEventListener(
         'click',
-        () => {
+        event => {
+
+          event.preventDefault()
 
           showSongAnalysis(
             song
@@ -4409,6 +4440,7 @@ document.querySelectorAll('.collapsible-panel').forEach(panel => {
 const renderSearchResults = initSongSearch({
   songs: SONGS,
   onSongSelected: showSongAnalysis,
+  getSongPageHref,
 })
 renderSearchResults('')
 

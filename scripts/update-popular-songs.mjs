@@ -49,6 +49,26 @@ function normalizeText(value) {
     .toLowerCase()
 }
 
+function createSongSlug(song) {
+  const asciiTitle =
+    String(song.title)
+      .normalize('NFKD')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/^-+|-+$/g, '')
+
+  if (asciiTitle) {
+    return `${asciiTitle}-${song.id}`
+  }
+
+  return `song-${song.id}`
+}
+
+
+function createSongUrl(song) {
+  return `/songs/${createSongSlug(song)}/`
+}
+
 
 // ==========================================
 // キミキー収録曲検索
@@ -654,6 +674,26 @@ async function main() {
       ? songs
       : fallback
 
+  const finalSongsWithLinks =
+    finalSongs.map(
+      song => {
+        const localSong =
+          findLocalSong(
+            song.title,
+            song.artist
+          )
+
+        return {
+          ...song,
+
+          songUrl:
+            localSong
+              ? createSongUrl(localSong)
+              : null
+        }
+      }
+    )
+
 
   const data = {
 
@@ -667,7 +707,7 @@ async function main() {
     ],
 
     songs:
-      finalSongs
+      finalSongsWithLinks
 
   }
 
@@ -684,11 +724,11 @@ async function main() {
 
 
   console.log(
-    `✅ 人気曲${finalSongs.length}曲を書き出しました`
+    `✅ 人気曲${finalSongsWithLinks.length}曲を書き出しました`
   )
 
 
-  finalSongs.forEach(
+  finalSongsWithLinks.forEach(
     (song, index) => {
 
       console.log(

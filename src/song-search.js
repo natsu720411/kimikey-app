@@ -1,6 +1,7 @@
 export function initSongSearch({
   songs,
-  onSongSelected
+  onSongSelected,
+  getSongPageHref
 }) {
   const container =
     document.querySelector(
@@ -125,11 +126,16 @@ export function initSongSearch({
   function createSongButton(song) {
     const item =
       document.createElement(
-        'button'
+        'a'
       )
 
     item.className =
       'search-song-item'
+
+    item.href =
+      typeof getSongPageHref === 'function'
+        ? getSongPageHref(song)
+        : '/songs/'
 
     const rangeAvailable =
       hasRangeData(song)
@@ -152,7 +158,9 @@ export function initSongSearch({
 
     item.addEventListener(
       'click',
-      () => {
+      event => {
+        event.preventDefault()
+
         trackAnalyticsEvent(
           'song_selected',
           {
