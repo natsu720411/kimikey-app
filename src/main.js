@@ -129,7 +129,7 @@ app.innerHTML = `
     <h1>🎤 キミキー</h1>
 
     <p class="subtitle">
-      声の音程・音域・歌いやすいJ-POPをチェック
+      無料で声の音域を測定・歌いやすいJ-POPとキーをチェック
     </p>
 
   </header>
