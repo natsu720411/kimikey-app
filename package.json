@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-song-pages.mjs && node scripts/generate-seo-pages.mjs && node scripts/generate-seo-pages-2.mjs && node scripts/generate-search-growth.mjs && vite build",
+    "build": "node scripts/generate-song-pages.mjs && node scripts/generate-seo-pages.mjs && node scripts/generate-seo-pages-2.mjs && node scripts/generate-search-growth.mjs && node scripts/generate-search-growth-2.mjs && vite build",
     "check:songs": "node scripts/check-songs.mjs",
     "update:popular": "node scripts/update-popular-songs.mjs",
     "report:ranges": "node scripts/generate-range-backlog.mjs && node scripts/link-range-helper.mjs",
