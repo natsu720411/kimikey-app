@@ -1,24 +1,16 @@
 {
-  "updatedAt": "2026-09-24T03:39:11.871Z",
+  "updatedAt": "2026-09-25T03:38:51.133Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
     {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198,
-      "songUrl": "/songs/song-33/"
-    },
-    {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 4,
-      "score": 196,
+      "joysoundRank": 2,
+      "score": 198,
       "songUrl": "/songs/song-128/"
     },
     {
@@ -33,25 +25,33 @@
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 5,
-      "score": 194,
+      "joysoundRank": 4,
+      "score": 195,
       "songUrl": "/songs/song-130/"
     },
     {
-      "title": "水平線",
-      "artist": "back number",
-      "damRank": 8,
-      "joysoundRank": 6,
-      "score": 188,
-      "songUrl": "/songs/song-49/"
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 5,
+      "score": 195,
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "サウダージ",
       "artist": "ポルノグラフィティ",
       "damRank": 9,
-      "joysoundRank": 7,
-      "score": 186,
+      "joysoundRank": 6,
+      "score": 187,
       "songUrl": "/songs/song-132/"
+    },
+    {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 8,
+      "joysoundRank": 7,
+      "score": 187,
+      "songUrl": "/songs/song-49/"
     },
     {
       "title": "さよならエレジー",
