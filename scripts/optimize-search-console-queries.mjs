@@ -183,11 +183,11 @@ function strengthenInternalLinks() {
     let html = read(filePath)
     html = html.replace(
       /(<a[^>]*href="\/vocal-range-table\/"[^>]*>)(?:音域表|low・mid1・mid2・hi音域表)(<\/a>)/g,
-      '$1lowA・mid1E・hiA音域表$2'
+      (_match, open, close) => `${open}lowA・mid1E・hiA音域表${close}`
     )
     html = html.replace(
       /(<a[^>]*href="\/vocal-range-octaves\/"[^>]*>)(?:何オクターブ？|音域は何オクターブ？)(<\/a>)/g,
-      '$11オクターブは何半音？$2'
+      (_match, open, close) => `${open}1オクターブは何半音？${close}`
     )
     write(filePath, html)
   }
