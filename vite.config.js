@@ -13,6 +13,15 @@ export default defineConfig({
           )
         ),
       },
+      {
+        find: './songs.js',
+        replacement: fileURLToPath(
+          new URL(
+            './src/songs-all.js',
+            import.meta.url
+          )
+        ),
+      },
     ],
   },
 })
