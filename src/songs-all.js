@@ -1,9 +1,9 @@
 import { SONGS as BASE_SONGS } from '/src/songs.js'
-import { VERIFIED_RANGE_100 } from './songs-verified-100.js'
+import { VERIFIED_RANGE_ALL } from './songs-verified-all.js'
 
 const verifiedRangeMap =
   new Map(
-    VERIFIED_RANGE_100.map(
+    VERIFIED_RANGE_ALL.map(
       song => [
         `${song.artist}\u0000${song.title}`,
         song,
