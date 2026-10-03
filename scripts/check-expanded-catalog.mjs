@@ -1,6 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { SONGS as BASE_SONGS } from '../src/songs.js'
+import { CATALOG_500_SONGS } from '../src/songs-catalog-500.js'
 import { VERIFIED_RANGE_ALL } from '../src/songs-verified-all.js'
 
 const root = path.resolve(
@@ -8,8 +10,46 @@ const root = path.resolve(
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 637
-const validLabel = /^(low|mid1|mid2|hi)[A-G](?:#)?$/
+const EXPECTED_VERIFIED_COUNT = 644
+const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
+
+const bandStartMidi = {
+  low: 33,
+  mid1: 45,
+  mid2: 57,
+  hi: 69,
+  hihi: 81,
+}
+
+const offsetFromA = {
+  A: 0,
+  'A#': 1,
+  B: 2,
+  C: 3,
+  'C#': 4,
+  D: 5,
+  'D#': 6,
+  E: 7,
+  F: 8,
+  'F#': 9,
+  G: 10,
+  'G#': 11,
+}
+
+function key(song) {
+  return `${song.artist}\u0000${song.title}`
+}
+
+function pitchLabelToMidi(label) {
+  const match = String(label).match(
+    /^(low|mid1|mid2|hi|hihi)([A-G](?:#)?)$/
+  )
+
+  if (!match) return Number.NaN
+
+  const [, band, note] = match
+  return bandStartMidi[band] + offsetFromA[note]
+}
 
 if (VERIFIED_RANGE_ALL.length !== EXPECTED_VERIFIED_COUNT) {
   throw new Error(
@@ -17,15 +57,18 @@ if (VERIFIED_RANGE_ALL.length !== EXPECTED_VERIFIED_COUNT) {
   )
 }
 
-const keys = VERIFIED_RANGE_ALL.map(
-  song => `${song.artist}\u0000${song.title}`
-)
+const keys = VERIFIED_RANGE_ALL.map(key)
 
 if (new Set(keys).size !== EXPECTED_VERIFIED_COUNT) {
   throw new Error(
     'Duplicate verified artist/title found'
   )
 }
+
+const knownSongKeys = new Set([
+  ...BASE_SONGS.map(key),
+  ...CATALOG_500_SONGS.map(key),
+])
 
 for (const song of VERIFIED_RANGE_ALL) {
   if (
@@ -35,6 +78,25 @@ for (const song of VERIFIED_RANGE_ALL) {
   ) {
     throw new Error(
       `Invalid verified data: ${song.artist} / ${song.title}`
+    )
+  }
+
+  if (!knownSongKeys.has(key(song))) {
+    throw new Error(
+      `Verified song does not exist in app data: ${song.artist} / ${song.title}`
+    )
+  }
+
+  const lowMidi = pitchLabelToMidi(song.lowLabel)
+  const highMidi = pitchLabelToMidi(song.highLabel)
+
+  if (
+    !Number.isFinite(lowMidi) ||
+    !Number.isFinite(highMidi) ||
+    lowMidi > highMidi
+  ) {
+    throw new Error(
+      `Invalid range order: ${song.artist} / ${song.title} (${song.lowLabel} - ${song.highLabel})`
     )
   }
 }
@@ -47,6 +109,7 @@ const hubs = [
   'popular-song-ranges-5',
   'popular-song-ranges-6',
   'popular-song-ranges-7',
+  'popular-song-ranges-8',
 ]
 
 for (const hub of hubs) {
@@ -118,6 +181,13 @@ for (const title of [
   'Dynamite',
   '道',
   "As If It's Your Last",
+  'Spring Day',
+  'Life Goes On',
+  'Yet To Come',
+  'Feel Special',
+  'YES or YES',
+  'Kill This Love',
+  'Lovesick Girls',
 ]) {
   if (!bundle.includes(title)) {
     throw new Error(
@@ -143,5 +213,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 7 SEO hubs, search bundle OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 8 SEO hubs, range ordering and app-data mapping OK`
 )

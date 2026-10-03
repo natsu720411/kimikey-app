@@ -14,7 +14,7 @@ const verifiedRangeMap =
 function pitchLabelToMidi(label) {
   const match =
     String(label).match(
-      /^(low|mid1|mid2|hi)([A-G](?:#)?)$/
+      /^(low|mid1|mid2|hi|hihi)([A-G](?:#)?)$/
     )
 
   if (!match) {
@@ -30,6 +30,7 @@ function pitchLabelToMidi(label) {
     mid1: 45,
     mid2: 57,
     hi: 69,
+    hihi: 81,
   }
 
   const offsetFromA = {
