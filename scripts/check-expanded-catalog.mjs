@@ -3,57 +3,34 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { VERIFIED_RANGE_ALL } from '../src/songs-verified-all.js'
 
-const root =
-  path.resolve(
-    path.dirname(
-      fileURLToPath(
-        import.meta.url
-      )
-    ),
-    '..'
-  )
+const root = path.resolve(
+  path.dirname(fileURLToPath(import.meta.url)),
+  '..'
+)
 
-const validLabel =
-  /^(low|mid1|mid2|hi)[A-G](?:#)?$/
+const validLabel = /^(low|mid1|mid2|hi)[A-G](?:#)?$/
 
-if (
-  VERIFIED_RANGE_ALL.length !==
-  500
-) {
+if (VERIFIED_RANGE_ALL.length !== 600) {
   throw new Error(
-    `Expected 500 verified ranges, got ${VERIFIED_RANGE_ALL.length}`
+    `Expected 600 verified ranges, got ${VERIFIED_RANGE_ALL.length}`
   )
 }
 
-const keys =
-  VERIFIED_RANGE_ALL.map(
-    song =>
-      `${song.artist}\u0000${song.title}`
-  )
+const keys = VERIFIED_RANGE_ALL.map(
+  song => `${song.artist}\u0000${song.title}`
+)
 
-if (
-  new Set(keys).size !==
-  500
-) {
+if (new Set(keys).size !== 600) {
   throw new Error(
     'Duplicate verified artist/title found'
   )
 }
 
-for (
-  const song of
-  VERIFIED_RANGE_ALL
-) {
+for (const song of VERIFIED_RANGE_ALL) {
   if (
-    !validLabel.test(
-      song.lowLabel
-    ) ||
-    !validLabel.test(
-      song.highLabel
-    ) ||
-    !/^https?:\/\//.test(
-      song.rangeSource
-    )
+    !validLabel.test(song.lowLabel) ||
+    !validLabel.test(song.highLabel) ||
+    !/^https?:\/\//.test(song.rangeSource)
   ) {
     throw new Error(
       `Invalid verified data: ${song.artist} / ${song.title}`
@@ -67,115 +44,91 @@ const hubs = [
   'popular-song-ranges-3',
   'popular-song-ranges-4',
   'popular-song-ranges-5',
+  'popular-song-ranges-6',
 ]
 
-for (
-  const hub of hubs
-) {
-  const hubFile =
-    path.join(
-      root,
-      'dist',
-      hub,
-      'index.html'
-    )
+for (const hub of hubs) {
+  const hubFile = path.join(
+    root,
+    'dist',
+    hub,
+    'index.html'
+  )
 
-  if (
-    !fs.existsSync(
-      hubFile
-    )
-  ) {
+  if (!fs.existsSync(hubFile)) {
     throw new Error(
       `Missing generated hub: ${hub}`
     )
   }
 }
 
-const assetsDir =
-  path.join(
-    root,
-    'dist',
-    'assets'
-  )
+const assetsDir = path.join(
+  root,
+  'dist',
+  'assets'
+)
 
-const bundle =
-  fs.readdirSync(
-    assetsDir
+const bundle = fs
+  .readdirSync(assetsDir)
+  .filter(name => name.endsWith('.js'))
+  .map(name =>
+    fs.readFileSync(
+      path.join(assetsDir, name),
+      'utf8'
+    )
   )
-    .filter(
-      name =>
-        name.endsWith(
-          '.js'
-        )
-    )
-    .map(
-      name =>
-        fs.readFileSync(
-          path.join(
-            assetsDir,
-            name
-          ),
-          'utf8'
-        )
-    )
-    .join('\n')
+  .join('\n')
 
-for (
-  const title of [
-    'ultra soul',
-    '三日月',
-    '奏（かなで）',
-    'White Love',
-    'きらり',
-    'イケナイ太陽',
-    '千の夜をこえて',
-    'オドループ',
-    'CHE.R.RY',
-    'Time goes by',
-    'Raise your flag',
-    '沈丁花',
-    '別の人の彼女になったよ',
-    '幾億光年',
-    '青のすみか',
-    '秒針を噛む',
-    '栞',
-    '愛のうた',
-    'SEASONS',
-    'CAN YOU CELEBRATE?',
-  ]
-) {
-  if (
-    !bundle.includes(
-      title
-    )
-  ) {
+for (const title of [
+  'ultra soul',
+  '三日月',
+  '奏（かなで）',
+  'White Love',
+  'きらり',
+  'イケナイ太陽',
+  '千の夜をこえて',
+  'オドループ',
+  'CHE.R.RY',
+  'Time goes by',
+  'Raise your flag',
+  '沈丁花',
+  '別の人の彼女になったよ',
+  '幾億光年',
+  '青のすみか',
+  '秒針を噛む',
+  '栞',
+  '愛のうた',
+  'SEASONS',
+  'CAN YOU CELEBRATE?',
+  'ヘビーローテーション',
+  'インフルエンサー',
+  'ブラザービート',
+  'Imitation Rain',
+  'シンデレラガール',
+  '初心LOVE',
+  '無限大',
+  '光るとき',
+  'Bye-Good-Bye',
+  'FANCY',
+  'DDU-DU DDU-DU',
+]) {
+  if (!bundle.includes(title)) {
     throw new Error(
       `Search bundle is missing added song: ${title}`
     )
   }
 }
 
-const sitemap =
-  fs.readFileSync(
-    path.join(
-      root,
-      'dist',
-      'sitemap.xml'
-    ),
-    'utf8'
-  )
+const sitemap = fs.readFileSync(
+  path.join(root, 'dist', 'sitemap.xml'),
+  'utf8'
+)
 
-for (
-  const hub of hubs
-) {
+for (const hub of hubs) {
   const hubUrl =
     `https://kimikey-app.vercel.app/${hub}/`
 
-  if (
-    !sitemap.includes(
-      hubUrl
-    )
-  ) {
+  if (!sitemap.includes(hubUrl)) {
     throw new Error(
       `Sitemap missing ${hub}/`
     )
@@ -183,5 +136,5 @@ for (
 }
 
 console.log(
-  '✅ Expanded catalog check passed: 500 verified ranges, 5 SEO hubs, search bundle OK'
+  '✅ Expanded catalog check passed: 600 verified ranges, 6 SEO hubs, search bundle OK'
 )
