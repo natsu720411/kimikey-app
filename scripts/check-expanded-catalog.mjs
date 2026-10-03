@@ -8,11 +8,12 @@ const root = path.resolve(
   '..'
 )
 
+const EXPECTED_VERIFIED_COUNT = 637
 const validLabel = /^(low|mid1|mid2|hi)[A-G](?:#)?$/
 
-if (VERIFIED_RANGE_ALL.length !== 600) {
+if (VERIFIED_RANGE_ALL.length !== EXPECTED_VERIFIED_COUNT) {
   throw new Error(
-    `Expected 600 verified ranges, got ${VERIFIED_RANGE_ALL.length}`
+    `Expected ${EXPECTED_VERIFIED_COUNT} verified ranges, got ${VERIFIED_RANGE_ALL.length}`
   )
 }
 
@@ -20,7 +21,7 @@ const keys = VERIFIED_RANGE_ALL.map(
   song => `${song.artist}\u0000${song.title}`
 )
 
-if (new Set(keys).size !== 600) {
+if (new Set(keys).size !== EXPECTED_VERIFIED_COUNT) {
   throw new Error(
     'Duplicate verified artist/title found'
   )
@@ -45,6 +46,7 @@ const hubs = [
   'popular-song-ranges-4',
   'popular-song-ranges-5',
   'popular-song-ranges-6',
+  'popular-song-ranges-7',
 ]
 
 for (const hub of hubs) {
@@ -111,6 +113,11 @@ for (const title of [
   'Bye-Good-Bye',
   'FANCY',
   'DDU-DU DDU-DU',
+  'リンダ リンダ',
+  '真赤',
+  'Dynamite',
+  '道',
+  "As If It's Your Last",
 ]) {
   if (!bundle.includes(title)) {
     throw new Error(
@@ -136,5 +143,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  '✅ Expanded catalog check passed: 600 verified ranges, 6 SEO hubs, search bundle OK'
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 7 SEO hubs, search bundle OK`
 )
