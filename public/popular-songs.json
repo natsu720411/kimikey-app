@@ -1,32 +1,32 @@
 {
-  "updatedAt": "2026-10-03T03:48:22.763Z",
+  "updatedAt": "2026-10-04T05:29:02.425Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
     {
-      "title": "怪獣の花唄",
-      "artist": "Vaundy",
-      "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198,
-      "songUrl": "/songs/song-128/"
-    },
-    {
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 4,
-      "score": 196,
+      "joysoundRank": 2,
+      "score": 198,
       "songUrl": "/songs/song-33/"
+    },
+    {
+      "title": "怪獣の花唄",
+      "artist": "Vaundy",
+      "damRank": 2,
+      "joysoundRank": 3,
+      "score": 197,
+      "songUrl": "/songs/song-128/"
     },
     {
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 3,
-      "score": 196,
+      "joysoundRank": 4,
+      "score": 195,
       "songUrl": "/songs/song-131/"
     },
     {
@@ -49,8 +49,8 @@
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 5,
-      "joysoundRank": 9,
-      "score": 188,
+      "joysoundRank": 10,
+      "score": 187,
       "songUrl": "/songs/song-134/"
     },
     {
@@ -73,8 +73,8 @@
       "title": "IRIS OUT",
       "artist": "米津玄師",
       "damRank": 37,
-      "joysoundRank": 10,
-      "score": 155,
+      "joysoundRank": 9,
+      "score": 156,
       "songUrl": "/songs/iris-out-34/"
     },
     {
