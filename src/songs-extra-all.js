@@ -1,8 +1,8 @@
 import { EXTRA_SONGS as BASE_EXTRA_SONGS } from '/src/songs-extra.js'
-import { CATALOG_500_SONGS } from './songs-catalog-500.js'
+import { CATALOG_ALL_SONGS } from './songs-catalog-all.js'
 
 const catalogSongsWithStableIds =
-  CATALOG_500_SONGS.map(
+  CATALOG_ALL_SONGS.map(
     (song, index) => ({
       ...song,
       id: 10000 + index,

@@ -2,7 +2,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { SONGS as BASE_SONGS } from '../src/songs.js'
-import { CATALOG_500_SONGS } from '../src/songs-catalog-500.js'
+import { CATALOG_ALL_SONGS } from '../src/songs-catalog-all.js'
 import { VERIFIED_RANGE_ALL } from '../src/songs-verified-all.js'
 
 const root = path.resolve(
@@ -67,7 +67,7 @@ if (new Set(keys).size !== EXPECTED_VERIFIED_COUNT) {
 
 const knownSongKeys = new Set([
   ...BASE_SONGS.map(key),
-  ...CATALOG_500_SONGS.map(key),
+  ...CATALOG_ALL_SONGS.map(key),
 ])
 
 for (const song of VERIFIED_RANGE_ALL) {
@@ -191,6 +191,16 @@ for (const title of [
   'Lovesick Girls',
   'TT',
   "I CAN'T STOP ME",
+  'Tomorrow never knows',
+  '天体観測',
+  'U.S.A.',
+  '純恋歌',
+  'ヒカリヘ',
+  'First Love',
+  'モニタリング',
+  '絶対アイドル辞めないで',
+  'MAESTRO',
+  'Chk Chk Boom',
 ]) {
   if (!bundle.includes(title)) {
     throw new Error(
@@ -216,5 +226,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 9 SEO hubs, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 9 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
 )
