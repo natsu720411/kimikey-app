@@ -10,7 +10,7 @@ const root = path.resolve(
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 644
+const EXPECTED_VERIFIED_COUNT = 646
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -110,6 +110,7 @@ const hubs = [
   'popular-song-ranges-6',
   'popular-song-ranges-7',
   'popular-song-ranges-8',
+  'popular-song-ranges-9',
 ]
 
 for (const hub of hubs) {
@@ -188,6 +189,8 @@ for (const title of [
   'YES or YES',
   'Kill This Love',
   'Lovesick Girls',
+  'TT',
+  "I CAN'T STOP ME",
 ]) {
   if (!bundle.includes(title)) {
     throw new Error(
@@ -213,5 +216,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 8 SEO hubs, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 9 SEO hubs, range ordering and app-data mapping OK`
 )
