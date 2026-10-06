@@ -86,7 +86,7 @@ const artistSections=[...byArtist.entries()].map(([artist,artistSongs])=>{
   const links=artistSongs.map(song=>`<a class="song" href="/songs/${song.slug}/"><span><strong>${escapeHtml(song.title)}</strong></span><span>${song.lowLabel}〜${song.highLabel}</span></a>`).join('')
   return `<h2 class="artist">${escapeHtml(artist)}</h2><div class="songs">${links}</div>`
 }).join('')
-const hubDescription='Mrs. GREEN APPLE、YOASOBI、米津玄師、Vaundy、あいみょん、HANA、Aimer、IVEなど追加100曲の音域を一覧で掲載。'z、HANA、Snow Man、NiziUの追加100曲の音域を一覧で掲載。'
+const hubDescription='Mrs. GREEN APPLE、YOASOBI、米津玄師、Vaundy、あいみょん、HANA、Aimer、IVEなど追加100曲の音域を一覧で掲載。'
 fs.writeFileSync(path.join(hubDir,'index.html'),
 `<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>人気曲追加100曲の音域一覧 第20弾｜キミキー</title><meta name="description" content="${escapeHtml(hubDescription)}"><meta name="robots" content="index, follow"><link rel="canonical" href="${SITE}/popular-song-ranges-20/"><style>${css}</style></head><body><main class="wrap"><a class="logo" href="/">🎤 キミキー</a><article class="card"><h1>追加100曲の音域一覧 第20弾</h1><p>曲単位の公開情報で確認できた最低音・最高音を、音域の目安として掲載しています。</p>${artistSections}</article></main></body></html>`,'utf8')
 
