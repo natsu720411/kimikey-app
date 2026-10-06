@@ -8,13 +8,14 @@ import { VERIFIED_RANGE_BATCH_12 } from '../src/songs-verified-batch-12.js'
 import { VERIFIED_RANGE_BATCH_13 } from '../src/songs-verified-batch-13.js'
 import { VERIFIED_RANGE_BATCH_14 } from '../src/songs-verified-batch-14.js'
 import { VERIFIED_RANGE_BATCH_15 } from '../src/songs-verified-batch-15.js'
+import { VERIFIED_RANGE_BATCH_16 } from '../src/songs-verified-batch-16.js'
 
 const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 1248
+const EXPECTED_VERIFIED_COUNT = 1348
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -121,6 +122,7 @@ const hubs = [
   'popular-song-ranges-13',
   'popular-song-ranges-14',
   'popular-song-ranges-15',
+  'popular-song-ranges-16',
 ]
 
 for (const hub of hubs) {
@@ -264,6 +266,20 @@ for (const song of VERIFIED_RANGE_BATCH_15) {
   }
 }
 
+if (VERIFIED_RANGE_BATCH_16.length !== 100) {
+  throw new Error(
+    `Expected 100 batch-16 songs, got ${VERIFIED_RANGE_BATCH_16.length}`
+  )
+}
+
+for (const song of VERIFIED_RANGE_BATCH_16) {
+  if (!bundle.includes(song.title)) {
+    throw new Error(
+      `Search bundle is missing batch-16 song: ${song.artist} / ${song.title}`
+    )
+  }
+}
+
 const sitemap = fs.readFileSync(
   path.join(root, 'dist', 'sitemap.xml'),
   'utf8'
@@ -281,5 +297,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 15 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 16 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
 )
