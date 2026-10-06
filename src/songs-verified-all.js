@@ -10,6 +10,7 @@ import { VERIFIED_RANGE_BATCH_9 } from './songs-verified-batch-9.js'
 import { VERIFIED_RANGE_BATCH_10 } from './songs-verified-batch-10.js'
 import { VERIFIED_RANGE_BATCH_11 } from './songs-verified-batch-11.js'
 import { VERIFIED_RANGE_BATCH_12 } from './songs-verified-batch-12.js'
+import { VERIFIED_RANGE_BATCH_13 } from './songs-verified-batch-13.js'
 
 export const VERIFIED_RANGE_ALL = [
   ...VERIFIED_RANGE_100,
@@ -24,4 +25,5 @@ export const VERIFIED_RANGE_ALL = [
   ...VERIFIED_RANGE_BATCH_10,
   ...VERIFIED_RANGE_BATCH_11,
   ...VERIFIED_RANGE_BATCH_12,
+  ...VERIFIED_RANGE_BATCH_13,
 ]
