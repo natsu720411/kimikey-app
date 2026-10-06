@@ -1,15 +1,15 @@
 // 出典確認済み音域 第12弾
-// 検索カタログから、最低音・最高音を曲単位で確認できた100曲を追加します。
-// 主に地声最低音・地声最高音を音域の目安として採用します。
+// 検索カタログ第2弾から、最低音・最高音を確認できた100曲を追加します。
+// 参照元の地声最低音・地声最高音を音域の目安として採用します。
 
 function rows(artist, source, entries) {
-  return entries.map(([title, lowLabel, highLabel, customSource]) => ({
+  return entries.map(([title, lowLabel, highLabel]) => ({
     artist,
     title,
     lowLabel,
     highLabel,
     rangeVerified: true,
-    rangeSource: customSource || source,
+    rangeSource: source,
   }))
 }
 
@@ -37,18 +37,7 @@ export const VERIFIED_RANGE_BATCH_12 = [
     ["Phantom Joke", "mid2A", "hiC"],
     ["kaleido proud fiesta", "mid1F", "hiC#"],
     ["センチメンタルピリオド", "mid1F", "hiB"],
-  ]),
-
-  ...rows("槇原敬之", "https://w.atwiki.jp/saikouon_dokoda/pages/277.html", [
-    ["どんなときも。", "mid1F", "hiA#"],
-    ["もう恋なんてしない", "mid1C#", "hiA"],
-    ["遠く遠く", "mid1F#", "mid2F#"],
-    ["SPY", "mid1F", "mid2G"],
-    ["冬がはじまるよ", "mid1E", "mid2G"],
-    ["北風〜君にとどきますように〜", "mid1E", "mid2F#"],
-    ["No.1", "mid1F", "mid2G#"],
-    ["僕が一番欲しかったもの", "mid1C", "hiA#"],
-    ["ANSWER", "mid1F#", "hiA"],
+    ["リニアブルーを聴きながら", "mid1G#", "hiC"],
   ]),
 
   ...rows("小田和正", "https://w.atwiki.jp/saikouon_dokoda/pages/172.html", [
@@ -62,42 +51,6 @@ export const VERIFIED_RANGE_BATCH_12 = [
     ["ダイジョウブ", "mid1D#", "hiA#"],
     ["今日も どこかで", "mid1D", "hiA"],
     ["その日が来るまで", "mid1D", "mid2F#"],
-  ]),
-
-  ...rows("FUNKY MONKEY BABYS", "https://w.atwiki.jp/saikouon_dokoda/pages/603.html", [
-    ["あとひとつ", "mid1D", "hiA"],
-    ["ちっぽけな勇気", "mid1G", "hiA"],
-    ["ヒーロー", "mid1G", "mid2G"],
-    ["告白", "mid1G", "hiA#"],
-    ["旅立ち", "mid1G", "mid2G"],
-    ["桜", "mid1F#", "hiA"],
-    ["希望の唄", "mid1G#", "mid2G#"],
-    ["大切", "mid1D#", "hiA"],
-    ["悲しみなんて笑い飛ばせ", "mid1F", "mid2G"],
-    ["サヨナラじゃない", "mid1G#", "mid2G#"],
-  ]),
-
-  ...rows("flumpool", "https://w.atwiki.jp/saikouon_dokoda/pages/518.html", [
-    ["君に届け", "mid1A#", "mid2G#"],
-    ["花になれ", "mid1E", "hiA"],
-    ["証", "mid1A#", "hiA"],
-    ["星に願いを", "mid1F#", "hiA"],
-    ["MW 〜Dear Mr. & Ms. ピカレスク〜", "mid1B", "hiA"],
-    ["Over the rain 〜ひかりの橋〜", "mid1C#", "hiA#"],
-    ["残像", "lowG", "mid2G"],
-    ["春風", "mid1A", "hiA"],
-  ]),
-
-  ...rows("SHISHAMO", "https://w.atwiki.jp/saikouon_dokoda/pages/1058.html", [
-    ["明日も", "mid1G#", "hiC"],
-    ["君と夏フェス", "mid2B", "hiC"],
-    ["恋する", "mid1G#", "hiC#"],
-    ["量産型彼氏", "mid1G#", "hiC#"],
-    ["熱帯夜", "mid2A", "hiA"],
-    ["僕に彼女ができたんだ", "mid2A#", "hiC#"],
-    ["ほら、笑ってる", "mid1G#", "hiC#"],
-    ["水色の日々", "mid2B", "hiC#"],
-    ["君の隣にいたいから", "mid1G", "hiD", "https://keytube.net/song/detail/2070"],
   ]),
 
   ...rows("宇多田ヒカル", "https://w.atwiki.jp/saikouon_dokoda/pages/159.html", [
@@ -122,7 +75,7 @@ export const VERIFIED_RANGE_BATCH_12 = [
     ["スター", "mid1A", "hiC#"],
     ["桜の時", "mid1G#", "hiC#"],
     ["恋のスーパーボール", "mid1E", "hiB"],
-    ["相思相愛", "mid1G#", "hiC#", "https://keytube.net/song/detail/111905"],
+    ["相思相愛", "mid1G#", "hiB"],
     ["ストロー", "mid1F#", "hiB"],
   ]),
 
@@ -139,12 +92,59 @@ export const VERIFIED_RANGE_BATCH_12 = [
     ["人生は夢だらけ", "mid2A#", "hiC#"],
   ]),
 
-  ...rows("DA PUMP", "https://w.atwiki.jp/saikouon_dokoda/pages/237.html", [
-    ["if...", "mid1E", "hiA"],
-    ["U.S.A.", "mid2B", "hiB"],
-    ["P.A.R.T.Y. 〜ユニバース・フェスティバル〜", "mid1E", "hiC#"],
-    ["Purple The Orion", "mid1E", "hiA"],
-    ["ごきげんだぜっ!〜Nothing But Something〜", "mid2A#", "hiA"],
+  ...rows("FUNKY MONKEY BABYS", "https://w.atwiki.jp/saikouon_dokoda/pages/603.html", [
+    ["あとひとつ", "mid1D", "hiA"],
+    ["ちっぽけな勇気", "mid1G", "hiA"],
+    ["ヒーロー", "mid1G", "mid2G"],
+    ["告白", "mid1G", "hiA#"],
+    ["旅立ち", "mid1G", "mid2G"],
+    ["桜", "mid1F#", "hiA"],
+    ["希望の唄", "mid1G#", "mid2G#"],
+    ["大切", "mid1D#", "hiA"],
+    ["悲しみなんて笑い飛ばせ", "mid1F", "mid2G"],
+    ["サヨナラじゃない", "mid1G#", "mid2G#"],
+  ]),
+
+  ...rows("flumpool", "https://w.atwiki.jp/saikouon_dokoda/pages/518.html", [
+    ["君に届け", "mid1A#", "mid2G#"],
+    ["花になれ", "mid1E", "hiA"],
+    ["証", "mid1A#", "hiA"],
+    ["星に願いを", "mid1F#", "hiA"],
+    ["MW 〜Dear Mr. & Ms. ピカレスク〜", "mid1B", "hiA"],
+    ["Over the rain 〜ひかりの橋〜", "mid1C#", "hiA#"],
+    ["残像", "lowG", "mid2G"],
+    ["春風", "mid1A", "hiA"],
+    ["夜は眠れるかい？", "mid1B", "hiB"],
+  ]),
+
+  ...rows("SHISHAMO", "https://w.atwiki.jp/saikouon_dokoda/pages/1058.html", [
+    ["明日も", "mid1G#", "hiC"],
+    ["君と夏フェス", "mid2B", "hiC"],
+    ["恋する", "mid1G#", "hiC#"],
+    ["量産型彼氏", "mid1G#", "hiC#"],
+    ["熱帯夜", "mid2A", "hiA"],
+    ["僕に彼女ができたんだ", "mid2A#", "hiC#"],
+    ["ほら、笑ってる", "mid1G#", "hiC#"],
+    ["水色の日々", "mid2B", "hiC#"],
+  ]),
+
+  ...rows("東京事変", "https://w.atwiki.jp/saikouon_dokoda/pages/250.html", [
+    ["群青日和", "mid2A#", "hiD#"],
+    ["遭難", "mid2B", "hiD"],
+    ["能動的三分間", "mid1F#", "hiE"],
+    ["閃光少女", "mid1G#", "hiD#"],
+    ["キラーチューン", "mid1F#", "hiC#"],
+    ["修羅場", "mid2A", "hiE"],
+    ["透明人間", "mid2A", "hiD"],
+    ["新しい文明開化", "mid2A#", "hiC#"],
+  ]),
+
+  ...rows("ゲスの極み乙女。", "https://w.atwiki.jp/saikouon_dokoda/pages/893.html", [
+    ["私以外私じゃないの", "mid1G", "hiA"],
+    ["ロマンスがありあまる", "mid1E", "hiA"],
+    ["キラーボール", "mid1C#", "mid2G#"],
+    ["猟奇的なキスを私にして", "mid1F", "hiB"],
+    ["デジタルモグラ", "mid1F", "hiA"],
   ]),
 
 ]
