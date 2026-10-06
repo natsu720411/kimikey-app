@@ -10,7 +10,7 @@ const root = path.resolve(
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 646
+const EXPECTED_VERIFIED_COUNT = 748
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -111,6 +111,7 @@ const hubs = [
   'popular-song-ranges-7',
   'popular-song-ranges-8',
   'popular-song-ranges-9',
+  'popular-song-ranges-10',
 ]
 
 for (const hub of hubs) {
@@ -201,6 +202,13 @@ for (const title of [
   '絶対アイドル辞めないで',
   'MAESTRO',
   'Chk Chk Boom',
+  '世界が終るまでは…',
+  '紅',
+  'ROSIER',
+  'JAM',
+  '桜坂',
+  '瞳をとじて',
+  'ガッツだぜ!!',
 ]) {
   if (!bundle.includes(title)) {
     throw new Error(
@@ -226,5 +234,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 9 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 10 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
 )
