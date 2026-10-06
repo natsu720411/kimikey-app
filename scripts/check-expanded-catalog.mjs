@@ -4,6 +4,7 @@ import { fileURLToPath } from 'node:url'
 import { SONGS as BASE_SONGS } from '../src/songs.js'
 import { CATALOG_ALL_SONGS } from '../src/songs-catalog-all.js'
 import { VERIFIED_RANGE_ALL } from '../src/songs-verified-all.js'
+import { VERIFIED_RANGE_BATCH_12 } from '../src/songs-verified-batch-12.js'
 
 const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
@@ -215,6 +216,14 @@ for (const title of [
   if (!bundle.includes(title)) {
     throw new Error(
       `Search bundle is missing added song: ${title}`
+    )
+  }
+}
+
+for (const song of VERIFIED_RANGE_BATCH_12) {
+  if (!bundle.includes(song.title)) {
+    throw new Error(
+      `Search bundle is missing batch-12 song: ${song.artist} / ${song.title}`
     )
   }
 }

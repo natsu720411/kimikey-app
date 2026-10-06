@@ -86,7 +86,6 @@ export const VERIFIED_RANGE_BATCH_12 = [
     ["ギブス", "mid2A", "hiD"],
     ["本能", "mid1G", "hiD"],
     ["罪と罰", "mid1D", "hiD#"],
-    ["茎(STEM)〜大名遊ビ編〜", "mid1D", "hiE"],
     ["長く短い祭", "mid2A", "hiD#"],
     ["NIPPON", "mid2B", "hiF"],
     ["人生は夢だらけ", "mid2A#", "hiC#"],
@@ -145,6 +144,10 @@ export const VERIFIED_RANGE_BATCH_12 = [
     ["キラーボール", "mid1C#", "mid2G#"],
     ["猟奇的なキスを私にして", "mid1F", "hiB"],
     ["デジタルモグラ", "mid1F", "hiA"],
+  ]),
+
+  ...rows("DA PUMP", "https://w.atwiki.jp/saikouon_dokoda/pages/237.html", [
+    ["if...", "mid1E", "hiA"],
   ]),
 
 ]
