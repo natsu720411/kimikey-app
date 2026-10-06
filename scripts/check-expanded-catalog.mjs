@@ -10,7 +10,7 @@ const root = path.resolve(
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 748
+const EXPECTED_VERIFIED_COUNT = 848
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -112,6 +112,7 @@ const hubs = [
   'popular-song-ranges-8',
   'popular-song-ranges-9',
   'popular-song-ranges-10',
+  'popular-song-ranges-11',
 ]
 
 for (const hub of hubs) {
@@ -234,5 +235,5 @@ for (const hub of hubs) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 10 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 11 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
 )
