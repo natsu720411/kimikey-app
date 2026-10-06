@@ -34,7 +34,10 @@ export const VERIFIED_RANGE_BATCH_21 = [
 
   ...rows("TWICE", [
     ["Hare Hare", "mid1G", "hiE", "https://keytube.net/song/detail/107319"],
-    ["The Feels", "mid1F#", "hiD", "https://keytube.net/song/detail/99021"],
+  ]),
+
+  ...rows("嵐", [
+    ["Happiness", "mid1D", "hiA#", "https://keytube.net/song/detail/3180"],
   ]),
 
   ...rows("aespa", [
