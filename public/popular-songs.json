@@ -1,18 +1,10 @@
 {
-  "updatedAt": "2026-10-06T03:42:23.418Z",
+  "updatedAt": "2026-10-07T03:42:42.660Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
-    {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198,
-      "songUrl": "/songs/song-33/"
-    },
     {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
@@ -25,17 +17,25 @@
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 4,
-      "score": 195,
+      "joysoundRank": 2,
+      "score": 197,
       "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 5,
-      "score": 194,
+      "joysoundRank": 4,
+      "score": 195,
       "songUrl": "/songs/song-130/"
+    },
+    {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 5,
+      "score": 195,
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "サウダージ",
@@ -49,8 +49,8 @@
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 5,
-      "joysoundRank": 10,
-      "score": 187,
+      "joysoundRank": 9,
+      "score": 188,
       "songUrl": "/songs/song-134/"
     },
     {
@@ -73,8 +73,8 @@
       "title": "IRIS OUT",
       "artist": "米津玄師",
       "damRank": 37,
-      "joysoundRank": 9,
-      "score": 156,
+      "joysoundRank": 10,
+      "score": 155,
       "songUrl": "/songs/iris-out-34/"
     },
     {
