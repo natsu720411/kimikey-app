@@ -154,6 +154,41 @@ for (const hub of hubs) {
   }
 }
 
+const songRangeIndexFile = path.join(
+  root,
+  'dist',
+  'song-range-index',
+  'index.html'
+)
+
+if (!fs.existsSync(songRangeIndexFile)) {
+  throw new Error('Missing generated song-range-index hub')
+}
+
+const songRangeIndexHtml = fs.readFileSync(
+  songRangeIndexFile,
+  'utf8'
+)
+
+for (const hub of hubs) {
+  if (!songRangeIndexHtml.includes(`/${hub}/`)) {
+    throw new Error(
+      `Song range index is missing hub link: ${hub}`
+    )
+  }
+
+  const hubHtml = fs.readFileSync(
+    path.join(root, 'dist', hub, 'index.html'),
+    'utf8'
+  )
+
+  if (!hubHtml.includes('/song-range-index/')) {
+    throw new Error(
+      `Hub is missing song-range-index backlink: ${hub}`
+    )
+  }
+}
+
 const assetsDir = path.join(
   root,
   'dist',
@@ -408,6 +443,10 @@ for (const hub of hubs) {
   }
 }
 
+if (!sitemap.includes('https://kimikey-app.vercel.app/song-range-index/')) {
+  throw new Error('Sitemap missing song-range-index/')
+}
+
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 23 SEO hubs, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 23 SEO hubs + crawl index, expanded search catalog present, range ordering and app-data mapping OK`
 )

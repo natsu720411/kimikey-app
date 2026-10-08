@@ -102,7 +102,7 @@ function optimizeSongPage({
 <section>
   <h2>${escapeHtml(sectionHeading)}</h2>
   <p>${sectionBody}</p>
-  <p><a href="/vocal-range-check/">自分の音域を無料で測る</a> ・ <a href="/vocal-range-table/">low・mid・hiの音域表を見る</a></p>
+  <p><a href="/vocal-range-check/">自分の音域を無料で測る</a> ・ <a href="/vocal-range-table/">low・mid・hiの音域表を見る</a> ・ <a href="/song-range-index/">曲の音域一覧を見る</a></p>
 </section>`
 
   html = insertBeforeArticleEnd(html, `<!-- ${marker} -->`, block)
@@ -291,7 +291,7 @@ const hiaHtml = `<!doctype html>
     <div class="links">
       <a href="/vocal-range-check/">自分の音域を測る</a>
       <a href="/vocal-range-table/">low・mid・hiの音域表を見る</a>
-      <a href="/">歌いやすい曲を探す</a>
+      <a href="/">歌いやすい曲を探す</a>\n      <a href="/song-range-index/">曲の音域一覧を見る</a>
     </div>
   </article>
 </main>
