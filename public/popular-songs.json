@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-07T03:42:42.660Z",
+  "updatedAt": "2026-10-08T03:43:04.956Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -9,33 +9,33 @@
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 3,
-      "score": 197,
+      "joysoundRank": 2,
+      "score": 198,
       "songUrl": "/songs/song-128/"
+    },
+    {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 4,
+      "score": 196,
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 2,
-      "score": 197,
+      "joysoundRank": 3,
+      "score": 196,
       "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 4,
-      "score": 195,
-      "songUrl": "/songs/song-130/"
-    },
-    {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
       "joysoundRank": 5,
-      "score": 195,
-      "songUrl": "/songs/song-33/"
+      "score": 194,
+      "songUrl": "/songs/song-130/"
     },
     {
       "title": "サウダージ",
