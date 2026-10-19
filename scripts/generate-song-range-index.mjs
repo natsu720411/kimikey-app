@@ -66,6 +66,8 @@ const venusHref = findSongHref('星屑ビーナス')
 if (venusHref) priorityPages.push([venusHref, '星屑ビーナス', 'Aimer'])
 const kizunaHref = findSongHref('絆ノ奇跡')
 if (kizunaHref) priorityPages.push([kizunaHref, '絆ノ奇跡', 'MAN WITH A MISSION × milet'])
+const kyoshinshoHref = findSongHref('狭心症')
+if (kyoshinshoHref) priorityPages.push([kyoshinshoHref, '狭心症', 'RADWIMPS'])
 
 const hubCards = rangeHubPaths.map((hub, index) =>
   '<a class="hub-card" href="/' + hub + '/"><strong>音域一覧 第' + (index + 1) + '弾</strong><span>確認済みの曲別音域ページを見る</span></a>'

@@ -33,9 +33,9 @@ if (!fs.existsSync(pagePath)) {
 
 let html = fs.readFileSync(pagePath, 'utf8')
 
-const title = '音域チェック｜無料で声の最低音・最高音を測定｜キミキー'
-const description = '無料の音域チェックで自分の声の最低音・最高音を確認。スマホやパソコンのマイクを使い、ブラウザですぐ音域を測定できます。登録不要で、限界音域・快適音域やカラオケのキー選びにも使えます。'
-const heading = '無料の音域チェック｜自分の最低音・最高音を測る'
+const title = '音域測定・声の高さ測定｜マイクで無料チェック｜キミキー'
+const description = '無料の音域測定・声の高さ測定サイト。スマホやパソコンのマイクで声を測り、最低音・最高音・今の声の高さをブラウザですぐ確認できます。登録不要でカラオケのキー選びにも使えます。'
+const heading = '音域測定・声の高さ測定｜マイクで最低音・最高音を測る'
 
 html = setTitle(html, title)
 html = setMetaDescription(html, description)
@@ -45,19 +45,19 @@ html = html.replace(/<h1[^>]*>[\s\S]*?<\/h1>/i, `<h1>${heading}</h1>`)
 
 html = html.replace(
   /<p class="lead">[\s\S]*?<\/p>/i,
-  `<p class="lead">\n        「自分の音域をチェックしたい」「最低音と最高音を無料で測りたい」という人向けの音域チェックです。スマホやパソコンのマイクを使って、今出している声の高さを確認しながら自分の音域を調べられます。\n      </p>`
+  `<p class="lead">\n        「音域測定をしたい」「声の高さを測りたい」「マイクで自分の声をはかりたい」という人向けの無料チェックです。スマホやパソコンのマイクを使って、今出している声の高さを確認しながら最低音・最高音と自分の音域を調べられます。\n      </p>`
 )
 
 html = html.replace(
   /<h2>\s*無料の音域測定サイト「キミキー」でできること\s*<\/h2>/i,
-  '<h2>無料の音域チェック「キミキー」でできること</h2>'
+  '<h2>マイクで声を測る無料サイト「キミキー」でできること</h2>'
 )
 
 const marker = '<!-- vocal-range-check-seo-20261006 -->'
 if (!html.includes(marker)) {
   const block = `\n      ${marker}\n      <section>\n        <h2>音域チェックで分かること</h2>\n        <p>キミキーの音域チェックでは、声を低い方から高い方へ出しながら、<strong>最低音・最高音</strong>を確認できます。さらに、頑張れば出せる<strong>限界音域</strong>と、歌の中で使いやすい<strong>快適音域</strong>を分けて記録できます。</p>\n        <p>測定した音域は、曲の最低音・最高音との比較や、カラオケで自分に合うキーを考える目安として使えます。アプリのインストールは不要で、ブラウザからそのまま利用できます。</p>\n        <div class="point">\n          <strong>音域チェックの流れ</strong>\n          <p>① マイクを開始 → ② 低い声を出す → ③ 高い声を出す → ④ 最低音・最高音を確認、の順で進めます。</p>\n        </div>\n        <a class="cta" href="/">🎤 無料で音域チェックを始める</a>\n      </section>\n`
 
-  const anchor = '<h2>無料の音域チェック「キミキー」でできること</h2>'
+  const anchor = '<h2>マイクで声を測る無料サイト「キミキー」でできること</h2>'
   if (!html.includes(anchor)) {
     throw new Error('Vocal range check content anchor was not found')
   }
@@ -66,8 +66,48 @@ if (!html.includes(marker)) {
 
 const schemaMarker = '"name": "キミキー 音域チェック"'
 if (!html.includes(schemaMarker)) {
-  const schema = `\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "WebApplication",\n    "name": "キミキー 音域チェック",\n    "url": "https://kimikey-app.vercel.app/vocal-range-check/",\n    "applicationCategory": "UtilitiesApplication",\n    "operatingSystem": "Web",\n    "description": "ブラウザのマイクを使って自分の声の最低音・最高音を確認できる無料の音域チェックです。",\n    "offers": {\n      "@type": "Offer",\n      "price": "0",\n      "priceCurrency": "JPY"\n    }\n  }\n  </script>\n`
+  const schema = `\n  <script type="application/ld+json">\n  {\n    "@context": "https://schema.org",\n    "@type": "WebApplication",\n    "name": "キミキー 音域チェック",\n    "url": "https://kimikey-app.vercel.app/vocal-range-check/",\n    "applicationCategory": "UtilitiesApplication",\n    "operatingSystem": "Web",\n    "description": "ブラウザのマイクを使って自分の声の高さ・最低音・最高音を確認できる無料の音域測定サイトです。",\n    "offers": {\n      "@type": "Offer",\n      "price": "0",\n      "priceCurrency": "JPY"\n    }\n  }\n  </script>\n`
   html = html.replace('</head>', `${schema}\n</head>`)
+}
+
+
+const faqMarker = '"@type": "FAQPage"'
+if (!html.includes(faqMarker)) {
+  const faqSchema = `
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "マイクで声の高さを測れますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。キミキーではスマホやパソコンのマイクを使って、ブラウザ上で今出している声の高さを確認できます。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "自分の音域を無料で測定できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。最低音と最高音を確認して、自分の音域を無料で測定できます。登録やアプリのインストールは不要です。"
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "スマホだけで音域測定できますか？",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "はい。スマホのブラウザでマイクを許可すれば音域測定に使えます。"
+        }
+      }
+    ]
+  }
+  </script>
+  `
+  html = html.replace('</head>', `${faqSchema}\n</head>`)
 }
 
 fs.writeFileSync(pagePath, html, 'utf8')
@@ -76,7 +116,7 @@ if (fs.existsSync(homePath)) {
   let home = fs.readFileSync(homePath, 'utf8')
   home = home.replace(
     /(<a\s+href="\/vocal-range-check\/"[^>]*>)[\s\S]*?(<\/a>)/i,
-    '$1無料の音域チェックで最低音・最高音を調べる$2'
+    '$1マイクで声の高さ・音域を無料測定する$2'
   )
   fs.writeFileSync(homePath, home, 'utf8')
 }

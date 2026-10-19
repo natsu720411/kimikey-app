@@ -166,10 +166,24 @@ optimizeSongPage({
   description: 'Ado「唱」の音域はmid1D〜hihiA#。最低音mid1D・最高音hihiA#を確認し、自分の音域との比較やキー調整に使えます。',
   heading: '唱（Ado）の音域・最高音・最低音',
   sectionHeading: '「唱」の音域を調べる方へ',
-  sectionBody: 'Ado「唱」は声の使い方やテンポも歌いやすさに影響します。まず曲の最低音・最高音と自分の音域を比べて、原曲キーのまま歌えそうか確認してみてください。',
+  sectionBody: 'Ado「唱」の音域はmid1D〜hihiA#です。最低音mid1D・最高音hihiA#と自分の音域を比べたうえで、声の使い方やテンポも含めて原曲キーで歌えそうか確認してみてください。',
   marker: 'gsc-opportunity-show',
 })
 
+
+
+const kyoshinshoPage = findSongPageByH1('狭心症')
+const kyoshinshoHref = publicHref(kyoshinshoPage)
+
+optimizeSongPage({
+  filePath: kyoshinshoPage,
+  title: '狭心症（RADWIMPS）の音域はmid1D〜hiA#｜最高音・最低音｜キミキー',
+  description: 'RADWIMPS「狭心症」の音域はmid1D〜hiA#。最低音mid1D・最高音hiA#を確認し、自分の音域との比較やカラオケのキー調整に使えます。',
+  heading: '狭心症（RADWIMPS）の音域・最高音・最低音',
+  sectionHeading: '「狭心症 音域」で探している方へ',
+  sectionBody: 'RADWIMPS「狭心症」の音域はmid1D〜hiA#です。最低音と最高音を自分の声域と比べることで、原曲キーで歌えるか、キー調整が必要かを考える目安にできます。',
+  marker: 'gsc-opportunity-kyoshinsho',
+})
 
 const venusPage = findSongPageByH1('星屑ビーナス')
 
@@ -188,9 +202,9 @@ const kizunaHref = publicHref(kizunaPage)
 
 optimizeSongPage({
   filePath: kizunaPage,
-  title: '絆ノ奇跡（絆の奇跡）の音域・最高音｜MAN WITH A MISSION × milet｜キミキー',
-  description: 'MAN WITH A MISSION × milet「絆ノ奇跡」の音域、最低音・最高音を確認。「絆の奇跡 音域」で検索した方も、自分の音域と比較できます。',
-  heading: '絆ノ奇跡（絆の奇跡）の音域・最高音',
+  title: '絆の奇跡（正式名：絆ノ奇跡）の音域｜最高音・最低音｜キミキー',
+  description: '「絆の奇跡 音域」で探している方へ。正式名はMAN WITH A MISSION × milet「絆ノ奇跡」。曲の最低音・最高音と自分の音域を比較できます。',
+  heading: '絆の奇跡（正式名：絆ノ奇跡）の音域・最高音・最低音',
   sectionHeading: '「絆の奇跡 音域」で探している方へ',
   sectionBody: '正式な曲名表記は「絆ノ奇跡」です。「絆の奇跡」とひらがなの「の」で検索した場合も、この曲の音域ページで最低音・最高音と自分の音域を比較できます。',
   marker: 'gsc-opportunity-kizuna',
@@ -328,5 +342,5 @@ if (fs.existsSync(sitemapPath)) {
 }
 
 console.log(
-  `✅ GSC opportunities optimized: 花占い, HAPPY BIRTHDAY, 唱, 星屑ビーナス, 絆ノ奇跡 (${kizunaHref}), hiA frequency`
+  `✅ GSC opportunities optimized: 花占い, HAPPY BIRTHDAY, 唱, 狭心症, 星屑ビーナス, 絆ノ奇跡 (${kizunaHref}), hiA frequency`
 )

@@ -463,6 +463,47 @@ if (!sitemap.includes('https://kimikey-app.vercel.app/song-range-index/')) {
   throw new Error('Sitemap missing song-range-index/')
 }
 
+
+const vocalCheckFile = path.join(
+  root,
+  'dist',
+  'vocal-range-check',
+  'index.html'
+)
+
+if (!fs.existsSync(vocalCheckFile)) {
+  throw new Error('Missing vocal-range-check page')
+}
+
+const vocalCheckHtml = fs.readFileSync(
+  vocalCheckFile,
+  'utf8'
+)
+
+for (const requiredText of [
+  '音域測定・声の高さ測定',
+  'マイクで声を測る',
+  '"@type": "FAQPage"',
+]) {
+  if (!vocalCheckHtml.includes(requiredText)) {
+    throw new Error(
+      `vocal-range-check SEO text missing: ${requiredText}`
+    )
+  }
+}
+
+for (const requiredText of [
+  '狭心症',
+  '絆ノ奇跡',
+  '唱',
+]) {
+  if (!songRangeIndexHtml.includes(requiredText)) {
+    throw new Error(
+      `Song range index missing priority SEO target: ${requiredText}`
+    )
+  }
+}
+
 console.log(
   `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 24 SEO hubs + crawl index, expanded search catalog present, range ordering and app-data mapping OK`
 )
