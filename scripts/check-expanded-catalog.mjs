@@ -504,6 +504,42 @@ for (const requiredText of [
   }
 }
 
+
+const highestNoteIndexFile = path.join(
+  root,
+  'dist',
+  'highest-note-songs',
+  'index.html'
+)
+
+if (!fs.existsSync(highestNoteIndexFile)) {
+  throw new Error('Missing highest-note-songs index')
+}
+
+const highestNoteIndexHtml = fs.readFileSync(
+  highestNoteIndexFile,
+  'utf8'
+)
+
+if (!highestNoteIndexHtml.includes('最高音から曲を探す')) {
+  throw new Error('Highest-note index content missing')
+}
+
+let verifiedPagesWithRecommendations = 0
+for (const song of VERIFIED_RANGE_ALL.slice(0, 50)) {
+  const match = bundle.includes(song.title)
+  if (!match) continue
+  verifiedPagesWithRecommendations += 1
+}
+
+if (verifiedPagesWithRecommendations < 40) {
+  throw new Error('Verified song bundle coverage unexpectedly low')
+}
+
+if (!songRangeIndexHtml.includes('/highest-note-songs/')) {
+  throw new Error('Song range index missing highest-note link')
+}
+
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 24 SEO hubs + crawl index, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 24 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
 )
