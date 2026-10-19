@@ -634,6 +634,36 @@ const EXTRA_CATALOG = {
   ],
 }
 
+
+const LATEST_2026_HITS = [
+  { artist: "Ayumu Imazu", title: "結び", year: 2026 },
+  { artist: "EBiDAN (恵比寿学園男子部)", title: "Yes! 東京", year: 2026 },
+  { artist: "Mrs. GREEN APPLE", title: "共犯", year: 2026 },
+  { artist: "YAO", title: "ありふれた世界の果てに (feat. Awich, CHICO CARLITO, ONE OK ROCK & Paledusk)", year: 2026 },
+  { artist: "KAITO", title: "swim?", year: 2026 },
+  { artist: "ずっと真夜中でいいのに。", title: "あかねさす頃", year: 2026 },
+  { artist: "ROIROM", title: "MISTIA", year: 2026 },
+  { artist: "L'Arc-en-Ciel", title: "総天然色 (Radio Edit)", year: 2026 },
+  { artist: "RADWIMPS", title: "夕星-ゆうづつ-", year: 2026 },
+  { artist: "JO1", title: "ANIMAL", year: 2026 },
+  { artist: "10-FEET", title: "Fortress Defense", year: 2026 },
+  { artist: "Aぇ! group", title: "Mrs.Vampire", year: 2026 },
+  { artist: "M!LK", title: "時空超えてユニバース", year: 2026 },
+  { artist: "Kroi", title: "SPIN", year: 2026 },
+  { artist: "Kis-My-Ft2", title: "Escape", year: 2026 },
+  { artist: "Hiromitsu Kitayama", title: "BACKLASH", year: 2026 },
+  { artist: "Aiobahn +81", title: "DEMON'S SHOT (feat. DEMONDICE)", year: 2026 },
+  { artist: "MAZZEL × STARGLOW", title: "Nameless MythS", year: 2026 },
+  { artist: "Mrs. GREEN APPLE", title: "Variety", year: 2026 },
+  { artist: "Vaundy", title: "Destiny Journeys", year: 2026 },
+  { artist: "日向坂46", title: "イチャイチャ虫", year: 2026 },
+  { artist: "CANDY TUNE", title: "総意♡So Free", year: 2026 },
+  { artist: "超ときめき♡宣伝部", title: "大盛りハッピー", year: 2026 },
+  { artist: "モーニング娘。’26", title: "Lonely...But not Alone", year: 2026 },
+  { artist: "OWV", title: "Lovey-Dovey", year: 2026 },
+  { artist: "櫻坂46", title: "愛MUST BE", year: 2026 },
+]
+
 const EXTRA_RANGE_DATA = {
   Ado: {
     "うっせぇわ": {
@@ -3075,8 +3105,8 @@ const EXTRA_RANGE_DATA = {
 },
 }
 
-export const EXTRA_SONGS =
-  Object.entries(EXTRA_CATALOG).flatMap(
+export const EXTRA_SONGS = [
+  ...Object.entries(EXTRA_CATALOG).flatMap(
     ([artist, titles]) =>
       titles.map(title => ({
         title,
@@ -3084,4 +3114,17 @@ export const EXTRA_SONGS =
         rangeVerified: false,
         ...(EXTRA_RANGE_DATA[artist]?.[title] ?? {}),
       }))
+  ),
+  ...LATEST_2026_HITS.map(song => ({
+    ...song,
+    rangeVerified: false,
+    ...(EXTRA_RANGE_DATA[song.artist]?.[song.title] ?? {}),
+  })),
+].filter(
+  (song, index, allSongs) =>
+    allSongs.findIndex(
+      item =>
+        item.artist === song.artist &&
+        item.title === song.title
+    ) === index
   )
