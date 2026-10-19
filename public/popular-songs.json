@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-18T08:12:39.929Z",
+  "updatedAt": "2026-10-19T09:10:26.204Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -9,9 +9,17 @@
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198,
+      "joysoundRank": 3,
+      "score": 197,
       "songUrl": "/songs/song-33/"
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
+      "damRank": 3,
+      "joysoundRank": 2,
+      "score": 197,
+      "songUrl": "/songs/song-131/"
     },
     {
       "title": "怪獣の花唄",
@@ -20,14 +28,6 @@
       "joysoundRank": 4,
       "score": 196,
       "songUrl": "/songs/song-128/"
-    },
-    {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
-      "damRank": 3,
-      "joysoundRank": 3,
-      "score": 196,
-      "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
@@ -49,16 +49,16 @@
       "title": "サウダージ",
       "artist": "ポルノグラフィティ",
       "damRank": 7,
-      "joysoundRank": 6,
-      "score": 189,
+      "joysoundRank": 7,
+      "score": 188,
       "songUrl": "/songs/song-132/"
     },
     {
       "title": "水平線",
       "artist": "back number",
       "damRank": 9,
-      "joysoundRank": 7,
-      "score": 186,
+      "joysoundRank": 6,
+      "score": 187,
       "songUrl": "/songs/song-49/"
     },
     {
