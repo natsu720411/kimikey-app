@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-19T09:10:26.204Z",
+  "updatedAt": "2026-10-20T08:45:58.306Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -49,16 +49,16 @@
       "title": "サウダージ",
       "artist": "ポルノグラフィティ",
       "damRank": 7,
-      "joysoundRank": 7,
-      "score": 188,
+      "joysoundRank": 6,
+      "score": 189,
       "songUrl": "/songs/song-132/"
     },
     {
       "title": "水平線",
       "artist": "back number",
       "damRank": 9,
-      "joysoundRank": 6,
-      "score": 187,
+      "joysoundRank": 7,
+      "score": 186,
       "songUrl": "/songs/song-49/"
     },
     {
