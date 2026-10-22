@@ -1,5 +1,6 @@
 import { EXTRA_SONGS } from './songs-extra.js'
-import { VERIFIED_RANGE_ALL } from './songs-verified-all.js'
+import { VERIFIED_RANGE_BATCH_24 } from './songs-verified-batch-24.js'
+import { VERIFIED_RANGE_BATCH_25 } from './songs-verified-batch-25.js'
 // キミキー 楽曲データ 100曲版
 // ※音域は「音域ベースの目安」です。
 // 音源・歌唱方法・裏声を含むかなどによって実際の音域は異なる場合があります。
@@ -22,7 +23,7 @@ const NOTE_INDEX = {
 function pitchLabelToMidi(label) {
   const match =
     label.match(
-      /^(low|mid1|mid2|hi|hihi)([A-G](?:#)?)$/
+      /^(low|mid1|mid2|hi)([A-G](?:#)?)$/
     )
 
   if (!match) {
@@ -38,7 +39,6 @@ function pitchLabelToMidi(label) {
     mid1: 45, // A2
     mid2: 57, // A3
     hi: 69,   // A4
-    hihi: 81, // A5
   }
 
   const offsetFromA = {
@@ -3402,9 +3402,12 @@ const ALL_RAW_SONGS =
       ) === index
   )
 
-const VERIFIED_RANGE_MAP =
+const RECENT_VERIFIED_RANGE_MAP =
   new Map(
-    VERIFIED_RANGE_ALL.map(song => [
+    [
+      ...VERIFIED_RANGE_BATCH_24,
+      ...VERIFIED_RANGE_BATCH_25,
+    ].map(song => [
       `${song.artist}\u0000${song.title}`,
       song,
     ])
@@ -3415,7 +3418,7 @@ export const SONGS =
     (song, index) => {
 
       const verified =
-        VERIFIED_RANGE_MAP.get(
+        RECENT_VERIFIED_RANGE_MAP.get(
           `${song.artist}\u0000${song.title}`
         )
 
