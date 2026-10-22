@@ -34,19 +34,26 @@ const known = new Set([...SONGS, ...CATALOG_ALL_SONGS].map(key))
 const verified = new Set(VERIFIED_RANGE_ALL.map(key))
 if (SONGS.length !== 971 || known.size !== 1945)
   throw new Error('Search count mismatch: ' + SONGS.length + '/' + known.size)
-if ([...known].filter(k => verified.has(k)).length !== 1738)
-  throw new Error('Verified count mismatch')
+
+const verifiedKnownCount = [...known].filter(k => verified.has(k)).length
+if (verifiedKnownCount !== VERIFIED_RANGE_ALL.length)
+  throw new Error('Verified count mismatch: ' + verifiedKnownCount + '/' + VERIFIED_RANGE_ALL.length)
+
 for (const s of latest) {
-  if (!known.has(key(s)) || verified.has(key(s)))
-    throw new Error('New song missing or incorrectly verified: ' + s.artist + ' / ' + s.title)
+  if (!known.has(key(s)))
+    throw new Error('New song missing from search data: ' + s.artist + ' / ' + s.title)
 }
-const cards = latest.map(s =>
-  '<li><a class="title" href="/?search=' + encodeURIComponent(s.title) + '">' +
-  escape(s.title) + '</a><span>' + escape(s.artist) +
-  ' ・ <strong>音域未確認</strong></span><small><a href="' + s.chartSource +
-  '" rel="noopener noreferrer" target="_blank">オリコン' + chartNames[s.chartType] +
-  ' ' + s.chartRank + '位</a></small></li>'
-).join('\n')
+
+const newlyVerified = latest.filter(s => verified.has(key(s)))
+const cards = latest.map(s => {
+  const isVerified = verified.has(key(s))
+  return '<li><a class="title" href="/?search=' + encodeURIComponent(s.title) + '">' +
+    escape(s.title) + '</a><span>' + escape(s.artist) +
+    ' ・ <strong>' + (isVerified ? '音域確認済み' : '音域未確認') +
+    '</strong></span><small><a href="' + s.chartSource +
+    '" rel="noopener noreferrer" target="_blank">オリコン' + chartNames[s.chartType] +
+    ' ' + s.chartRank + '位</a></small></li>'
+}).join('\n')
 const css = '*{box-sizing:border-box}body{margin:0;background:#f6f7fb;color:#222;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.7}main{max-width:900px;margin:25px auto;padding:0 14px}article{padding:24px;background:white;border-radius:18px}a{color:#2948a8}ul{list-style:none;padding:0;display:grid;gap:10px}li{border:1px solid #e8e9ef;border-radius:12px;padding:13px;display:flex;flex-direction:column;gap:3px}.title{font-size:1.1rem;font-weight:700}li span{font-size:.92rem;color:#555}li strong{color:#98671b}small{font-size:.8rem}'
 const html = [
   '<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
@@ -56,7 +63,7 @@ const html = [
   '<style>' + css + '</style></head><body><main><a href="/">🎤 キミキー</a><article>',
   '<h1>2026年10月の人気新曲27曲</h1>',
   '<p>2026年10月26日付のオリコン週間デジタルシングル・週間シングル・週間ストリーミングのチャート掲載曲から、キミキー未登録の曲だけを追加しました。</p>',
-  '<p>追加27曲、音域確認済み0曲。音域を推測せず、確認できるまで「音域未確認」と表示します。曲名を押すとキミキーの検索画面で探せます。</p>',
+  '<p>追加27曲のうち、現在<strong>' + newlyVerified.length + '曲</strong>は出典確認済みの音域があります。未確認曲は推測せず「音域未確認」と表示します。曲名を押すとキミキーの検索画面で探せます。</p>',
   '<ul>' + cards + '</ul>',
   '<p><a href="/song-range-index/">確認済み音域一覧</a> ・ <a href="/highest-note-songs/">最高音別一覧</a> ・ <a href="/">音域測定</a></p>',
   '</article></main></body></html>',
@@ -64,8 +71,15 @@ const html = [
 const dir = path.join(pub,'latest-chart-songs')
 fs.mkdirSync(dir,{recursive:true})
 fs.writeFileSync(path.join(dir,'index.html'),html,'utf8')
-const stats = { checkedAt:'2026-10-22',chartDate:'2026-10-26',addedSongs:27,newlyVerified:0,
-  searchableSongs:known.size,verifiedSongs:1738,unverifiedSongs:known.size-1738 }
+const stats = {
+  checkedAt:'2026-10-22',
+  chartDate:'2026-10-26',
+  addedSongs:27,
+  newlyVerified:newlyVerified.length,
+  searchableSongs:known.size,
+  verifiedSongs:verifiedKnownCount,
+  unverifiedSongs:known.size-verifiedKnownCount,
+}
 fs.writeFileSync(path.join(pub,'latest-chart-stats.json'),JSON.stringify(stats,null,2)+'\n','utf8')
 for (const relative of ['songs/index.html','song-range-index/index.html']) {
   const file = path.join(pub,relative)
@@ -80,4 +94,4 @@ const url = 'https://kimikey-app.vercel.app/latest-chart-songs/'
 if (!sitemap.includes('<loc>'+url+'</loc>'))
   sitemap = sitemap.replace('</urlset>','<url><loc>'+url+'</loc><changefreq>weekly</changefreq></url>\n</urlset>')
 fs.writeFileSync(sitemapFile,sitemap,'utf8')
-console.log('Latest chart songs: 27 added, 0 verified, 1945 searchable, 1738 verified, 207 unverified')
+console.log(`Latest chart songs: 27 added, ${newlyVerified.length} newly verified, ${known.size} searchable, ${verifiedKnownCount} verified, ${known.size-verifiedKnownCount} unverified`)
