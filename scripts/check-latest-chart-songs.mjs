@@ -15,13 +15,15 @@ const bundle = fs.readdirSync(path.join(dist,'assets')).filter(s=>s.endsWith('.j
 if (!sitemap.includes('<loc>https://kimikey-app.vercel.app/latest-chart-songs/</loc>') ||
     !songs.includes('href="/latest-chart-songs/"') ||
     !hub.includes('href="/latest-chart-songs/"') ||
-    !page.includes('音域未確認') || !page.includes('/?search=') ||
+    !page.includes('音域未確認') ||
+    !page.includes('音域確認済み') ||
+    !page.includes('/?search=') ||
     !bundle.includes('URLSearchParams')) throw new Error('Latest chart integration missing')
 for (const s of latest) {
   if (!bundle.includes(s.title) || !page.includes(s.title.replaceAll('&','&amp;')))
     throw new Error('Song missing from deployed bundle: '+s.artist+' / '+s.title)
 }
-if (stats.addedSongs!==27 || stats.newlyVerified!==0 ||
-    stats.searchableSongs!==1945 || stats.verifiedSongs!==1738 ||
-    stats.unverifiedSongs!==207) throw new Error('Latest chart counts mismatch')
-console.log('Latest chart check passed: 27 new, 1945 searchable, 1738 verified, 207 unverified')
+if (stats.addedSongs!==27 || stats.newlyVerified!==4 ||
+    stats.searchableSongs!==1945 || stats.verifiedSongs!==1743 ||
+    stats.unverifiedSongs!==202) throw new Error('Latest chart counts mismatch')
+console.log('Latest chart check passed: 27 new, 4 newly verified, 1945 searchable, 1743 verified, 202 unverified')
