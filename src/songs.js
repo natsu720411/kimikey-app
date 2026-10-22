@@ -1,4 +1,5 @@
 import { EXTRA_SONGS } from './songs-extra.js'
+import { VERIFIED_RANGE_ALL } from './songs-verified-all.js'
 // キミキー 楽曲データ 100曲版
 // ※音域は「音域ベースの目安」です。
 // 音源・歌唱方法・裏声を含むかなどによって実際の音域は異なる場合があります。
@@ -21,7 +22,7 @@ const NOTE_INDEX = {
 function pitchLabelToMidi(label) {
   const match =
     label.match(
-      /^(low|mid1|mid2|hi)([A-G](?:#)?)$/
+      /^(low|mid1|mid2|hi|hihi)([A-G](?:#)?)$/
     )
 
   if (!match) {
@@ -37,6 +38,7 @@ function pitchLabelToMidi(label) {
     mid1: 45, // A2
     mid2: 57, // A3
     hi: 69,   // A4
+    hihi: 81, // A5
   }
 
   const offsetFromA = {
@@ -3400,30 +3402,48 @@ const ALL_RAW_SONGS =
       ) === index
   )
 
+const VERIFIED_RANGE_MAP =
+  new Map(
+    VERIFIED_RANGE_ALL.map(song => [
+      `${song.artist}\u0000${song.title}`,
+      song,
+    ])
+  )
+
 export const SONGS =
   ALL_RAW_SONGS.map(
     (song, index) => {
 
-      const minMidi =
-  song.lowLabel
-    ? pitchLabelToMidi(
-        song.lowLabel
-      )
-    : null
+      const verified =
+        VERIFIED_RANGE_MAP.get(
+          `${song.artist}\u0000${song.title}`
+        )
 
-const maxMidi =
-  song.highLabel
-    ? pitchLabelToMidi(
-        song.highLabel
-      )
-    : null
+      const resolvedSong =
+        verified
+          ? { ...song, ...verified }
+          : song
+
+      const minMidi =
+        resolvedSong.lowLabel
+          ? pitchLabelToMidi(
+              resolvedSong.lowLabel
+            )
+          : null
+
+      const maxMidi =
+        resolvedSong.highLabel
+          ? pitchLabelToMidi(
+              resolvedSong.highLabel
+            )
+          : null
 
       return {
         id:
           song.id ??
           index + 1,
 
-        ...song,
+        ...resolvedSong,
 
         minMidi,
         maxMidi,
@@ -3441,7 +3461,9 @@ const maxMidi =
           maxMidi,
 
         sourceType:
-          '音域ベースの目安',
+          verified
+            ? '出典確認済み音域'
+            : '音域ベースの目安',
       }
     }
   )

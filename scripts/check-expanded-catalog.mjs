@@ -17,13 +17,14 @@ import { VERIFIED_RANGE_BATCH_21 } from '../src/songs-verified-batch-21.js'
 import { VERIFIED_RANGE_BATCH_22 } from '../src/songs-verified-batch-22.js'
 import { VERIFIED_RANGE_BATCH_23 } from '../src/songs-verified-batch-23.js'
 import { VERIFIED_RANGE_BATCH_24 } from '../src/songs-verified-batch-24.js'
+import { VERIFIED_RANGE_BATCH_25 } from '../src/songs-verified-batch-25.js'
 
 const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 1738
+const EXPECTED_VERIFIED_COUNT = 1743
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -139,6 +140,7 @@ const hubs = [
   'popular-song-ranges-22',
   'popular-song-ranges-23',
   'popular-song-ranges-24',
+  'popular-song-ranges-25',
 ]
 
 for (const hub of hubs) {
@@ -443,6 +445,42 @@ for (const song of VERIFIED_RANGE_BATCH_24) {
   }
 }
 
+if (VERIFIED_RANGE_BATCH_25.length !== 5) {
+  throw new Error(
+    `Expected 5 batch-25 songs, got ${VERIFIED_RANGE_BATCH_25.length}`
+  )
+}
+
+for (const song of VERIFIED_RANGE_BATCH_25) {
+  if (!bundle.includes(song.title)) {
+    throw new Error(
+      `Search bundle is missing batch-25 song: ${song.artist} / ${song.title}`
+    )
+  }
+}
+
+for (const song of [
+  ...VERIFIED_RANGE_BATCH_24,
+  ...VERIFIED_RANGE_BATCH_25,
+]) {
+  const appSong = BASE_SONGS.find(
+    candidate =>
+      candidate.artist === song.artist &&
+      candidate.title === song.title
+  )
+
+  if (
+    !appSong ||
+    appSong.rangeVerified !== true ||
+    !Number.isFinite(appSong.minMidi) ||
+    !Number.isFinite(appSong.maxMidi)
+  ) {
+    throw new Error(
+      `Verified range is not available in app search data: ${song.artist} / ${song.title}`
+    )
+  }
+}
+
 const sitemap = fs.readFileSync(
   path.join(root, 'dist', 'sitemap.xml'),
   'utf8'
@@ -541,5 +579,5 @@ if (!songRangeIndexHtml.includes('/highest-note-songs/')) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 24 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 25 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
 )
