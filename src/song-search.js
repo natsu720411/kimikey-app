@@ -14,6 +14,7 @@ export function initSongSearch({
     )
 
   let artistListQuery = ''
+  let initialSearchApplied = false
 
 
   function hasRangeData(song) {
@@ -633,6 +634,15 @@ export function initSongSearch({
   function renderSearchResults(
     searchText = ''
   ) {
+    if (!initialSearchApplied) {
+      initialSearchApplied = true
+      const queryFromLink =
+        new URLSearchParams(window.location.search).get('search')?.trim() ?? ''
+      if (queryFromLink && !normalizeSearchText(searchText)) {
+        searchText = queryFromLink
+        input.value = queryFromLink
+      }
+    }
     container.innerHTML = ''
 
     if (!normalizeSearchText(searchText)) {
