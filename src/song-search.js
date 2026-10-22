@@ -1,7 +1,8 @@
 export function initSongSearch({
   songs,
   onSongSelected,
-  getSongPageHref
+  getSongPageHref,
+  getSongFit = null,
 }) {
   const container =
     document.querySelector(
@@ -12,6 +13,13 @@ export function initSongSearch({
     document.querySelector(
       '#songSearch'
     )
+
+  const filterRangeReady = document.querySelector('#filterRangeReady')
+  const filterFitsRange = document.querySelector('#filterFitsRange')
+  const filterRecentRelease = document.querySelector('#filterRecentRelease')
+  const filterHighNote = document.querySelector('#filterHighNote')
+  const clearSongFilters = document.querySelector('#clearSongFilters')
+  const filterSummary = document.querySelector('#songFilterSummary')
 
   let artistListQuery = ''
   let initialSearchApplied = false
@@ -80,6 +88,76 @@ export function initSongSearch({
       token =>
         normalizedValue.includes(token)
     )
+  }
+
+
+  function getFilterState() {
+    return {
+      readyOnly: Boolean(filterRangeReady?.checked),
+      fitsRange: Boolean(filterFitsRange?.checked),
+      recentRelease: Boolean(filterRecentRelease?.checked),
+      highNoteMax: Number(filterHighNote?.value || 0),
+    }
+  }
+
+  function hasActiveFilters() {
+    const state = getFilterState()
+    return (
+      state.readyOnly ||
+      state.fitsRange ||
+      state.recentRelease ||
+      state.highNoteMax > 0
+    )
+  }
+
+  function passesFilters(song) {
+    const state = getFilterState()
+
+    if (state.readyOnly && !hasRangeData(song)) return false
+
+    if (
+      state.fitsRange &&
+      (typeof getSongFit !== 'function' || !getSongFit(song))
+    ) {
+      return false
+    }
+
+    if (
+      state.recentRelease &&
+      (!Number.isFinite(song.year) || song.year < new Date().getFullYear() - 1)
+    ) {
+      return false
+    }
+
+    if (
+      state.highNoteMax > 0 &&
+      (!Number.isFinite(song.maxMidi) || song.maxMidi > state.highNoteMax)
+    ) {
+      return false
+    }
+
+    return true
+  }
+
+  function updateFilterSummary(count = null) {
+    if (!filterSummary) return
+
+    const state = getFilterState()
+    const labels = []
+    if (state.readyOnly) labels.push('音域あり')
+    if (state.fitsRange) labels.push('自分に合う')
+    if (state.recentRelease) labels.push('新曲')
+    if (state.highNoteMax > 0) labels.push('最高音指定')
+
+    if (labels.length === 0) {
+      filterSummary.textContent = ''
+      return
+    }
+
+    filterSummary.textContent =
+      count === null
+        ? `絞り込み中：${labels.join('・')}`
+        : `${count}曲見つかりました ・ ${labels.join('・')}`
   }
 
 
@@ -354,7 +432,8 @@ export function initSongSearch({
               matchesSearch(
                 song.title,
                 searchText
-              )
+              ) &&
+              passesFilters(song)
           )
         )
 
@@ -645,7 +724,8 @@ export function initSongSearch({
     }
     container.innerHTML = ''
 
-    if (!normalizeSearchText(searchText)) {
+    if (!normalizeSearchText(searchText) && !hasActiveFilters()) {
+      updateFilterSummary()
       renderBrowseButton()
       return
     }
@@ -686,7 +766,8 @@ export function initSongSearch({
             matchesSearch(
               `${song.artist} ${song.title}`,
               searchText
-            )
+            ) &&
+            passesFilters(song)
         )
       )
 
@@ -705,19 +786,22 @@ export function initSongSearch({
     }
 
 
-    artistResults.forEach(
-      artist => {
-        container.appendChild(
-          createArtistButton(
-            artist,
-            'search'
+    if (!hasActiveFilters()) {
+      artistResults.forEach(
+        artist => {
+          container.appendChild(
+            createArtistButton(
+              artist,
+              'search'
+            )
           )
-        )
-      }
-    )
+        }
+      )
+    }
 
+    updateFilterSummary(songResults.length)
 
-    songResults.forEach(
+    songResults.slice(0, 120).forEach(
       song => {
         container.appendChild(
           createSongButton(song)
@@ -735,6 +819,25 @@ export function initSongSearch({
       )
     }
   )
+
+  for (const control of [
+    filterRangeReady,
+    filterFitsRange,
+    filterRecentRelease,
+    filterHighNote,
+  ]) {
+    control?.addEventListener('change', () => {
+      renderSearchResults(input.value)
+    })
+  }
+
+  clearSongFilters?.addEventListener('click', () => {
+    if (filterRangeReady) filterRangeReady.checked = false
+    if (filterFitsRange) filterFitsRange.checked = false
+    if (filterRecentRelease) filterRecentRelease.checked = false
+    if (filterHighNote) filterHighNote.value = ''
+    renderSearchResults(input.value)
+  })
 
 
   return renderSearchResults

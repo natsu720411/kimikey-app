@@ -159,7 +159,9 @@ app.innerHTML = `
       <div class="step-arrow" aria-hidden="true">→</div>
       <div class="step-item"><span>3</span><strong>歌いたい曲を診断</strong></div>
     </div>
-    <button id="micButton" class="main-button top-mic-button">🎤 マイクを開始</button>
+    <button id="quickMeasureButton" class="quick-measure-button">✨ かんたん音域測定（12秒）</button>
+    <p class="quick-measure-help">1回タップして、低い声から高い声まで「あー」と伸ばすだけ。自動で終了します。</p>
+    <button id="micButton" class="main-button top-mic-button secondary-mic-button">🎤 マイクだけ開始</button>
   </section>
 
 
@@ -620,6 +622,36 @@ app.innerHTML = `
 
   </section>
 
+  <section id="resultSummaryCard" class="result-summary-card hidden" aria-live="polite">
+    <div class="result-summary-head">
+      <div>
+        <span class="result-summary-kicker">測定結果</span>
+        <h2>🎤 あなたの音域まとめ</h2>
+      </div>
+      <button id="shareRangeResult" class="share-result-button" type="button">共有</button>
+    </div>
+
+    <div class="result-summary-range">
+      <strong id="resultRangeText">---</strong>
+      <span id="resultRangeType">---</span>
+    </div>
+
+    <div class="result-summary-grid">
+      <div><span>音域幅</span><strong id="resultRangeWidth">---</strong></div>
+      <div><span>中心音</span><strong id="resultCenterNote">---</strong></div>
+      <div><span>目安</span><strong id="resultRangeLevel">---</strong></div>
+    </div>
+
+    <p id="resultSummaryMessage" class="result-summary-message"></p>
+
+    <div class="result-next-actions">
+      <button id="scrollToRecommendations" type="button">おすすめ曲を見る</button>
+      <button id="scrollToSongSearch" type="button">曲を検索する</button>
+    </div>
+
+    <p id="shareResultFeedback" class="share-result-feedback" aria-live="polite"></p>
+  </section>
+
 
   <button
     id="resetRange"
@@ -667,6 +699,30 @@ app.innerHTML = `
       class="recommendations"
     ></div>
 
+    <button id="moreRecommendationsButton" class="more-recommendations-button hidden" type="button">
+      おすすめをもっと見る
+    </button>
+
+  </section>
+
+  <section class="song-section personal-song-section" aria-labelledby="personalSongsTitle">
+    <div class="section-heading">
+      <span class="section-icon" aria-hidden="true">⭐</span>
+      <div>
+        <h2 id="personalSongsTitle">お気に入り・最近見た曲</h2>
+        <p>この端末に保存されます。ログインは不要です。</p>
+      </div>
+    </div>
+    <div class="personal-song-columns">
+      <div>
+        <h3>⭐ お気に入り</h3>
+        <div id="favoriteSongs" class="personal-song-list"></div>
+      </div>
+      <div>
+        <h3>🕘 最近見た曲</h3>
+        <div id="recentSongs" class="personal-song-list"></div>
+      </div>
+    </div>
   </section>
 
 
@@ -827,6 +883,33 @@ app.innerHTML = `
     </div>
 
 
+    <div class="song-filter-panel" aria-label="曲検索フィルター">
+      <label class="filter-chip">
+        <input id="filterRangeReady" type="checkbox">
+        <span>音域ありのみ</span>
+      </label>
+      <label class="filter-chip">
+        <input id="filterFitsRange" type="checkbox">
+        <span>自分の音域に合う</span>
+      </label>
+      <label class="filter-chip">
+        <input id="filterRecentRelease" type="checkbox">
+        <span>新曲</span>
+      </label>
+      <label class="filter-select-label">
+        <span>最高音</span>
+        <select id="filterHighNote">
+          <option value="">指定なし</option>
+          <option value="69">hiA以下</option>
+          <option value="71">hiB以下</option>
+          <option value="72">hiC以下</option>
+          <option value="74">hiD以下</option>
+          <option value="76">hiE以下</option>
+        </select>
+      </label>
+      <button id="clearSongFilters" class="clear-filter-button" type="button">条件をクリア</button>
+    </div>
+
     <input
       id="songSearch"
       class="song-search"
@@ -834,6 +917,7 @@ app.innerHTML = `
       placeholder="例：Lemon / 米津玄師"
     >
 
+    <div id="songFilterSummary" class="song-filter-summary"></div>
 
     <div
       id="songSearchResults"
@@ -928,6 +1012,15 @@ app.innerHTML = `
   ></div>
 
 </div>
+
+    <div class="analysis-actions">
+      <button id="favoriteSelectedSong" class="favorite-song-button" type="button">
+        ☆ お気に入りに追加
+      </button>
+      <a id="openSelectedSongPage" class="open-song-page-button" href="/songs/">
+        曲ページを見る
+      </a>
+    </div>
 
     <button
       id="practiceSongKey"
@@ -1053,6 +1146,329 @@ let targetMidi = null
 
 let selectedSong = null
 let selectedSongAnalysis = null
+
+const FAVORITE_STORAGE_KEY = 'kimikey-favorite-songs-v1'
+const RECENT_STORAGE_KEY = 'kimikey-recent-songs-v1'
+const QUICK_MEASURE_SECONDS = 12
+
+let quickMeasurementActive = false
+let quickMeasurementTimer = null
+let quickMeasurementTick = null
+let recommendationDisplayCount = 5
+
+function songIdentity(song) {
+  return `${song.artist}\u0000${song.title}`
+}
+
+function loadStoredSongKeys(storageKey) {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(storageKey) ?? '[]')
+    return Array.isArray(parsed) ? parsed.filter(value => typeof value === 'string') : []
+  } catch {
+    return []
+  }
+}
+
+function saveStoredSongKeys(storageKey, values) {
+  localStorage.setItem(storageKey, JSON.stringify(values))
+}
+
+function findSongByIdentity(identity) {
+  return SONGS.find(song => songIdentity(song) === identity) ?? null
+}
+
+function getFavoriteKeys() {
+  return loadStoredSongKeys(FAVORITE_STORAGE_KEY)
+}
+
+function isFavoriteSong(song) {
+  return getFavoriteKeys().includes(songIdentity(song))
+}
+
+function toggleFavoriteSong(song) {
+  const identity = songIdentity(song)
+  const current = getFavoriteKeys()
+  const next = current.includes(identity)
+    ? current.filter(value => value !== identity)
+    : [identity, ...current].slice(0, 50)
+
+  saveStoredSongKeys(FAVORITE_STORAGE_KEY, next)
+  renderPersonalSongs()
+  updateSelectedSongActions()
+}
+
+function addRecentSong(song) {
+  const identity = songIdentity(song)
+  const current = loadStoredSongKeys(RECENT_STORAGE_KEY)
+  const next = [identity, ...current.filter(value => value !== identity)].slice(0, 12)
+  saveStoredSongKeys(RECENT_STORAGE_KEY, next)
+  renderPersonalSongs()
+}
+
+function createPersonalSongButton(song, favorite = false) {
+  const button = document.createElement('button')
+  button.type = 'button'
+  button.className = 'personal-song-item'
+  button.innerHTML = `
+    <span><strong>${song.title}</strong><small>${song.artist}</small></span>
+    <span aria-hidden="true">${favorite ? '★' : '›'}</span>
+  `
+  button.addEventListener('click', () => showSongAnalysis(song))
+  return button
+}
+
+function renderPersonalSongs() {
+  const favoriteContainer = document.querySelector('#favoriteSongs')
+  const recentContainer = document.querySelector('#recentSongs')
+  if (!favoriteContainer || !recentContainer) return
+
+  const favoriteSongs = getFavoriteKeys()
+    .map(findSongByIdentity)
+    .filter(Boolean)
+    .slice(0, 6)
+
+  const recentSongs = loadStoredSongKeys(RECENT_STORAGE_KEY)
+    .map(findSongByIdentity)
+    .filter(Boolean)
+    .slice(0, 6)
+
+  favoriteContainer.innerHTML = ''
+  recentContainer.innerHTML = ''
+
+  if (favoriteSongs.length === 0) {
+    favoriteContainer.innerHTML = '<p class="personal-empty">曲診断から☆を押すと保存できます</p>'
+  } else {
+    favoriteSongs.forEach(song => favoriteContainer.appendChild(createPersonalSongButton(song, true)))
+  }
+
+  if (recentSongs.length === 0) {
+    recentContainer.innerHTML = '<p class="personal-empty">調べた曲がここに残ります</p>'
+  } else {
+    recentSongs.forEach(song => recentContainer.appendChild(createPersonalSongButton(song)))
+  }
+}
+
+function updateSelectedSongActions() {
+  const favoriteButton = document.querySelector('#favoriteSelectedSong')
+  const pageLink = document.querySelector('#openSelectedSongPage')
+  if (!favoriteButton || !pageLink) return
+
+  if (!selectedSong) {
+    favoriteButton.disabled = true
+    favoriteButton.textContent = '☆ お気に入りに追加'
+    pageLink.href = '/songs/'
+    return
+  }
+
+  favoriteButton.disabled = false
+  favoriteButton.textContent = isFavoriteSong(selectedSong)
+    ? '★ お気に入り済み'
+    : '☆ お気に入りに追加'
+  favoriteButton.classList.toggle('active', isFavoriteSong(selectedSong))
+  pageLink.href = getSongPageHref(selectedSong)
+}
+
+function getRangeForSummary() {
+  if (hasComfortRange()) {
+    return {
+      low: comfortLowestMidi,
+      high: comfortHighestMidi,
+      label: '快適音域',
+    }
+  }
+
+  if (hasLimitRange()) {
+    return {
+      low: limitLowestMidi,
+      high: limitHighestMidi,
+      label: '限界音域',
+    }
+  }
+
+  return null
+}
+
+function getRangeLevel(centerMidi) {
+  if (centerMidi < 55) return '低音寄り'
+  if (centerMidi < 67) return '中音域'
+  return '高音寄り'
+}
+
+function renderResultSummary({ scroll = false } = {}) {
+  const card = document.querySelector('#resultSummaryCard')
+  if (!card) return
+
+  const range = getRangeForSummary()
+  if (!range) {
+    card.classList.add('hidden')
+    return
+  }
+
+  const width = range.high - range.low
+  const center = Math.round((range.low + range.high) / 2)
+
+  document.querySelector('#resultRangeText').textContent =
+    `${midiToNoteName(range.low)} 〜 ${midiToNoteName(range.high)}`
+  document.querySelector('#resultRangeType').textContent = range.label
+  document.querySelector('#resultRangeWidth').textContent =
+    `${width}半音（約${(width / 12).toFixed(1)}オクターブ）`
+  document.querySelector('#resultCenterNote').textContent = midiToNoteName(center)
+  document.querySelector('#resultRangeLevel').textContent = getRangeLevel(center)
+  document.querySelector('#resultSummaryMessage').textContent =
+    hasComfortRange()
+      ? '快適音域を基準に、歌いやすい曲とおすすめキーを探せます。'
+      : 'まずはこの音域で曲を探せます。快適音域も測るとキー判定がさらに細かくなります。'
+
+  card.classList.remove('hidden')
+
+  if (scroll) {
+    card.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  }
+}
+
+function buildRangeShareText() {
+  const range = getRangeForSummary()
+  if (!range) return ''
+  const width = range.high - range.low
+  return `🎤 キミキーで音域測定！\n${range.label}: ${midiToNoteName(range.low)}〜${midiToNoteName(range.high)}\n音域幅: ${width}半音\nhttps://kimikey-app.vercel.app/`
+}
+
+async function createRangeShareImage() {
+  const range = getRangeForSummary()
+  if (!range) return null
+
+  const canvas = document.createElement('canvas')
+  canvas.width = 1200
+  canvas.height = 630
+  const ctx = canvas.getContext('2d')
+
+  const gradient = ctx.createLinearGradient(0, 0, 1200, 630)
+  gradient.addColorStop(0, '#f7f3ff')
+  gradient.addColorStop(1, '#eef6ff')
+  ctx.fillStyle = gradient
+  ctx.fillRect(0, 0, 1200, 630)
+
+  ctx.fillStyle = '#7c4dff'
+  ctx.font = '700 42px sans-serif'
+  ctx.fillText('🎤 キミキー', 80, 100)
+
+  ctx.fillStyle = '#202026'
+  ctx.font = '700 54px sans-serif'
+  ctx.fillText('私の音域', 80, 195)
+
+  ctx.font = '700 86px sans-serif'
+  ctx.fillText(
+    `${midiToNoteName(range.low)} 〜 ${midiToNoteName(range.high)}`,
+    80,
+    320
+  )
+
+  const width = range.high - range.low
+  ctx.fillStyle = '#666672'
+  ctx.font = '500 34px sans-serif'
+  ctx.fillText(`${range.label} ・ ${width}半音（約${(width / 12).toFixed(1)}オクターブ）`, 80, 390)
+  ctx.fillText('kimikey-app.vercel.app', 80, 535)
+
+  return await new Promise(resolve => {
+    canvas.toBlob(blob => resolve(blob), 'image/png')
+  })
+}
+
+async function shareRangeResult() {
+  const text = buildRangeShareText()
+  if (!text) return
+
+  const feedback = document.querySelector('#shareResultFeedback')
+  try {
+    const blob = await createRangeShareImage()
+    const file = blob
+      ? new File([blob], 'kimikey-range.png', { type: 'image/png' })
+      : null
+
+    if (
+      file &&
+      navigator.share &&
+      navigator.canShare?.({ files: [file] })
+    ) {
+      await navigator.share({
+        title: 'キミキー音域測定結果',
+        text,
+        files: [file],
+      })
+      feedback.textContent = '共有メニューを開きました'
+      return
+    }
+
+    if (navigator.share) {
+      await navigator.share({
+        title: 'キミキー音域測定結果',
+        text,
+        url: 'https://kimikey-app.vercel.app/',
+      })
+      feedback.textContent = '共有メニューを開きました'
+      return
+    }
+
+    await navigator.clipboard.writeText(text)
+    feedback.textContent = '結果をクリップボードにコピーしました'
+  } catch (error) {
+    if (error?.name === 'AbortError') return
+    console.error(error)
+    feedback.textContent = '共有できませんでした。もう一度お試しください。'
+  }
+}
+
+function resetQuickMeasurementUi() {
+  quickMeasurementActive = false
+  if (quickMeasurementTimer) clearTimeout(quickMeasurementTimer)
+  if (quickMeasurementTick) clearInterval(quickMeasurementTick)
+  quickMeasurementTimer = null
+  quickMeasurementTick = null
+
+  const button = document.querySelector('#quickMeasureButton')
+  if (button) {
+    button.classList.remove('measuring')
+    button.textContent = '✨ かんたん音域測定（12秒）'
+  }
+}
+
+async function startQuickMeasurement() {
+  if (quickMeasurementActive) {
+    stopRangeMeasurement()
+    return
+  }
+
+  if (measuringMode) {
+    stopRangeMeasurement()
+  }
+
+  quickMeasurementActive = true
+  const button = document.querySelector('#quickMeasureButton')
+  button.classList.add('measuring')
+
+  await startRangeMeasurement('limit')
+
+  if (measuringMode !== 'limit') {
+    resetQuickMeasurementUi()
+    return
+  }
+
+  const startedAt = Date.now()
+  const updateCountdown = () => {
+    const elapsed = Math.floor((Date.now() - startedAt) / 1000)
+    const remaining = Math.max(0, QUICK_MEASURE_SECONDS - elapsed)
+    button.textContent = `⏹ 測定中… あと${remaining}秒（タップで終了）`
+  }
+
+  updateCountdown()
+  quickMeasurementTick = setInterval(updateCountdown, 250)
+  quickMeasurementTimer = setTimeout(() => {
+    if (quickMeasurementActive && measuringMode === 'limit') {
+      stopRangeMeasurement()
+    }
+  }, QUICK_MEASURE_SECONDS * 1000)
+}
+
 // ==========================================
 // 音域保存
 // ==========================================
@@ -1198,9 +1614,8 @@ function renderRecommendations() {
   )
 
 
-  // ★ ここで5曲だけにする
   const recommendations =
-    analysed.slice(0, 5)
+    analysed.slice(0, recommendationDisplayCount)
 
 
   recommendations.forEach(
@@ -1298,6 +1713,16 @@ function renderRecommendations() {
 
     }
   )
+
+  const moreButton = document.querySelector('#moreRecommendationsButton')
+  if (moreButton) {
+    const hasMore = analysed.length > recommendationDisplayCount
+    moreButton.classList.toggle('hidden', !hasMore)
+    moreButton.textContent =
+      recommendationDisplayCount <= 5
+        ? 'おすすめをもっと見る'
+        : '表示を5曲に戻す'
+  }
 }
 
 
@@ -1991,6 +2416,8 @@ function renderKeyShiftTable(
 function showSongAnalysis(song) {
 
   selectedSong = song
+  addRecentSong(song)
+  updateSelectedSongActions()
 
 
   const card =
@@ -4278,6 +4705,15 @@ function stopRangeMeasurement() {
       selectedSong
     )
   }
+
+  const wasQuickMeasurement = quickMeasurementActive
+  if (wasQuickMeasurement) {
+    resetQuickMeasurementUi()
+  }
+
+  renderResultSummary({
+    scroll: wasQuickMeasurement,
+  })
 }
 
 
@@ -4356,6 +4792,9 @@ document.querySelector(
 localStorage.removeItem(
   RANGE_STORAGE_KEY
 )
+
+    resetQuickMeasurementUi()
+    document.querySelector('#resultSummaryCard')?.classList.add('hidden')
 
     document.querySelector(
       '#limitLowestNote'
@@ -4441,8 +4880,44 @@ const renderSearchResults = initSongSearch({
   songs: SONGS,
   onSongSelected: showSongAnalysis,
   getSongPageHref,
+  getSongFit: song => {
+    if (!hasAnyRange()) return false
+    const result = calculateSongKey(song, {
+      limitLowestMidi,
+      limitHighestMidi,
+      comfortLowestMidi,
+      comfortHighestMidi,
+    })
+    return Boolean(result && (result.fitsComfort || result.fitsLimit))
+  },
 })
 renderSearchResults('')
+
+document.querySelector('#quickMeasureButton')?.addEventListener('click', startQuickMeasurement)
+
+document.querySelector('#shareRangeResult')?.addEventListener('click', shareRangeResult)
+
+document.querySelector('#favoriteSelectedSong')?.addEventListener('click', () => {
+  if (selectedSong) toggleFavoriteSong(selectedSong)
+})
+
+document.querySelector('#scrollToRecommendations')?.addEventListener('click', () => {
+  document.querySelector('#recommendations')?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+})
+
+document.querySelector('#scrollToSongSearch')?.addEventListener('click', () => {
+  const input = document.querySelector('#songSearch')
+  input?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+  setTimeout(() => input?.focus(), 350)
+})
+
+document.querySelector('#moreRecommendationsButton')?.addEventListener('click', () => {
+  recommendationDisplayCount = recommendationDisplayCount <= 5 ? 20 : 5
+  renderRecommendations()
+})
+
+renderPersonalSongs()
+updateSelectedSongActions()
 
 // 前回の音域を読み込み
 const restoredRange =
@@ -4452,6 +4927,7 @@ const restoredRange =
 if (restoredRange) {
 
   updateSavedRangeDisplay()
+  renderResultSummary()
 
 } else {
 
