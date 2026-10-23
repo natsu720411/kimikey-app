@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-22T08:48:23.541Z",
+  "updatedAt": "2026-10-23T08:43:50.314Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -22,20 +22,20 @@
       "songUrl": "/songs/song-131/"
     },
     {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 4,
-      "score": 196,
-      "songUrl": "/songs/song-33/"
-    },
-    {
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 5,
-      "score": 194,
+      "joysoundRank": 4,
+      "score": 195,
       "songUrl": "/songs/song-130/"
+    },
+    {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 5,
+      "score": 195,
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "さよならエレジー",
@@ -62,20 +62,20 @@
       "songUrl": "/songs/song-49/"
     },
     {
-      "title": "ドライフラワー",
-      "artist": "優里",
-      "damRank": 10,
-      "joysoundRank": 10,
-      "score": 182,
-      "songUrl": "/songs/song-71/"
-    },
-    {
       "title": "高嶺の花子さん",
       "artist": "back number",
       "damRank": 11,
       "joysoundRank": 9,
       "score": 182,
       "songUrl": "/songs/song-133/"
+    },
+    {
+      "title": "Yes! 東京",
+      "artist": "EBiDAN (恵比寿学園男子部)",
+      "damRank": 62,
+      "joysoundRank": 10,
+      "score": 130,
+      "songUrl": "/songs/yes-920/"
     },
     {
       "title": "ライラック",
