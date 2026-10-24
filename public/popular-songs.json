@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-23T08:43:50.314Z",
+  "updatedAt": "2026-10-24T08:18:38.431Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -22,20 +22,20 @@
       "songUrl": "/songs/song-131/"
     },
     {
-      "title": "マリーゴールド",
-      "artist": "あいみょん",
-      "damRank": 3,
-      "joysoundRank": 4,
-      "score": 195,
-      "songUrl": "/songs/song-130/"
-    },
-    {
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 5,
-      "score": 195,
+      "joysoundRank": 4,
+      "score": 196,
       "songUrl": "/songs/song-33/"
+    },
+    {
+      "title": "マリーゴールド",
+      "artist": "あいみょん",
+      "damRank": 3,
+      "joysoundRank": 5,
+      "score": 194,
+      "songUrl": "/songs/song-130/"
     },
     {
       "title": "さよならエレジー",
