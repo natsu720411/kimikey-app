@@ -160,6 +160,25 @@ optimizeSongPage({
   marker: 'gsc-opportunity-happy-birthday',
 })
 
+// Helpful answers for the highest-impression query group, without
+// repeatedly changing the title/description updated on 2026-10-19.
+const happyBirthdayPath = path.join(songsDir, 'happy-birthday-41', 'index.html')
+let happyBirthdayHtml = read(happyBirthdayPath)
+const happyBirthdayFaqMarker = '<!-- gsc-happy-birthday-intent-faq-20261026 -->'
+const happyBirthdayFaq = `
+${happyBirthdayFaqMarker}
+<section>
+  <h2>back number「HAPPY BIRTHDAY」の音域についてよくある質問</h2>
+  <h3>「ハッピーバースデー」の最高音・最低音は？</h3>
+  <p>このページで参照しているback number「HAPPY BIRTHDAY」の音域は、<strong>最低音lowG#（G#2）〜最高音hiB（B4）</strong>です。原曲キーで歌うときは、高音だけでなく低音が出るかも確認してください。</p>
+  <h3>誕生日に歌う「Happy Birthday to You」と同じ曲ですか？</h3>
+  <p>いいえ。このページは<strong>back numberの「HAPPY BIRTHDAY」</strong>の音域を紹介しています。誕生日の定番曲「Happy Birthday to You」とは別の楽曲です。</p>
+  <h3>自分に合うカラオケキーを調べるには？</h3>
+  <p>まず<a href="/vocal-range-check/">マイクで自分の音域を測定</a>し、曲の最低音・最高音と比べてください。<a href="/artists/back-number/">back numberのほかの曲</a>も音域から探せます。</p>
+</section>`
+happyBirthdayHtml = insertBeforeArticleEnd(happyBirthdayHtml, happyBirthdayFaqMarker, happyBirthdayFaq)
+write(happyBirthdayPath, happyBirthdayHtml)
+
 optimizeSongPage({
   filePath: path.join(songsDir, 'song-306', 'index.html'),
   title: '唱（Ado）の音域はmid1D〜hihiA#｜最高音・最低音・キー｜キミキー',
@@ -196,6 +215,23 @@ optimizeSongPage({
   sectionBody: 'Aimer「星屑ビーナス」の音域はmid1F〜hiDです。最低音と最高音を自分の声域と比べると、原曲キーのまま歌えるか判断しやすくなります。',
   marker: 'gsc-opportunity-hoshikuzu-venus',
 })
+
+// Search Console often shows the Aimer artist page for a song-specific
+// query. Give visitors a direct route to the already verified song page.
+const aimerArtistPage = path.join(publicDir, 'artists', 'aimer-11nziq', 'index.html')
+if (fs.existsSync(aimerArtistPage)) {
+  let aimerHtml = read(aimerArtistPage)
+  const aimerMarker = '<!-- gsc-aimer-song-intent-20261026 -->'
+  const aimerBlock = `
+${aimerMarker}
+<section>
+  <h2>Aimer「星屑ビーナス」の音域を探している方へ</h2>
+  <p>「星屑ビーナス 音域」「星屑ビーナス 最高音」で検索した方は、<a href="${publicHref(venusPage)}"><strong>「星屑ビーナス」の曲別音域ページ</strong></a>で最低音・最高音を確認できます。</p>
+  <p>曲の音域と自分の声を比較したい場合は、<a href="/vocal-range-check/">無料の音域測定</a>も利用できます。</p>
+</section>`
+  aimerHtml = insertBeforeArticleEnd(aimerHtml, aimerMarker, aimerBlock)
+  write(aimerArtistPage, aimerHtml)
+}
 
 const kizunaPage = findSongPageByH1('絆ノ奇跡')
 const kizunaHref = publicHref(kizunaPage)
