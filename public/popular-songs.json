@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-10-26T09:13:21.411Z",
+  "updatedAt": "2026-10-27T09:13:53.908Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -9,9 +9,17 @@
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198,
+      "joysoundRank": 3,
+      "score": 197,
       "songUrl": "/songs/song-33/"
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
+      "damRank": 3,
+      "joysoundRank": 2,
+      "score": 197,
+      "songUrl": "/songs/song-131/"
     },
     {
       "title": "怪獣の花唄",
@@ -20,14 +28,6 @@
       "joysoundRank": 4,
       "score": 196,
       "songUrl": "/songs/song-128/"
-    },
-    {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
-      "damRank": 3,
-      "joysoundRank": 3,
-      "score": 196,
-      "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
@@ -49,33 +49,33 @@
       "title": "サウダージ",
       "artist": "ポルノグラフィティ",
       "damRank": 7,
-      "joysoundRank": 7,
-      "score": 188,
+      "joysoundRank": 6,
+      "score": 189,
       "songUrl": "/songs/song-132/"
     },
     {
       "title": "水平線",
       "artist": "back number",
       "damRank": 9,
-      "joysoundRank": 6,
-      "score": 187,
+      "joysoundRank": 7,
+      "score": 186,
       "songUrl": "/songs/song-49/"
-    },
-    {
-      "title": "ドライフラワー",
-      "artist": "優里",
-      "damRank": 10,
-      "joysoundRank": 10,
-      "score": 182,
-      "songUrl": "/songs/song-71/"
     },
     {
       "title": "高嶺の花子さん",
       "artist": "back number",
       "damRank": 11,
-      "joysoundRank": 9,
-      "score": 182,
+      "joysoundRank": 10,
+      "score": 181,
       "songUrl": "/songs/song-133/"
+    },
+    {
+      "title": "Yes! 東京",
+      "artist": "EBiDAN (恵比寿学園男子部)",
+      "damRank": 62,
+      "joysoundRank": 9,
+      "score": 131,
+      "songUrl": "/songs/yes-920/"
     },
     {
       "title": "ライラック",
