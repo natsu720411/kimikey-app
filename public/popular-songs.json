@@ -1,33 +1,33 @@
 {
-  "updatedAt": "2026-10-31T09:51:40.029Z",
+  "updatedAt": "2026-11-01T10:42:14.826Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
     {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 2,
+      "score": 198,
+      "songUrl": "/songs/song-33/"
+    },
+    {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 3,
-      "score": 197,
+      "joysoundRank": 4,
+      "score": 196,
       "songUrl": "/songs/song-128/"
     },
     {
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 2,
-      "score": 197,
-      "songUrl": "/songs/song-131/"
-    },
-    {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 4,
+      "joysoundRank": 3,
       "score": 196,
-      "songUrl": "/songs/song-33/"
+      "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
@@ -38,11 +38,19 @@
       "songUrl": "/songs/song-130/"
     },
     {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 6,
+      "joysoundRank": 7,
+      "score": 189,
+      "songUrl": "/songs/song-49/"
+    },
+    {
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 5,
-      "joysoundRank": 7,
-      "score": 190,
+      "joysoundRank": 8,
+      "score": 189,
       "songUrl": "/songs/song-134/"
     },
     {
@@ -52,14 +60,6 @@
       "joysoundRank": 6,
       "score": 189,
       "songUrl": "/songs/song-132/"
-    },
-    {
-      "title": "水平線",
-      "artist": "back number",
-      "damRank": 9,
-      "joysoundRank": 8,
-      "score": 185,
-      "songUrl": "/songs/song-49/"
     },
     {
       "title": "高嶺の花子さん",
@@ -72,9 +72,9 @@
     {
       "title": "Yes! 東京",
       "artist": "EBiDAN (恵比寿学園男子部)",
-      "damRank": 62,
+      "damRank": 27,
       "joysoundRank": 10,
-      "score": 130,
+      "score": 165,
       "songUrl": "/songs/yes-920/"
     },
     {
