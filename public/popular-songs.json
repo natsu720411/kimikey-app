@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-01T10:42:14.826Z",
+  "updatedAt": "2026-11-02T11:31:32.740Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -9,9 +9,17 @@
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 2,
-      "score": 198,
+      "joysoundRank": 3,
+      "score": 197,
       "songUrl": "/songs/song-33/"
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
+      "damRank": 3,
+      "joysoundRank": 2,
+      "score": 197,
+      "songUrl": "/songs/song-131/"
     },
     {
       "title": "怪獣の花唄",
@@ -20,14 +28,6 @@
       "joysoundRank": 4,
       "score": 196,
       "songUrl": "/songs/song-128/"
-    },
-    {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
-      "damRank": 3,
-      "joysoundRank": 3,
-      "score": 196,
-      "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
@@ -70,12 +70,12 @@
       "songUrl": "/songs/song-133/"
     },
     {
-      "title": "Yes! 東京",
-      "artist": "EBiDAN (恵比寿学園男子部)",
-      "damRank": 27,
+      "title": "IRIS OUT",
+      "artist": "米津玄師",
+      "damRank": 41,
       "joysoundRank": 10,
-      "score": 165,
-      "songUrl": "/songs/yes-920/"
+      "score": 151,
+      "songUrl": "/songs/iris-out-34/"
     },
     {
       "title": "ライラック",
