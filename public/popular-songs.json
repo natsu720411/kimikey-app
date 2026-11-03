@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-02T11:31:32.740Z",
+  "updatedAt": "2026-11-03T11:10:43.293Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -38,20 +38,20 @@
       "songUrl": "/songs/song-130/"
     },
     {
-      "title": "水平線",
-      "artist": "back number",
-      "damRank": 6,
-      "joysoundRank": 7,
-      "score": 189,
-      "songUrl": "/songs/song-49/"
-    },
-    {
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 5,
       "joysoundRank": 8,
       "score": 189,
       "songUrl": "/songs/song-134/"
+    },
+    {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 6,
+      "joysoundRank": 7,
+      "score": 189,
+      "songUrl": "/songs/song-49/"
     },
     {
       "title": "サウダージ",
@@ -70,12 +70,12 @@
       "songUrl": "/songs/song-133/"
     },
     {
-      "title": "IRIS OUT",
-      "artist": "米津玄師",
-      "damRank": 41,
+      "title": "Yes! 東京",
+      "artist": "EBiDAN (恵比寿学園男子部)",
+      "damRank": 27,
       "joysoundRank": 10,
-      "score": 151,
-      "songUrl": "/songs/iris-out-34/"
+      "score": 165,
+      "songUrl": "/songs/yes-920/"
     },
     {
       "title": "ライラック",
