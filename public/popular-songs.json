@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-07T10:31:47.372Z",
+  "updatedAt": "2026-11-08T10:38:57.217Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -9,17 +9,9 @@
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 3,
-      "score": 197,
-      "songUrl": "/songs/song-33/"
-    },
-    {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
-      "damRank": 3,
       "joysoundRank": 2,
-      "score": 197,
-      "songUrl": "/songs/song-131/"
+      "score": 198,
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "怪獣の花唄",
@@ -28,6 +20,14 @@
       "joysoundRank": 4,
       "score": 196,
       "songUrl": "/songs/song-128/"
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
+      "damRank": 3,
+      "joysoundRank": 3,
+      "score": 196,
+      "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
@@ -70,12 +70,12 @@
       "songUrl": "/songs/song-133/"
     },
     {
-      "title": "恋",
-      "artist": "back number",
-      "damRank": 79,
+      "title": "Yes! 東京",
+      "artist": "EBiDAN (恵比寿学園男子部)",
+      "damRank": 27,
       "joysoundRank": 10,
-      "score": 113,
-      "songUrl": "/songs/song-195/"
+      "score": 165,
+      "songUrl": "/songs/yes-920/"
     },
     {
       "title": "ライラック",
