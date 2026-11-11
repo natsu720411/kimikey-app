@@ -1,4 +1,5 @@
 import { LATEST_CHART_SONGS_20261022 } from './songs-latest-chart-20261022.js'
+import { LATEST_CHART_SONGS_20261112, ADDITIONAL_TRENDING_SONGS_20261112 } from './songs-latest-chart-20261112.js'
 // キミキー 追加楽曲データ
 // 音域未登録の曲は検索対象には入りますが、
 // キー判定・SEO個別ページ生成からは除外されます。
@@ -3122,6 +3123,8 @@ export const EXTRA_SONGS = [
     ...(EXTRA_RANGE_DATA[song.artist]?.[song.title] ?? {}),
   })),
   ...LATEST_CHART_SONGS_20261022,
+  ...LATEST_CHART_SONGS_20261112,
+  ...ADDITIONAL_TRENDING_SONGS_20261112,
 ].filter(
   (song, index, allSongs) =>
     allSongs.findIndex(

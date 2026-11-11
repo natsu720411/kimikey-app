@@ -1,6 +1,7 @@
 import { EXTRA_SONGS } from './songs-extra.js'
 import { VERIFIED_RANGE_BATCH_24 } from './songs-verified-batch-24.js'
 import { VERIFIED_RANGE_BATCH_25 } from './songs-verified-batch-25.js'
+import { VERIFIED_RANGE_BATCH_26 } from './songs-verified-batch-26.js'
 // キミキー 楽曲データ 100曲版
 // ※音域は「音域ベースの目安」です。
 // 音源・歌唱方法・裏声を含むかなどによって実際の音域は異なる場合があります。
@@ -3407,6 +3408,7 @@ const RECENT_VERIFIED_RANGE_MAP =
     [
       ...VERIFIED_RANGE_BATCH_24,
       ...VERIFIED_RANGE_BATCH_25,
+      ...VERIFIED_RANGE_BATCH_26,
     ].map(song => [
       `${song.artist}\u0000${song.title}`,
       song,

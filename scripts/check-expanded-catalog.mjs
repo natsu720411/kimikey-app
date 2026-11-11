@@ -18,13 +18,14 @@ import { VERIFIED_RANGE_BATCH_22 } from '../src/songs-verified-batch-22.js'
 import { VERIFIED_RANGE_BATCH_23 } from '../src/songs-verified-batch-23.js'
 import { VERIFIED_RANGE_BATCH_24 } from '../src/songs-verified-batch-24.js'
 import { VERIFIED_RANGE_BATCH_25 } from '../src/songs-verified-batch-25.js'
+import { VERIFIED_RANGE_BATCH_26 } from '../src/songs-verified-batch-26.js'
 
 const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 1743
+const EXPECTED_VERIFIED_COUNT = 1755
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -141,6 +142,7 @@ const hubs = [
   'popular-song-ranges-23',
   'popular-song-ranges-24',
   'popular-song-ranges-25',
+  'popular-song-ranges-26',
 ]
 
 for (const hub of hubs) {
@@ -459,9 +461,15 @@ for (const song of VERIFIED_RANGE_BATCH_25) {
   }
 }
 
+if (VERIFIED_RANGE_BATCH_26.length !== 12) throw new Error('Expected 12 batch-26 verified songs')
+for (const song of VERIFIED_RANGE_BATCH_26) {
+  if (!bundle.includes(song.title)) throw new Error('Search bundle missing batch-26 song: ' + song.artist + ' / ' + song.title)
+}
+
 for (const song of [
   ...VERIFIED_RANGE_BATCH_24,
   ...VERIFIED_RANGE_BATCH_25,
+  ...VERIFIED_RANGE_BATCH_26,
 ]) {
   const appSong = BASE_SONGS.find(
     candidate =>
@@ -579,5 +587,5 @@ if (!songRangeIndexHtml.includes('/highest-note-songs/')) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 25 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 26 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
 )
