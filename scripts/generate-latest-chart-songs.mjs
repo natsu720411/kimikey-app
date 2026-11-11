@@ -58,7 +58,7 @@ const css = '*{box-sizing:border-box}body{margin:0;background:#f6f7fb;color:#222
 const html = [
   '<!doctype html><html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
   '<title>2026年11月の人気新曲26曲｜キミキー</title>',
-  '<meta name="description" content="2026年11月16日付オリコンの最新ランキングから新規追加した人気新曲27曲を掲載。曲名から検索でき、音域の確認状況もわかります。">',
+  '<meta name="description" content="2026年11月16日付オリコンの最新ランキングから新規追加した人気新曲26曲を掲載。曲名から検索でき、音域の確認状況もわかります。">',
   '<meta name="robots" content="index, follow"><link rel="canonical" href="https://kimikey-app.vercel.app/latest-chart-songs/">',
   '<style>' + css + '</style></head><body><main><a href="/">🎤 キミキー</a><article>',
   '<h1>2026年11月の人気新曲26曲</h1>',
