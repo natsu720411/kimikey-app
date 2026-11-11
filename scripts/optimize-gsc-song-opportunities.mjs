@@ -377,6 +377,63 @@ if (fs.existsSync(sitemapPath)) {
   }
 }
 
+
+// GSC 2026-11: improve navigational clarity without changing recently tuned metadata.
+// All links point to existing generated routes; no song range values are modified.
+const gscFollowupSections = [
+  {
+    file: path.join(songsDir, 'happy-birthday-41', 'index.html'),
+    marker: '<!-- gsc-intent-clarity-202611 -->',
+    html: `<section aria-label="HAPPY BIRTHDAYの音域の調べ方">
+      <h2>back number「HAPPY BIRTHDAY」を歌う前に</h2>
+      <p>このページはback numberの楽曲「HAPPY BIRTHDAY」の音域を扱っています。誕生日の定番曲「Happy Birthday to You」とは別の曲です。</p>
+      <p>まずこのページの最低音と最高音を確認し、<a href="/vocal-range-check/">自分の声域を測定</a>して比較しましょう。音域の表記が分からない場合は<a href="/vocal-range-table/">low・mid・hi音域表</a>も参照できます。</p>
+    </section>`,
+  },
+  {
+    file: path.join(publicDir, 'vocal-range-table', 'index.html'),
+    marker: '<!-- gsc-intent-clarity-202611 -->',
+    html: `<section aria-label="音域表の使い方">
+      <h2>音域表を見た後は、自分の声と曲を比較</h2>
+      <p>「hiAは何ヘルツ？」の答えは<a href="/hia-frequency/">hiAの周波数一覧</a>で確認できます。音域の表記を理解したら、<a href="/vocal-range-check/">無料の声域測定</a>と<a href="/song-range-index/">曲別の音域一覧</a>を使って歌いやすい曲を探せます。</p>
+    </section>`,
+  },
+  {
+    file: kizunaArtistPage,
+    marker: '<!-- gsc-intent-clarity-202611 -->',
+    html: `<section aria-label="絆ノ奇跡の曲別ページ案内">
+      <h2>「絆の奇跡」の最高音・最低音を探している方へ</h2>
+      <p>正式な曲名は「絆ノ奇跡」です。アーティスト情報ではなく曲の音域を確認したい方は、<a href="${kizunaHref}">「絆ノ奇跡」の曲別音域ページ</a>をご覧ください。</p>
+    </section>`,
+  },
+]
+for (const section of gscFollowupSections) {
+  if (!fs.existsSync(section.file)) throw new Error(`SEO follow-up page missing: ${section.file}`)
+  const original = read(section.file)
+  const updated = insertBeforeArticleEnd(original, section.marker, `\n${section.marker}\n${section.html}\n`)
+  if (updated === original && !original.includes(section.marker)) {
+    throw new Error(`SEO follow-up insertion failed: ${section.file}`)
+  }
+  if (updated !== original) write(section.file, updated)
+}
+
+// Non-destructive metadata audit. Reports duplicates and missing values without
+// changing titles/descriptions that may still be undergoing Google re-evaluation.
+const audited = gscFollowupSections.map(section => section.file)
+const seenTitles = new Map()
+for (const file of audited) {
+  const html = read(file)
+  const titles = [...html.matchAll(/<title[^>]*>([\\s\\S]*?)<\\/title>/gi)]
+  const descriptions = [...html.matchAll(/<meta\\s+name=["']description["'][^>]*>/gi)]
+  const canonical = [...html.matchAll(/<link\\s+rel=["']canonical["'][^>]*>/gi)]
+  if (titles.length !== 1 || descriptions.length !== 1 || canonical.length !== 1) {
+    console.warn(`SEO metadata audit: ${publicHref(file)} title=${titles.length} description=${descriptions.length} canonical=${canonical.length}`)
+  }
+  const title = titles[0]?.[1]?.trim()
+  if (title && seenTitles.has(title)) console.warn(`SEO duplicate title: ${publicHref(file)} and ${seenTitles.get(title)}`)
+  if (title) seenTitles.set(title, publicHref(file))
+}
+
 console.log(
   `✅ GSC opportunities optimized: 花占い, HAPPY BIRTHDAY, 唱, 狭心症, 星屑ビーナス, 絆ノ奇跡 (${kizunaHref}), hiA frequency`
 )
