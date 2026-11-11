@@ -423,7 +423,7 @@ const audited = gscFollowupSections.map(section => section.file)
 const seenTitles = new Map()
 for (const file of audited) {
   const html = read(file)
-  const titles = [...html.matchAll(/<title[^>]*>([\\s\\S]*?)<\\/title>/gi)]
+  const titles = [...html.matchAll(new RegExp('<title[^>]*>(.*?)</title>', 'gis'))]
   const descriptions = [...html.matchAll(/<meta\\s+name=["']description["'][^>]*>/gi)]
   const canonical = [...html.matchAll(/<link\\s+rel=["']canonical["'][^>]*>/gi)]
   if (titles.length !== 1 || descriptions.length !== 1 || canonical.length !== 1) {
