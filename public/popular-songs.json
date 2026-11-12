@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-11T11:18:16.305Z",
+  "updatedAt": "2026-11-12T11:36:52.436Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -14,20 +14,20 @@
       "songUrl": "/songs/song-131/"
     },
     {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
-      "damRank": 2,
-      "joysoundRank": 3,
-      "score": 197,
-      "songUrl": "/songs/song-33/"
-    },
-    {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
       "joysoundRank": 4,
       "score": 196,
       "songUrl": "/songs/song-128/"
+    },
+    {
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
+      "damRank": 2,
+      "joysoundRank": 5,
+      "score": 195,
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "マリーゴールド",
@@ -41,9 +41,17 @@
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 5,
-      "joysoundRank": 8,
-      "score": 189,
+      "joysoundRank": 9,
+      "score": 188,
       "songUrl": "/songs/song-134/"
+    },
+    {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 6,
+      "joysoundRank": 8,
+      "score": 188,
+      "songUrl": "/songs/song-49/"
     },
     {
       "title": "サウダージ",
@@ -52,14 +60,6 @@
       "joysoundRank": 7,
       "score": 188,
       "songUrl": "/songs/song-132/"
-    },
-    {
-      "title": "水平線",
-      "artist": "back number",
-      "damRank": 6,
-      "joysoundRank": 9,
-      "score": 187,
-      "songUrl": "/songs/song-49/"
     },
     {
       "title": "Yes! 東京",
@@ -73,8 +73,8 @@
       "title": "恋",
       "artist": "back number",
       "damRank": 79,
-      "joysoundRank": 5,
-      "score": 118,
+      "joysoundRank": 3,
+      "score": 120,
       "songUrl": "/songs/song-195/"
     },
     {
