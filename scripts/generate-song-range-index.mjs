@@ -51,7 +51,7 @@ function findSongHref(title) {
   return null
 }
 
-const rangeHubPaths = Array.from({ length: 26 }, (_, index) =>
+const rangeHubPaths = Array.from({ length: 27 }, (_, index) =>
   index === 0 ? 'popular-song-ranges' : 'popular-song-ranges-' + (index + 1)
 )
 
