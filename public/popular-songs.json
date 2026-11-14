@@ -1,40 +1,40 @@
 {
-  "updatedAt": "2026-11-13T11:20:54.828Z",
+  "updatedAt": "2026-11-14T10:44:45.472Z",
   "sources": [
     "DAM",
     "JOYSOUND"
   ],
   "songs": [
     {
-      "title": "残酷な天使のテーゼ",
-      "artist": "高橋洋子",
-      "damRank": 3,
-      "joysoundRank": 2,
-      "score": 197,
-      "songUrl": "/songs/song-131/"
-    },
-    {
       "title": "好きすぎて滅!",
       "artist": "M!LK",
       "damRank": 2,
-      "joysoundRank": 4,
-      "score": 196,
+      "joysoundRank": 2,
+      "score": 198,
       "songUrl": "/songs/song-33/"
     },
     {
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 5,
-      "score": 195,
+      "joysoundRank": 3,
+      "score": 197,
       "songUrl": "/songs/song-128/"
+    },
+    {
+      "title": "残酷な天使のテーゼ",
+      "artist": "高橋洋子",
+      "damRank": 3,
+      "joysoundRank": 4,
+      "score": 195,
+      "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 6,
-      "score": 193,
+      "joysoundRank": 5,
+      "score": 194,
       "songUrl": "/songs/song-130/"
     },
     {
@@ -49,32 +49,32 @@
       "title": "サウダージ",
       "artist": "ポルノグラフィティ",
       "damRank": 7,
-      "joysoundRank": 7,
-      "score": 188,
+      "joysoundRank": 6,
+      "score": 189,
       "songUrl": "/songs/song-132/"
     },
     {
       "title": "水平線",
       "artist": "back number",
       "damRank": 6,
-      "joysoundRank": 10,
-      "score": 186,
+      "joysoundRank": 9,
+      "score": 187,
       "songUrl": "/songs/song-49/"
     },
     {
       "title": "Yes! 東京",
       "artist": "EBiDAN (恵比寿学園男子部)",
       "damRank": 27,
-      "joysoundRank": 9,
-      "score": 166,
+      "joysoundRank": 10,
+      "score": 165,
       "songUrl": "/songs/yes-920/"
     },
     {
       "title": "恋",
       "artist": "back number",
       "damRank": 79,
-      "joysoundRank": 3,
-      "score": 120,
+      "joysoundRank": 7,
+      "score": 116,
       "songUrl": "/songs/song-195/"
     },
     {
