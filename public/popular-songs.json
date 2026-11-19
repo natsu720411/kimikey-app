@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-18T12:01:33.589Z",
+  "updatedAt": "2026-11-19T11:57:56.574Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -33,17 +33,9 @@
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 7,
-      "score": 192,
-      "songUrl": "/songs/song-130/"
-    },
-    {
-      "title": "サウダージ",
-      "artist": "ポルノグラフィティ",
-      "damRank": 7,
       "joysoundRank": 6,
-      "score": 189,
-      "songUrl": "/songs/song-132/"
+      "score": 193,
+      "songUrl": "/songs/song-130/"
     },
     {
       "title": "さよならエレジー",
@@ -52,6 +44,14 @@
       "joysoundRank": 9,
       "score": 188,
       "songUrl": "/songs/song-134/"
+    },
+    {
+      "title": "サウダージ",
+      "artist": "ポルノグラフィティ",
+      "damRank": 7,
+      "joysoundRank": 7,
+      "score": 188,
+      "songUrl": "/songs/song-132/"
     },
     {
       "title": "水平線",
