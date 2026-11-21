@@ -741,6 +741,7 @@ app.innerHTML = `
       <a class="song-browse-link" href="/popular/">🔥 今人気の曲</a>
       <a class="song-browse-link" href="/songs/">曲別の音域一覧</a>
       <a class="song-browse-link" href="/artists/">アーティスト別</a>
+      <a class="song-browse-link" href="/artist-range-guide/">アーティスト別・確認済み音域</a>
       <a class="song-browse-link" href="/guides/narrow-range-songs/">音域が狭い曲</a>
       <a class="song-browse-link" href="/guides/male-songs/">男性向けの曲</a>
       <a class="song-browse-link" href="/guides/female-songs/">女性向けの曲</a>
@@ -965,7 +966,7 @@ app.innerHTML = `
     >
       ---
     </div>
-
+    <p id="analysisRangeSource" class="analysis-range-source" aria-live="polite"></p>
 
     <div class="analysis-grid">
 
@@ -1606,6 +1607,10 @@ function renderRecommendations() {
         )
       }
 
+      const verifiedDifference =
+        Number(b.song.rangeVerified === true) -
+        Number(a.song.rangeVerified === true)
+      if (verifiedDifference) return verifiedDifference
       return (
         a.result.score -
         b.result.score
@@ -1637,29 +1642,14 @@ function renderRecommendations() {
         getSongPageHref(song)
 
 
-      let badgeText =
-        '音域ベース'
-
-
-      if (result.fitsComfort) {
-
-        badgeText =
-          '快適音域に収まる'
-
-      } else if (
-        result.fitsLimit
-      ) {
-
-        badgeText =
-          '限界音域に収まる'
-
-      } else {
-
-        badgeText =
-          '一部音域外'
-
-      }
-
+      const badgeText = result.fitsComfort
+        ? result.shift === 0 ? '原キーで歌いやすい'
+          : result.shift < 0 ? 'キーを下げると歌いやすい' : 'キーを上げると歌いやすい'
+        : result.fitsLimit ? '限界音域内で歌える候補' : '一部音域外のため要注意'
+      const rangeReason = result.fitsComfort
+        ? '測定した快適音域を基準にした判定'
+        : result.fitsLimit ? '測定した限界音域の範囲内'
+          : `音域外：高音${result.highOverflow}半音・低音${result.lowOverflow}半音`
 
       card.innerHTML = `
         <div class="song-card-main">
@@ -1675,6 +1665,7 @@ function renderRecommendations() {
           <small>
             ${badgeText}
           </small>
+          <small class="recommendation-reason">${rangeReason}</small>
 
         </div>
 
@@ -2263,8 +2254,12 @@ async function renderPopularSongs() {
         )
 
 
-      description.textContent =
-        `今よく歌われている曲から探せます（${date.toLocaleDateString('ja-JP')}更新）`
+      const ageDays = (Date.now() - date.getTime()) / (24 * 60 * 60 * 1000)
+      const referenceOnly = data.isFallback === true ||
+        !Number.isFinite(ageDays) || ageDays > 14
+      description.textContent = referenceOnly
+        ? `人気曲の参考リスト（最新ランキングの取得を確認できていません・${Number.isFinite(ageDays) ? date.toLocaleDateString('ja-JP') : '更新日不明'}）`
+        : `DAM・JOYSOUNDの人気曲（${date.toLocaleDateString('ja-JP')}更新）`
 
     }
 
@@ -2414,6 +2409,25 @@ function renderKeyShiftTable(
 // ==========================================
 
 function showSongAnalysis(song) {
+
+  const sourceElement = document.querySelector('#analysisRangeSource')
+  if (sourceElement) {
+    sourceElement.replaceChildren()
+    const hasNumbers = Number.isFinite(getSongLowMidi(song)) &&
+      Number.isFinite(getSongHighMidi(song))
+    const verified = hasNumbers && song.rangeVerified === true &&
+      /^https:\/\//.test(song.rangeSource ?? '')
+    const label = !hasNumbers ? '音域未登録' : verified ? '出典確認済みの音域' : '音域の参考値（未検証）'
+    sourceElement.append(document.createTextNode(label))
+    if (verified) {
+      const link = document.createElement('a')
+      link.href = song.rangeSource
+      link.target = '_blank'
+      link.rel = 'noopener noreferrer'
+      link.textContent = '参照元を確認'
+      sourceElement.append(' ・ ', link)
+    }
+  }
 
   selectedSong = song
   addRecentSong(song)

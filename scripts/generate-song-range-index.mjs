@@ -105,7 +105,7 @@ const html = [
   '    <div class="priority">' + priorityCards + '</div>',
   '    <h2>確認済み音域ページ一覧</h2>',
   '    <div class="grid">' + hubCards + '</div>',
-  '    <div class="nav"><a href="/vocal-range-table/">low・mid・hiの音域表</a><a href="/hia-frequency/">hiAの周波数一覧</a><a href="/vocal-range-check/">自分の音域を測る</a></div>',
+  '    <div class="nav"><a href="/artist-range-guide/">アーティスト別の確認済み音域</a><a href="/vocal-range-table/">low・mid・hiの音域表</a><a href="/hia-frequency/">hiAの周波数一覧</a><a href="/vocal-range-check/">自分の音域を測る</a></div>',
   '  </article>',
   '</main>',
   '</body>',
