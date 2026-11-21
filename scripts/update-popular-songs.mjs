@@ -669,8 +669,9 @@ async function main() {
   ]
 
 
+  const rankingAvailable = songs.length >= 5
   const finalSongs =
-    songs.length >= 5
+    rankingAvailable
       ? songs
       : fallback
 
@@ -705,6 +706,8 @@ async function main() {
       'DAM',
       'JOYSOUND'
     ],
+    isFallback: !rankingAvailable,
+    matchedRankingCount: songs.length,
 
     songs:
       finalSongsWithLinks

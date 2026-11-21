@@ -161,25 +161,48 @@ export function initSongSearch({
   }
 
 
-  function sortSongsForDisplay(
-    songList
-  ) {
-    return [...songList].sort(
-      (a, b) => {
-        const rangeDifference =
-          Number(hasRangeData(b)) -
-          Number(hasRangeData(a))
+  function sortSongsForDisplay(songList, searchText = '') {
+    const query = normalizeSearchText(searchText)
+    const relevance = song => {
+      if (!query) return 2
+      const title = normalizeSearchText(song.title)
+      if (title === query) return 0
+      if (title.startsWith(query)) return 1
+      return 2
+    }
+    return [...songList].sort((a, b) => {
+      const searchDifference = relevance(a) - relevance(b)
+      if (searchDifference) return searchDifference
+      const verifiedDifference = Number(b.rangeVerified === true && hasRangeData(b)) -
+        Number(a.rangeVerified === true && hasRangeData(a))
+      if (verifiedDifference) return verifiedDifference
+      const availableDifference = Number(hasRangeData(b)) - Number(hasRangeData(a))
+      if (availableDifference) return availableDifference
+      const chartDifference = Number(Boolean(b.chartSource?.includes('2026-11-16'))) -
+        Number(Boolean(a.chartSource?.includes('2026-11-16')))
+      if (chartDifference) return chartDifference
+      const yearDifference = (Number(b.year) || 0) - (Number(a.year) || 0)
+      if (yearDifference) return yearDifference
+      return a.title.localeCompare(b.title, 'ja')
+    })
+  }
 
-        if (rangeDifference !== 0) {
-          return rangeDifference
-        }
-
-        return a.title.localeCompare(
-          b.title,
-          'ja'
-        )
-      }
-    )
+  // 件数が多くても最後の曲まで開ける。描画負荷はページごとに抑える。
+  function appendSongPages(target, songList, pageSize = 60) {
+    let shown = 0
+    const more = document.createElement('button')
+    more.type = 'button'
+    more.className = 'search-more-button'
+    const showNext = () => {
+      const next = songList.slice(shown, shown + pageSize)
+      for (const song of next) target.appendChild(createSongButton(song))
+      shown += next.length
+      if (shown >= songList.length) more.remove()
+      else more.textContent = `さらに表示（${shown} / ${songList.length}曲）`
+    }
+    more.addEventListener('click', showNext)
+    showNext()
+    if (shown < songList.length) target.appendChild(more)
   }
 
 
@@ -202,6 +225,13 @@ export function initSongSearch({
   }
 
 
+  function escapeHtml(value) {
+    return String(value ?? '')
+      .replaceAll('&', '&amp;').replaceAll('<', '&lt;')
+      .replaceAll('>', '&gt;').replaceAll('"', '&quot;')
+      .replaceAll("'", '&#39;')
+  }
+
   function createSongButton(song) {
     const item =
       document.createElement(
@@ -219,15 +249,20 @@ export function initSongSearch({
     const rangeAvailable =
       hasRangeData(song)
 
-    const songStatus =
-      rangeAvailable
-        ? `${song.artist} ・ 音域あり`
-        : `${song.artist} ・ 音域準備中`
+    const status = !rangeAvailable
+      ? '音域準備中'
+      : song.rangeVerified === true && song.rangeSource
+        ? '出典確認済み'
+        : '参考値'
+    const rangeText = rangeAvailable && song.lowLabel && song.highLabel
+      ? ` ・ ${song.lowLabel}〜${song.highLabel}`
+      : ''
+    const songStatus = `${song.artist} ・ ${status}${rangeText}`
 
     item.innerHTML = `
       <div>
-        <strong>${song.title}</strong>
-        <span>${songStatus}</span>
+        <strong>${escapeHtml(song.title)}</strong>
+        <span>${escapeHtml(songStatus)}</span>
       </div>
 
       <span class="search-arrow">
@@ -434,7 +469,8 @@ export function initSongSearch({
                 searchText
               ) &&
               passesFilters(song)
-          )
+          ),
+          searchText
         )
 
 
@@ -451,13 +487,7 @@ export function initSongSearch({
       }
 
 
-      filteredSongs.forEach(
-        song => {
-          songResults.appendChild(
-            createSongButton(song)
-          )
-        }
-      )
+      appendSongPages(songResults, filteredSongs)
     }
 
 
@@ -768,7 +798,8 @@ export function initSongSearch({
               searchText
             ) &&
             passesFilters(song)
-        )
+        ),
+        searchText
       )
 
 
@@ -801,13 +832,7 @@ export function initSongSearch({
 
     updateFilterSummary(songResults.length)
 
-    songResults.slice(0, 120).forEach(
-      song => {
-        container.appendChild(
-          createSongButton(song)
-        )
-      }
-    )
+    appendSongPages(container, songResults)
   }
 
 

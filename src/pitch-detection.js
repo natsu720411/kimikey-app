@@ -20,14 +20,17 @@ export function calculateRms(buffer) {
 }
 
 export function yinPitchDetection(buffer, sampleRate, micThreshold) {
+  if (!buffer || buffer.length < 1024 || !Number.isFinite(sampleRate) || sampleRate <= 0) return -1
   const rms = calculateRms(buffer)
-  if (rms < micThreshold) return -1
+  if (!Number.isFinite(rms) || rms < micThreshold) return -1
 
+  // 45Hzまでの低音を検出。窓長不足時は安全にスキップする。
   const threshold = 0.12
-  const minFrequency = 60
+  const minFrequency = 45
   const maxFrequency = 1600
-  const minTau = Math.floor(sampleRate / maxFrequency)
-  const maxTau = Math.min(Math.floor(sampleRate / minFrequency), Math.floor(buffer.length / 2))
+  const minTau = Math.max(2, Math.floor(sampleRate / maxFrequency))
+  const maxTau = Math.min(Math.floor(sampleRate / minFrequency), Math.floor(buffer.length / 2) - 1)
+  if (maxTau <= minTau + 2) return -1
   const yinBuffer = new Float32Array(maxTau + 1)
 
   for (let tau = 1; tau <= maxTau; tau++) {
@@ -54,7 +57,7 @@ export function yinPitchDetection(buffer, sampleRate, micThreshold) {
       break
     }
   }
-  if (tauEstimate === -1) return -1
+  if (tauEstimate === -1 || yinBuffer[tauEstimate] > threshold) return -1
 
   let betterTau = tauEstimate
   if (tauEstimate > 1 && tauEstimate + 1 < yinBuffer.length) {
@@ -65,8 +68,9 @@ export function yinPitchDetection(buffer, sampleRate, micThreshold) {
     if (denominator !== 0) betterTau = tauEstimate + (s2 - s0) / denominator
   }
 
+  if (!Number.isFinite(betterTau) || betterTau <= 0) return -1
   const frequency = sampleRate / betterTau
-  if (frequency < minFrequency || frequency > maxFrequency) return -1
+  if (!Number.isFinite(frequency) || frequency < minFrequency || frequency > maxFrequency) return -1
   return frequency
 }
 
