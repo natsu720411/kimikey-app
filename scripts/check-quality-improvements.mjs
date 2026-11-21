@@ -27,6 +27,13 @@ for (const freq of [50, 65, 110, 220, 440, 880]) {
 if (yinPitchDetection(new Float32Array(4096),sampleRate,0.01)!==-1)
   throw new Error('Silent input detected as voice')
 const dist=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..','dist')
+const ranking = JSON.parse(fs.readFileSync(path.resolve(dist, 'popular-songs.json'), 'utf8'))
+const popularPage = fs.readFileSync(path.resolve(dist, 'popular', 'index.html'), 'utf8')
+if (!popularPage.includes('application/ld+json') ||
+    !popularPage.includes('ItemList') ||
+    !popularPage.includes('id="popularList"') ||
+    !popularPage.includes(String(ranking.songs?.[0]?.title ?? '__unknown__')))
+  throw new Error('Popular ranking static page is out of sync with ranking JSON')
 const page=fs.readFileSync(path.join(dist,'artist-range-guide','index.html'),'utf8')
 const sitemap=fs.readFileSync(path.join(dist,'sitemap.xml'),'utf8')
 if (!page.includes('アーティスト別の確認済み音域') ||
