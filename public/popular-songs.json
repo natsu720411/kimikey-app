@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-22T11:46:24.155Z",
+  "updatedAt": "2026-11-23T13:25:41.406Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -19,25 +19,41 @@
       "title": "怪獣の花唄",
       "artist": "Vaundy",
       "damRank": 2,
-      "joysoundRank": 4,
-      "score": 196,
+      "joysoundRank": 3,
+      "score": 197,
       "songUrl": "/songs/song-128/"
     },
     {
       "title": "残酷な天使のテーゼ",
       "artist": "高橋洋子",
       "damRank": 3,
-      "joysoundRank": 3,
-      "score": 196,
+      "joysoundRank": 4,
+      "score": 195,
       "songUrl": "/songs/song-131/"
     },
     {
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 7,
-      "score": 192,
+      "joysoundRank": 6,
+      "score": 193,
       "songUrl": "/songs/song-130/"
+    },
+    {
+      "title": "水平線",
+      "artist": "back number",
+      "damRank": 6,
+      "joysoundRank": 9,
+      "score": 187,
+      "songUrl": "/songs/song-49/"
+    },
+    {
+      "title": "さよならエレジー",
+      "artist": "菅田将暉",
+      "damRank": 5,
+      "joysoundRank": 10,
+      "score": 187,
+      "songUrl": "/songs/song-134/"
     },
     {
       "title": "サウダージ",
@@ -48,19 +64,11 @@
       "songUrl": "/songs/song-132/"
     },
     {
-      "title": "水平線",
-      "artist": "back number",
-      "damRank": 6,
-      "joysoundRank": 10,
-      "score": 186,
-      "songUrl": "/songs/song-49/"
-    },
-    {
       "title": "Yes! 東京",
       "artist": "EBiDAN (恵比寿学園男子部)",
       "damRank": 27,
-      "joysoundRank": 9,
-      "score": 166,
+      "joysoundRank": 7,
+      "score": 168,
       "songUrl": "/songs/yes-920/"
     },
     {
@@ -78,14 +86,6 @@
       "joysoundRank": null,
       "score": 100,
       "songUrl": "/songs/song-32/"
-    },
-    {
-      "title": "ダーリン",
-      "artist": "Mrs. GREEN APPLE",
-      "damRank": 3,
-      "joysoundRank": null,
-      "score": 98,
-      "songUrl": "/songs/song-44/"
     }
   ]
 }
