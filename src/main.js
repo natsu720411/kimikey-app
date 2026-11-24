@@ -2222,9 +2222,8 @@ async function renderPopularSongs() {
       item.className =
         'search-song-item'
 
-      item.href =
-        popular.songUrl ||
-        getSongPageHref(song)
+      // Ranking entries without a generated song page still open the song search.
+      item.href = '/?search=' + encodeURIComponent(song.title)
 
 
       let rankDetail = ''

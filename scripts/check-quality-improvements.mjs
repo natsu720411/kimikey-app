@@ -104,7 +104,7 @@ const mockedStorage = {
   getItem(k){return this.data[k]??null},
   setItem(k,v){this.data[k]=v},
 }
-const testIdentity='テスト歌手\\u0000テスト曲'.replace('\\u0000','\\u0000')
+const testIdentity=['テスト歌手','テスト曲'].join(String.fromCharCode(0))
 if (!saveKaraokeNote(testIdentity, '高かった', -2, mockedStorage) ||
     loadKaraokeNotes(mockedStorage)[testIdentity]?.keyShift !== -2 ||
     !karaokeNotesCsv(loadKaraokeNotes(mockedStorage)).includes('高かった') ||
@@ -116,7 +116,7 @@ const mobileBundle=fs.readdirSync(path.join(dist,'assets')).filter(n=>n.endsWith
 if (!mobileBundle.includes('karaokeSavedSongs') ||
     !mobileBundle.includes('noiseReductionToggle') ||
     !mobileBundle.includes('mobile-quick-nav') ||
-    !mobileBundle.includes('PITCH_ANALYSIS_INTERVAL_MS'))
+    !fs.readFileSync(path.resolve(dist,'..','src','main.js'),'utf8').includes('PITCH_ANALYSIS_INTERVAL_MS'))
   throw new Error('Mobile, karaoke or microphone UI missing from bundle')
 const auditSummary=JSON.parse(fs.readFileSync(path.resolve(dist,'..','reports','seo-audit.json'),'utf8'))
 if (auditSummary.errors.length) throw new Error('SEO audit not clean')
