@@ -1,0 +1,23 @@
+name: Weekly SEO and app integrity
+
+on:
+  schedule:
+    # 月曜日 10:15（日本時間）、UTC日曜日 25:15相当
+    - cron: '15 1 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - name: Validate generated SEO pages, catalog, range and UI
+        run: npm run build

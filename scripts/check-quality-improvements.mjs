@@ -6,6 +6,9 @@ import { SONGS } from '../src/songs.js'
 import { CATALOG_ALL_SONGS } from '../src/songs-catalog-all.js'
 import { VERIFIED_RANGE_ALL } from '../src/songs-verified-all.js'
 
+import { SONGS as UI_SONGS } from '../src/songs-ui.js'
+import { loadKaraokeNotes, saveKaraokeNote, removeKaraokeNote, karaokeNotesCsv } from '../src/karaoke-notes.js'
+import { VERIFIED_RANGE_BATCH_28 } from '../src/songs-verified-batch-28.js'
 const key = s => s.artist+'\u0000'+s.title
 const known = new Set([...SONGS,...CATALOG_ALL_SONGS].map(key))
 const seen = new Set()
@@ -87,4 +90,38 @@ if (!assetsJs.includes('popular-search-entrances') ||
     !assetsJs.includes('/songs/song-446/'))
   throw new Error('Homepage search intent links missing')
 
+// Smoke-test the user-visible merged search catalog and sourced additions.
+if (UI_SONGS.length !== known.size) throw new Error('Interactive catalog and SEO catalog differ: '+UI_SONGS.length+' vs '+known.size)
+const uiByKey = new Map(UI_SONGS.map(s => [key(s), s]))
+for (const item of VERIFIED_RANGE_BATCH_28) {
+  const inApp = uiByKey.get(key(item))
+  if (!inApp || inApp.rangeVerified !== true || inApp.rangeSource !== item.rangeSource ||
+      !Number.isFinite(inApp.minMidi) || !Number.isFinite(inApp.maxMidi))
+    throw new Error('Added range not reflected in the app: '+key(item))
+}
+const mockedStorage = {
+  data: {},
+  getItem(k){return this.data[k]??null},
+  setItem(k,v){this.data[k]=v},
+}
+const testIdentity='テスト歌手\\u0000テスト曲'.replace('\\u0000','\\u0000')
+if (!saveKaraokeNote(testIdentity, '高かった', -2, mockedStorage) ||
+    loadKaraokeNotes(mockedStorage)[testIdentity]?.keyShift !== -2 ||
+    !karaokeNotesCsv(loadKaraokeNotes(mockedStorage)).includes('高かった') ||
+    !removeKaraokeNote(testIdentity, mockedStorage) ||
+    Object.keys(loadKaraokeNotes(mockedStorage)).length !== 0)
+  throw new Error('Karaoke note save, CSV or delete regression')
+const mobileBundle=fs.readdirSync(path.join(dist,'assets')).filter(n=>n.endsWith('.js'))
+  .map(n=>fs.readFileSync(path.join(dist,'assets',n),'utf8')).join('\\n')
+if (!mobileBundle.includes('karaokeSavedSongs') ||
+    !mobileBundle.includes('noiseReductionToggle') ||
+    !mobileBundle.includes('mobile-quick-nav') ||
+    !mobileBundle.includes('PITCH_ANALYSIS_INTERVAL_MS'))
+  throw new Error('Mobile, karaoke or microphone UI missing from bundle')
+const auditSummary=JSON.parse(fs.readFileSync(path.resolve(dist,'..','reports','seo-audit.json'),'utf8'))
+if (auditSummary.errors.length) throw new Error('SEO audit not clean')
+const newHub=fs.readFileSync(path.join(dist,'popular-song-ranges-28','index.html'),'utf8')
+for (const song of VERIFIED_RANGE_BATCH_28) {
+  if (!newHub.includes(song.title)) throw new Error('Missing new range in batch-28 page: '+song.title)
+}
 console.log('Quality checks passed: '+seen.size+' sourced songs, synthetic pitch tests 50-880Hz, artist range guide')
