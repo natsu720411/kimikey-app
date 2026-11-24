@@ -1,5 +1,6 @@
 import './style.css'
-import { SONGS } from './songs.js'
+import { SONGS } from './songs-ui.js'
+import { loadKaraokeNotes, saveKaraokeNote, removeKaraokeNote, karaokeNotesCsv } from './karaoke-notes.js'
 import {
   calculateSongKey,
   formatKeyShift,
@@ -150,7 +151,7 @@ app.innerHTML = `
 
   </header>
 
-  <section class="getting-started" aria-labelledby="gettingStartedTitle">
+  <section id="getting-started" class="getting-started" aria-labelledby="gettingStartedTitle">
     <h2 id="gettingStartedTitle">はじめての方はこちら</h2>
     <div class="step-list">
       <div class="step-item"><span>1</span><strong>マイクを開始</strong></div>
@@ -377,6 +378,11 @@ app.innerHTML = `
       周囲の音を拾いすぎる場合は感度を下げてください。
       スマホでは4〜5がおすすめです
     </p>
+    <label class="mic-quality-toggle">
+      <input type="checkbox" id="noiseReductionToggle" checked>
+      ノイズ軽減を使う（騒がしい場所向け）
+    </label>
+    <p class="mic-help">静かな部屋で音程が不安定な場合はオフにしてください。変更は次のマイク開始時から反映します。</p>
 
   </section>
   </details>
@@ -723,6 +729,12 @@ app.innerHTML = `
         <div id="recentSongs" class="personal-song-list"></div>
       </div>
     </div>
+    <div class="karaoke-saved-section">
+      <h3>🎵 マイカラオケ記録</h3>
+      <p>曲ごとのキーと「歌えた・高かった・低かった」を保存できます。</p>
+      <div id="karaokeSavedSongs" class="personal-song-list"></div>
+      <button type="button" id="exportKaraokeNotes" class="karaoke-export-button">記録をCSVで保存</button>
+    </div>
   </section>
 
 
@@ -922,7 +934,9 @@ app.innerHTML = `
     <input
       id="songSearch"
       class="song-search"
-      type="text"
+      type="search"
+      enterkeyhint="search"
+      autocomplete="off"
       placeholder="例：Lemon / 米津玄師"
     >
 
@@ -1031,6 +1045,29 @@ app.innerHTML = `
       </a>
     </div>
 
+    <section class="karaoke-record-panel" aria-labelledby="karaokeRecordHeading">
+      <h3 id="karaokeRecordHeading">🎶 この曲のカラオケ記録</h3>
+      <div class="karaoke-record-controls">
+        <label>歌った感想
+          <select id="karaokeSongStatus">
+            <option value="練習中">練習中</option>
+            <option value="歌えた">歌えた</option>
+            <option value="高かった">高かった</option>
+            <option value="低かった">低かった</option>
+          </select>
+        </label>
+        <label>使ったキー
+          <select id="karaokeSongKey">
+            ${Array.from({length:13}, (_,i)=>i-6).map(n=>`<option value="${n}">${n===0?'原キー':n>0?'+'+n:n}</option>`).join('')}
+          </select>
+        </label>
+      </div>
+      <div class="karaoke-record-actions">
+        <button id="saveKaraokeSong" type="button">この曲の記録を保存</button>
+        <button id="deleteKaraokeSong" type="button">記録を削除</button>
+      </div>
+      <p id="karaokeSongFeedback" role="status" aria-live="polite">この端末だけに保存されます。</p>
+    </section>
     <button
       id="practiceSongKey"
       class="song-practice-button"
@@ -1064,6 +1101,11 @@ app.innerHTML = `
     </div>
 
   </footer>
+  <nav class="mobile-quick-nav" aria-label="スマホ用ショートカット">
+    <a href="#getting-started">🎤 音域を測る</a>
+    <a href="#songBrowseTitle">🎵 曲を探す</a>
+    <a href="#personalSongsTitle">⭐ マイ曲リスト</a>
+  </nav>
 
 
   <p
@@ -1160,6 +1202,10 @@ const FAVORITE_STORAGE_KEY = 'kimikey-favorite-songs-v1'
 const RECENT_STORAGE_KEY = 'kimikey-recent-songs-v1'
 const QUICK_MEASURE_SECONDS = 12
 
+let lastPitchAnalysisAt = 0
+const PITCH_ANALYSIS_INTERVAL_MS = 48
+let microphoneStarting = false
+
 let quickMeasurementActive = false
 let quickMeasurementTimer = null
 let quickMeasurementTick = null
@@ -1226,6 +1272,55 @@ function createPersonalSongButton(song, favorite = false) {
   return button
 }
 
+function showKaraokeNoteForm(song) {
+  const notes = loadKaraokeNotes()
+  const saved = notes[songIdentity(song)]
+  const status = document.querySelector('#karaokeSongStatus')
+  const shift = document.querySelector('#karaokeSongKey')
+  const feedback = document.querySelector('#karaokeSongFeedback')
+  if (!status || !shift) return
+  status.value = saved?.status || '練習中'
+  const proposed = hasAnyRange()
+    ? calculateSongKey(song, {limitLowestMidi,limitHighestMidi,comfortLowestMidi,comfortHighestMidi})?.shift
+    : null
+  const suggested = Number.isInteger(proposed) ? proposed : 0
+  shift.value = String(saved?.keyShift ?? suggested)
+  if (feedback) feedback.textContent = saved
+    ? '前回の記録を読み込みました'
+    : 'この端末だけに保存されます。'
+}
+
+function renderKaraokeSavedSongs() {
+  const container = document.querySelector('#karaokeSavedSongs')
+  if (!container) return
+  container.replaceChildren()
+  const notes = Object.entries(loadKaraokeNotes())
+    .sort((a,b)=>b[1].updatedAt-a[1].updatedAt)
+    .slice(0,8)
+  if (!notes.length) {
+    const empty = document.createElement('p')
+    empty.className = 'personal-empty'
+    empty.textContent = '曲診断からキーと歌った感想を保存できます'
+    container.appendChild(empty)
+  }
+  for (const [id,note] of notes) {
+    const song = findSongByIdentity(id)
+    if (!song) continue
+    const btn = document.createElement('button')
+    btn.className = 'personal-song-item'
+    btn.type = 'button'
+    const text = document.createElement('span')
+    const name = document.createElement('strong')
+    name.textContent = song.title
+    const detail = document.createElement('small')
+    detail.textContent = `${song.artist} ・ ${note.status} ・ ${note.keyShift===0?'原キー':note.keyShift>0?'+'+note.keyShift:note.keyShift}`
+    text.append(name,detail)
+    btn.append(text,'›')
+    btn.addEventListener('click',()=>showSongAnalysis(song))
+    container.appendChild(btn)
+  }
+}
+
 function renderPersonalSongs() {
   const favoriteContainer = document.querySelector('#favoriteSongs')
   const recentContainer = document.querySelector('#recentSongs')
@@ -1255,6 +1350,7 @@ function renderPersonalSongs() {
   } else {
     recentSongs.forEach(song => recentContainer.appendChild(createPersonalSongButton(song)))
   }
+  renderKaraokeSavedSongs()
 }
 
 function updateSelectedSongActions() {
@@ -2126,9 +2222,8 @@ async function renderPopularSongs() {
       item.className =
         'search-song-item'
 
-      item.href =
-        popular.songUrl ||
-        getSongPageHref(song)
+      // Ranking entries without a generated song page still open the song search.
+      item.href = '/?search=' + encodeURIComponent(song.title)
 
 
       let rankDetail = ''
@@ -2440,6 +2535,7 @@ function showSongAnalysis(song) {
   selectedSong = song
   addRecentSong(song)
   updateSelectedSongActions()
+  showKaraokeNoteForm(song)
 
 
   const card =
@@ -4172,7 +4268,13 @@ function detectPitch() {
   if (!running) {
     return
   }
-
+  const frameTime = performance.now()
+  // Mobile CPU and battery: analyze no faster than ~21 times/sec.
+  if (frameTime - lastPitchAnalysisAt < PITCH_ANALYSIS_INTERVAL_MS) {
+    animationId = requestAnimationFrame(detectPitch)
+    return
+  }
+  lastPitchAnalysisAt = frameTime
 
   const buffer =
     new Float32Array(
@@ -4318,10 +4420,11 @@ function detectPitch() {
 // ==========================================
 
 async function startMicrophone() {
-
+  if (running || microphoneStarting) return
+  microphoneStarting = true
   try {
-
-    const input = await createMicrophoneInput()
+    const noiseReduction = document.querySelector('#noiseReductionToggle')?.checked ?? true
+    const input = await createMicrophoneInput({ noiseReduction })
 
     stream = input.stream
     audioContext = input.audioContext
@@ -4337,6 +4440,7 @@ async function startMicrophone() {
 
     lastValidPitchTime =
       performance.now()
+    lastPitchAnalysisAt = 0
 
     voiceCandidateStart = null
     lastRawMidi = null
@@ -4363,7 +4467,13 @@ async function startMicrophone() {
     document.querySelector(
       '#status'
     ).textContent =
-      'マイクを使用できません。ブラウザのマイク許可を確認してください。'
+      error?.name === 'NotAllowedError'
+        ? 'マイクが許可されていません。ブラウザの権限設定をご確認ください。'
+        : error?.name === 'NotFoundError'
+          ? 'マイクが見つかりません。接続を確認してください。'
+          : 'マイクを使用できません。設定を確認して再試行してください。'
+  } finally {
+    microphoneStarting = false
   }
 }
 
@@ -4398,6 +4508,11 @@ function stopMicrophoneInput() {
 
 
   releaseMicrophoneInput({ stream, audioContext })
+  stream = null
+  audioContext = null
+  microphone = null
+  analyser = null
+  lastPitchAnalysisAt = 0
 
   clearCurrentNote()
 
@@ -4921,6 +5036,42 @@ document.querySelector('#shareRangeResult')?.addEventListener('click', shareRang
 
 document.querySelector('#favoriteSelectedSong')?.addEventListener('click', () => {
   if (selectedSong) toggleFavoriteSong(selectedSong)
+})
+document.querySelector('#saveKaraokeSong')?.addEventListener('click', () => {
+  if (!selectedSong) return
+  const status = document.querySelector('#karaokeSongStatus')?.value
+  const key = Number(document.querySelector('#karaokeSongKey')?.value)
+  const saved = saveKaraokeNote(songIdentity(selectedSong),status,key)
+  document.querySelector('#karaokeSongFeedback').textContent =
+    saved ? '記録を保存しました' : '保存できませんでした。端末の空き容量や設定をご確認ください。'
+  if (saved) renderKaraokeSavedSongs()
+})
+document.querySelector('#deleteKaraokeSong')?.addEventListener('click', () => {
+  if (!selectedSong) return
+  const done = removeKaraokeNote(songIdentity(selectedSong))
+  if (done) {
+    showKaraokeNoteForm(selectedSong)
+    renderKaraokeSavedSongs()
+    document.querySelector('#karaokeSongFeedback').textContent = 'この曲の記録を削除しました'
+  }
+})
+document.querySelector('#exportKaraokeNotes')?.addEventListener('click', () => {
+  const blob = new Blob([karaokeNotesCsv()], {type:'text/csv;charset=utf-8'})
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = 'kimikey-karaoke-notes.csv'
+  document.body.appendChild(link)
+  link.click()
+  link.remove()
+  setTimeout(()=>URL.revokeObjectURL(url),1000)
+})
+document.querySelector('#noiseReductionToggle')?.addEventListener('change', () => {
+  if (running) document.querySelector('#status').textContent =
+    'ノイズ軽減の設定は次にマイクを開始したときから反映します'
+})
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden && running) stopMicrophone()
 })
 
 document.querySelector('#scrollToRecommendations')?.addEventListener('click', () => {

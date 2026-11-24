@@ -51,7 +51,7 @@ function findSongHref(title) {
   return null
 }
 
-const rangeHubPaths = Array.from({ length: 27 }, (_, index) =>
+const rangeHubPaths = Array.from({ length: 28 }, (_, index) =>
   index === 0 ? 'popular-song-ranges' : 'popular-song-ranges-' + (index + 1)
 )
 
@@ -143,4 +143,4 @@ if (fs.existsSync(sitemapPath)) {
   }
 }
 
-console.log('✅ Song range crawl index generated: 25 hubs linked')
+console.log(`✅ Song range crawl index generated: ${rangeHubPaths.length} hubs linked`)

@@ -424,8 +424,8 @@ const seenTitles = new Map()
 for (const file of audited) {
   const html = read(file)
   const titles = [...html.matchAll(new RegExp('<title[^>]*>(.*?)</title>', 'gis'))]
-  const descriptions = [...html.matchAll(/<meta\\s+name=["']description["'][^>]*>/gi)]
-  const canonical = [...html.matchAll(/<link\\s+rel=["']canonical["'][^>]*>/gi)]
+  const descriptions = [...html.matchAll(/<meta\s+name=["']description["'][^>]*>/gi)]
+  const canonical = [...html.matchAll(/<link\s+rel=["']canonical["'][^>]*>/gi)]
   if (titles.length !== 1 || descriptions.length !== 1 || canonical.length !== 1) {
     console.warn(`SEO metadata audit: ${publicHref(file)} title=${titles.length} description=${descriptions.length} canonical=${canonical.length}`)
   }

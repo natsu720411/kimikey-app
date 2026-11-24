@@ -836,14 +836,13 @@ export function initSongSearch({
   }
 
 
-  input.addEventListener(
-    'input',
-    event => {
-      renderSearchResults(
-        event.target.value
-      )
-    }
-  )
+  // 文字入力中の再描画回数を抑え、モバイルのキーボード応答を保つ。
+  let searchTimer = null
+  input.addEventListener('input', event => {
+    clearTimeout(searchTimer)
+    const value = event.target.value
+    searchTimer = setTimeout(() => renderSearchResults(value), 120)
+  })
 
   for (const control of [
     filterRangeReady,
@@ -852,11 +851,13 @@ export function initSongSearch({
     filterHighNote,
   ]) {
     control?.addEventListener('change', () => {
+      clearTimeout(searchTimer)
       renderSearchResults(input.value)
     })
   }
 
   clearSongFilters?.addEventListener('click', () => {
+    clearTimeout(searchTimer)
     if (filterRangeReady) filterRangeReady.checked = false
     if (filterFitsRange) filterFitsRange.checked = false
     if (filterRecentRelease) filterRecentRelease.checked = false
