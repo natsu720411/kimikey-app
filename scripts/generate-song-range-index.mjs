@@ -56,8 +56,8 @@ const rangeHubPaths = Array.from({ length: 27 }, (_, index) =>
 )
 
 const priorityPages = [
-  ['/songs/happy-birthday-41/', 'HAPPY BIRTHDAY / ハッピーバースデー', 'back number'],
-  ['/songs/song-446/', '花占い', 'Vaundy'],
+  ['/songs/happy-birthday-41/', 'ハッピーバースデーの音域・最高音', 'back number「HAPPY BIRTHDAY」'],
+  ['/songs/song-446/', '花占いの音域・最高音', 'Vaundy'],
   ['/songs/song-306/', '唱', 'Ado'],
   ['/hia-frequency/', 'hiAは何Hz？', 'hiA = 440Hz'],
 ]

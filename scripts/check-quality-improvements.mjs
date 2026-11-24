@@ -40,4 +40,51 @@ if (!page.includes('アーティスト別の確認済み音域') ||
     !page.includes('href="/songs/') ||
     !sitemap.includes('https://kimikey-app.vercel.app/artist-range-guide/'))
   throw new Error('Artist range guide SEO integration missing')
+
+const priorityPages = [
+  {
+    file: 'songs/happy-birthday-41/index.html',
+    canonical: 'https://kimikey-app.vercel.app/songs/happy-birthday-41/',
+    heading: 'HAPPY BIRTHDAY（back number）の音域',
+    link: 'https://keytube.net/song/detail/25327',
+    legacy: 'gsc-happy-birthday-intent-faq-20261026',
+  },
+  {
+    file: 'songs/song-446/index.html',
+    canonical: 'https://kimikey-app.vercel.app/songs/song-446/',
+    heading: '花占い（Vaundy）の音域',
+    link: 'https://keytube.net/song/detail/57677',
+    legacy: 'gsc-opportunity-hanauranai',
+  },
+]
+for (const target of priorityPages) {
+  const html = fs.readFileSync(path.join(dist, target.file), 'utf8')
+  const all = re => [...html.matchAll(re)].length
+  if (all(/<title>[\s\S]*?<\/title>/g) !== 1 ||
+      all(/<meta name="description"/g) !== 1 ||
+      all(/<h1[^>]*>[\s\S]*?<\/h1>/g) !== 1 ||
+      all(/<link rel="canonical"/g) !== 1 ||
+      html.includes(target.legacy) ||
+      !html.includes(target.heading) ||
+      !html.includes('<link rel="canonical" href="' + target.canonical + '">') ||
+      !html.includes(target.link) ||
+      !html.includes('gsc-quick-answer') ||
+      !html.includes('BreadcrumbList') ||
+      !html.includes('自分の音域を比較する'))
+    throw new Error('GSC landing page regression: ' + target.file)
+  const og = html.match(/<meta property="og:title" content="([^"]+)"/)?.[1]
+  const title = html.match(/<title>([\s\S]*?)<\/title>/)?.[1]
+  if (og !== title) throw new Error('OpenGraph title mismatch: ' + target.file)
+}
+const focusIndex = fs.readFileSync(path.join(dist, 'song-range-index', 'index.html'), 'utf8')
+if (!focusIndex.includes('ハッピーバースデーの音域・最高音') ||
+    !focusIndex.includes('花占いの音域・最高音'))
+  throw new Error('Search-targeted internal links missing')
+const assetsJs = fs.readdirSync(path.join(dist, 'assets')).filter(n => n.endsWith('.js'))
+  .map(n => fs.readFileSync(path.join(dist, 'assets', n), 'utf8')).join('\n')
+if (!assetsJs.includes('popular-search-entrances') ||
+    !assetsJs.includes('/songs/happy-birthday-41/') ||
+    !assetsJs.includes('/songs/song-446/'))
+  throw new Error('Homepage search intent links missing')
+
 console.log('Quality checks passed: '+seen.size+' sourced songs, synthetic pitch tests 50-880Hz, artist range guide')

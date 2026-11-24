@@ -70,7 +70,7 @@ export const VERIFIED_RANGE_BATCH_15 = [
   ]),
 
   ...rows("back number", "https://keytube.net/artist/detail/17", [
-    ["HAPPY BIRTHDAY", "lowG#", "hiB"],
+    ["HAPPY BIRTHDAY", "lowG#", "hiB", "https://keytube.net/song/detail/25327"],
     ["ブルーアンバー", "mid1A#", "hiB"],
     ["水平線", "mid1C#", "hiC"],
     ["ヒロイン", "mid1D", "hiB"],

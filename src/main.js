@@ -748,6 +748,14 @@ app.innerHTML = `
       <a class="song-browse-link" href="/guides/low-voice-songs/">低音向けの曲</a>
       <a class="song-browse-link" href="/guides/high-note-songs/">高音向けの曲</a>
     </nav>
+    <div class="popular-search-entrances" aria-label="検索でよく調べられる曲と音域">
+      <strong>よく調べられている音域</strong>
+      <div class="popular-search-entrance-links">
+        <a href="/songs/happy-birthday-41/">back number「HAPPY BIRTHDAY（ハッピーバースデー）」の音域</a>
+        <a href="/songs/song-446/">Vaundy「花占い」の音域</a>
+        <a href="/hia-frequency/">hiAは何Hz？（440Hz）</a>
+      </div>
+    </div>
     </section>
       <!-- 歌・音域のお役立ち記事 -->
 

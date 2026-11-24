@@ -2441,3 +2441,10 @@ h1 {
 .analysis-range-source { margin:8px 0 16px; color:#536174; font-size:.9rem; }
 .analysis-range-source a { margin-left:6px; color:#2952a3; }
 .recommendation-reason { display:block; color:#657080; font-size:.75rem; }
+
+/* GSC query-led navigation: naturally link to the music pages users search for. */
+.popular-search-entrances { margin-top: 16px; padding: 16px; border: 1px solid #e0e6f3; border-radius: 14px; background: #fbfcff; }
+.popular-search-entrances > strong { display:block; margin-bottom: 9px; font-size: 0.95rem; }
+.popular-search-entrance-links { display:flex; gap: 10px; flex-wrap:wrap; }
+.popular-search-entrance-links a { display:block; padding: 10px 12px; border: 1px solid #dfe7f5; border-radius: 10px; background: white; color: #2f4a88; text-decoration:none; font-size:0.9rem; }
+.popular-search-entrance-links a:hover, .popular-search-entrance-links a:focus-visible { background:#edf3ff; text-decoration:underline; }
