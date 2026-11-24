@@ -2,7 +2,7 @@ name: Weekly SEO and app integrity
 
 on:
   schedule:
-    # 月曜日 10:15（日本時間）、UTC日曜日 25:15相当
+    # 月曜日 10:15（日本時間）= UTC月曜日01:15
     - cron: '15 1 * * 1'
   workflow_dispatch:
 
@@ -21,3 +21,12 @@ jobs:
       - run: npm ci
       - name: Validate generated SEO pages, catalog, range and UI
         run: npm run build
+      - name: Preserve SEO audit results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: kimikey-weekly-seo
+          path: |
+            reports/seo-audit.json
+            reports/seo-opportunities.md
+          if-no-files-found: warn

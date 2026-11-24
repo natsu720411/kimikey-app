@@ -143,4 +143,4 @@ if (fs.existsSync(sitemapPath)) {
   }
 }
 
-console.log('✅ Song range crawl index generated: 25 hubs linked')
+console.log(`✅ Song range crawl index generated: ${rangeHubPaths.length} hubs linked`)
