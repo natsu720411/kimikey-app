@@ -118,6 +118,9 @@ if (!mobileBundle.includes('karaokeSavedSongs') ||
     !mobileBundle.includes('mobile-quick-nav') ||
     !fs.readFileSync(path.resolve(dist,'..','src','main.js'),'utf8').includes('PITCH_ANALYSIS_INTERVAL_MS'))
   throw new Error('Mobile, karaoke or microphone UI missing from bundle')
+const autofixReport=JSON.parse(fs.readFileSync(path.resolve(dist,'..','reports','seo-auto-fix.json'),'utf8'))
+if (autofixReport.scanned < 1000 || !Array.isArray(autofixReport.changes))
+  throw new Error('Weekly SEO autofix report missing or incomplete')
 const auditSummary=JSON.parse(fs.readFileSync(path.resolve(dist,'..','reports','seo-audit.json'),'utf8'))
 if (auditSummary.errors.length) throw new Error('SEO audit not clean')
 const newHub=fs.readFileSync(path.join(dist,'popular-song-ranges-28','index.html'),'utf8')

@@ -1215,6 +1215,13 @@ function songIdentity(song) {
   return `${song.artist}\u0000${song.title}`
 }
 
+// GA4利用状況の集計。個別の歌声・音域値・曲名・保存記録は送信しない。
+function trackUsageEvent(event, parameters = {}) {
+  if (typeof window !== 'undefined' && typeof window.gtag === 'function') {
+    window.gtag('event', event, parameters)
+  }
+}
+
 function loadStoredSongKeys(storageKey) {
   try {
     const parsed = JSON.parse(localStorage.getItem(storageKey) ?? '[]')
@@ -4623,7 +4630,7 @@ async function startRangeMeasurement(
 
   measuringMode =
     mode
-
+  trackUsageEvent('vocal_measurement_start', { measurement_mode: mode })
 
   if (
     mode === 'limit'
@@ -4844,6 +4851,11 @@ function stopRangeMeasurement() {
   }
 
   const wasQuickMeasurement = quickMeasurementActive
+  const measurementCompleted = oldMode === 'limit' ? hasLimitRange() : hasComfortRange()
+  if (measurementCompleted) {
+    trackUsageEvent('vocal_measurement_complete', { measurement_mode: oldMode })
+    if (wasQuickMeasurement) trackUsageEvent('quick_measurement_complete')
+  }
   if (wasQuickMeasurement) {
     resetQuickMeasurementUi()
   }
@@ -5044,7 +5056,10 @@ document.querySelector('#saveKaraokeSong')?.addEventListener('click', () => {
   const saved = saveKaraokeNote(songIdentity(selectedSong),status,key)
   document.querySelector('#karaokeSongFeedback').textContent =
     saved ? '記録を保存しました' : '保存できませんでした。端末の空き容量や設定をご確認ください。'
-  if (saved) renderKaraokeSavedSongs()
+  if (saved) {
+    renderKaraokeSavedSongs()
+    trackUsageEvent('karaoke_note_saved')
+  }
 })
 document.querySelector('#deleteKaraokeSong')?.addEventListener('click', () => {
   if (!selectedSong) return
