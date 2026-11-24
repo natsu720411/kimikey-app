@@ -20,13 +20,14 @@ import { VERIFIED_RANGE_BATCH_24 } from '../src/songs-verified-batch-24.js'
 import { VERIFIED_RANGE_BATCH_25 } from '../src/songs-verified-batch-25.js'
 import { VERIFIED_RANGE_BATCH_26 } from '../src/songs-verified-batch-26.js'
 import { VERIFIED_RANGE_BATCH_27 } from '../src/songs-verified-batch-27.js'
+import { VERIFIED_RANGE_BATCH_28 } from '../src/songs-verified-batch-28.js'
 
 const root = path.resolve(
   path.dirname(fileURLToPath(import.meta.url)),
   '..'
 )
 
-const EXPECTED_VERIFIED_COUNT = 1863
+const EXPECTED_VERIFIED_COUNT = 1867
 const validLabel = /^(low|mid1|mid2|hi|hihi)[A-G](?:#)?$/
 
 const bandStartMidi = {
@@ -145,6 +146,7 @@ const hubs = [
   'popular-song-ranges-25',
   'popular-song-ranges-26',
   'popular-song-ranges-27',
+  'popular-song-ranges-28',
 ]
 
 for (const hub of hubs) {
@@ -491,6 +493,10 @@ for (const song of [
   }
 }
 
+if (VERIFIED_RANGE_BATCH_28.length !== 4) throw new Error('Expected four batch-28 verified songs')
+for (const song of VERIFIED_RANGE_BATCH_28) {
+  if (!bundle.includes(song.title)) throw new Error('Search bundle missing batch-28 song: ' + song.artist + ' / ' + song.title)
+}
 for (const song of VERIFIED_RANGE_BATCH_27) {
   if (!bundle.includes(song.rangeSource) || !bundle.includes(song.title)) {
     throw new Error('Search bundle missing batch-27 range: ' + song.artist + ' / ' + song.title)
@@ -595,5 +601,5 @@ if (!songRangeIndexHtml.includes('/highest-note-songs/')) {
 }
 
 console.log(
-  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 27 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
+  `✅ Expanded catalog check passed: ${EXPECTED_VERIFIED_COUNT} verified ranges, 28 SEO hubs + crawl/range architecture, expanded search catalog present, range ordering and app-data mapping OK`
 )
