@@ -2448,3 +2448,28 @@ h1 {
 .popular-search-entrance-links { display:flex; gap: 10px; flex-wrap:wrap; }
 .popular-search-entrance-links a { display:block; padding: 10px 12px; border: 1px solid #dfe7f5; border-radius: 10px; background: white; color: #2f4a88; text-decoration:none; font-size:0.9rem; }
 .popular-search-entrance-links a:hover, .popular-search-entrance-links a:focus-visible { background:#edf3ff; text-decoration:underline; }
+
+/* Custom karaoke song notes: preserve core measurement and favorites layout. */
+.karaoke-saved-section,.karaoke-record-panel{margin-top:18px;padding:16px;border:1px solid #e5e7ee;border-radius:14px;background:#fbfcff}
+.karaoke-saved-section h3,.karaoke-record-panel h3{margin:0 0 8px}
+.karaoke-saved-section p,.karaoke-record-panel p{margin:6px 0 12px;color:#616a7c;font-size:.9rem}
+.karaoke-record-controls{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.karaoke-record-controls label{display:grid;gap:6px;font-size:.86rem;font-weight:600}
+.karaoke-record-controls select{min-height:44px;width:100%;padding:8px 12px;border:1px solid #cdd4e5;background:white;border-radius:9px;color:inherit;font:inherit}
+.karaoke-record-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.karaoke-record-actions button,.karaoke-export-button{min-height:44px;padding:10px 14px;border:1px solid #b8c7e5;background:#f1f6ff;border-radius:10px;color:#244b83;font:inherit;font-weight:600;cursor:pointer}
+.mic-quality-toggle{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:.9rem}
+.mic-quality-toggle input{width:19px;height:19px}
+.mobile-quick-nav{display:none}
+@media (max-width:640px) {
+  body{padding-bottom:calc(76px + env(safe-area-inset-bottom, 0px))}
+  .mobile-quick-nav{display:flex;position:fixed;bottom:0;left:0;right:0;z-index:150;gap:4px;justify-content:space-around;padding:9px max(10px, env(safe-area-inset-left)) calc(9px + env(safe-area-inset-bottom, 0px)) max(10px, env(safe-area-inset-right));background:rgba(255,255,255,.97);border-top:1px solid #dfe4ee;box-shadow:0 -3px 15px #0000000d}
+  .mobile-quick-nav a{display:grid;place-items:center;min-height:45px;padding:8px 10px;border-radius:9px;text-align:center;font-size:.79rem;font-weight:700;color:#2d4c89;background:#f3f6fd;text-decoration:none;flex:1}
+  .karaoke-record-controls{grid-template-columns:1fr}
+  .song-search,.search-more-button,.karaoke-record-actions button{min-height:46px}
+  button,select,.search-song-item{touch-action:manipulation}
+  #songBrowseTitle,#getting-started,#personalSongsTitle{scroll-margin-top:16px}
+}
+@media (prefers-reduced-motion: reduce) {
+  *{scroll-behavior:auto !important;animation-duration:.01ms !important;transition-duration:.01ms !important}
+}
