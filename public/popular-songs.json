@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-11-26T12:57:57.211Z",
+  "updatedAt": "2026-11-27T12:54:14.900Z",
   "sources": [
     "DAM",
     "JOYSOUND"
@@ -8,12 +8,12 @@
   "matchedRankingCount": 10,
   "songs": [
     {
-      "title": "怪獣の花唄",
-      "artist": "Vaundy",
+      "title": "好きすぎて滅!",
+      "artist": "M!LK",
       "damRank": 2,
       "joysoundRank": 4,
       "score": 196,
-      "songUrl": "/songs/song-128/"
+      "songUrl": "/songs/song-33/"
     },
     {
       "title": "残酷な天使のテーゼ",
@@ -24,36 +24,36 @@
       "songUrl": "/songs/song-131/"
     },
     {
-      "title": "好きすぎて滅!",
-      "artist": "M!LK",
+      "title": "怪獣の花唄",
+      "artist": "Vaundy",
       "damRank": 2,
       "joysoundRank": 5,
       "score": 195,
-      "songUrl": "/songs/song-33/"
+      "songUrl": "/songs/song-128/"
     },
     {
       "title": "マリーゴールド",
       "artist": "あいみょん",
       "damRank": 3,
-      "joysoundRank": 7,
-      "score": 192,
-      "songUrl": "/songs/song-130/"
-    },
-    {
-      "title": "サウダージ",
-      "artist": "ポルノグラフィティ",
-      "damRank": 7,
       "joysoundRank": 6,
-      "score": 189,
-      "songUrl": "/songs/song-132/"
+      "score": 193,
+      "songUrl": "/songs/song-130/"
     },
     {
       "title": "さよならエレジー",
       "artist": "菅田将暉",
       "damRank": 5,
-      "joysoundRank": 10,
-      "score": 187,
+      "joysoundRank": 9,
+      "score": 188,
       "songUrl": "/songs/song-134/"
+    },
+    {
+      "title": "サウダージ",
+      "artist": "ポルノグラフィティ",
+      "damRank": 7,
+      "joysoundRank": 7,
+      "score": 188,
+      "songUrl": "/songs/song-132/"
     },
     {
       "title": "Yes! 東京",
